@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/modules/core/bloc/root.bloc.dart';
 import 'package:smartfood/modules/core/widgets/app_bottom_navigation_bar.widget.dart';
 import 'package:smartfood/modules/core/widgets/custom_lazy_indexed_stack.widget.dart';
+import 'package:smartfood/modules/favorite/favorite.dart';
+import 'package:smartfood/modules/find_recipe/find_recipe.dart';
 import 'package:smartfood/modules/home/home.dart';
-import 'package:smartfood/modules/notification/notification.dart';
 import 'package:smartfood/modules/profile/profile.dart';
 
 class RootPage extends StatelessWidget {
@@ -32,7 +33,12 @@ class _RootView extends StatelessWidget {
         ) {
           return SlideIndexedStack(
             index: state.currentIndex,
-            children: const [HomePage(), NotificationPage(), ProfilePage()],
+            children: const [
+              HomePage(),
+              FindRecipePage(),
+              FavoritePage(),
+              ProfilePage()
+            ],
           );
         },
         buildWhen: (previous, current) {

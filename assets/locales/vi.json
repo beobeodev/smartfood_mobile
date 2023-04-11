@@ -19,6 +19,9 @@
     "welcome_back": "Rất vui khi được gặp lại bạn!",
     "sign_in": "Đăng nhập"
   },
+  "ingredient": {
+    "find": "Tìm kiếm nguyên liệu"
+  },
   "validator": {
     "email_required": "Vui lòng nhập email",
     "password_required": "Vui lòng nhập mật khẩu",

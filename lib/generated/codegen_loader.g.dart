@@ -35,6 +35,9 @@ class CodegenLoader extends AssetLoader{
     "welcome_back": "Nice to have you back!",
     "sign_in": "Sign in"
   },
+  "ingredient": {
+    "find": "Search for ingredients"
+  },
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
@@ -65,6 +68,9 @@ static const Map<String,dynamic> vi = {
   "auth": {
     "welcome_back": "Rất vui khi được gặp lại bạn!",
     "sign_in": "Đăng nhập"
+  },
+  "ingredient": {
+    "find": "Tìm kiếm nguyên liệu"
   },
   "validator": {
     "email_required": "Vui lòng nhập email",

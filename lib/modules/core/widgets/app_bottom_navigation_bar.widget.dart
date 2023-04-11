@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
+import 'package:smartfood/generated/assets.gen.dart';
 import 'package:smartfood/generated/locale_keys.g.dart';
 import 'package:smartfood/modules/core/bloc/root.bloc.dart';
 
@@ -26,23 +27,67 @@ class AppBottomNavigationBar extends StatelessWidget {
             },
             selectedItemColor: ColorStyles.blue300,
             unselectedItemColor: ColorStyles.gray300,
-            showSelectedLabels: true,
+            showSelectedLabels: false,
             showUnselectedLabels: false,
             items: [
               BottomNavigationBarItem(
-                icon: const Icon(Icons.home_outlined),
+                icon: Assets.icons.navbar.home.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.gray400,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                activeIcon: Assets.icons.navbar.home.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.primary,
+                    BlendMode.srcIn,
+                  ),
+                ),
                 label: LocaleKeys.root_home.tr(),
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.manage_accounts_outlined),
+                icon: Assets.icons.navbar.findRecipe.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.gray400,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                activeIcon: Assets.icons.navbar.findRecipe.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.primary,
+                    BlendMode.srcIn,
+                  ),
+                ),
                 label: LocaleKeys.root_management.tr(),
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.notifications_outlined),
+                icon: Assets.icons.navbar.favorite.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.gray400,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                activeIcon: Assets.icons.navbar.favorite.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.primary,
+                    BlendMode.srcIn,
+                  ),
+                ),
                 label: LocaleKeys.texts_notification.tr(),
               ),
               BottomNavigationBarItem(
-                icon: const Icon(Icons.account_circle_outlined),
+                icon: Assets.icons.navbar.profile.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.gray400,
+                    BlendMode.srcIn,
+                  ),
+                ),
+                activeIcon: Assets.icons.navbar.profile.svg(
+                  colorFilter: const ColorFilter.mode(
+                    ColorStyles.primary,
+                    BlendMode.srcIn,
+                  ),
+                ),
                 label: LocaleKeys.root_profile.tr(),
               )
             ],

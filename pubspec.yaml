@@ -46,6 +46,9 @@ dependencies:
   flutter_bloc: ^8.1.2
   async: ^2.9.0
   equatable: ^2.0.5
+  flutter_svg: 2.0.3
+  unicons: ^2.1.1
+  badges: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -110,6 +113,7 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/icons/launcher/
+    - assets/icons/navbar/
     - assets/locales/
 
   # An image asset can refer to one or more resolution-specific "variants", see

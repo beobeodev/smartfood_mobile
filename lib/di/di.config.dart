@@ -5,6 +5,10 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:get_it/get_it.dart' as _i1;
+import 'package:hive/hive.dart' as _i5;
+import 'package:hive_flutter/hive_flutter.dart' as _i3;
+import 'package:injectable/injectable.dart' as _i2;
 import 'package:smartfood/common/helpers/dio.helper.dart' as _i7;
 import 'package:smartfood/data/datasources/user/local/user.datasource.dart'
     as _i6;
@@ -15,10 +19,6 @@ import 'package:smartfood/data/repositories/user.repository.dart' as _i10;
 import 'package:smartfood/di/modules/local_module.dart' as _i11;
 import 'package:smartfood/di/modules/network_module.dart' as _i12;
 import 'package:smartfood/di/providers/dio_provider.dart' as _i4;
-import 'package:get_it/get_it.dart' as _i1;
-import 'package:hive/hive.dart' as _i5;
-import 'package:hive_flutter/hive_flutter.dart' as _i3;
-import 'package:injectable/injectable.dart' as _i2;
 
 /// ignore_for_file: unnecessary_lambdas
 /// ignore_for_file: lines_longer_than_80_chars

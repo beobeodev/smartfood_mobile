@@ -17,6 +17,8 @@ abstract class  LocaleKeys {
   static const auth_welcome_back = 'auth.welcome_back';
   static const auth_sign_in = 'auth.sign_in';
   static const auth = 'auth';
+  static const ingredient_find = 'ingredient.find';
+  static const ingredient = 'ingredient';
   static const validator_email_required = 'validator.email_required';
   static const validator_password_required = 'validator.password_required';
   static const validator_invalid_email = 'validator.invalid_email';

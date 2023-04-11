@@ -19,6 +19,9 @@
     "welcome_back": "Nice to have you back!",
     "sign_in": "Sign in"
   },
+  "ingredient": {
+    "find": "Search for ingredients"
+  },
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
