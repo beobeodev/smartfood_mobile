@@ -49,6 +49,11 @@ dependencies:
   flutter_svg: 2.0.3
   unicons: ^2.1.1
   badges: ^3.0.3
+  tflite_flutter:
+    path: ./packages/tflite_flutter_plugin
+  tflite_flutter_helper:
+    path: ./packages/tflite_flutter_helper
+  collection: ^1.17.0
 
 dev_dependencies:
   flutter_test:
@@ -115,6 +120,7 @@ flutter:
     - assets/icons/launcher/
     - assets/icons/navbar/
     - assets/locales/
+    - assets/models/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

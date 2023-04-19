@@ -1,0 +1,38 @@
+-
+almond
+apple
+avocado
+beef
+bell pepper
+blueberry
+bread
+broccoli
+butter
+carrot
+cheese
+chilli
+cookie
+corn
+cucumber
+egg
+eggplant
+garlic
+lemon
+milk
+mozarella cheese
+mushroom
+mussel
+onion
+oyster
+parmesan cheese
+pasta
+pork rib
+potato
+salmon
+scallop
+shrimp
+strawberry
+toast bread
+tomato
+tuna
+yogurt

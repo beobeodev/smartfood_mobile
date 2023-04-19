@@ -76,7 +76,7 @@ $ fluttergen -c pubspec.yaml
 With build_runner
 
 ```bash
-$ fvm flutter pub run build_runner build
+$ fvm flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
 ## Generate template code with mason_cli

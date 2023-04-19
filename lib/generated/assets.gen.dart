@@ -47,6 +47,19 @@ class $AssetsLocalesGen {
   List<String> get values => [en, vi];
 }
 
+class $AssetsModelsGen {
+  const $AssetsModelsGen();
+
+  /// File path: assets/models/best_fp16.tflite
+  String get bestFp16Tflite => 'assets/models/best_fp16.tflite';
+
+  /// File path: assets/models/best_fp16.txt
+  String get bestFp16Txt => 'assets/models/best_fp16.txt';
+
+  /// List of all assets
+  List<String> get values => [bestFp16Tflite, bestFp16Txt];
+}
+
 class $AssetsIconsLauncherGen {
   const $AssetsIconsLauncherGen();
 
@@ -86,6 +99,7 @@ class Assets {
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsLocalesGen locales = $AssetsLocalesGen();
+  static const $AssetsModelsGen models = $AssetsModelsGen();
 }
 
 class AssetGenImage {

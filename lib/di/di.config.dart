@@ -4,6 +4,10 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: lines_longer_than_80_chars
+// coverage:ignore-file
+
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:hive/hive.dart' as _i5;
@@ -20,9 +24,9 @@ import 'package:smartfood/di/modules/local_module.dart' as _i11;
 import 'package:smartfood/di/modules/network_module.dart' as _i12;
 import 'package:smartfood/di/providers/dio_provider.dart' as _i4;
 
-/// ignore_for_file: unnecessary_lambdas
-/// ignore_for_file: lines_longer_than_80_chars
-/// initializes the registration of main-scope dependencies inside of [GetIt]
+// ignore_for_file: unnecessary_lambdas
+// ignore_for_file: lines_longer_than_80_chars
+// initializes the registration of main-scope dependencies inside of GetIt
 Future<_i1.GetIt> initGetIt(
   _i1.GetIt getIt, {
   String? environment,
