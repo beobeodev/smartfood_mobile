@@ -26,7 +26,13 @@ class _FindRecipeView extends StatelessWidget {
     return Scaffold(
       body: AppSafeArea(
         child: Column(
-          children: const [SearchBar(), ListSearchedIngredients()],
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: SearchBar(),
+            ),
+            ListSearchedIngredients()
+          ],
         ),
       ),
       floatingActionButton: const IngredientFAB(),

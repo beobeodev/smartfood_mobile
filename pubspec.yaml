@@ -54,6 +54,11 @@ dependencies:
   tflite_flutter_helper:
     path: ./packages/tflite_flutter_helper
   collection: ^1.17.0
+  liquid_progress_indicator: ^0.4.0
+  percent_indicator: ^4.2.3
+  syncfusion_flutter_gauges: ^21.1.41
+  advance_image_picker: ^0.1.7+1
+  freezed_annotation: ^2.2.0
 
 dev_dependencies:
   flutter_test:
@@ -70,6 +75,7 @@ dev_dependencies:
   build_runner: ^2.3.3
   flutter_flavorizr: ^2.1.5
   flutter_gen_runner: ^5.2.0
+  freezed: ^2.3.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -119,6 +125,8 @@ flutter:
     - assets/icons/
     - assets/icons/launcher/
     - assets/icons/navbar/
+    - assets/icons/home/
+    - assets/icons/home/nutrition/
     - assets/locales/
     - assets/models/
 

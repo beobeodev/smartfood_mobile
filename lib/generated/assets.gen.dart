@@ -30,6 +30,7 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  $AssetsIconsHomeGen get home => const $AssetsIconsHomeGen();
   $AssetsIconsLauncherGen get launcher => const $AssetsIconsLauncherGen();
   $AssetsIconsNavbarGen get navbar => const $AssetsIconsNavbarGen();
 }
@@ -50,14 +51,21 @@ class $AssetsLocalesGen {
 class $AssetsModelsGen {
   const $AssetsModelsGen();
 
-  /// File path: assets/models/best_fp16.tflite
-  String get bestFp16Tflite => 'assets/models/best_fp16.tflite';
+  /// File path: assets/models/best.tflite
+  String get best => 'assets/models/best.tflite';
 
-  /// File path: assets/models/best_fp16.txt
-  String get bestFp16Txt => 'assets/models/best_fp16.txt';
+  /// File path: assets/models/labels.txt
+  String get labels => 'assets/models/labels.txt';
 
   /// List of all assets
-  List<String> get values => [bestFp16Tflite, bestFp16Txt];
+  List<String> get values => [best, labels];
+}
+
+class $AssetsIconsHomeGen {
+  const $AssetsIconsHomeGen();
+
+  $AssetsIconsHomeNutritionGen get nutrition =>
+      const $AssetsIconsHomeNutritionGen();
 }
 
 class $AssetsIconsLauncherGen {
@@ -91,6 +99,17 @@ class $AssetsIconsNavbarGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [favorite, findRecipe, home, profile];
+}
+
+class $AssetsIconsHomeNutritionGen {
+  const $AssetsIconsHomeNutritionGen();
+
+  /// File path: assets/icons/home/nutrition/weightlifting.svg
+  SvgGenImage get weightlifting =>
+      const SvgGenImage('assets/icons/home/nutrition/weightlifting.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [weightlifting];
 }
 
 class Assets {
@@ -160,7 +179,16 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider() => AssetImage(_assetName);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
 
   String get path => _assetName;
 
@@ -187,9 +215,9 @@ class SvgGenImage {
     bool excludeFromSemantics = false,
     SvgTheme theme = const SvgTheme(),
     ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
     @deprecated Color? color,
     @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
-    @deprecated Clip? clipBehavior,
     @deprecated bool cacheColorFilter = false,
   }) {
     return SvgPicture.asset(

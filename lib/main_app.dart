@@ -1,8 +1,10 @@
+import 'package:advance_image_picker/advance_image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/app.dart';
 import 'package:smartfood/common/constants/locales.dart';
+import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/configs/app_bloc_observer.dart';
 import 'package:smartfood/di/di.dart';
 import 'package:smartfood/flavors.dart';
@@ -38,5 +40,16 @@ Future<void> initializeApp() async {
 
   await configureDependencies();
 
+  _setUpImagePickerConfigs();
+
   Bloc.observer = AppBlocObserver();
+}
+
+void _setUpImagePickerConfigs() {
+  final ImagePickerConfigs configs = ImagePickerConfigs();
+
+  configs.appBarBackgroundColor = Colors.white;
+  configs.appBarTextColor = ColorStyles.zodiacBlue;
+  configs.stickerFeatureEnabled = false;
+  configs.translateFunc = (name, value) => Intl.message(value, name: name);
 }

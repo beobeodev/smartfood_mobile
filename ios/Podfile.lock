@@ -1,8 +1,18 @@
 PODS:
-  - camera (0.0.1):
+  - camera_avfoundation (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_native_image (0.0.1):
+    - Flutter
+  - image_cropper (0.0.4):
+    - Flutter
+    - TOCropViewController (~> 2.6.1)
+  - image_editor_common (1.0.0):
+    - Flutter
   - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - photo_manager (2.0.0):
     - Flutter
     - FlutterMacOS
   - shared_preferences_foundation (0.0.1):
@@ -12,22 +22,39 @@ PODS:
     - Flutter
   - tflite_flutter_helper (0.0.1):
     - Flutter
+  - TOCropViewController (2.6.1)
 
 DEPENDENCIES:
-  - camera (from `.symlinks/plugins/camera/ios`)
+  - camera_avfoundation (from `.symlinks/plugins/camera_avfoundation/ios`)
   - Flutter (from `Flutter`)
+  - flutter_native_image (from `.symlinks/plugins/flutter_native_image/ios`)
+  - image_cropper (from `.symlinks/plugins/image_cropper/ios`)
+  - image_editor_common (from `.symlinks/plugins/image_editor_common/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
+  - photo_manager (from `.symlinks/plugins/photo_manager/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
   - tflite_flutter (from `.symlinks/plugins/tflite_flutter/ios`)
   - tflite_flutter_helper (from `.symlinks/plugins/tflite_flutter_helper/ios`)
 
+SPEC REPOS:
+  trunk:
+    - TOCropViewController
+
 EXTERNAL SOURCES:
-  camera:
-    :path: ".symlinks/plugins/camera/ios"
+  camera_avfoundation:
+    :path: ".symlinks/plugins/camera_avfoundation/ios"
   Flutter:
     :path: Flutter
+  flutter_native_image:
+    :path: ".symlinks/plugins/flutter_native_image/ios"
+  image_cropper:
+    :path: ".symlinks/plugins/image_cropper/ios"
+  image_editor_common:
+    :path: ".symlinks/plugins/image_editor_common/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/ios"
+  photo_manager:
+    :path: ".symlinks/plugins/photo_manager/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/ios"
   tflite_flutter:
@@ -36,12 +63,17 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/tflite_flutter_helper/ios"
 
 SPEC CHECKSUMS:
-  camera: 3164201dc344383e62282964016528c4f5a9ad50
+  camera_avfoundation: 3125e8cd1a4387f6f31c6c63abb8a55892a9eeeb
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_native_image: 9c0b7451838484458e5b0fae007b86a4c2d4bdfe
+  image_cropper: 60c2789d1f1a78c873235d4319ca0c34a69f2d98
+  image_editor_common: d6f6644ae4a6de80481e89fe6d0a8c49e30b4b43
   path_provider_foundation: c68054786f1b4f3343858c1e1d0caaded73f0be9
+  photo_manager: 4f6810b7dfc4feb03b461ac1a70dacf91fba7604
   shared_preferences_foundation: 986fc17f3d3251412d18b0265f9c64113a8c2472
   tflite_flutter: 9157a660578930a99728974f247369af1c3595d5
   tflite_flutter_helper: 543b46b6bd064b21c92ea6e54bc0b29f1ce74cb5
+  TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
 
 PODFILE CHECKSUM: b64bd939f675bff31522427f2e29bf3e6df14df1
 
