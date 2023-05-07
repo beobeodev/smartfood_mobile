@@ -6,7 +6,7 @@ import 'package:smartfood/common/helpers/ingredient_detector.dart';
 import 'package:smartfood/common/widgets/app_safe_area.widget.dart';
 import 'package:smartfood/common/widgets/loading_dot.widget.dart';
 import 'package:smartfood/di/di.dart';
-import 'package:smartfood/modules/find_recipe/bloc/ingredient_detection/ingredient_detection.bloc.dart';
+import 'package:smartfood/modules/recipe/bloc/ingredient_detection/ingredient_detection.bloc.dart';
 
 class IngredientDetectionPage extends StatelessWidget {
   final List<String> imagePaths;

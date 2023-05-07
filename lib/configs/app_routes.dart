@@ -2,7 +2,7 @@ import 'package:advance_image_picker/advance_image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:smartfood/modules/auth/views/login.view.dart';
 import 'package:smartfood/modules/core/views/root.view.dart';
-import 'package:smartfood/modules/find_recipe/view/ingredient_detection.view.dart';
+import 'package:smartfood/modules/recipe/recipe.dart';
 import 'package:smartfood/modules/splash/splash.dart';
 
 abstract class AppRoutes {
@@ -18,7 +18,8 @@ abstract class AppRoutes {
   // find recipe
   static const String imagePicker = '/image_picker';
   static const String detectIngredient = '/detect_ingredient';
-
+  static const String recipeDetail = '/recipe_detail';
+  static const String recipeStep = '/recipe_step';
   // static final router = GoRouter(
   //   routes: [
   //     GoRoute(
@@ -81,6 +82,18 @@ abstract class AppRoutes {
             return IngredientDetectionPage(
               imagePaths: settings.arguments as List<String>,
             );
+          },
+        );
+      case recipeDetail:
+        return MaterialPageRoute(
+          builder: (_) {
+            return const RecipeDetailPage();
+          },
+        );
+      case recipeStep:
+        return MaterialPageRoute(
+          builder: (_) {
+            return const RecipeStepPage();
           },
         );
       default:

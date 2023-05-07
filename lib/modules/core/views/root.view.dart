@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/modules/core/widgets/app_bottom_navigation_bar.widget.dart';
 import 'package:smartfood/modules/core/widgets/custom_lazy_indexed_stack.widget.dart';
 import 'package:smartfood/modules/favorite/favorite.dart';
-import 'package:smartfood/modules/find_recipe/find_recipe.dart';
 import 'package:smartfood/modules/home/home.dart';
 import 'package:smartfood/modules/profile/profile.dart';
 import 'package:smartfood/modules/core/core.dart';
+import 'package:smartfood/modules/recipe/recipe.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({super.key});

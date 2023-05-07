@@ -4,8 +4,9 @@ import 'package:smartfood/common/theme/app_size.dart';
 
 class AppSafeArea extends StatelessWidget {
   final Widget child;
+  final double paddingBottom;
 
-  const AppSafeArea({super.key, required this.child});
+  const AppSafeArea({super.key, required this.child, this.paddingBottom = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class AppSafeArea extends StatelessWidget {
         AppSize.horizontalSpace,
         context.paddingTop,
         AppSize.horizontalSpace,
-        0,
+        paddingBottom,
       ),
       child: child,
     );

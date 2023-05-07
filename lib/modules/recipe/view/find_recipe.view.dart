@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/widgets/app_safe_area.widget.dart';
-import 'package:smartfood/modules/find_recipe/bloc/find_recipe.bloc.dart';
-import 'package:smartfood/modules/find_recipe/widgets/ingredient_fab.widget.dart';
-import 'package:smartfood/modules/find_recipe/widgets/list_searched_ingredients.widget.dart';
-import 'package:smartfood/modules/find_recipe/widgets/search_bar.widget.dart';
+import 'package:smartfood/modules/recipe/recipe.dart';
+import 'package:smartfood/modules/recipe/widgets/find_ingredient/ingredient_fab.widget.dart';
+import 'package:smartfood/modules/recipe/widgets/find_ingredient/list_searched_ingredients.widget.dart';
+import 'package:smartfood/modules/recipe/widgets/find_ingredient/search_bar.widget.dart';
 
 class FindRecipePage extends StatelessWidget {
   const FindRecipePage({super.key});

@@ -47,21 +47,21 @@ abstract class TextStyles {
   // Bold
   static const TextStyle boldText = TextStyle(
     color: ColorStyles.zodiacBlue,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
   );
   static const TextStyle s11BoldText = TextStyle(
     color: ColorStyles.zodiacBlue,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     fontSize: 11,
   );
   static const TextStyle s14BoldText = TextStyle(
     color: ColorStyles.zodiacBlue,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     fontSize: 14,
   );
   static const TextStyle s17BoldText = TextStyle(
     color: ColorStyles.zodiacBlue,
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     fontSize: 17,
   );
 }

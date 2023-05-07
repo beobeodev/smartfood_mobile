@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/theme/app_size.dart';
-import 'package:smartfood/modules/find_recipe/widgets/search_bar.widget.dart';
 import 'package:smartfood/modules/home/bloc/home.bloc.dart';
 import 'package:smartfood/modules/home/widgets/nutrition_info.widget.dart';
+import 'package:smartfood/modules/recipe/widgets/find_ingredient/search_bar.widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

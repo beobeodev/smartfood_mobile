@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
+import 'package:smartfood/configs/app_routes.dart';
 import 'package:unicons/unicons.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -9,7 +11,9 @@ class IngredientFAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed(AppRoutes.recipeDetail);
+      },
       backgroundColor: ColorStyles.primary,
       child: badges.Badge(
         position: badges.BadgePosition.topEnd(),
