@@ -4,9 +4,9 @@ import 'package:smartfood/modules/core/widgets/app_bottom_navigation_bar.widget.
 import 'package:smartfood/modules/core/widgets/custom_lazy_indexed_stack.widget.dart';
 import 'package:smartfood/modules/favorite/favorite.dart';
 import 'package:smartfood/modules/home/home.dart';
+import 'package:smartfood/modules/search_ingredient/ingredient.dart';
 import 'package:smartfood/modules/profile/profile.dart';
 import 'package:smartfood/modules/core/core.dart';
-import 'package:smartfood/modules/recipe/recipe.dart';
 
 class RootPage extends StatelessWidget {
   const RootPage({super.key});
@@ -35,7 +35,7 @@ class _RootView extends StatelessWidget {
             index: state.currentIndex,
             children: const [
               HomePage(),
-              FindRecipePage(),
+              SearchIngredientPage(),
               FavoritePage(),
               ProfilePage()
             ],

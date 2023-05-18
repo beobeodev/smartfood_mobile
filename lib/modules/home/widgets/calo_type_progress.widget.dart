@@ -8,15 +8,11 @@ class CalorieTypeProgress extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return const Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: const [
-          CalorieTypeTile(),
-          CalorieTypeTile(),
-          CalorieTypeTile()
-        ],
+        children: [CalorieTypeTile(), CalorieTypeTile(), CalorieTypeTile()],
       ),
     );
   }

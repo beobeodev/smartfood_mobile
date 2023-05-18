@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/theme/app_size.dart';
 import 'package:smartfood/modules/home/bloc/home.bloc.dart';
 import 'package:smartfood/modules/home/widgets/nutrition_info.widget.dart';
-import 'package:smartfood/modules/recipe/widgets/find_ingredient/search_bar.widget.dart';
+import 'package:smartfood/modules/search_ingredient/ingredient.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -28,7 +28,7 @@ class _HomeView extends StatelessWidget {
         headerSliverBuilder: (context, _) {
           return [
             const SliverAppBar(
-              title: SearchBar(
+              title: CustomSearchBar(
                 showBoxShadow: false,
               ),
               backgroundColor: Colors.white,
@@ -37,11 +37,11 @@ class _HomeView extends StatelessWidget {
             ),
           ];
         },
-        body: SingleChildScrollView(
-          padding: const EdgeInsets.all(AppSize.horizontalSpace),
-          physics: const ClampingScrollPhysics(),
+        body: const SingleChildScrollView(
+          padding: EdgeInsets.all(AppSize.horizontalSpace),
+          physics: ClampingScrollPhysics(),
           child: Column(
-            children: const [
+            children: [
               NutritionInfo(),
             ],
           ),

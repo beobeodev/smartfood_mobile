@@ -162,15 +162,15 @@ class _IngredientDetectionView extends StatelessWidget {
 //                                             (e.label.length +
 //                                                     e.label.codeUnitAt(0)) %
 //                                                 Colors.primaries.length];
-              
+
 //                                         final Size widgetSize = Size(
 //                                           constraints.maxWidth,
 //                                           constraints.maxHeight,
 //                                         );
-              
+
 //                                         final Rect renderLocation =
 //                                             e.getRenderLocation(widgetSize);
-              
+
 //                                         return Positioned(
 //                                           left: renderLocation.left,
 //                                           top: renderLocation.top,

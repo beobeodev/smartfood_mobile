@@ -17,6 +17,7 @@ class _StepInfoState extends State<StepInfo>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Column(
       children: [
         AppCarouselSlider(

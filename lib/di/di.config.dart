@@ -15,16 +15,18 @@ import 'package:hive_flutter/hive_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:smartfood/common/helpers/dio.helper.dart' as _i8;
 import 'package:smartfood/common/helpers/ingredient_detector.dart' as _i6;
-import 'package:smartfood/data/datasources/recipe.datasource.dart' as _i9;
+import 'package:smartfood/data/datasources/ingredient.datasource.dart' as _i9;
+import 'package:smartfood/data/datasources/recipe.datasource.dart' as _i11;
 import 'package:smartfood/data/datasources/user/local/user.datasource.dart'
     as _i7;
 import 'package:smartfood/data/datasources/user/remote/user.datasource.dart'
-    as _i11;
-import 'package:smartfood/data/datasources/user/user.datasource.dart' as _i12;
-import 'package:smartfood/data/repositories/recipe.repository.dart' as _i10;
-import 'package:smartfood/data/repositories/user.repository.dart' as _i13;
-import 'package:smartfood/di/modules/local_module.dart' as _i14;
-import 'package:smartfood/di/modules/network_module.dart' as _i15;
+    as _i13;
+import 'package:smartfood/data/datasources/user/user.datasource.dart' as _i14;
+import 'package:smartfood/data/repositories/ingredient.repository.dart' as _i10;
+import 'package:smartfood/data/repositories/recipe.repository.dart' as _i12;
+import 'package:smartfood/data/repositories/user.repository.dart' as _i15;
+import 'package:smartfood/di/modules/local_module.dart' as _i16;
+import 'package:smartfood/di/modules/network_module.dart' as _i17;
 import 'package:smartfood/di/providers/dio_provider.dart' as _i4;
 
 // ignore_for_file: unnecessary_lambdas
@@ -57,21 +59,25 @@ Future<_i1.GetIt> initGetIt(
       authBox: gh<_i5.Box<dynamic>>(instanceName: 'auth_box')));
   gh.lazySingleton<_i8.DioHelper>(
       () => networkModule.provideDioHelper(gh<_i4.DioProvider>()));
-  gh.lazySingleton<_i9.RecipeDataSource>(
-      () => _i9.RecipeDataSource(gh<_i8.DioHelper>()));
-  gh.lazySingleton<_i10.RecipeRepository>(
-      () => _i10.RecipeRepository(gh<_i9.RecipeDataSource>()));
-  gh.lazySingleton<_i11.UserRemoteDataSource>(
-      () => _i11.UserRemoteDataSource(dioHelper: gh<_i8.DioHelper>()));
-  gh.lazySingleton<_i12.UserDataSource>(() => _i12.UserDataSource(
-        remoteDataSource: gh<_i11.UserRemoteDataSource>(),
+  gh.lazySingleton<_i9.IngredientDataSource>(
+      () => _i9.IngredientDataSource(gh<_i8.DioHelper>()));
+  gh.lazySingleton<_i10.IngredientRepository>(
+      () => _i10.IngredientRepository(gh<_i9.IngredientDataSource>()));
+  gh.lazySingleton<_i11.RecipeDataSource>(
+      () => _i11.RecipeDataSource(gh<_i8.DioHelper>()));
+  gh.lazySingleton<_i12.RecipeRepository>(
+      () => _i12.RecipeRepository(gh<_i11.RecipeDataSource>()));
+  gh.lazySingleton<_i13.UserRemoteDataSource>(
+      () => _i13.UserRemoteDataSource(dioHelper: gh<_i8.DioHelper>()));
+  gh.lazySingleton<_i14.UserDataSource>(() => _i14.UserDataSource(
+        remoteDataSource: gh<_i13.UserRemoteDataSource>(),
         localDataSource: gh<_i7.UserLocalDataSource>(),
       ));
-  gh.lazySingleton<_i13.UserRepository>(
-      () => _i13.UserRepository(dataSource: gh<_i12.UserDataSource>()));
+  gh.lazySingleton<_i15.UserRepository>(
+      () => _i15.UserRepository(dataSource: gh<_i14.UserDataSource>()));
   return getIt;
 }
 
-class _$LocalModule extends _i14.LocalModule {}
+class _$LocalModule extends _i16.LocalModule {}
 
-class _$NetworkModule extends _i15.NetworkModule {}
+class _$NetworkModule extends _i17.NetworkModule {}

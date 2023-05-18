@@ -4,6 +4,7 @@ import 'package:smartfood/common/extensions/context.extension.dart';
 import 'package:smartfood/common/theme/app_size.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/common/theme/text_styles.dart';
+import 'package:smartfood/common/widgets/app_back_button.widget.dart';
 import 'package:smartfood/common/widgets/app_rounded_button.widget.dart';
 import 'package:smartfood/configs/app_routes.dart';
 import 'package:smartfood/modules/recipe/bloc/recipe_detail/recipe_detail.bloc.dart';
@@ -37,20 +38,7 @@ class _RecipeDetailView extends StatelessWidget {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      width: 38,
-                      height: 38,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      alignment: Alignment.center,
-                      child: const Icon(
-                        UniconsLine.angle_left_b,
-                        size: 28,
-                        color: ColorStyles.zodiacBlue,
-                      ),
-                    ),
+                    const AppBackButton(),
                     Container(
                       width: 38,
                       height: 38,
@@ -161,8 +149,8 @@ class _RecipeDetailView extends StatelessWidget {
                           const SizedBox(
                             width: 8,
                           ),
-                          Row(
-                            children: const [
+                          const Row(
+                            children: [
                               Icon(
                                 UniconsLine.chart,
                                 color: ColorStyles.gray400,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/common/theme/text_styles.dart';
+import 'package:smartfood/common/widgets/liquid_progress/liquid_custom_progress_indicator.widget.dart';
 import 'package:smartfood/modules/home/widgets/calo_type_progress.widget.dart';
 
 class NutritionInfo extends StatelessWidget {

@@ -28,6 +28,7 @@ class AppTextFormField extends StatelessWidget {
     this.validator,
     this.onTap,
     this.onChanged,
+    this.onFieldSubmitted,
     this.onTapPrefixIcon,
     this.onTapSuffixIcon,
     this.labelStyle = TextStyles.s14MediumText,
@@ -65,6 +66,7 @@ class AppTextFormField extends StatelessWidget {
 
   final void Function()? onTap;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
   final VoidCallback? onTapPrefixIcon;
   final VoidCallback? onTapSuffixIcon;
 
@@ -94,6 +96,7 @@ class AppTextFormField extends StatelessWidget {
             textInputAction: TextInputAction.done,
             onChanged: onChanged,
             onTap: onTap,
+            onFieldSubmitted: onFieldSubmitted,
             validator: validator,
             obscureText: isObscure,
             readOnly: readOnly,

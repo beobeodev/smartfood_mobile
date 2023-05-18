@@ -1,16 +1,19 @@
 import 'package:advance_image_picker/advance_image_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/common/widgets/app_text_form_field.widget.dart';
 import 'package:smartfood/configs/app_routes.dart';
+import 'package:smartfood/data/dtos/pagination/pagination_query.dto.dart';
 import 'package:smartfood/generated/locale_keys.g.dart';
+import 'package:smartfood/modules/search_ingredient/bloc/search_ingredient.bloc.dart';
 import 'package:unicons/unicons.dart';
 
-class SearchBar extends StatelessWidget {
+class CustomSearchBar extends StatelessWidget {
   final bool showBoxShadow;
 
-  const SearchBar({super.key, this.showBoxShadow = true});
+  const CustomSearchBar({super.key, this.showBoxShadow = true});
 
   Future<void> _navigateToImagePicker(BuildContext context) async {
     final List<ImageObject>? imageObjects = await Navigator.of(context)
@@ -22,6 +25,19 @@ class SearchBar extends StatelessWidget {
 
       Navigator.of(context)
           .pushNamed(AppRoutes.detectIngredient, arguments: paths);
+    }
+  }
+
+  void _onSearchIngredients(BuildContext context, String value) {
+    if (value.isNotEmpty) {
+      final searchIngredientBloc = context.read<SearchIngredientBloc>();
+
+      PaginationQueryDTO queryDTO = searchIngredientBloc.state.query;
+      queryDTO = queryDTO.copyWith(page: 1, search: value);
+
+      context
+          .read<SearchIngredientBloc>()
+          .add(SearchIngredientEvent.get(query: queryDTO));
     }
   }
 
@@ -51,6 +67,7 @@ class SearchBar extends StatelessWidget {
               borderRadius: 100,
               hintText: LocaleKeys.ingredient_find.tr(),
               extendField: false,
+              onFieldSubmitted: (value) => _onSearchIngredients(context, value),
             ),
           ),
         ),
