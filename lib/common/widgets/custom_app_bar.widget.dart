@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartfood/common/theme/app_size.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/common/theme/text_styles.dart';
 import 'package:smartfood/common/widgets/app_back_button.widget.dart';
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double elevation;
   final double bottomSize;
 
-  final String title;
+  final dynamic title;
   final Widget? bottom;
   final List<Widget> actions;
 
@@ -27,7 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.automaticallyImplyLeading = true,
     this.backgroundColor = Colors.transparent,
     this.titleColor = ColorStyles.zodiacBlue,
-    this.toolbarHeight = 60,
+    this.toolbarHeight = AppSize.appBarHeight,
     this.titleSpacing = 15,
     this.elevation = 0,
     this.bottomSize = 45,
@@ -35,7 +36,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.bottom,
     this.actions = const [],
     this.onLeadingAction,
-  });
+  }) : assert(
+          title is Widget || title is String,
+          'Title must be a widget or string ',
+        );
 
   @override
   Widget build(BuildContext context) {
@@ -46,10 +50,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: toolbarHeight,
       titleSpacing: titleSpacing,
       automaticallyImplyLeading: false,
-      title: Text(
-        title,
-        style: TextStyles.boldText.copyWith(color: titleColor, fontSize: 16),
-      ),
+      title: title is Widget
+          ? title
+          : Text(
+              title,
+              style:
+                  TextStyles.boldText.copyWith(color: titleColor, fontSize: 16),
+            ),
       bottom: bottom != null
           ? PreferredSize(
               preferredSize: Size.fromHeight(bottomSize),
@@ -58,9 +65,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           : null,
       actions: actions,
       leading: (automaticallyImplyLeading && Navigator.of(context).canPop())
-          ? AppBackButton(
-              iconColor: titleColor,
-            )
+          ? const AppBackButton()
           : null,
     );
   }

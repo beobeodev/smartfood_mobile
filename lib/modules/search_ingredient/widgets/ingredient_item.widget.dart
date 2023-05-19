@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/common/theme/text_styles.dart';
+import 'package:smartfood/common/widgets/circle_network_image.widget.dart';
 import 'package:smartfood/common/widgets/ellipsis_overflow_text.widget.dart';
 import 'package:smartfood/data/models/ingredient.model.dart';
 import 'package:smartfood/modules/ingredient_list/ingredient_list.dart';
@@ -38,14 +39,9 @@ class IngredientItem extends StatelessWidget {
                   builder: (context, constrains) {
                     final imageWith = constrains.maxWidth - 15;
 
-                    return ClipRRect(
-                      borderRadius: BorderRadius.circular(1000),
-                      child: Image.network(
-                        'https://www.halfyourplate.ca/wp-content/uploads/2014/12/one-apple-with-leaves.jpg',
-                        width: imageWith,
-                        height: imageWith,
-                        fit: BoxFit.cover,
-                      ),
+                    return CircleNetworkImage(
+                      'https://www.halfyourplate.ca/wp-content/uploads/2014/12/one-apple-with-leaves.jpg',
+                      size: imageWith,
                     );
                   },
                 ),
