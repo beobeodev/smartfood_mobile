@@ -30,5 +30,8 @@
     "invalid_password": "Mật khẩu phải có ít nhất 8 kí tự",
     "field_required": "Không được để trống",
     "not_match_password": "Mật khẩu xác nhận không trùng khớp"
+  },
+  "search": {
+    "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn"
   }
 }

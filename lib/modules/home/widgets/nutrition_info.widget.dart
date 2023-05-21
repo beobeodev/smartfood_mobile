@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
 import 'package:smartfood/common/theme/text_styles.dart';
-import 'package:smartfood/common/widgets/liquid_progress/liquid_custom_progress_indicator.widget.dart';
 import 'package:smartfood/modules/home/widgets/calo_type_progress.widget.dart';
 
 class NutritionInfo extends StatelessWidget {
@@ -76,52 +75,52 @@ class NutritionInfo extends StatelessWidget {
         const SizedBox(
           height: 15,
         ),
-        LayoutBuilder(
-          builder: (context, constraints) {
-            final double itemWidth = (constraints.maxWidth - 2 * 15) / 3;
+        // LayoutBuilder(
+        //   builder: (context, constraints) {
+        //     final double itemWidth = (constraints.maxWidth - 2 * 15) / 3;
 
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                LiquidCustomProgressIndicator(
-                  direction: Axis.vertical,
-                  shapePath: Path()
-                    ..addRRect(
-                      RRect.fromRectAndRadius(
-                        Rect.fromLTWH(0, 0, itemWidth, 120),
-                        const Radius.circular(20),
-                      ),
-                    ),
-                  backgroundColor: ColorStyles.gray100,
-                  // valueColor: const AlwaysStoppedAnimation<Color>(
-                  //   ColorStyles.caloriesBackground,
-                  // ),
-                  center: const Text(
-                    '1500/2000\nml',
-                    style: TextStyles.s14MediumText,
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                Container(
-                  width: itemWidth,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                ),
-                Container(
-                  width: itemWidth,
-                  height: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                )
-              ],
-            );
-          },
-        )
+        //     return Row(
+        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //       children: [
+        //         LiquidCustomProgressIndicator(
+        //           direction: Axis.vertical,
+        //           shapePath: Path()
+        //             ..addRRect(
+        //               RRect.fromRectAndRadius(
+        //                 Rect.fromLTWH(0, 0, itemWidth, 120),
+        //                 const Radius.circular(20),
+        //               ),
+        //             ),
+        //           backgroundColor: ColorStyles.gray100,
+        //           // valueColor: const AlwaysStoppedAnimation<Color>(
+        //           //   ColorStyles.caloriesBackground,
+        //           // ),
+        //           center: const Text(
+        //             '1500/2000\nml',
+        //             style: TextStyles.s14MediumText,
+        //             textAlign: TextAlign.center,
+        //           ),
+        //         ),
+        //         Container(
+        //           width: itemWidth,
+        //           height: 120,
+        //           decoration: BoxDecoration(
+        //             color: Colors.red,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //         ),
+        //         Container(
+        //           width: itemWidth,
+        //           height: 120,
+        //           decoration: BoxDecoration(
+        //             color: Colors.red,
+        //             borderRadius: BorderRadius.circular(15),
+        //           ),
+        //         )
+        //       ],
+        //     );
+        //   },
+        // )
       ],
     );
   }

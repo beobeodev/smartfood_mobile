@@ -21,6 +21,7 @@ IngredientModel _$IngredientModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$IngredientModel {
   String get id => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
   String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $IngredientModelCopyWith<$Res> {
           IngredientModel value, $Res Function(IngredientModel) then) =
       _$IngredientModelCopyWithImpl<$Res, IngredientModel>;
   @useResult
-  $Res call({String id, String name});
+  $Res call({String id, @JsonKey(defaultValue: '') String name});
 }
 
 /// @nodoc
@@ -74,7 +75,7 @@ abstract class _$$_IngredientModelCopyWith<$Res>
       __$$_IngredientModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name});
+  $Res call({String id, @JsonKey(defaultValue: '') String name});
 }
 
 /// @nodoc
@@ -108,7 +109,8 @@ class __$$_IngredientModelCopyWithImpl<$Res>
 
 @JsonSerializable(createToJson: false)
 class _$_IngredientModel implements _IngredientModel {
-  const _$_IngredientModel({required this.id, required this.name});
+  const _$_IngredientModel(
+      {required this.id, @JsonKey(defaultValue: '') required this.name});
 
   factory _$_IngredientModel.fromJson(Map<String, dynamic> json) =>
       _$$_IngredientModelFromJson(json);
@@ -116,6 +118,7 @@ class _$_IngredientModel implements _IngredientModel {
   @override
   final String id;
   @override
+  @JsonKey(defaultValue: '')
   final String name;
 
   @override
@@ -145,8 +148,9 @@ class _$_IngredientModel implements _IngredientModel {
 
 abstract class _IngredientModel implements IngredientModel {
   const factory _IngredientModel(
-      {required final String id,
-      required final String name}) = _$_IngredientModel;
+          {required final String id,
+          @JsonKey(defaultValue: '') required final String name}) =
+      _$_IngredientModel;
 
   factory _IngredientModel.fromJson(Map<String, dynamic> json) =
       _$_IngredientModel.fromJson;
@@ -154,6 +158,7 @@ abstract class _IngredientModel implements IngredientModel {
   @override
   String get id;
   @override
+  @JsonKey(defaultValue: '')
   String get name;
   @override
   @JsonKey(ignore: true)

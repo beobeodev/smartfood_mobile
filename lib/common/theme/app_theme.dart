@@ -8,4 +8,8 @@ abstract class AppTheme {
       color: Colors.black.withOpacity(0.1),
     )
   ];
+
+  static final ThemeData themeData = ThemeData(
+    useMaterial3: true,
+  );
 }

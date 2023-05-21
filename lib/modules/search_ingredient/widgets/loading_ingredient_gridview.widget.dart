@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/extensions/context.extension.dart';
-import 'package:smartfood/common/theme/app_size.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smartfood/common/theme/color_styles.dart';
+import 'package:smartfood/modules/search_ingredient/widgets/common_ingredient_gridview.widget.dart';
 
 class LoadingIngredientGridView extends StatelessWidget {
-  const LoadingIngredientGridView({super.key});
+  const LoadingIngredientGridView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.only(top: AppSize.horizontalSpace),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: context.width > 375 ? 3 : 2,
-        mainAxisSpacing: 10,
-        crossAxisSpacing: 10,
-        childAspectRatio: 1 / 1.35,
-      ),
-      itemBuilder: (_, index) {
+    return CommonIngredientGridView(
+      itemBuilder: (context, index) {
         return Shimmer.fromColors(
           baseColor: ColorStyles.antiFlashWhite,
           highlightColor: ColorStyles.gray100,

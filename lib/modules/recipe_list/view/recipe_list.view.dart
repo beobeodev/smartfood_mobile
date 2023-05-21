@@ -4,7 +4,7 @@ import 'package:smartfood/data/repositories/recipe.repository.dart';
 import 'package:smartfood/di/di.dart';
 import 'package:smartfood/modules/recipe_list/recipe_list.dart';
 import 'package:smartfood/modules/recipe_list/widgets/recipe_list.widget.dart';
-import 'package:smartfood/modules/recipe_list/widgets/recipe_list_app_bar.widget.dart';
+import 'package:smartfood/modules/recipe_list/widgets/recipe_search_bar.widget.dart';
 
 class RecipeListPage extends StatelessWidget {
   final List<String> ingredientIds;
@@ -28,7 +28,7 @@ class _RecipeListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: RecipeListAppBar(),
+      appBar: RecipeSearchBar(),
       body: RecipeList(),
       backgroundColor: Colors.white,
     );

@@ -8,7 +8,7 @@ class IngredientModel with _$IngredientModel {
   @JsonSerializable(createToJson: false)
   const factory IngredientModel({
     required String id,
-    required String name,
+    @JsonKey(defaultValue: '') required String name,
   }) = _IngredientModel;
 
   factory IngredientModel.fromJson(Map<String, Object?> json) =>

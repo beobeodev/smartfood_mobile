@@ -3,19 +3,22 @@ part of 'search_ingredient.bloc.dart';
 @freezed
 class SearchIngredientState with _$SearchIngredientState {
   const factory SearchIngredientState.loading({
-    @Default(false) bool isLoadMore,
     required PaginationQueryDTO query,
+    @Default(GetIngredientType.initial) GetIngredientType getType,
+    List<IngredientModel>? ingredients,
   }) = _Loading;
 
   const factory SearchIngredientState.success({
-    @Default(false) bool isLoadMore,
     required PaginationQueryDTO query,
+    @Default(GetIngredientType.initial) GetIngredientType getType,
     required List<IngredientModel> ingredients,
     required bool canLoadMore,
-  }) = _Success;
+  }) = SearchIngredientSuccess;
 
   const factory SearchIngredientState.failure({
-    @Default(false) bool isLoadMore,
     required PaginationQueryDTO query,
-  }) = _Failure;
+    @Default(GetIngredientType.initial) GetIngredientType getType,
+    List<IngredientModel>? ingredients,
+    @Default(GetIngredientErrorType.initial) GetIngredientErrorType errorType,
+  }) = SearchIngredientFailure;
 }

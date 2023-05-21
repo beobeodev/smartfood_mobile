@@ -22,7 +22,7 @@ class AppBlocObserver extends BlocObserver {
   void onTransition(Bloc bloc, Transition transition) {
     super.onTransition(bloc, transition);
     log(
-      'onStateTransition -- ${bloc.runtimeType}\n',
+      'onStateTransition -- ${bloc.runtimeType}\n ',
       name: '${bloc.runtimeType}_TRANSITION',
     );
   }

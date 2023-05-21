@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smartfood/common/theme/app_size.dart';
+import 'package:smartfood/common/theme/color_styles.dart';
+import 'package:smartfood/common/widgets/app_icon_button.widget.dart';
+import 'package:smartfood/common/widgets/common_search_field.widget.dart';
 import 'package:smartfood/modules/home/bloc/home.bloc.dart';
 import 'package:smartfood/modules/home/widgets/nutrition_info.widget.dart';
-import 'package:smartfood/modules/search_ingredient/ingredient.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -27,13 +29,25 @@ class _HomeView extends StatelessWidget {
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, _) {
           return [
-            const SliverAppBar(
-              title: CustomSearchBar(
-                showBoxShadow: false,
+            SliverAppBar(
+              title: const CommonSearchField(
+                readOnly: true,
               ),
+              actions: [
+                AppIconButton(
+                  onPressed: () {},
+                  icon: Icons.notifications_on_outlined,
+                  iconColor: ColorStyles.primary,
+                ),
+                const SizedBox(
+                  width: AppSize.horizontalSpace,
+                )
+              ],
               backgroundColor: Colors.white,
               snap: true,
               floating: true,
+              elevation: 0.1,
+              forceElevated: true,
             ),
           ];
         },

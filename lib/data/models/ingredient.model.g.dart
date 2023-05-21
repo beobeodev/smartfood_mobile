@@ -9,5 +9,5 @@ part of 'ingredient.model.dart';
 _$_IngredientModel _$$_IngredientModelFromJson(Map<String, dynamic> json) =>
     _$_IngredientModel(
       id: json['id'] as String,
-      name: json['name'] as String,
+      name: json['name'] as String? ?? '',
     );

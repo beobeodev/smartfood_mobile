@@ -2,8 +2,19 @@ part of 'search_ingredient.bloc.dart';
 
 @freezed
 class SearchIngredientEvent with _$SearchIngredientEvent {
-  const factory SearchIngredientEvent.get({
-    @Default(false) bool isLoadMore,
+  const factory SearchIngredientEvent.started({
     required PaginationQueryDTO query,
-  }) = _Get;
+  }) = _Started;
+
+  const factory SearchIngredientEvent.searched({
+    required String text,
+  }) = _Searched;
+
+  const factory SearchIngredientEvent.filtered({
+    required List<String> filters,
+  }) = _Filtered;
+
+  const factory SearchIngredientEvent.refresh() = _Refresh;
+
+  const factory SearchIngredientEvent.loadMore() = _LoadMore;
 }

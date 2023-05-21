@@ -16,43 +16,61 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SearchIngredientEvent {
-  bool get isLoadMore => throw _privateConstructorUsedError;
-  PaginationQueryDTO get query => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query) get,
+    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function(String text) searched,
+    required TResult Function(List<String> filters) filtered,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? get,
+    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function(String text)? searched,
+    TResult? Function(List<String> filters)? filtered,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? get,
+    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function(String text)? searched,
+    TResult Function(List<String> filters)? filtered,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Get value) get,
+    required TResult Function(_Started value) started,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Get value)? get,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Get value)? get,
+    TResult Function(_Started value)? started,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $SearchIngredientEventCopyWith<SearchIngredientEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,10 +79,6 @@ abstract class $SearchIngredientEventCopyWith<$Res> {
   factory $SearchIngredientEventCopyWith(SearchIngredientEvent value,
           $Res Function(SearchIngredientEvent) then) =
       _$SearchIngredientEventCopyWithImpl<$Res, SearchIngredientEvent>;
-  @useResult
-  $Res call({bool isLoadMore, PaginationQueryDTO query});
-
-  $PaginationQueryDTOCopyWith<$Res> get query;
 }
 
 /// @nodoc
@@ -77,132 +91,114 @@ class _$SearchIngredientEventCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isLoadMore = null,
-    Object? query = null,
-  }) {
-    return _then(_value.copyWith(
-      isLoadMore: null == isLoadMore
-          ? _value.isLoadMore
-          : isLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as PaginationQueryDTO,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PaginationQueryDTOCopyWith<$Res> get query {
-    return $PaginationQueryDTOCopyWith<$Res>(_value.query, (value) {
-      return _then(_value.copyWith(query: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$_GetCopyWith<$Res>
-    implements $SearchIngredientEventCopyWith<$Res> {
-  factory _$$_GetCopyWith(_$_Get value, $Res Function(_$_Get) then) =
-      __$$_GetCopyWithImpl<$Res>;
-  @override
+abstract class _$$_StartedCopyWith<$Res> {
+  factory _$$_StartedCopyWith(
+          _$_Started value, $Res Function(_$_Started) then) =
+      __$$_StartedCopyWithImpl<$Res>;
   @useResult
-  $Res call({bool isLoadMore, PaginationQueryDTO query});
+  $Res call({PaginationQueryDTO query});
 
-  @override
   $PaginationQueryDTOCopyWith<$Res> get query;
 }
 
 /// @nodoc
-class __$$_GetCopyWithImpl<$Res>
-    extends _$SearchIngredientEventCopyWithImpl<$Res, _$_Get>
-    implements _$$_GetCopyWith<$Res> {
-  __$$_GetCopyWithImpl(_$_Get _value, $Res Function(_$_Get) _then)
+class __$$_StartedCopyWithImpl<$Res>
+    extends _$SearchIngredientEventCopyWithImpl<$Res, _$_Started>
+    implements _$$_StartedCopyWith<$Res> {
+  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadMore = null,
     Object? query = null,
   }) {
-    return _then(_$_Get(
-      isLoadMore: null == isLoadMore
-          ? _value.isLoadMore
-          : isLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$_Started(
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as PaginationQueryDTO,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PaginationQueryDTOCopyWith<$Res> get query {
+    return $PaginationQueryDTOCopyWith<$Res>(_value.query, (value) {
+      return _then(_value.copyWith(query: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_Get implements _Get {
-  const _$_Get({this.isLoadMore = false, required this.query});
+class _$_Started implements _Started {
+  const _$_Started({required this.query});
 
-  @override
-  @JsonKey()
-  final bool isLoadMore;
   @override
   final PaginationQueryDTO query;
 
   @override
   String toString() {
-    return 'SearchIngredientEvent.get(isLoadMore: $isLoadMore, query: $query)';
+    return 'SearchIngredientEvent.started(query: $query)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Get &&
-            (identical(other.isLoadMore, isLoadMore) ||
-                other.isLoadMore == isLoadMore) &&
+            other is _$_Started &&
             (identical(other.query, query) || other.query == query));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoadMore, query);
+  int get hashCode => Object.hash(runtimeType, query);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetCopyWith<_$_Get> get copyWith =>
-      __$$_GetCopyWithImpl<_$_Get>(this, _$identity);
+  _$$_StartedCopyWith<_$_Started> get copyWith =>
+      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query) get,
+    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function(String text) searched,
+    required TResult Function(List<String> filters) filtered,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
   }) {
-    return get(isLoadMore, query);
+    return started(query);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? get,
+    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function(String text)? searched,
+    TResult? Function(List<String> filters)? filtered,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
   }) {
-    return get?.call(isLoadMore, query);
+    return started?.call(query);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? get,
+    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function(String text)? searched,
+    TResult Function(List<String> filters)? filtered,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) {
-    if (get != null) {
-      return get(isLoadMore, query);
+    if (started != null) {
+      return started(query);
     }
     return orElse();
   }
@@ -210,99 +206,677 @@ class _$_Get implements _Get {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Get value) get,
+    required TResult Function(_Started value) started,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
   }) {
-    return get(this);
+    return started(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Get value)? get,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
   }) {
-    return get?.call(this);
+    return started?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Get value)? get,
+    TResult Function(_Started value)? started,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) {
-    if (get != null) {
-      return get(this);
+    if (started != null) {
+      return started(this);
     }
     return orElse();
   }
 }
 
-abstract class _Get implements SearchIngredientEvent {
-  const factory _Get(
-      {final bool isLoadMore,
-      required final PaginationQueryDTO query}) = _$_Get;
+abstract class _Started implements SearchIngredientEvent {
+  const factory _Started({required final PaginationQueryDTO query}) =
+      _$_Started;
+
+  PaginationQueryDTO get query;
+  @JsonKey(ignore: true)
+  _$$_StartedCopyWith<_$_Started> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SearchedCopyWith<$Res> {
+  factory _$$_SearchedCopyWith(
+          _$_Searched value, $Res Function(_$_Searched) then) =
+      __$$_SearchedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$_SearchedCopyWithImpl<$Res>
+    extends _$SearchIngredientEventCopyWithImpl<$Res, _$_Searched>
+    implements _$$_SearchedCopyWith<$Res> {
+  __$$_SearchedCopyWithImpl(
+      _$_Searched _value, $Res Function(_$_Searched) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$_Searched(
+      text: null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Searched implements _Searched {
+  const _$_Searched({required this.text});
 
   @override
-  bool get isLoadMore;
+  final String text;
+
   @override
-  PaginationQueryDTO get query;
+  String toString() {
+    return 'SearchIngredientEvent.searched(text: $text)';
+  }
+
   @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Searched &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
   @JsonKey(ignore: true)
-  _$$_GetCopyWith<_$_Get> get copyWith => throw _privateConstructorUsedError;
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchedCopyWith<_$_Searched> get copyWith =>
+      __$$_SearchedCopyWithImpl<_$_Searched>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function(String text) searched,
+    required TResult Function(List<String> filters) filtered,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return searched(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function(String text)? searched,
+    TResult? Function(List<String> filters)? filtered,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return searched?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function(String text)? searched,
+    TResult Function(List<String> filters)? filtered,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (searched != null) {
+      return searched(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return searched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return searched?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (searched != null) {
+      return searched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Searched implements SearchIngredientEvent {
+  const factory _Searched({required final String text}) = _$_Searched;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$_SearchedCopyWith<_$_Searched> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_FilteredCopyWith<$Res> {
+  factory _$$_FilteredCopyWith(
+          _$_Filtered value, $Res Function(_$_Filtered) then) =
+      __$$_FilteredCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> filters});
+}
+
+/// @nodoc
+class __$$_FilteredCopyWithImpl<$Res>
+    extends _$SearchIngredientEventCopyWithImpl<$Res, _$_Filtered>
+    implements _$$_FilteredCopyWith<$Res> {
+  __$$_FilteredCopyWithImpl(
+      _$_Filtered _value, $Res Function(_$_Filtered) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filters = null,
+  }) {
+    return _then(_$_Filtered(
+      filters: null == filters
+          ? _value._filters
+          : filters // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Filtered implements _Filtered {
+  const _$_Filtered({required final List<String> filters}) : _filters = filters;
+
+  final List<String> _filters;
+  @override
+  List<String> get filters {
+    if (_filters is EqualUnmodifiableListView) return _filters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filters);
+  }
+
+  @override
+  String toString() {
+    return 'SearchIngredientEvent.filtered(filters: $filters)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_Filtered &&
+            const DeepCollectionEquality().equals(other._filters, _filters));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_filters));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_FilteredCopyWith<_$_Filtered> get copyWith =>
+      __$$_FilteredCopyWithImpl<_$_Filtered>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function(String text) searched,
+    required TResult Function(List<String> filters) filtered,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return filtered(filters);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function(String text)? searched,
+    TResult? Function(List<String> filters)? filtered,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return filtered?.call(filters);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function(String text)? searched,
+    TResult Function(List<String> filters)? filtered,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (filtered != null) {
+      return filtered(filters);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return filtered(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return filtered?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (filtered != null) {
+      return filtered(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Filtered implements SearchIngredientEvent {
+  const factory _Filtered({required final List<String> filters}) = _$_Filtered;
+
+  List<String> get filters;
+  @JsonKey(ignore: true)
+  _$$_FilteredCopyWith<_$_Filtered> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_RefreshCopyWith<$Res> {
+  factory _$$_RefreshCopyWith(
+          _$_Refresh value, $Res Function(_$_Refresh) then) =
+      __$$_RefreshCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshCopyWithImpl<$Res>
+    extends _$SearchIngredientEventCopyWithImpl<$Res, _$_Refresh>
+    implements _$$_RefreshCopyWith<$Res> {
+  __$$_RefreshCopyWithImpl(_$_Refresh _value, $Res Function(_$_Refresh) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Refresh implements _Refresh {
+  const _$_Refresh();
+
+  @override
+  String toString() {
+    return 'SearchIngredientEvent.refresh()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Refresh);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function(String text) searched,
+    required TResult Function(List<String> filters) filtered,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return refresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function(String text)? searched,
+    TResult? Function(List<String> filters)? filtered,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return refresh?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function(String text)? searched,
+    TResult Function(List<String> filters)? filtered,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return refresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return refresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Refresh implements SearchIngredientEvent {
+  const factory _Refresh() = _$_Refresh;
+}
+
+/// @nodoc
+abstract class _$$_LoadMoreCopyWith<$Res> {
+  factory _$$_LoadMoreCopyWith(
+          _$_LoadMore value, $Res Function(_$_LoadMore) then) =
+      __$$_LoadMoreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadMoreCopyWithImpl<$Res>
+    extends _$SearchIngredientEventCopyWithImpl<$Res, _$_LoadMore>
+    implements _$$_LoadMoreCopyWith<$Res> {
+  __$$_LoadMoreCopyWithImpl(
+      _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadMore implements _LoadMore {
+  const _$_LoadMore();
+
+  @override
+  String toString() {
+    return 'SearchIngredientEvent.loadMore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadMore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function(String text) searched,
+    required TResult Function(List<String> filters) filtered,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return loadMore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function(String text)? searched,
+    TResult? Function(List<String> filters)? filtered,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return loadMore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function(String text)? searched,
+    TResult Function(List<String> filters)? filtered,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_Searched value) searched,
+    required TResult Function(_Filtered value) filtered,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return loadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Searched value)? searched,
+    TResult? Function(_Filtered value)? filtered,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return loadMore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_Searched value)? searched,
+    TResult Function(_Filtered value)? filtered,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMore implements SearchIngredientEvent {
+  const factory _LoadMore() = _$_LoadMore;
 }
 
 /// @nodoc
 mixin _$SearchIngredientState {
-  bool get isLoadMore => throw _privateConstructorUsedError;
   PaginationQueryDTO get query => throw _privateConstructorUsedError;
+  GetIngredientType get getType => throw _privateConstructorUsedError;
+  List<IngredientModel>? get ingredients => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(PaginationQueryDTO query,
+            GetIngredientType getType, List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query,
-            List<IngredientModel> ingredients, bool canLoadMore)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel> ingredients,
+            bool canLoadMore)
         success,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)
         failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult? Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(SearchIngredientSuccess value) success,
+    required TResult Function(SearchIngredientFailure value) failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(SearchIngredientSuccess value)? success,
+    TResult? Function(SearchIngredientFailure value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(SearchIngredientSuccess value)? success,
+    TResult Function(SearchIngredientFailure value)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -318,7 +892,10 @@ abstract class $SearchIngredientStateCopyWith<$Res> {
           $Res Function(SearchIngredientState) then) =
       _$SearchIngredientStateCopyWithImpl<$Res, SearchIngredientState>;
   @useResult
-  $Res call({bool isLoadMore, PaginationQueryDTO query});
+  $Res call(
+      {PaginationQueryDTO query,
+      GetIngredientType getType,
+      List<IngredientModel> ingredients});
 
   $PaginationQueryDTOCopyWith<$Res> get query;
 }
@@ -337,18 +914,23 @@ class _$SearchIngredientStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadMore = null,
     Object? query = null,
+    Object? getType = null,
+    Object? ingredients = null,
   }) {
     return _then(_value.copyWith(
-      isLoadMore: null == isLoadMore
-          ? _value.isLoadMore
-          : isLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as PaginationQueryDTO,
+      getType: null == getType
+          ? _value.getType
+          : getType // ignore: cast_nullable_to_non_nullable
+              as GetIngredientType,
+      ingredients: null == ingredients
+          ? _value.ingredients!
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>,
     ) as $Val);
   }
 
@@ -369,7 +951,10 @@ abstract class _$$_LoadingCopyWith<$Res>
       __$$_LoadingCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoadMore, PaginationQueryDTO query});
+  $Res call(
+      {PaginationQueryDTO query,
+      GetIngredientType getType,
+      List<IngredientModel>? ingredients});
 
   @override
   $PaginationQueryDTOCopyWith<$Res> get query;
@@ -385,18 +970,23 @@ class __$$_LoadingCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadMore = null,
     Object? query = null,
+    Object? getType = null,
+    Object? ingredients = freezed,
   }) {
     return _then(_$_Loading(
-      isLoadMore: null == isLoadMore
-          ? _value.isLoadMore
-          : isLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as PaginationQueryDTO,
+      getType: null == getType
+          ? _value.getType
+          : getType // ignore: cast_nullable_to_non_nullable
+              as GetIngredientType,
+      ingredients: freezed == ingredients
+          ? _value._ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>?,
     ));
   }
 }
@@ -404,17 +994,30 @@ class __$$_LoadingCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loading implements _Loading {
-  const _$_Loading({this.isLoadMore = false, required this.query});
+  const _$_Loading(
+      {required this.query,
+      this.getType = GetIngredientType.initial,
+      final List<IngredientModel>? ingredients})
+      : _ingredients = ingredients;
 
   @override
-  @JsonKey()
-  final bool isLoadMore;
-  @override
   final PaginationQueryDTO query;
+  @override
+  @JsonKey()
+  final GetIngredientType getType;
+  final List<IngredientModel>? _ingredients;
+  @override
+  List<IngredientModel>? get ingredients {
+    final value = _ingredients;
+    if (value == null) return null;
+    if (_ingredients is EqualUnmodifiableListView) return _ingredients;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'SearchIngredientState.loading(isLoadMore: $isLoadMore, query: $query)';
+    return 'SearchIngredientState.loading(query: $query, getType: $getType, ingredients: $ingredients)';
   }
 
   @override
@@ -422,13 +1025,15 @@ class _$_Loading implements _Loading {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loading &&
-            (identical(other.isLoadMore, isLoadMore) ||
-                other.isLoadMore == isLoadMore) &&
-            (identical(other.query, query) || other.query == query));
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.getType, getType) || other.getType == getType) &&
+            const DeepCollectionEquality()
+                .equals(other._ingredients, _ingredients));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoadMore, query);
+  int get hashCode => Object.hash(runtimeType, query, getType,
+      const DeepCollectionEquality().hash(_ingredients));
 
   @JsonKey(ignore: true)
   @override
@@ -439,41 +1044,63 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(PaginationQueryDTO query,
+            GetIngredientType getType, List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query,
-            List<IngredientModel> ingredients, bool canLoadMore)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel> ingredients,
+            bool canLoadMore)
         success,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)
         failure,
   }) {
-    return loading(isLoadMore, query);
+    return loading(query, getType, ingredients);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult? Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
   }) {
-    return loading?.call(isLoadMore, query);
+    return loading?.call(query, getType, ingredients);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
-      return loading(isLoadMore, query);
+      return loading(query, getType, ingredients);
     }
     return orElse();
   }
@@ -482,8 +1109,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(SearchIngredientSuccess value) success,
+    required TResult Function(SearchIngredientFailure value) failure,
   }) {
     return loading(this);
   }
@@ -492,8 +1119,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(SearchIngredientSuccess value)? success,
+    TResult? Function(SearchIngredientFailure value)? failure,
   }) {
     return loading?.call(this);
   }
@@ -502,8 +1129,8 @@ class _$_Loading implements _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(SearchIngredientSuccess value)? success,
+    TResult Function(SearchIngredientFailure value)? failure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -515,13 +1142,16 @@ class _$_Loading implements _Loading {
 
 abstract class _Loading implements SearchIngredientState {
   const factory _Loading(
-      {final bool isLoadMore,
-      required final PaginationQueryDTO query}) = _$_Loading;
+      {required final PaginationQueryDTO query,
+      final GetIngredientType getType,
+      final List<IngredientModel>? ingredients}) = _$_Loading;
 
   @override
-  bool get isLoadMore;
-  @override
   PaginationQueryDTO get query;
+  @override
+  GetIngredientType get getType;
+  @override
+  List<IngredientModel>? get ingredients;
   @override
   @JsonKey(ignore: true)
   _$$_LoadingCopyWith<_$_Loading> get copyWith =>
@@ -529,16 +1159,16 @@ abstract class _Loading implements SearchIngredientState {
 }
 
 /// @nodoc
-abstract class _$$_SuccessCopyWith<$Res>
+abstract class _$$SearchIngredientSuccessCopyWith<$Res>
     implements $SearchIngredientStateCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
+  factory _$$SearchIngredientSuccessCopyWith(_$SearchIngredientSuccess value,
+          $Res Function(_$SearchIngredientSuccess) then) =
+      __$$SearchIngredientSuccessCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {bool isLoadMore,
-      PaginationQueryDTO query,
+      {PaginationQueryDTO query,
+      GetIngredientType getType,
       List<IngredientModel> ingredients,
       bool canLoadMore});
 
@@ -547,29 +1177,30 @@ abstract class _$$_SuccessCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$SearchIngredientStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$SearchIngredientSuccessCopyWithImpl<$Res>
+    extends _$SearchIngredientStateCopyWithImpl<$Res, _$SearchIngredientSuccess>
+    implements _$$SearchIngredientSuccessCopyWith<$Res> {
+  __$$SearchIngredientSuccessCopyWithImpl(_$SearchIngredientSuccess _value,
+      $Res Function(_$SearchIngredientSuccess) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadMore = null,
     Object? query = null,
+    Object? getType = null,
     Object? ingredients = null,
     Object? canLoadMore = null,
   }) {
-    return _then(_$_Success(
-      isLoadMore: null == isLoadMore
-          ? _value.isLoadMore
-          : isLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$SearchIngredientSuccess(
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as PaginationQueryDTO,
+      getType: null == getType
+          ? _value.getType
+          : getType // ignore: cast_nullable_to_non_nullable
+              as GetIngredientType,
       ingredients: null == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -584,19 +1215,19 @@ class __$$_SuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(
-      {this.isLoadMore = false,
-      required this.query,
+class _$SearchIngredientSuccess implements SearchIngredientSuccess {
+  const _$SearchIngredientSuccess(
+      {required this.query,
+      this.getType = GetIngredientType.initial,
       required final List<IngredientModel> ingredients,
       required this.canLoadMore})
       : _ingredients = ingredients;
 
   @override
-  @JsonKey()
-  final bool isLoadMore;
-  @override
   final PaginationQueryDTO query;
+  @override
+  @JsonKey()
+  final GetIngredientType getType;
   final List<IngredientModel> _ingredients;
   @override
   List<IngredientModel> get ingredients {
@@ -610,17 +1241,16 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'SearchIngredientState.success(isLoadMore: $isLoadMore, query: $query, ingredients: $ingredients, canLoadMore: $canLoadMore)';
+    return 'SearchIngredientState.success(query: $query, getType: $getType, ingredients: $ingredients, canLoadMore: $canLoadMore)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
-            (identical(other.isLoadMore, isLoadMore) ||
-                other.isLoadMore == isLoadMore) &&
+            other is _$SearchIngredientSuccess &&
             (identical(other.query, query) || other.query == query) &&
+            (identical(other.getType, getType) || other.getType == getType) &&
             const DeepCollectionEquality()
                 .equals(other._ingredients, _ingredients) &&
             (identical(other.canLoadMore, canLoadMore) ||
@@ -628,53 +1258,76 @@ class _$_Success implements _Success {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoadMore, query,
+  int get hashCode => Object.hash(runtimeType, query, getType,
       const DeepCollectionEquality().hash(_ingredients), canLoadMore);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
+  _$$SearchIngredientSuccessCopyWith<_$SearchIngredientSuccess> get copyWith =>
+      __$$SearchIngredientSuccessCopyWithImpl<_$SearchIngredientSuccess>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(PaginationQueryDTO query,
+            GetIngredientType getType, List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query,
-            List<IngredientModel> ingredients, bool canLoadMore)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel> ingredients,
+            bool canLoadMore)
         success,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)
         failure,
   }) {
-    return success(isLoadMore, query, ingredients, canLoadMore);
+    return success(query, getType, ingredients, canLoadMore);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult? Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
   }) {
-    return success?.call(isLoadMore, query, ingredients, canLoadMore);
+    return success?.call(query, getType, ingredients, canLoadMore);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(isLoadMore, query, ingredients, canLoadMore);
+      return success(query, getType, ingredients, canLoadMore);
     }
     return orElse();
   }
@@ -683,8 +1336,8 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(SearchIngredientSuccess value) success,
+    required TResult Function(SearchIngredientFailure value) failure,
   }) {
     return success(this);
   }
@@ -693,8 +1346,8 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(SearchIngredientSuccess value)? success,
+    TResult? Function(SearchIngredientFailure value)? failure,
   }) {
     return success?.call(this);
   }
@@ -703,8 +1356,8 @@ class _$_Success implements _Success {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(SearchIngredientSuccess value)? success,
+    TResult Function(SearchIngredientFailure value)? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -714,138 +1367,199 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements SearchIngredientState {
-  const factory _Success(
-      {final bool isLoadMore,
-      required final PaginationQueryDTO query,
+abstract class SearchIngredientSuccess implements SearchIngredientState {
+  const factory SearchIngredientSuccess(
+      {required final PaginationQueryDTO query,
+      final GetIngredientType getType,
       required final List<IngredientModel> ingredients,
-      required final bool canLoadMore}) = _$_Success;
+      required final bool canLoadMore}) = _$SearchIngredientSuccess;
 
   @override
-  bool get isLoadMore;
-  @override
   PaginationQueryDTO get query;
+  @override
+  GetIngredientType get getType;
+  @override
   List<IngredientModel> get ingredients;
   bool get canLoadMore;
   @override
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$SearchIngredientSuccessCopyWith<_$SearchIngredientSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FailureCopyWith<$Res>
+abstract class _$$SearchIngredientFailureCopyWith<$Res>
     implements $SearchIngredientStateCopyWith<$Res> {
-  factory _$$_FailureCopyWith(
-          _$_Failure value, $Res Function(_$_Failure) then) =
-      __$$_FailureCopyWithImpl<$Res>;
+  factory _$$SearchIngredientFailureCopyWith(_$SearchIngredientFailure value,
+          $Res Function(_$SearchIngredientFailure) then) =
+      __$$SearchIngredientFailureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoadMore, PaginationQueryDTO query});
+  $Res call(
+      {PaginationQueryDTO query,
+      GetIngredientType getType,
+      List<IngredientModel>? ingredients,
+      GetIngredientErrorType errorType});
 
   @override
   $PaginationQueryDTOCopyWith<$Res> get query;
 }
 
 /// @nodoc
-class __$$_FailureCopyWithImpl<$Res>
-    extends _$SearchIngredientStateCopyWithImpl<$Res, _$_Failure>
-    implements _$$_FailureCopyWith<$Res> {
-  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
+class __$$SearchIngredientFailureCopyWithImpl<$Res>
+    extends _$SearchIngredientStateCopyWithImpl<$Res, _$SearchIngredientFailure>
+    implements _$$SearchIngredientFailureCopyWith<$Res> {
+  __$$SearchIngredientFailureCopyWithImpl(_$SearchIngredientFailure _value,
+      $Res Function(_$SearchIngredientFailure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isLoadMore = null,
     Object? query = null,
+    Object? getType = null,
+    Object? ingredients = freezed,
+    Object? errorType = null,
   }) {
-    return _then(_$_Failure(
-      isLoadMore: null == isLoadMore
-          ? _value.isLoadMore
-          : isLoadMore // ignore: cast_nullable_to_non_nullable
-              as bool,
+    return _then(_$SearchIngredientFailure(
       query: null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as PaginationQueryDTO,
+      getType: null == getType
+          ? _value.getType
+          : getType // ignore: cast_nullable_to_non_nullable
+              as GetIngredientType,
+      ingredients: freezed == ingredients
+          ? _value._ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>?,
+      errorType: null == errorType
+          ? _value.errorType
+          : errorType // ignore: cast_nullable_to_non_nullable
+              as GetIngredientErrorType,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Failure implements _Failure {
-  const _$_Failure({this.isLoadMore = false, required this.query});
+class _$SearchIngredientFailure implements SearchIngredientFailure {
+  const _$SearchIngredientFailure(
+      {required this.query,
+      this.getType = GetIngredientType.initial,
+      final List<IngredientModel>? ingredients,
+      this.errorType = GetIngredientErrorType.initial})
+      : _ingredients = ingredients;
+
+  @override
+  final PaginationQueryDTO query;
+  @override
+  @JsonKey()
+  final GetIngredientType getType;
+  final List<IngredientModel>? _ingredients;
+  @override
+  List<IngredientModel>? get ingredients {
+    final value = _ingredients;
+    if (value == null) return null;
+    if (_ingredients is EqualUnmodifiableListView) return _ingredients;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   @JsonKey()
-  final bool isLoadMore;
-  @override
-  final PaginationQueryDTO query;
+  final GetIngredientErrorType errorType;
 
   @override
   String toString() {
-    return 'SearchIngredientState.failure(isLoadMore: $isLoadMore, query: $query)';
+    return 'SearchIngredientState.failure(query: $query, getType: $getType, ingredients: $ingredients, errorType: $errorType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Failure &&
-            (identical(other.isLoadMore, isLoadMore) ||
-                other.isLoadMore == isLoadMore) &&
-            (identical(other.query, query) || other.query == query));
+            other is _$SearchIngredientFailure &&
+            (identical(other.query, query) || other.query == query) &&
+            (identical(other.getType, getType) || other.getType == getType) &&
+            const DeepCollectionEquality()
+                .equals(other._ingredients, _ingredients) &&
+            (identical(other.errorType, errorType) ||
+                other.errorType == errorType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoadMore, query);
+  int get hashCode => Object.hash(runtimeType, query, getType,
+      const DeepCollectionEquality().hash(_ingredients), errorType);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FailureCopyWith<_$_Failure> get copyWith =>
-      __$$_FailureCopyWithImpl<_$_Failure>(this, _$identity);
+  _$$SearchIngredientFailureCopyWith<_$SearchIngredientFailure> get copyWith =>
+      __$$SearchIngredientFailureCopyWithImpl<_$SearchIngredientFailure>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(PaginationQueryDTO query,
+            GetIngredientType getType, List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query,
-            List<IngredientModel> ingredients, bool canLoadMore)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel> ingredients,
+            bool canLoadMore)
         success,
-    required TResult Function(bool isLoadMore, PaginationQueryDTO query)
+    required TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)
         failure,
   }) {
-    return failure(isLoadMore, query);
+    return failure(query, getType, ingredients, errorType);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult? Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
   }) {
-    return failure?.call(isLoadMore, query);
+    return failure?.call(query, getType, ingredients, errorType);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? loading,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+            List<IngredientModel>? ingredients)?
+        loading,
+    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(bool isLoadMore, PaginationQueryDTO query)? failure,
+    TResult Function(
+            PaginationQueryDTO query,
+            GetIngredientType getType,
+            List<IngredientModel>? ingredients,
+            GetIngredientErrorType errorType)?
+        failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(isLoadMore, query);
+      return failure(query, getType, ingredients, errorType);
     }
     return orElse();
   }
@@ -854,8 +1568,8 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
+    required TResult Function(SearchIngredientSuccess value) success,
+    required TResult Function(SearchIngredientFailure value) failure,
   }) {
     return failure(this);
   }
@@ -864,8 +1578,8 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
+    TResult? Function(SearchIngredientSuccess value)? success,
+    TResult? Function(SearchIngredientFailure value)? failure,
   }) {
     return failure?.call(this);
   }
@@ -874,8 +1588,8 @@ class _$_Failure implements _Failure {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
+    TResult Function(SearchIngredientSuccess value)? success,
+    TResult Function(SearchIngredientFailure value)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -885,17 +1599,22 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements SearchIngredientState {
-  const factory _Failure(
-      {final bool isLoadMore,
-      required final PaginationQueryDTO query}) = _$_Failure;
+abstract class SearchIngredientFailure implements SearchIngredientState {
+  const factory SearchIngredientFailure(
+      {required final PaginationQueryDTO query,
+      final GetIngredientType getType,
+      final List<IngredientModel>? ingredients,
+      final GetIngredientErrorType errorType}) = _$SearchIngredientFailure;
 
-  @override
-  bool get isLoadMore;
   @override
   PaginationQueryDTO get query;
   @override
+  GetIngredientType get getType;
+  @override
+  List<IngredientModel>? get ingredients;
+  GetIngredientErrorType get errorType;
+  @override
   @JsonKey(ignore: true)
-  _$$_FailureCopyWith<_$_Failure> get copyWith =>
+  _$$SearchIngredientFailureCopyWith<_$SearchIngredientFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }

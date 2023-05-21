@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smartfood/common/widgets/app_safe_area.widget.dart';
 import 'package:smartfood/data/repositories/ingredient.repository.dart';
 import 'package:smartfood/di/di.dart';
 import 'package:smartfood/modules/ingredient_list/ingredient_list.dart';
@@ -22,22 +21,19 @@ class SearchIngredientPage extends StatelessWidget {
           create: (context) => IngredientListBloc(),
         ),
       ],
-      child: const _FindRecipeView(),
+      child: const _SearchIngredientView(),
     );
   }
 }
 
-class _FindRecipeView extends StatelessWidget {
-  const _FindRecipeView();
+class _SearchIngredientView extends StatelessWidget {
+  const _SearchIngredientView();
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: AppSafeArea(
-        child: Column(
-          children: [CustomSearchBar(), ListSearchedIngredients()],
-        ),
-      ),
+      appBar: IngredientSearchBar(),
+      body: ListSearchedIngredients(),
       floatingActionButton: IngredientListFAB(),
       backgroundColor: Colors.white,
     );
