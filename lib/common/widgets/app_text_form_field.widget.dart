@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   const AppTextFormField({
@@ -28,6 +28,7 @@ class AppTextFormField extends StatelessWidget {
     this.validator,
     this.onTap,
     this.onChanged,
+    this.onFieldSubmitted,
     this.onTapPrefixIcon,
     this.onTapSuffixIcon,
     this.labelStyle = TextStyles.s14MediumText,
@@ -65,6 +66,7 @@ class AppTextFormField extends StatelessWidget {
 
   final void Function()? onTap;
   final void Function(String)? onChanged;
+  final void Function(String)? onFieldSubmitted;
   final VoidCallback? onTapPrefixIcon;
   final VoidCallback? onTapSuffixIcon;
 
@@ -86,86 +88,91 @@ class AppTextFormField extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-        TextFormField(
-          controller: textController,
-          focusNode: focusNode,
-          textInputAction: TextInputAction.done,
-          onChanged: onChanged,
-          onTap: onTap,
-          validator: validator,
-          obscureText: isObscure,
-          readOnly: readOnly,
-          enableSuggestions: false,
-          enabled: enabled,
-          keyboardType: keyboardType,
-          initialValue: initialValue,
-          style:
-              TextStyles.s14RegularText.copyWith(color: ColorStyles.zodiacBlue),
-          textAlign: isCenterText ? TextAlign.center : TextAlign.start,
-          decoration: InputDecoration(
-            hintText: hintText,
-            hintStyle: TextStyles.s14RegularText.copyWith(color: hintColor),
-            focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: const BorderSide(
-                color: ColorStyles.red600,
+        SizedBox(
+          height: 45,
+          child: TextFormField(
+            controller: textController,
+            focusNode: focusNode,
+            textInputAction: TextInputAction.done,
+            onChanged: onChanged,
+            onTap: onTap,
+            onFieldSubmitted: onFieldSubmitted,
+            validator: validator,
+            obscureText: isObscure,
+            readOnly: readOnly,
+            enableSuggestions: false,
+            enabled: enabled,
+            keyboardType: keyboardType,
+            initialValue: initialValue,
+            style: TextStyles.s14RegularText
+                .copyWith(color: ColorStyles.zodiacBlue),
+            textAlign: isCenterText ? TextAlign.center : TextAlign.start,
+            decoration: InputDecoration(
+              hintText: hintText,
+              hintStyle: TextStyles.s14RegularText.copyWith(color: hintColor),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius),
+                borderSide: const BorderSide(
+                  color: ColorStyles.red600,
+                ),
               ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(
-                color: focusedBorderColor,
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius),
+                borderSide: BorderSide(
+                  color: focusedBorderColor,
+                ),
               ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(
-                color: borderColor,
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius),
+                borderSide: BorderSide(
+                  color: borderColor,
+                ),
               ),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: BorderSide(
-                color: borderColor,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius),
+                borderSide: BorderSide(
+                  color: borderColor,
+                ),
               ),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(borderRadius),
-              borderSide: const BorderSide(
-                color: ColorStyles.red600,
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(borderRadius),
+                borderSide: const BorderSide(
+                  color: ColorStyles.red600,
+                ),
               ),
+              isDense: true,
+              filled: true,
+              fillColor: fillColor,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+              prefixIcon: prefixIcon != null
+                  ? GestureDetector(
+                      onTap: onTapPrefixIcon,
+                      behavior: HitTestBehavior.opaque,
+                      child: Icon(
+                        prefixIcon,
+                        color: prefixIconColor,
+                      ),
+                    )
+                  : null,
+              suffixIcon: suffixIcon != null
+                  ? GestureDetector(
+                      onTap: onTapSuffixIcon,
+                      behavior: HitTestBehavior.opaque,
+                      child: Icon(
+                        suffixIcon,
+                        color: suffixIconColor,
+                      ),
+                    )
+                  : null,
+              helperText: extendField ? '' : null,
+              helperStyle: extendField
+                  ? TextStyles.regularText.copyWith(fontSize: 13)
+                  : null,
+              errorText:
+                  errorText == '' || errorText == null ? null : errorText,
+              errorStyle: TextStyles.regularText
+                  .copyWith(color: Colors.red, fontSize: 13, height: 0),
             ),
-            // isDense: true,
-            filled: true,
-            fillColor: fillColor,
-            contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-            prefixIcon: prefixIcon != null
-                ? GestureDetector(
-                    onTap: onTapPrefixIcon,
-                    behavior: HitTestBehavior.opaque,
-                    child: Icon(
-                      prefixIcon,
-                      color: prefixIconColor,
-                    ),
-                  )
-                : null,
-            suffixIcon: suffixIcon != null
-                ? GestureDetector(
-                    onTap: onTapSuffixIcon,
-                    behavior: HitTestBehavior.opaque,
-                    child: Icon(
-                      suffixIcon,
-                      color: suffixIconColor,
-                    ),
-                  )
-                : null,
-            helperText: extendField ? '' : null,
-            helperStyle: extendField
-                ? TextStyles.regularText.copyWith(fontSize: 13)
-                : null,
-            errorText: errorText == '' || errorText == null ? null : errorText,
-            errorStyle: TextStyles.regularText
-                .copyWith(color: Colors.red, fontSize: 13, height: 0),
           ),
         ),
       ],

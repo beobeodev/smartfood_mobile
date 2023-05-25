@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
-import 'package:smartfood/common/helpers/dio.helper.dart';
-import 'package:smartfood/di/providers/dio_provider.dart';
+import 'package:smarthealthy/common/helpers/dio.helper.dart';
+import 'package:smarthealthy/di/providers/dio_provider.dart';
 
 @module
 abstract class NetworkModule {

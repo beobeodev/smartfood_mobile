@@ -1,4 +1,4 @@
-import 'package:smartfood/common/constants/hive_keys.dart';
+import 'package:smarthealthy/common/constants/hive_keys.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'refresh_token.dto.g.dart';

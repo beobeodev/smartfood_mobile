@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 class LoadingDot extends StatefulWidget {
   const LoadingDot({
     Key? key,
-    this.size = 20,
+    this.size = 10,
     this.dotColor = Colors.white,
   }) : super(key: key);
-  
+
   final double size;
   final Color dotColor;
 

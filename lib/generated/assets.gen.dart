@@ -8,6 +8,9 @@
 // ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 
 class $AssetsFontsGen {
   const $AssetsFontsGen();
@@ -28,7 +31,15 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  $AssetsIconsHomeGen get home => const $AssetsIconsHomeGen();
   $AssetsIconsLauncherGen get launcher => const $AssetsIconsLauncherGen();
+  $AssetsIconsNavbarGen get navbar => const $AssetsIconsNavbarGen();
+}
+
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  $AssetsImagesLottieGen get lottie => const $AssetsImagesLottieGen();
 }
 
 class $AssetsLocalesGen {
@@ -44,6 +55,26 @@ class $AssetsLocalesGen {
   List<String> get values => [en, vi];
 }
 
+class $AssetsModelsGen {
+  const $AssetsModelsGen();
+
+  /// File path: assets/models/best.tflite
+  String get best => 'assets/models/best.tflite';
+
+  /// File path: assets/models/labels.txt
+  String get labels => 'assets/models/labels.txt';
+
+  /// List of all assets
+  List<String> get values => [best, labels];
+}
+
+class $AssetsIconsHomeGen {
+  const $AssetsIconsHomeGen();
+
+  $AssetsIconsHomeNutritionGen get nutrition =>
+      const $AssetsIconsHomeNutritionGen();
+}
+
 class $AssetsIconsLauncherGen {
   const $AssetsIconsLauncherGen();
 
@@ -55,12 +86,62 @@ class $AssetsIconsLauncherGen {
   List<AssetGenImage> get values => [appIcon];
 }
 
+class $AssetsIconsNavbarGen {
+  const $AssetsIconsNavbarGen();
+
+  /// File path: assets/icons/navbar/favorite.svg
+  SvgGenImage get favorite =>
+      const SvgGenImage('assets/icons/navbar/favorite.svg');
+
+  /// File path: assets/icons/navbar/find_recipe.svg
+  SvgGenImage get findRecipe =>
+      const SvgGenImage('assets/icons/navbar/find_recipe.svg');
+
+  /// File path: assets/icons/navbar/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/navbar/home.svg');
+
+  /// File path: assets/icons/navbar/profile.svg
+  SvgGenImage get profile =>
+      const SvgGenImage('assets/icons/navbar/profile.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [favorite, findRecipe, home, profile];
+}
+
+class $AssetsImagesLottieGen {
+  const $AssetsImagesLottieGen();
+
+  /// File path: assets/images/lottie/error.json
+  LottieGenImage get error =>
+      const LottieGenImage('assets/images/lottie/error.json');
+
+  /// File path: assets/images/lottie/search_not_found.json
+  LottieGenImage get searchNotFound =>
+      const LottieGenImage('assets/images/lottie/search_not_found.json');
+
+  /// List of all assets
+  List<LottieGenImage> get values => [error, searchNotFound];
+}
+
+class $AssetsIconsHomeNutritionGen {
+  const $AssetsIconsHomeNutritionGen();
+
+  /// File path: assets/icons/home/nutrition/weightlifting.svg
+  SvgGenImage get weightlifting =>
+      const SvgGenImage('assets/icons/home/nutrition/weightlifting.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [weightlifting];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsIconsGen icons = $AssetsIconsGen();
+  static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsLocalesGen locales = $AssetsLocalesGen();
+  static const $AssetsModelsGen models = $AssetsModelsGen();
 }
 
 class AssetGenImage {
@@ -121,7 +202,128 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider() => AssetImage(_assetName);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class SvgGenImage {
+  const SvgGenImage(this._assetName);
+
+  final String _assetName;
+
+  SvgPicture svg({
+    Key? key,
+    bool matchTextDirection = false,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
+    BoxFit fit = BoxFit.contain,
+    AlignmentGeometry alignment = Alignment.center,
+    bool allowDrawingOutsideViewBox = false,
+    WidgetBuilder? placeholderBuilder,
+    String? semanticsLabel,
+    bool excludeFromSemantics = false,
+    SvgTheme theme = const SvgTheme(),
+    ColorFilter? colorFilter,
+    Clip clipBehavior = Clip.hardEdge,
+    @deprecated Color? color,
+    @deprecated BlendMode colorBlendMode = BlendMode.srcIn,
+    @deprecated bool cacheColorFilter = false,
+  }) {
+    return SvgPicture.asset(
+      _assetName,
+      key: key,
+      matchTextDirection: matchTextDirection,
+      bundle: bundle,
+      package: package,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      allowDrawingOutsideViewBox: allowDrawingOutsideViewBox,
+      placeholderBuilder: placeholderBuilder,
+      semanticsLabel: semanticsLabel,
+      excludeFromSemantics: excludeFromSemantics,
+      theme: theme,
+      colorFilter: colorFilter,
+      color: color,
+      colorBlendMode: colorBlendMode,
+      clipBehavior: clipBehavior,
+      cacheColorFilter: cacheColorFilter,
+    );
+  }
+
+  String get path => _assetName;
+
+  String get keyName => _assetName;
+}
+
+class LottieGenImage {
+  const LottieGenImage(this._assetName);
+
+  final String _assetName;
+
+  LottieBuilder lottie({
+    Animation<double>? controller,
+    bool? animate,
+    FrameRate? frameRate,
+    bool? repeat,
+    bool? reverse,
+    LottieDelegates? delegates,
+    LottieOptions? options,
+    void Function(LottieComposition)? onLoaded,
+    LottieImageProviderFactory? imageProviderFactory,
+    Key? key,
+    AssetBundle? bundle,
+    Widget Function(BuildContext, Widget, LottieComposition?)? frameBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    double? width,
+    double? height,
+    BoxFit? fit,
+    AlignmentGeometry? alignment,
+    String? package,
+    bool? addRepaintBoundary,
+    FilterQuality? filterQuality,
+    void Function(String)? onWarning,
+  }) {
+    return Lottie.asset(
+      _assetName,
+      controller: controller,
+      animate: animate,
+      frameRate: frameRate,
+      repeat: repeat,
+      reverse: reverse,
+      delegates: delegates,
+      options: options,
+      onLoaded: onLoaded,
+      imageProviderFactory: imageProviderFactory,
+      key: key,
+      bundle: bundle,
+      frameBuilder: frameBuilder,
+      errorBuilder: errorBuilder,
+      width: width,
+      height: height,
+      fit: fit,
+      alignment: alignment,
+      package: package,
+      addRepaintBoundary: addRepaintBoundary,
+      filterQuality: filterQuality,
+      onWarning: onWarning,
+    );
+  }
 
   String get path => _assetName;
 

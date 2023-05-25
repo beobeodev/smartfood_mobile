@@ -38,9 +38,10 @@ abstract class ColorStyles {
   static const Color primary = Color(0xFFEC714C);
   static const Color highlight = Color(0xFFE23E3E);
   static const Color limeGreen = Color(0xFF38E54D);
-  static const Color metallicViolet = Color(0xFF610094);
-  static const Color background = Color(0xFFF9F9F9);
-  static const Color antiFlashWhite = Color(0xFFEFF4F7);
-  static Color scaffoldBackgroundColor = Colors.grey[50]!;
+  static const Color antiFlashWhite = Color(0xFFF1F1F1);
+  static Color scaffoldBackground = Colors.grey[50]!;
+  static const Color tint100 = Color.fromRGBO(248, 250, 252, 1);
+  static const Color caloriesBackground = Color.fromRGBO(83, 95, 247, 1);
+
   // static const Color lavenderSilver = Color(0xFFFDEFEF);
 }

@@ -19,6 +19,9 @@
     "welcome_back": "Nice to have you back!",
     "sign_in": "Sign in"
   },
+  "ingredient": {
+    "find": "Search for ingredients"
+  },
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
@@ -27,5 +30,8 @@
     "invalid_password": "Password must be at least 8 characters",
     "field_required": "This field is required",
     "not_match_password": "Password and confirm password not match"
+  },
+  "search": {
+    "ingredient_not_found": "Did not find any ingredients for your search"
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
-import 'package:smartfood/common/widgets/loading_dot.widget.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 
 class AppRoundedButton extends StatelessWidget {
   AppRoundedButton({

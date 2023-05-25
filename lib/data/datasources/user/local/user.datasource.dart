@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:smartfood/common/constants/hive_keys.dart';
-import 'package:smartfood/data/dtos/auth/login_response.dto.dart';
-import 'package:smartfood/data/models/user.model.dart';
+import 'package:smarthealthy/common/constants/hive_keys.dart';
+import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 
