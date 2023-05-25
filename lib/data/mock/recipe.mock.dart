@@ -1,4 +1,4 @@
-import 'package:smartfood/data/models/step.model.dart';
+import 'package:smarthealthy/data/models/step.model.dart';
 
 abstract class RecipeMock {
   static final List<RecipeStep> recipeSteps = [

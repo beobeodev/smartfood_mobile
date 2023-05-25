@@ -1,4 +1,4 @@
-import 'package:smartfood/common/constants/hive_keys.dart';
+import 'package:smarthealthy/common/constants/hive_keys.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 

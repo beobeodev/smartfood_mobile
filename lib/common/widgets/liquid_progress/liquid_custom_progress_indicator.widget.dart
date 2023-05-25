@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/widgets/liquid_progress/wave.widget.dart';
+import 'package:smarthealthy/common/widgets/liquid_progress/wave.widget.dart';
 
 class LiquidCustomProgressIndicator extends ProgressIndicator {
   ///The widget to show in the center of the progress indicator.

@@ -1,4 +1,4 @@
-name: smartfood
+name: smarthealthy
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -61,6 +61,9 @@ dependencies:
   shimmer: ^2.0.0
   pull_to_refresh: ^2.0.0
   lottie: ^2.3.2
+  firebase_core: ^2.13.0
+  firebase_messaging: ^14.6.1
+  flutter_local_notifications: ^14.1.0
 
 dev_dependencies:
   flutter_test:
@@ -91,28 +94,40 @@ flavorizr:
   flavors:
     dev:
       app:
-        name: 'SmartFood DEV'
+        name: 'SmartHealthy DEV'
         icon: 'assets/icons/launcher/app_icon.png'
       android:
-        applicationId: 'com.smartfood.dev'
+        applicationId: 'com.smarthealthy.dev'
+        firebase:
+          config: '.firebase/dev/google-services.json'
       ios:
-        bundleId: 'com.smartfood.dev'
+        bundleId: 'com.smarthealthy.dev'
+        firebase:
+          config: '.firebase/dev/GoogleService-Info.plist'
     qa:
       app:
-        name: 'SmartFood QA'
+        name: 'SmartHealthy QA'
         icon: 'assets/icons/launcher/app_icon.png'
       android:
-        applicationId: 'com.smartfood.qa'
+        applicationId: 'com.smarthealthy.qa'
+        firebase:
+          config: '.firebase/qa/google-services.json'
       ios:
-        bundleId: 'com.smartfood.qa'
+        bundleId: 'com.smarthealthy.qa'
+        firebase:
+          config: '.firebase/qa/GoogleService-Info.plist'
     staging:
       app:
-        name: 'SmartFood'
+        name: 'SmartHealthy'
         icon: 'assets/icons/launcher/app_icon.png'
       android:
-        applicationId: 'com.graduation.smartfood'
+        applicationId: 'com.gdscdut.smarthealthy'
+        firebase:
+          config: '.firebase/staging/google-services.json'
       ios:
-        bundleId: 'com.graduation.smartfood'
+        bundleId: 'com.gdscdut.smarthealthy'
+        firebase:
+          config: '.firebase/staging/GoogleService-Info.plist'
 
 # The following section is specific to Flutter packages.
 flutter:

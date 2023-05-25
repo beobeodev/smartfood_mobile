@@ -1,6 +1,6 @@
 {
-    "name": "smartfood",
-    "short_name": "smartfood",
+    "name": "smarthealthy",
+    "short_name": "smarthealthy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

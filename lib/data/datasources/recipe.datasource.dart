@@ -1,9 +1,9 @@
 import 'package:injectable/injectable.dart';
-import 'package:smartfood/common/constants/endpoints.dart';
-import 'package:smartfood/common/helpers/dio.helper.dart';
-import 'package:smartfood/data/mock/recipe.mock.dart';
-import 'package:smartfood/data/models/recipe.model.dart';
-import 'package:smartfood/data/models/step.model.dart';
+import 'package:smarthealthy/common/constants/endpoints.dart';
+import 'package:smarthealthy/common/helpers/dio.helper.dart';
+import 'package:smarthealthy/data/mock/recipe.mock.dart';
+import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/step.model.dart';
 
 @lazySingleton
 class RecipeDataSource {

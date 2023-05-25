@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:smartfood/data/datasources/ingredient.datasource.dart';
-import 'package:smartfood/data/dtos/get_ingredient.dto.dart';
-import 'package:smartfood/data/dtos/pagination/pagination_query.dto.dart';
+import 'package:smarthealthy/data/datasources/ingredient.datasource.dart';
+import 'package:smarthealthy/data/dtos/get_ingredient.dto.dart';
+import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 
 @lazySingleton
 class IngredientRepository {

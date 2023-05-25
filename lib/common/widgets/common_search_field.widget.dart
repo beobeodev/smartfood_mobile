@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/widgets/app_text_form_field.widget.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/widgets/app_text_form_field.widget.dart';
 
 class CommonSearchField extends StatelessWidget {
   final void Function(String)? onFieldSubmitted;

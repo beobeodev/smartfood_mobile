@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/extensions/context.extension.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
-import 'package:smartfood/generated/assets.gen.dart';
-import 'package:smartfood/generated/locale_keys.g.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/generated/assets.gen.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 
 class CommonError extends StatelessWidget {
   const CommonError({super.key});

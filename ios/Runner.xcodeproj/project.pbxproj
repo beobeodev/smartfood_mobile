@@ -16,6 +16,7 @@
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		3C95FE5F6F7F57FC47394231 /* devDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = DE0B7E3CE0FDC3193C1F943F /* devDebug.xcconfig */; };
 		458C61F2F77437BEC95C4FFA /* qaDebug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 8616CF1F3096DDCA11827AFD /* qaDebug.xcconfig */; };
+		60F563ADEABA2D5B39C64082 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D64696A84398B3E2B81E37D /* GoogleService-Info.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		89333F38365B1D93EFDA1B84 /* devRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 08A6C75546A4CE5A09576016 /* devRelease.xcconfig */; };
 		92EA83763F9480DAD4288D68 /* stagingProfile.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 984BF1C4628D867670EC0831 /* stagingProfile.xcconfig */; };
@@ -46,11 +47,13 @@
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 		20C367212A1A4D0E6BB68DF8 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		220D2EFA2A1E0CCA009ACEDD /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		25365E6B65E3E1B4AF0C8DAD /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
 		450DEC4DD4C668C07EF9D831 /* devLaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = devLaunchScreen.storyboard; path = Runner/devLaunchScreen.storyboard; sourceTree = "<group>"; };
 		45251334503915636012406A /* Pods-Runner.profile-qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-qa.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-qa.xcconfig"; sourceTree = "<group>"; };
 		4B53B1BE27CCEC912E0766A8 /* Pods-Runner.release-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-staging.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-staging.xcconfig"; sourceTree = "<group>"; };
+		4D64696A84398B3E2B81E37D /* GoogleService-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "Runner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53AA449BA7A6A7A75DA02394 /* Pods-Runner.release-qa.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release-qa.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release-qa.xcconfig"; sourceTree = "<group>"; };
 		57B27A842579F4A50E4CE025 /* qaRelease.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = qaRelease.xcconfig; path = Flutter/qaRelease.xcconfig; sourceTree = "<group>"; };
 		65BE342C274914B27DE739A8 /* Pods-Runner.profile-dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile-dev.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile-dev.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +128,7 @@
 				C4BC919A0064FC4C1FD896E5 /* stagingLaunchScreen.storyboard */,
 				A55771310497E60DC85E5C9C /* Pods */,
 				D19880A6AB73640A07038E22 /* Frameworks */,
+				4D64696A84398B3E2B81E37D /* GoogleService-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,6 +143,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				220D2EFA2A1E0CCA009ACEDD /* Runner.entitlements */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -186,6 +191,7 @@
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
 				B6124621710F3B8CADB5FC66 /* [CP] Check Pods Manifest.lock */,
+				C3498765423775ED430FC1A4 /* Firebase Setup */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				97C146EA1CF9000F007C117D /* Sources */,
 				97C146EB1CF9000F007C117D /* Frameworks */,
@@ -257,6 +263,7 @@
 				0F3CC8F862577E15B503081B /* devLaunchScreen.storyboard in Resources */,
 				2979C65E4181A0A4A6AD11A0 /* qaLaunchScreen.storyboard in Resources */,
 				B93B9709266902B9A360A36C /* stagingLaunchScreen.storyboard in Resources */,
+				60F563ADEABA2D5B39C64082 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +322,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		C3498765423775ED430FC1A4 /* Firebase Setup */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Firebase Setup";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$CONFIGURATION\" == \"Debug-dev\" ] || [ \"$CONFIGURATION\" == \"Release-dev\" ]; then\n  cp Runner/dev/GoogleService-Info.plist Runner/GoogleService-Info.plist\nelif [ \"$CONFIGURATION\" == \"Debug-qa\" ] || [ \"$CONFIGURATION\" == \"Release-qa\" ]; then\n  cp Runner/qa/GoogleService-Info.plist Runner/GoogleService-Info.plist\nelif [ \"$CONFIGURATION\" == \"Debug-staging\" ] || [ \"$CONFIGURATION\" == \"Release-staging\" ]; then\n  cp Runner/staging/GoogleService-Info.plist Runner/GoogleService-Info.plist\nfi\n\n";
 		};
 		C5DF019ED1215F975008B6BD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -425,7 +450,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.graduation.smartfood;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdscdut.smarthealthy;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -441,6 +466,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CFE0CDE7EBBDC606590F4373 /* Pods-Runner.debug-dev.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-dev";
@@ -449,6 +476,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 65BE342C274914B27DE739A8 /* Pods-Runner.profile-dev.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-dev";
@@ -457,6 +486,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8CB3A499285BFF06FD4DFD6D /* Pods-Runner.release-dev.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-dev";
@@ -465,6 +496,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7C787BC75143E978F084060E /* Pods-Runner.debug-qa.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-qa";
@@ -473,6 +506,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45251334503915636012406A /* Pods-Runner.profile-qa.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-qa";
@@ -481,6 +516,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 53AA449BA7A6A7A75DA02394 /* Pods-Runner.release-qa.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-qa";
@@ -489,6 +526,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A5990366958E0950CA0D9871 /* Pods-Runner.debug-staging.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Debug-staging";
@@ -497,6 +536,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9AC7BAF18066C35856B409E9 /* Pods-Runner.profile-staging.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Profile-staging";
@@ -505,6 +546,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B53B1BE27CCEC912E0766A8 /* Pods-Runner.release-staging.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
+				DEVELOPMENT_TEAM = 47F26D25PZ;
 				PRODUCT_NAME = Runner;
 			};
 			name = "Release-staging";
@@ -567,7 +610,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.graduation.smartfood;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdscdut.smarthealthy;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -633,6 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 47F26D25PZ;
 				ENABLE_BITCODE = NO;
@@ -707,7 +751,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartfood.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarthealthy.dev;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -775,7 +819,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartfood.qa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarthealthy.qa;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -852,7 +896,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.graduation.smartfood;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdscdut.smarthealthy;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -973,6 +1017,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 47F26D25PZ;
 				ENABLE_BITCODE = NO;
@@ -996,6 +1041,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 47F26D25PZ;
 				ENABLE_BITCODE = NO;
@@ -1077,7 +1123,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartfood.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarthealthy.dev;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1150,7 +1196,7 @@
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartfood.qa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarthealthy.qa;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -1216,7 +1262,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartfood.qa;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarthealthy.qa;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
@@ -1284,7 +1330,7 @@
 					"$(PROJECT_DIR)/Flutter",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.smartfood.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smarthealthy.dev;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/extensions/context.extension.dart';
-import 'package:smartfood/common/theme/app_size.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 
 class AppSafeArea extends StatelessWidget {
   final Widget child;

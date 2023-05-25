@@ -1,8 +1,8 @@
 import 'package:injectable/injectable.dart';
-import 'package:smartfood/common/constants/endpoints.dart';
-import 'package:smartfood/common/helpers/dio.helper.dart';
-import 'package:smartfood/data/dtos/get_ingredient.dto.dart';
-import 'package:smartfood/data/dtos/pagination/pagination_query.dto.dart';
+import 'package:smarthealthy/common/constants/endpoints.dart';
+import 'package:smarthealthy/common/helpers/dio.helper.dart';
+import 'package:smarthealthy/data/dtos/get_ingredient.dto.dart';
+import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 
 @lazySingleton
 class IngredientDataSource {

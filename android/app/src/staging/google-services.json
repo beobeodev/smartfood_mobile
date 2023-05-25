@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "732349393747",
+    "project_id": "smarthealthy-addca",
+    "storage_bucket": "smarthealthy-addca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:732349393747:android:2442281b90e8e599774fa6",
+        "android_client_info": {
+          "package_name": "com.gdscdut.smarthealthy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "732349393747-cbgr4v2hvs1ni8magbgnprab658o5pva.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyxz4JLtOdPJ0t5wVUN-OXWbMqokBctMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "732349393747-cbgr4v2hvs1ni8magbgnprab658o5pva.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "732349393747-koo2ebqqod2u51g5h7k9s8guokkq69lf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.gdscdut.smarthealthy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class AppCarouselSlider extends StatefulWidget {
   final List<Widget> items;

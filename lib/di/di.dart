@@ -1,4 +1,4 @@
-import 'package:smartfood/di/di.config.dart';
+import 'package:smarthealthy/di/di.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
