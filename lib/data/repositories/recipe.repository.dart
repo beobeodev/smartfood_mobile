@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
-import 'package:smartfood/data/datasources/recipe.datasource.dart';
-import 'package:smartfood/data/models/recipe.model.dart';
-import 'package:smartfood/data/models/step.model.dart';
+import 'package:smarthealthy/data/datasources/recipe.datasource.dart';
+import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/step.model.dart';
 
 @lazySingleton
 class RecipeRepository {

@@ -1,4 +1,4 @@
-import 'package:smartfood/generated/assets.gen.dart';
+import 'package:smarthealthy/generated/assets.gen.dart';
 
 abstract class DetectModel {
   static const String name = 'models/best.tflite';

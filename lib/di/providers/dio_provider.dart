@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:smartfood/common/constants/hive_keys.dart';
+import 'package:smarthealthy/common/constants/hive_keys.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
-import 'package:smartfood/di/interceptors/app_interceptor.dart';
+import 'package:smarthealthy/di/interceptors/app_interceptor.dart';
 
 @lazySingleton
 class DioProvider {

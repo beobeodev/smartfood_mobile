@@ -2,8 +2,8 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:smartfood/common/constants/hive_keys.dart';
-import 'package:smartfood/data/dtos/auth/refresh_token.dto.dart';
+import 'package:smarthealthy/common/constants/hive_keys.dart';
+import 'package:smarthealthy/data/dtos/auth/refresh_token.dto.dart';
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 

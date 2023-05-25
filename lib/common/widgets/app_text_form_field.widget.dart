@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
 
 class AppTextFormField extends StatelessWidget {
   const AppTextFormField({

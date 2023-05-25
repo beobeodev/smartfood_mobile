@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smartfood/common/constants/enums/recipe_level.enum.dart';
+import 'package:smarthealthy/common/constants/enums/recipe_level.enum.dart';
 
 part 'recipe.model.freezed.dart';
 part 'recipe.model.g.dart';

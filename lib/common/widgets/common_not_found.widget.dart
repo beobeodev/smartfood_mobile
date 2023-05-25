@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/extensions/context.extension.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
-import 'package:smartfood/generated/assets.gen.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/generated/assets.gen.dart';
 
 class CommonNotFound extends StatelessWidget {
   final String text;

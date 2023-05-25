@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/app_size.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
-import 'package:smartfood/common/widgets/app_back_button.widget.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/widgets/app_back_button.widget.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isCenterTitle;

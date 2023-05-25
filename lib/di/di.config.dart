@@ -13,21 +13,24 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:hive/hive.dart' as _i5;
 import 'package:hive_flutter/hive_flutter.dart' as _i3;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:smartfood/common/helpers/dio.helper.dart' as _i8;
-import 'package:smartfood/common/helpers/ingredient_detector.dart' as _i6;
-import 'package:smartfood/data/datasources/ingredient.datasource.dart' as _i9;
-import 'package:smartfood/data/datasources/recipe.datasource.dart' as _i11;
-import 'package:smartfood/data/datasources/user/local/user.datasource.dart'
+import 'package:smarthealthy/common/helpers/dio.helper.dart' as _i8;
+import 'package:smarthealthy/common/helpers/ingredient_detector.dart' as _i6;
+import 'package:smarthealthy/data/datasources/ingredient.datasource.dart'
+    as _i9;
+import 'package:smarthealthy/data/datasources/recipe.datasource.dart' as _i11;
+import 'package:smarthealthy/data/datasources/user/local/user.datasource.dart'
     as _i7;
-import 'package:smartfood/data/datasources/user/remote/user.datasource.dart'
+import 'package:smarthealthy/data/datasources/user/remote/user.datasource.dart'
     as _i13;
-import 'package:smartfood/data/datasources/user/user.datasource.dart' as _i14;
-import 'package:smartfood/data/repositories/ingredient.repository.dart' as _i10;
-import 'package:smartfood/data/repositories/recipe.repository.dart' as _i12;
-import 'package:smartfood/data/repositories/user.repository.dart' as _i15;
-import 'package:smartfood/di/modules/local_module.dart' as _i16;
-import 'package:smartfood/di/modules/network_module.dart' as _i17;
-import 'package:smartfood/di/providers/dio_provider.dart' as _i4;
+import 'package:smarthealthy/data/datasources/user/user.datasource.dart'
+    as _i14;
+import 'package:smarthealthy/data/repositories/ingredient.repository.dart'
+    as _i10;
+import 'package:smarthealthy/data/repositories/recipe.repository.dart' as _i12;
+import 'package:smarthealthy/data/repositories/user.repository.dart' as _i15;
+import 'package:smarthealthy/di/modules/local_module.dart' as _i16;
+import 'package:smarthealthy/di/modules/network_module.dart' as _i17;
+import 'package:smarthealthy/di/providers/dio_provider.dart' as _i4;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars

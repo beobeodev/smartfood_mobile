@@ -1,4 +1,4 @@
-# smartfood
+# smarthealthy
 
 A new Flutter project.
 

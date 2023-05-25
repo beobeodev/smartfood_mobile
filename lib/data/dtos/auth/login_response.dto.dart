@@ -1,5 +1,5 @@
-import 'package:smartfood/data/dtos/auth/refresh_token.dto.dart';
-import 'package:smartfood/data/models/user.model.dart';
+import 'package:smarthealthy/data/dtos/auth/refresh_token.dto.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'login_response.dto.g.dart';

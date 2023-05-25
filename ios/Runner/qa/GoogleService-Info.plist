@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>874152896684-2gpthcd2tgc40g3p9gbe0bm1ful5c4h4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.874152896684-2gpthcd2tgc40g3p9gbe0bm1ful5c4h4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBOd40VBTJITLikuCaRJtr18s9Uy-isPag</string>
+	<key>GCM_SENDER_ID</key>
+	<string>874152896684</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.smarthealthy.qa</string>
+	<key>PROJECT_ID</key>
+	<string>smarthealthy-qa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>smarthealthy-qa.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:874152896684:ios:ba07c43751535d82735709</string>
+</dict>
+</plist>

@@ -1,4 +1,4 @@
-import 'package:smartfood/flavors.dart';
+import 'package:smarthealthy/flavors.dart';
 
 abstract class Endpoints {
   static final String apiUrl = AppFlavor.apiBaseUrl;

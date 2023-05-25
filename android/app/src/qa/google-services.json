@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "874152896684",
+    "project_id": "smarthealthy-qa",
+    "storage_bucket": "smarthealthy-qa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874152896684:android:bf868cf883290143735709",
+        "android_client_info": {
+          "package_name": "com.smarthealthy.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "874152896684-qk954mefq77lpi84aojbnahp35ot2g39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy0sLQztWL3QV_Y7mwbArK09vqrl48qHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "874152896684-qk954mefq77lpi84aojbnahp35ot2g39.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "874152896684-2gpthcd2tgc40g3p9gbe0bm1ful5c4h4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.smarthealthy.qa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

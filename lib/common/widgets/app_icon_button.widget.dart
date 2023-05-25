@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class AppIconButton extends StatelessWidget {
   final Color iconColor;

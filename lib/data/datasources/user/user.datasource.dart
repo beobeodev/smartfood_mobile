@@ -1,8 +1,8 @@
-import 'package:smartfood/data/datasources/user/local/user.datasource.dart';
-import 'package:smartfood/data/datasources/user/remote/user.datasource.dart';
-import 'package:smartfood/data/dtos/auth/login_by_email_request.dto.dart';
-import 'package:smartfood/data/dtos/auth/login_response.dto.dart';
-import 'package:smartfood/data/models/user.model.dart';
+import 'package:smarthealthy/data/datasources/user/local/user.datasource.dart';
+import 'package:smarthealthy/data/datasources/user/remote/user.datasource.dart';
+import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
+import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton

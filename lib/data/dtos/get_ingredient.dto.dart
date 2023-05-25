@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smartfood/data/dtos/pagination/pagination_meta.dto.dart';
-import 'package:smartfood/data/models/ingredient.model.dart';
+import 'package:smarthealthy/data/dtos/pagination/pagination_meta.dto.dart';
+import 'package:smarthealthy/data/models/ingredient.model.dart';
 
 part 'get_ingredient.dto.freezed.dart';
 part 'get_ingredient.dto.g.dart';

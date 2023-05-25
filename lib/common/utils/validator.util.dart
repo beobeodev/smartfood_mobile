@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:smartfood/common/extensions/string.extension.dart';
-import 'package:smartfood/generated/locale_keys.g.dart';
+import 'package:smarthealthy/common/extensions/string.extension.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 
 abstract class ValidatorUtil {
   static String? validateEmail(String? value) {

@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smartfood/common/theme/color_styles.dart';
-import 'package:smartfood/common/theme/text_styles.dart';
-import 'package:smartfood/common/widgets/app_rounded_button.widget.dart';
-import 'package:smartfood/common/widgets/custom_popup_route.widget.dart';
-import 'package:smartfood/generated/locale_keys.g.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
+import 'package:smarthealthy/common/widgets/custom_popup_route.widget.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 
 abstract class DialogUtil {
   static bool _isDialogOpen = false;
