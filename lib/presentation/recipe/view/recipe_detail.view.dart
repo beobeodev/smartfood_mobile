@@ -149,13 +149,13 @@ class _RecipeDetailView extends StatelessWidget {
                           const SizedBox(
                             width: 8,
                           ),
-                          const Row(
+                          Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 UniconsLine.chart,
                                 color: ColorStyles.gray400,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 2,
                               ),
                               Text(
@@ -169,21 +169,21 @@ class _RecipeDetailView extends StatelessWidget {
                       const SizedBox(
                         height: 15,
                       ),
-                      const Text(
+                      Text(
                         'Description',
                         style: TextStyles.s17BoldText,
                       ),
                       const SizedBox(
                         height: 5,
                       ),
-                      const Text(
+                      Text(
                         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                         style: TextStyles.s14RegularText,
                       ),
                       const SizedBox(
                         height: 15,
                       ),
-                      const Text(
+                      Text(
                         'Ingredients',
                         style: TextStyles.s17BoldText,
                       ),
@@ -214,7 +214,7 @@ class _RecipeDetailView extends StatelessWidget {
                               const SizedBox(
                                 width: 10,
                               ),
-                              const Text(
+                              Text(
                                 'Trái táo',
                                 style: TextStyles.s14MediumText,
                               ),

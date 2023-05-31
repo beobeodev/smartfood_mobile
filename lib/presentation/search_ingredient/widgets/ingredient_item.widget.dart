@@ -29,7 +29,8 @@ class IngredientItem extends StatelessWidget {
               color: ColorStyles.antiFlashWhite,
               borderRadius: BorderRadius.circular(10),
               border: Border.all(
-                color: isSelected ? ColorStyles.green500 : Colors.transparent,
+                color:
+                    isSelected ? ColorStyles.yellowGreen : Colors.transparent,
               ),
             ),
             padding: const EdgeInsets.all(10),

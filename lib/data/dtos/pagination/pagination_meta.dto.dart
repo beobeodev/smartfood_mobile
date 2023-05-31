@@ -8,13 +8,15 @@ class PaginationMetaDTO with _$PaginationMetaDTO {
   const PaginationMetaDTO._();
 
   factory PaginationMetaDTO({
-    required final int totalRecord,
+    required final int itemsPerPage,
+    required final int totalItems,
     required final int currentPage,
-    required final int currentSize,
+    required final int totalPages,
+    List<List<String>>? sortBy,
   }) = _PaginationMetaDTO;
 
   @JsonKey(includeFromJson: false, includeToJson: false)
-  bool get canLoadMore => totalRecord > currentPage * currentSize;
+  bool get canLoadMore => currentPage < totalPages;
 
   factory PaginationMetaDTO.fromJson(Map<String, dynamic> json) =>
       _$PaginationMetaDTOFromJson(json);

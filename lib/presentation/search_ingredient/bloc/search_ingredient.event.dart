@@ -2,9 +2,7 @@ part of 'search_ingredient.bloc.dart';
 
 @freezed
 class SearchIngredientEvent with _$SearchIngredientEvent {
-  const factory SearchIngredientEvent.started({
-    required PaginationQueryDTO query,
-  }) = _Started;
+  const factory SearchIngredientEvent.started() = _Started;
 
   const factory SearchIngredientEvent.searched({
     required String text,

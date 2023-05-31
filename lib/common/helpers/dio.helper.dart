@@ -27,12 +27,17 @@ class DioHelper {
     String url, {
     Map<String, dynamic>? queryParameters,
     Options? options,
+    bool useUri = false,
   }) async {
-    final Response response = await _dio.get(
-      url,
-      queryParameters: queryParameters,
-      options: options,
-    );
+    final Response response = useUri
+        ? await _dio.getUri(
+            Uri.parse(url).resolveUri(Uri(queryParameters: queryParameters)),
+          )
+        : await _dio.get(
+            url,
+            queryParameters: queryParameters,
+            options: options,
+          );
 
     return HttpRequestResponse(
       data: response.data,

@@ -8,7 +8,11 @@ part of 'pagination_meta.dto.dart';
 
 _$_PaginationMetaDTO _$$_PaginationMetaDTOFromJson(Map<String, dynamic> json) =>
     _$_PaginationMetaDTO(
-      totalRecord: json['totalRecord'] as int,
+      itemsPerPage: json['itemsPerPage'] as int,
+      totalItems: json['totalItems'] as int,
       currentPage: json['currentPage'] as int,
-      currentSize: json['currentSize'] as int,
+      totalPages: json['totalPages'] as int,
+      sortBy: (json['sortBy'] as List<dynamic>?)
+          ?.map((e) => (e as List<dynamic>).map((e) => e as String).toList())
+          .toList(),
     );

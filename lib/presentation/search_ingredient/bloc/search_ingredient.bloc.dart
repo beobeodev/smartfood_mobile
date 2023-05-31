@@ -1,10 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/constants/enums/get_ingredient_error_type.enum.dart';
-import 'package:smarthealthy/common/constants/enums/get_ingredient_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_error_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/sort_type.enum.dart';
 import 'package:smarthealthy/data/dtos/get_ingredient.dto.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
+import 'package:smarthealthy/data/dtos/sort.dto.dart';
 import 'package:smarthealthy/data/repositories/ingredient.repository.dart';
 
 part 'search_ingredient.event.dart';
@@ -18,7 +20,11 @@ class SearchIngredientBloc
   SearchIngredientBloc({required IngredientRepository ingredientRepository})
       : _ingredientRepository = ingredientRepository,
         super(
-          const SearchIngredientState.loading(query: PaginationQueryDTO()),
+          const SearchIngredientState.loading(
+            query: PaginationQueryDTO(
+              sortBy: [SortDTO('name', SortType.ASC)],
+            ),
+          ),
         ) {
     on<SearchIngredientEvent>((events, emit) async {
       await events.map(
@@ -29,7 +35,9 @@ class SearchIngredientBloc
         searched: (_Searched event) => _onSearched(event, emit),
       );
     });
-    add(const _Started(query: PaginationQueryDTO()));
+    add(
+      const _Started(),
+    );
   }
 
   Future<void> _onStarted(
@@ -60,13 +68,13 @@ class SearchIngredientBloc
       final getIngredientDTO = await _getIngredients(
         query,
       );
-      final ingredients = [...state.ingredients!, ...getIngredientDTO.content];
+      final ingredients = [...state.ingredients!, ...getIngredientDTO.data];
 
       emit(
         SearchIngredientSuccess(
           query: query,
           ingredients: ingredients,
-          getType: GetIngredientType.loadMore,
+          getType: QueryType.loadMore,
           canLoadMore: getIngredientDTO.meta.canLoadMore,
         ),
       );
@@ -74,8 +82,8 @@ class SearchIngredientBloc
       emit(
         SearchIngredientFailure(
           query: query,
-          getType: GetIngredientType.loadMore,
-          errorType: GetIngredientErrorType.loadMore,
+          getType: QueryType.loadMore,
+          errorType: QueryErrorType.loadMore,
         ),
       );
     }
@@ -91,6 +99,8 @@ class SearchIngredientBloc
 
     final query = state.query.copyWith(page: 1);
 
+    emit(_Loading(query: query));
+
     try {
       final GetIngredientDTO getIngredientDTO = await _getIngredients(
         query,
@@ -99,8 +109,7 @@ class SearchIngredientBloc
       emit(
         SearchIngredientSuccess(
           query: query,
-          ingredients: getIngredientDTO.content,
-          getType: GetIngredientType.refresh,
+          ingredients: getIngredientDTO.data,
           canLoadMore: getIngredientDTO.meta.canLoadMore,
         ),
       );
@@ -108,8 +117,8 @@ class SearchIngredientBloc
       emit(
         SearchIngredientFailure(
           query: query,
-          getType: GetIngredientType.refresh,
-          errorType: GetIngredientErrorType.refresh,
+          getType: QueryType.refresh,
+          errorType: QueryErrorType.refresh,
         ),
       );
     }
@@ -125,7 +134,7 @@ class SearchIngredientBloc
   ]) async {
     PaginationQueryDTO query = state.query;
     if (searchText != null) {
-      query = query.copyWith(search: searchText);
+      query = query.copyWith(search: searchText, page: 1);
     }
 
     emit(_Loading(query: query));
@@ -135,17 +144,17 @@ class SearchIngredientBloc
         query,
       );
 
-      if (searchText != null && getIngredientDTO.content.isEmpty) {
+      if (searchText != null && getIngredientDTO.data.isEmpty) {
         emit(
           SearchIngredientFailure(
             query: query,
-            errorType: GetIngredientErrorType.notFound,
+            errorType: QueryErrorType.notFound,
           ),
         );
       } else {
         emit(
           SearchIngredientSuccess(
-            ingredients: getIngredientDTO.content,
+            ingredients: getIngredientDTO.data,
             query: query,
             canLoadMore: getIngredientDTO.meta.canLoadMore,
           ),

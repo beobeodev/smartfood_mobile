@@ -8,7 +8,7 @@ part 'get_ingredient.dto.g.dart';
 @Freezed(toJson: false)
 class GetIngredientDTO with _$GetIngredientDTO {
   const factory GetIngredientDTO({
-    required final List<IngredientModel> content,
+    required final List<IngredientModel> data,
     required final PaginationMetaDTO meta,
   }) = _GetIngredientDTO;
 

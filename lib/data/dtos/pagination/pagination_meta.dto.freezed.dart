@@ -20,9 +20,11 @@ PaginationMetaDTO _$PaginationMetaDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PaginationMetaDTO {
-  int get totalRecord => throw _privateConstructorUsedError;
+  int get itemsPerPage => throw _privateConstructorUsedError;
+  int get totalItems => throw _privateConstructorUsedError;
   int get currentPage => throw _privateConstructorUsedError;
-  int get currentSize => throw _privateConstructorUsedError;
+  int get totalPages => throw _privateConstructorUsedError;
+  List<List<String>>? get sortBy => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PaginationMetaDTOCopyWith<PaginationMetaDTO> get copyWith =>
@@ -35,7 +37,12 @@ abstract class $PaginationMetaDTOCopyWith<$Res> {
           PaginationMetaDTO value, $Res Function(PaginationMetaDTO) then) =
       _$PaginationMetaDTOCopyWithImpl<$Res, PaginationMetaDTO>;
   @useResult
-  $Res call({int totalRecord, int currentPage, int currentSize});
+  $Res call(
+      {int itemsPerPage,
+      int totalItems,
+      int currentPage,
+      int totalPages,
+      List<List<String>>? sortBy});
 }
 
 /// @nodoc
@@ -51,23 +58,33 @@ class _$PaginationMetaDTOCopyWithImpl<$Res, $Val extends PaginationMetaDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalRecord = null,
+    Object? itemsPerPage = null,
+    Object? totalItems = null,
     Object? currentPage = null,
-    Object? currentSize = null,
+    Object? totalPages = null,
+    Object? sortBy = freezed,
   }) {
     return _then(_value.copyWith(
-      totalRecord: null == totalRecord
-          ? _value.totalRecord
-          : totalRecord // ignore: cast_nullable_to_non_nullable
+      itemsPerPage: null == itemsPerPage
+          ? _value.itemsPerPage
+          : itemsPerPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalItems: null == totalItems
+          ? _value.totalItems
+          : totalItems // ignore: cast_nullable_to_non_nullable
               as int,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int,
-      currentSize: null == currentSize
-          ? _value.currentSize
-          : currentSize // ignore: cast_nullable_to_non_nullable
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
+      sortBy: freezed == sortBy
+          ? _value.sortBy
+          : sortBy // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>?,
     ) as $Val);
   }
 }
@@ -80,7 +97,12 @@ abstract class _$$_PaginationMetaDTOCopyWith<$Res>
       __$$_PaginationMetaDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int totalRecord, int currentPage, int currentSize});
+  $Res call(
+      {int itemsPerPage,
+      int totalItems,
+      int currentPage,
+      int totalPages,
+      List<List<String>>? sortBy});
 }
 
 /// @nodoc
@@ -94,23 +116,33 @@ class __$$_PaginationMetaDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? totalRecord = null,
+    Object? itemsPerPage = null,
+    Object? totalItems = null,
     Object? currentPage = null,
-    Object? currentSize = null,
+    Object? totalPages = null,
+    Object? sortBy = freezed,
   }) {
     return _then(_$_PaginationMetaDTO(
-      totalRecord: null == totalRecord
-          ? _value.totalRecord
-          : totalRecord // ignore: cast_nullable_to_non_nullable
+      itemsPerPage: null == itemsPerPage
+          ? _value.itemsPerPage
+          : itemsPerPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      totalItems: null == totalItems
+          ? _value.totalItems
+          : totalItems // ignore: cast_nullable_to_non_nullable
               as int,
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
               as int,
-      currentSize: null == currentSize
-          ? _value.currentSize
-          : currentSize // ignore: cast_nullable_to_non_nullable
+      totalPages: null == totalPages
+          ? _value.totalPages
+          : totalPages // ignore: cast_nullable_to_non_nullable
               as int,
+      sortBy: freezed == sortBy
+          ? _value._sortBy
+          : sortBy // ignore: cast_nullable_to_non_nullable
+              as List<List<String>>?,
     ));
   }
 }
@@ -119,24 +151,38 @@ class __$$_PaginationMetaDTOCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$_PaginationMetaDTO extends _PaginationMetaDTO {
   _$_PaginationMetaDTO(
-      {required this.totalRecord,
+      {required this.itemsPerPage,
+      required this.totalItems,
       required this.currentPage,
-      required this.currentSize})
-      : super._();
+      required this.totalPages,
+      final List<List<String>>? sortBy})
+      : _sortBy = sortBy,
+        super._();
 
   factory _$_PaginationMetaDTO.fromJson(Map<String, dynamic> json) =>
       _$$_PaginationMetaDTOFromJson(json);
 
   @override
-  final int totalRecord;
+  final int itemsPerPage;
+  @override
+  final int totalItems;
   @override
   final int currentPage;
   @override
-  final int currentSize;
+  final int totalPages;
+  final List<List<String>>? _sortBy;
+  @override
+  List<List<String>>? get sortBy {
+    final value = _sortBy;
+    if (value == null) return null;
+    if (_sortBy is EqualUnmodifiableListView) return _sortBy;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'PaginationMetaDTO(totalRecord: $totalRecord, currentPage: $currentPage, currentSize: $currentSize)';
+    return 'PaginationMetaDTO(itemsPerPage: $itemsPerPage, totalItems: $totalItems, currentPage: $currentPage, totalPages: $totalPages, sortBy: $sortBy)';
   }
 
   @override
@@ -144,18 +190,21 @@ class _$_PaginationMetaDTO extends _PaginationMetaDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaginationMetaDTO &&
-            (identical(other.totalRecord, totalRecord) ||
-                other.totalRecord == totalRecord) &&
+            (identical(other.itemsPerPage, itemsPerPage) ||
+                other.itemsPerPage == itemsPerPage) &&
+            (identical(other.totalItems, totalItems) ||
+                other.totalItems == totalItems) &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
-            (identical(other.currentSize, currentSize) ||
-                other.currentSize == currentSize));
+            (identical(other.totalPages, totalPages) ||
+                other.totalPages == totalPages) &&
+            const DeepCollectionEquality().equals(other._sortBy, _sortBy));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, totalRecord, currentPage, currentSize);
+  int get hashCode => Object.hash(runtimeType, itemsPerPage, totalItems,
+      currentPage, totalPages, const DeepCollectionEquality().hash(_sortBy));
 
   @JsonKey(ignore: true)
   @override
@@ -167,20 +216,26 @@ class _$_PaginationMetaDTO extends _PaginationMetaDTO {
 
 abstract class _PaginationMetaDTO extends PaginationMetaDTO {
   factory _PaginationMetaDTO(
-      {required final int totalRecord,
+      {required final int itemsPerPage,
+      required final int totalItems,
       required final int currentPage,
-      required final int currentSize}) = _$_PaginationMetaDTO;
+      required final int totalPages,
+      final List<List<String>>? sortBy}) = _$_PaginationMetaDTO;
   _PaginationMetaDTO._() : super._();
 
   factory _PaginationMetaDTO.fromJson(Map<String, dynamic> json) =
       _$_PaginationMetaDTO.fromJson;
 
   @override
-  int get totalRecord;
+  int get itemsPerPage;
+  @override
+  int get totalItems;
   @override
   int get currentPage;
   @override
-  int get currentSize;
+  int get totalPages;
+  @override
+  List<List<String>>? get sortBy;
   @override
   @JsonKey(ignore: true)
   _$$_PaginationMetaDTOCopyWith<_$_PaginationMetaDTO> get copyWith =>

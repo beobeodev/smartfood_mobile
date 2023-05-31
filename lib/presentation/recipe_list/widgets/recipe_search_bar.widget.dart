@@ -3,18 +3,32 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/app_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_search_bar.widget.dart';
-import 'package:unicons/unicons.dart';
+import 'package:smarthealthy/generated/assets.gen.dart';
+import 'package:smarthealthy/presentation/recipe_list/widgets/recipe_inherited.widget.dart';
+import 'package:smarthealthy/router/app_router.dart';
 
 class RecipeSearchBar extends StatelessWidget implements PreferredSizeWidget {
   const RecipeSearchBar({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bool autoFocus = RecipeListProvider.of(context)?.autoFocus ?? false;
+
     return CommonSearchBar(
+      autoFocus: autoFocus,
       actions: [
+        const SizedBox(
+          width: 10,
+        ),
         AppIconButton(
-          onPressed: () {},
-          icon: UniconsLine.filter,
+          onPressed: () => Navigator.of(context).pushNamed(
+            AppRouter.recipeFilter,
+          ),
+          icon: Assets.icons.filter.svg(
+            colorFilter:
+                const ColorFilter.mode(ColorStyles.primary, BlendMode.srcIn),
+          ),
+          iconSize: 22,
           iconColor: ColorStyles.primary,
         )
       ],

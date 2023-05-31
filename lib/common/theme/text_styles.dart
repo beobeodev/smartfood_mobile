@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 
 abstract class TextStyles {
@@ -7,61 +8,61 @@ abstract class TextStyles {
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w400,
   );
-  static const TextStyle s11RegularText = TextStyle(
+  static TextStyle s11RegularText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w400,
-    fontSize: 11,
+    fontSize: 11.sp,
   );
-  static const TextStyle s14RegularText = TextStyle(
+  static TextStyle s14RegularText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w400,
-    fontSize: 14,
+    fontSize: 14.sp,
   );
-  static const TextStyle s17RegularText = TextStyle(
+  static TextStyle s17RegularText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w400,
-    fontSize: 17,
+    fontSize: 17.sp,
   );
 
   // Medium
-  static const TextStyle mediumText = TextStyle(
+  static TextStyle mediumText = const TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w500,
   );
-  static const TextStyle s11MediumText = TextStyle(
+  static TextStyle s11MediumText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w500,
-    fontSize: 11,
+    fontSize: 11.sp,
   );
-  static const TextStyle s14MediumText = TextStyle(
+  static TextStyle s14MediumText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w500,
-    fontSize: 14,
+    fontSize: 14.sp,
   );
-  static const TextStyle s17MediumText = TextStyle(
+  static TextStyle s17MediumText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w500,
-    fontSize: 17,
+    fontSize: 17.sp,
   );
 
   // Bold
-  static const TextStyle boldText = TextStyle(
+  static TextStyle boldText = const TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w600,
   );
-  static const TextStyle s11BoldText = TextStyle(
+  static TextStyle s11BoldText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w600,
-    fontSize: 11,
+    fontSize: 11.sp,
   );
-  static const TextStyle s14BoldText = TextStyle(
+  static TextStyle s14BoldText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w600,
-    fontSize: 14,
+    fontSize: 14.sp,
   );
-  static const TextStyle s17BoldText = TextStyle(
+  static TextStyle s17BoldText = TextStyle(
     color: ColorStyles.zodiacBlue,
     fontWeight: FontWeight.w600,
-    fontSize: 17,
+    fontSize: 17.sp,
   );
 }

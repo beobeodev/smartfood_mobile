@@ -31,9 +31,21 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/calo.svg
+  SvgGenImage get calo => const SvgGenImage('assets/icons/calo.svg');
+
+  $AssetsIconsDifficultyLevelGen get difficultyLevel =>
+      const $AssetsIconsDifficultyLevelGen();
+
+  /// File path: assets/icons/filter.svg
+  SvgGenImage get filter => const SvgGenImage('assets/icons/filter.svg');
+
   $AssetsIconsHomeGen get home => const $AssetsIconsHomeGen();
   $AssetsIconsLauncherGen get launcher => const $AssetsIconsLauncherGen();
   $AssetsIconsNavbarGen get navbar => const $AssetsIconsNavbarGen();
+
+  /// List of all assets
+  List<SvgGenImage> get values => [calo, filter];
 }
 
 class $AssetsImagesGen {
@@ -66,6 +78,25 @@ class $AssetsModelsGen {
 
   /// List of all assets
   List<String> get values => [best, labels];
+}
+
+class $AssetsIconsDifficultyLevelGen {
+  const $AssetsIconsDifficultyLevelGen();
+
+  /// File path: assets/icons/difficulty_level/easy.svg
+  SvgGenImage get easy =>
+      const SvgGenImage('assets/icons/difficulty_level/easy.svg');
+
+  /// File path: assets/icons/difficulty_level/hard.svg
+  SvgGenImage get hard =>
+      const SvgGenImage('assets/icons/difficulty_level/hard.svg');
+
+  /// File path: assets/icons/difficulty_level/medium.svg
+  SvgGenImage get medium =>
+      const SvgGenImage('assets/icons/difficulty_level/medium.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [easy, hard, medium];
 }
 
 class $AssetsIconsHomeGen {

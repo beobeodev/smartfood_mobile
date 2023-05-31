@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SearchIngredientEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function() started,
     required TResult Function(String text) searched,
     required TResult Function(List<String> filters) filtered,
     required TResult Function() refresh,
@@ -27,7 +27,7 @@ mixin _$SearchIngredientEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function()? started,
     TResult? Function(String text)? searched,
     TResult? Function(List<String> filters)? filtered,
     TResult? Function()? refresh,
@@ -36,7 +36,7 @@ mixin _$SearchIngredientEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function()? started,
     TResult Function(String text)? searched,
     TResult Function(List<String> filters)? filtered,
     TResult Function()? refresh,
@@ -98,10 +98,6 @@ abstract class _$$_StartedCopyWith<$Res> {
   factory _$$_StartedCopyWith(
           _$_Started value, $Res Function(_$_Started) then) =
       __$$_StartedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PaginationQueryDTO query});
-
-  $PaginationQueryDTOCopyWith<$Res> get query;
 }
 
 /// @nodoc
@@ -110,87 +106,55 @@ class __$$_StartedCopyWithImpl<$Res>
     implements _$$_StartedCopyWith<$Res> {
   __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? query = null,
-  }) {
-    return _then(_$_Started(
-      query: null == query
-          ? _value.query
-          : query // ignore: cast_nullable_to_non_nullable
-              as PaginationQueryDTO,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PaginationQueryDTOCopyWith<$Res> get query {
-    return $PaginationQueryDTOCopyWith<$Res>(_value.query, (value) {
-      return _then(_value.copyWith(query: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_Started implements _Started {
-  const _$_Started({required this.query});
-
-  @override
-  final PaginationQueryDTO query;
+  const _$_Started();
 
   @override
   String toString() {
-    return 'SearchIngredientEvent.started(query: $query)';
+    return 'SearchIngredientEvent.started()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Started &&
-            (identical(other.query, query) || other.query == query));
+        (other.runtimeType == runtimeType && other is _$_Started);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, query);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function() started,
     required TResult Function(String text) searched,
     required TResult Function(List<String> filters) filtered,
     required TResult Function() refresh,
     required TResult Function() loadMore,
   }) {
-    return started(query);
+    return started();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function()? started,
     TResult? Function(String text)? searched,
     TResult? Function(List<String> filters)? filtered,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
   }) {
-    return started?.call(query);
+    return started?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function()? started,
     TResult Function(String text)? searched,
     TResult Function(List<String> filters)? filtered,
     TResult Function()? refresh,
@@ -198,7 +162,7 @@ class _$_Started implements _Started {
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started(query);
+      return started();
     }
     return orElse();
   }
@@ -245,13 +209,7 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements SearchIngredientEvent {
-  const factory _Started({required final PaginationQueryDTO query}) =
-      _$_Started;
-
-  PaginationQueryDTO get query;
-  @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _Started() = _$_Started;
 }
 
 /// @nodoc
@@ -318,7 +276,7 @@ class _$_Searched implements _Searched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function() started,
     required TResult Function(String text) searched,
     required TResult Function(List<String> filters) filtered,
     required TResult Function() refresh,
@@ -330,7 +288,7 @@ class _$_Searched implements _Searched {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function()? started,
     TResult? Function(String text)? searched,
     TResult? Function(List<String> filters)? filtered,
     TResult? Function()? refresh,
@@ -342,7 +300,7 @@ class _$_Searched implements _Searched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function()? started,
     TResult Function(String text)? searched,
     TResult Function(List<String> filters)? filtered,
     TResult Function()? refresh,
@@ -475,7 +433,7 @@ class _$_Filtered implements _Filtered {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function() started,
     required TResult Function(String text) searched,
     required TResult Function(List<String> filters) filtered,
     required TResult Function() refresh,
@@ -487,7 +445,7 @@ class _$_Filtered implements _Filtered {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function()? started,
     TResult? Function(String text)? searched,
     TResult? Function(List<String> filters)? filtered,
     TResult? Function()? refresh,
@@ -499,7 +457,7 @@ class _$_Filtered implements _Filtered {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function()? started,
     TResult Function(String text)? searched,
     TResult Function(List<String> filters)? filtered,
     TResult Function()? refresh,
@@ -599,7 +557,7 @@ class _$_Refresh implements _Refresh {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function() started,
     required TResult Function(String text) searched,
     required TResult Function(List<String> filters) filtered,
     required TResult Function() refresh,
@@ -611,7 +569,7 @@ class _$_Refresh implements _Refresh {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function()? started,
     TResult? Function(String text)? searched,
     TResult? Function(List<String> filters)? filtered,
     TResult? Function()? refresh,
@@ -623,7 +581,7 @@ class _$_Refresh implements _Refresh {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function()? started,
     TResult Function(String text)? searched,
     TResult Function(List<String> filters)? filtered,
     TResult Function()? refresh,
@@ -719,7 +677,7 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query) started,
+    required TResult Function() started,
     required TResult Function(String text) searched,
     required TResult Function(List<String> filters) filtered,
     required TResult Function() refresh,
@@ -731,7 +689,7 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query)? started,
+    TResult? Function()? started,
     TResult? Function(String text)? searched,
     TResult? Function(List<String> filters)? filtered,
     TResult? Function()? refresh,
@@ -743,7 +701,7 @@ class _$_LoadMore implements _LoadMore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query)? started,
+    TResult Function()? started,
     TResult Function(String text)? searched,
     TResult Function(List<String> filters)? filtered,
     TResult Function()? refresh,
@@ -804,56 +762,44 @@ abstract class _LoadMore implements SearchIngredientEvent {
 /// @nodoc
 mixin _$SearchIngredientState {
   PaginationQueryDTO get query => throw _privateConstructorUsedError;
-  GetIngredientType get getType => throw _privateConstructorUsedError;
+  QueryType get getType => throw _privateConstructorUsedError;
   List<IngredientModel>? get ingredients => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query,
-            GetIngredientType getType, List<IngredientModel>? ingredients)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel> ingredients,
-            bool canLoadMore)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel> ingredients, bool canLoadMore)
         success,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)
         failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
     required TResult orElse(),
   }) =>
@@ -894,7 +840,7 @@ abstract class $SearchIngredientStateCopyWith<$Res> {
   @useResult
   $Res call(
       {PaginationQueryDTO query,
-      GetIngredientType getType,
+      QueryType getType,
       List<IngredientModel> ingredients});
 
   $PaginationQueryDTOCopyWith<$Res> get query;
@@ -926,7 +872,7 @@ class _$SearchIngredientStateCopyWithImpl<$Res,
       getType: null == getType
           ? _value.getType
           : getType // ignore: cast_nullable_to_non_nullable
-              as GetIngredientType,
+              as QueryType,
       ingredients: null == ingredients
           ? _value.ingredients!
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -953,7 +899,7 @@ abstract class _$$_LoadingCopyWith<$Res>
   @useResult
   $Res call(
       {PaginationQueryDTO query,
-      GetIngredientType getType,
+      QueryType getType,
       List<IngredientModel>? ingredients});
 
   @override
@@ -982,7 +928,7 @@ class __$$_LoadingCopyWithImpl<$Res>
       getType: null == getType
           ? _value.getType
           : getType // ignore: cast_nullable_to_non_nullable
-              as GetIngredientType,
+              as QueryType,
       ingredients: freezed == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -996,7 +942,7 @@ class __$$_LoadingCopyWithImpl<$Res>
 class _$_Loading implements _Loading {
   const _$_Loading(
       {required this.query,
-      this.getType = GetIngredientType.initial,
+      this.getType = QueryType.initial,
       final List<IngredientModel>? ingredients})
       : _ingredients = ingredients;
 
@@ -1004,7 +950,7 @@ class _$_Loading implements _Loading {
   final PaginationQueryDTO query;
   @override
   @JsonKey()
-  final GetIngredientType getType;
+  final QueryType getType;
   final List<IngredientModel>? _ingredients;
   @override
   List<IngredientModel>? get ingredients {
@@ -1044,20 +990,14 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query,
-            GetIngredientType getType, List<IngredientModel>? ingredients)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel> ingredients,
-            bool canLoadMore)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel> ingredients, bool canLoadMore)
         success,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)
         failure,
   }) {
     return loading(query, getType, ingredients);
@@ -1066,17 +1006,14 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
   }) {
     return loading?.call(query, getType, ingredients);
@@ -1085,17 +1022,14 @@ class _$_Loading implements _Loading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
     required TResult orElse(),
   }) {
@@ -1143,13 +1077,13 @@ class _$_Loading implements _Loading {
 abstract class _Loading implements SearchIngredientState {
   const factory _Loading(
       {required final PaginationQueryDTO query,
-      final GetIngredientType getType,
+      final QueryType getType,
       final List<IngredientModel>? ingredients}) = _$_Loading;
 
   @override
   PaginationQueryDTO get query;
   @override
-  GetIngredientType get getType;
+  QueryType get getType;
   @override
   List<IngredientModel>? get ingredients;
   @override
@@ -1168,7 +1102,7 @@ abstract class _$$SearchIngredientSuccessCopyWith<$Res>
   @useResult
   $Res call(
       {PaginationQueryDTO query,
-      GetIngredientType getType,
+      QueryType getType,
       List<IngredientModel> ingredients,
       bool canLoadMore});
 
@@ -1200,7 +1134,7 @@ class __$$SearchIngredientSuccessCopyWithImpl<$Res>
       getType: null == getType
           ? _value.getType
           : getType // ignore: cast_nullable_to_non_nullable
-              as GetIngredientType,
+              as QueryType,
       ingredients: null == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -1218,7 +1152,7 @@ class __$$SearchIngredientSuccessCopyWithImpl<$Res>
 class _$SearchIngredientSuccess implements SearchIngredientSuccess {
   const _$SearchIngredientSuccess(
       {required this.query,
-      this.getType = GetIngredientType.initial,
+      this.getType = QueryType.initial,
       required final List<IngredientModel> ingredients,
       required this.canLoadMore})
       : _ingredients = ingredients;
@@ -1227,7 +1161,7 @@ class _$SearchIngredientSuccess implements SearchIngredientSuccess {
   final PaginationQueryDTO query;
   @override
   @JsonKey()
-  final GetIngredientType getType;
+  final QueryType getType;
   final List<IngredientModel> _ingredients;
   @override
   List<IngredientModel> get ingredients {
@@ -1271,20 +1205,14 @@ class _$SearchIngredientSuccess implements SearchIngredientSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query,
-            GetIngredientType getType, List<IngredientModel>? ingredients)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel> ingredients,
-            bool canLoadMore)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel> ingredients, bool canLoadMore)
         success,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)
         failure,
   }) {
     return success(query, getType, ingredients, canLoadMore);
@@ -1293,17 +1221,14 @@ class _$SearchIngredientSuccess implements SearchIngredientSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
   }) {
     return success?.call(query, getType, ingredients, canLoadMore);
@@ -1312,17 +1237,14 @@ class _$SearchIngredientSuccess implements SearchIngredientSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
     required TResult orElse(),
   }) {
@@ -1370,14 +1292,14 @@ class _$SearchIngredientSuccess implements SearchIngredientSuccess {
 abstract class SearchIngredientSuccess implements SearchIngredientState {
   const factory SearchIngredientSuccess(
       {required final PaginationQueryDTO query,
-      final GetIngredientType getType,
+      final QueryType getType,
       required final List<IngredientModel> ingredients,
       required final bool canLoadMore}) = _$SearchIngredientSuccess;
 
   @override
   PaginationQueryDTO get query;
   @override
-  GetIngredientType get getType;
+  QueryType get getType;
   @override
   List<IngredientModel> get ingredients;
   bool get canLoadMore;
@@ -1397,9 +1319,9 @@ abstract class _$$SearchIngredientFailureCopyWith<$Res>
   @useResult
   $Res call(
       {PaginationQueryDTO query,
-      GetIngredientType getType,
+      QueryType getType,
       List<IngredientModel>? ingredients,
-      GetIngredientErrorType errorType});
+      QueryErrorType errorType});
 
   @override
   $PaginationQueryDTOCopyWith<$Res> get query;
@@ -1429,7 +1351,7 @@ class __$$SearchIngredientFailureCopyWithImpl<$Res>
       getType: null == getType
           ? _value.getType
           : getType // ignore: cast_nullable_to_non_nullable
-              as GetIngredientType,
+              as QueryType,
       ingredients: freezed == ingredients
           ? _value._ingredients
           : ingredients // ignore: cast_nullable_to_non_nullable
@@ -1437,7 +1359,7 @@ class __$$SearchIngredientFailureCopyWithImpl<$Res>
       errorType: null == errorType
           ? _value.errorType
           : errorType // ignore: cast_nullable_to_non_nullable
-              as GetIngredientErrorType,
+              as QueryErrorType,
     ));
   }
 }
@@ -1447,16 +1369,16 @@ class __$$SearchIngredientFailureCopyWithImpl<$Res>
 class _$SearchIngredientFailure implements SearchIngredientFailure {
   const _$SearchIngredientFailure(
       {required this.query,
-      this.getType = GetIngredientType.initial,
+      this.getType = QueryType.initial,
       final List<IngredientModel>? ingredients,
-      this.errorType = GetIngredientErrorType.initial})
+      this.errorType = QueryErrorType.initial})
       : _ingredients = ingredients;
 
   @override
   final PaginationQueryDTO query;
   @override
   @JsonKey()
-  final GetIngredientType getType;
+  final QueryType getType;
   final List<IngredientModel>? _ingredients;
   @override
   List<IngredientModel>? get ingredients {
@@ -1469,7 +1391,7 @@ class _$SearchIngredientFailure implements SearchIngredientFailure {
 
   @override
   @JsonKey()
-  final GetIngredientErrorType errorType;
+  final QueryErrorType errorType;
 
   @override
   String toString() {
@@ -1503,20 +1425,14 @@ class _$SearchIngredientFailure implements SearchIngredientFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PaginationQueryDTO query,
-            GetIngredientType getType, List<IngredientModel>? ingredients)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients)
         loading,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel> ingredients,
-            bool canLoadMore)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel> ingredients, bool canLoadMore)
         success,
-    required TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)
+    required TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)
         failure,
   }) {
     return failure(query, getType, ingredients, errorType);
@@ -1525,17 +1441,14 @@ class _$SearchIngredientFailure implements SearchIngredientFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult? Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult? Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult? Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
   }) {
     return failure?.call(query, getType, ingredients, errorType);
@@ -1544,17 +1457,14 @@ class _$SearchIngredientFailure implements SearchIngredientFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel>? ingredients)?
         loading,
-    TResult Function(PaginationQueryDTO query, GetIngredientType getType,
+    TResult Function(PaginationQueryDTO query, QueryType getType,
             List<IngredientModel> ingredients, bool canLoadMore)?
         success,
-    TResult Function(
-            PaginationQueryDTO query,
-            GetIngredientType getType,
-            List<IngredientModel>? ingredients,
-            GetIngredientErrorType errorType)?
+    TResult Function(PaginationQueryDTO query, QueryType getType,
+            List<IngredientModel>? ingredients, QueryErrorType errorType)?
         failure,
     required TResult orElse(),
   }) {
@@ -1602,17 +1512,17 @@ class _$SearchIngredientFailure implements SearchIngredientFailure {
 abstract class SearchIngredientFailure implements SearchIngredientState {
   const factory SearchIngredientFailure(
       {required final PaginationQueryDTO query,
-      final GetIngredientType getType,
+      final QueryType getType,
       final List<IngredientModel>? ingredients,
-      final GetIngredientErrorType errorType}) = _$SearchIngredientFailure;
+      final QueryErrorType errorType}) = _$SearchIngredientFailure;
 
   @override
   PaginationQueryDTO get query;
   @override
-  GetIngredientType get getType;
+  QueryType get getType;
   @override
   List<IngredientModel>? get ingredients;
-  GetIngredientErrorType get errorType;
+  QueryErrorType get errorType;
   @override
   @JsonKey(ignore: true)
   _$$SearchIngredientFailureCopyWith<_$SearchIngredientFailure> get copyWith =>

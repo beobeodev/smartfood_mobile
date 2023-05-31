@@ -5,6 +5,7 @@ import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/core/views/root.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/recipe/recipe.dart';
+import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/recipe_list/recipe_list.dart';
 import 'package:smarthealthy/presentation/splash/splash.dart';
 
@@ -26,6 +27,7 @@ abstract class AppRouter {
   static const String recipeList = '/recipe_list';
   static const String recipeDetail = '/recipe_detail';
   static const String recipeStep = '/recipe_step';
+  static const String recipeFilter = '/recipe_filter';
 
   static const String imagePicker = '/image_picker';
 
@@ -35,18 +37,21 @@ abstract class AppRouter {
     switch (settings.name) {
       case splash:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return const SplashPage();
           },
         );
       case login:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return const LoginPage();
           },
         );
       case root:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return const RootPage();
           },
@@ -55,6 +60,7 @@ abstract class AppRouter {
         final bloc = arguments as IngredientListBloc;
 
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return BlocProvider.value(
               value: bloc,
@@ -64,12 +70,14 @@ abstract class AppRouter {
         );
       case imagePicker:
         return MaterialPageRoute<List<ImageObject>?>(
+          settings: settings,
           builder: (_) {
             return const ImagePicker();
           },
         );
       case detectIngredient:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return IngredientDetectionPage(
               imagePaths: settings.arguments as List<String>,
@@ -78,22 +86,32 @@ abstract class AppRouter {
         );
       case recipeList:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return RecipeListPage(
-              ingredientIds: arguments as List<String>,
+              ingredientIds: arguments as List<String>?,
             );
           },
         );
       case recipeDetail:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return const RecipeDetailPage();
           },
         );
       case recipeStep:
         return MaterialPageRoute(
+          settings: settings,
           builder: (_) {
             return const RecipeStepPage();
+          },
+        );
+      case recipeFilter:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const RecipeFilterPage();
           },
         );
       default:

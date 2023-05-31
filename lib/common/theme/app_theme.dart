@@ -10,6 +10,7 @@ abstract class AppTheme {
   ];
 
   static final ThemeData themeData = ThemeData(
-    useMaterial3: true,
+    fontFamily: 'Mulish',
+    scaffoldBackgroundColor: Colors.white,
   );
 }

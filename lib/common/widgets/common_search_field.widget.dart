@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/app_text_form_field.widget.dart';
 
 class CommonSearchField extends StatelessWidget {
@@ -7,6 +6,7 @@ class CommonSearchField extends StatelessWidget {
   final void Function()? onTap;
   final String? hintText;
   final bool readOnly;
+  final bool autoFocus;
 
   const CommonSearchField({
     super.key,
@@ -14,6 +14,7 @@ class CommonSearchField extends StatelessWidget {
     this.onTap,
     this.hintText,
     this.readOnly = false,
+    this.autoFocus = false,
   });
 
   @override
@@ -23,13 +24,11 @@ class CommonSearchField extends StatelessWidget {
       prefixIcon: Icons.search,
       extendField: false,
       borderRadius: 1000,
-      borderColor: Colors.transparent,
-      prefixIconColor: ColorStyles.primary,
-      fillColor: ColorStyles.antiFlashWhite,
       focusedBorderColor: Colors.transparent,
       onTap: onTap,
       onFieldSubmitted: onFieldSubmitted,
       readOnly: readOnly,
+      autoFocus: autoFocus,
     );
   }
 }

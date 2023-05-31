@@ -1,6 +1,11 @@
+import 'dart:developer';
+
 import 'package:injectable/injectable.dart';
 import 'package:smarthealthy/common/constants/endpoints.dart';
 import 'package:smarthealthy/common/helpers/dio.helper.dart';
+import 'package:smarthealthy/data/dtos/get_recipes.dto.dart';
+import 'package:smarthealthy/data/dtos/pagination/pagination_meta.dto.dart';
+import 'package:smarthealthy/data/dtos/query_recipes.dto.dart';
 import 'package:smarthealthy/data/mock/recipe.mock.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/models/step.model.dart';
@@ -16,20 +21,37 @@ class RecipeDataSource {
     return RecipeMock.recipeSteps;
   }
 
-  Future<List<RecipeModel>> getRecipeByIngredients(
-    List<String> ingredientIds,
+  Future<GetRecipesDTO> getRecipeByIngredients(
+    QueryRecipesDTO queryDto,
   ) async {
     final response = await _dioHelper.get(
       Endpoints.getRecipesByIngredients,
-      queryParameters: {
-        'ids': ingredientIds,
-      },
+      queryParameters: {'ids': queryDto.ids},
     );
 
-    final result = (response.data as List<dynamic>)
-        .map((e) => RecipeModel.fromJson(e))
-        .toList();
+    log('message');
 
-    return result;
+    return GetRecipesDTO(
+      data: (response.data as List<dynamic>)
+          .map((e) => RecipeModel.fromJson(e))
+          .toList(),
+      meta: PaginationMetaDTO(
+        itemsPerPage: 10,
+        totalItems: 10,
+        currentPage: 1,
+        totalPages: 1,
+      ),
+    );
+  }
+
+  Future<GetRecipesDTO> getRecipes(
+    QueryRecipesDTO queryDto,
+  ) async {
+    final response = await _dioHelper.get(
+      Endpoints.recipe,
+      queryParameters: queryDto.pagination.toJson(),
+    );
+
+    return GetRecipesDTO.fromJson(response.data);
   }
 }

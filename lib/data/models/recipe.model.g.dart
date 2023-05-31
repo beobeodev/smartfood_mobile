@@ -10,12 +10,9 @@ _$_RecipeModel _$$_RecipeModelFromJson(Map<String, dynamic> json) =>
     _$_RecipeModel(
       id: json['id'] as String,
       name: json['name'] as String,
-      level: $enumDecode(_$RecipeLevelEnumMap, json['level']),
+      level: LevelModel.fromJson(json['level'] as Map<String, dynamic>),
+      category:
+          CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
+      cuisine: CuisineModel.fromJson(json['cuisine'] as Map<String, dynamic>),
       description: json['description'] as String,
     );
-
-const _$RecipeLevelEnumMap = {
-  RecipeLevel.easy: 'Dễ',
-  RecipeLevel.medium: 'Vừa',
-  RecipeLevel.hard: 'Khó',
-};

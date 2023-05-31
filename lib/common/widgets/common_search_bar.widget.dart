@@ -9,6 +9,7 @@ class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function()? onTap;
   final List<Widget>? actions;
   final String? hintText;
+  final bool autoFocus;
 
   const CommonSearchBar({
     super.key,
@@ -16,6 +17,7 @@ class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
     this.onTap,
     this.actions,
     this.hintText,
+    this.autoFocus = false,
   });
 
   @override
@@ -25,8 +27,8 @@ class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
         hintText: hintText,
         onTap: onTap,
         onFieldSubmitted: onFieldSubmitted,
+        autoFocus: autoFocus,
       ),
-      backgroundColor: Colors.white,
       titleColor: ColorStyles.primary,
       actions: [
         if (actions != null) ...actions!,

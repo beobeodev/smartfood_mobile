@@ -11,16 +11,17 @@ class AppTextFormField extends StatelessWidget {
     this.extendField = true,
     this.enabled = true,
     this.isCenterText = false,
+    this.autoFocus = false,
     this.hintText,
     this.errorText,
     this.labelText,
     this.initialValue,
     this.borderRadius = 6,
-    this.borderColor = ColorStyles.gray100,
-    this.focusedBorderColor = ColorStyles.blue400,
-    this.fillColor = Colors.white,
+    this.borderColor = Colors.transparent,
+    this.focusedBorderColor = ColorStyles.yellowGreen,
+    this.fillColor = ColorStyles.antiFlashWhite,
     this.hintColor = ColorStyles.gray200,
-    this.prefixIconColor,
+    this.prefixIconColor = ColorStyles.primary,
     this.suffixIconColor,
     this.suffixIcon,
     this.prefixIcon,
@@ -31,7 +32,7 @@ class AppTextFormField extends StatelessWidget {
     this.onFieldSubmitted,
     this.onTapPrefixIcon,
     this.onTapSuffixIcon,
-    this.labelStyle = TextStyles.s14MediumText,
+    this.labelStyle,
     this.focusNode,
   }) : super(key: key);
 
@@ -42,6 +43,7 @@ class AppTextFormField extends StatelessWidget {
   final bool extendField;
   final bool enabled;
   final bool isCenterText;
+  final bool autoFocus;
 
   final String? hintText;
   final String? errorText;
@@ -82,7 +84,7 @@ class AppTextFormField extends StatelessWidget {
         if (labelText != null)
           Text(
             labelText!,
-            style: labelStyle,
+            style: labelStyle ?? TextStyles.s14MediumText,
           ),
         if (labelText != null)
           const SizedBox(
@@ -93,6 +95,7 @@ class AppTextFormField extends StatelessWidget {
           child: TextFormField(
             controller: textController,
             focusNode: focusNode,
+            autofocus: autoFocus,
             textInputAction: TextInputAction.done,
             onChanged: onChanged,
             onTap: onTap,

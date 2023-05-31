@@ -1,4 +1,4 @@
-enum GetIngredientErrorType {
+enum QueryErrorType {
   initial,
   notFound,
   refresh,

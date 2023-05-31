@@ -20,7 +20,7 @@ GetIngredientDTO _$GetIngredientDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetIngredientDTO {
-  List<IngredientModel> get content => throw _privateConstructorUsedError;
+  List<IngredientModel> get data => throw _privateConstructorUsedError;
   PaginationMetaDTO get meta => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $GetIngredientDTOCopyWith<$Res> {
           GetIngredientDTO value, $Res Function(GetIngredientDTO) then) =
       _$GetIngredientDTOCopyWithImpl<$Res, GetIngredientDTO>;
   @useResult
-  $Res call({List<IngredientModel> content, PaginationMetaDTO meta});
+  $Res call({List<IngredientModel> data, PaginationMetaDTO meta});
 
   $PaginationMetaDTOCopyWith<$Res> get meta;
 }
@@ -52,13 +52,13 @@ class _$GetIngredientDTOCopyWithImpl<$Res, $Val extends GetIngredientDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? content = null,
+    Object? data = null,
     Object? meta = null,
   }) {
     return _then(_value.copyWith(
-      content: null == content
-          ? _value.content
-          : content // ignore: cast_nullable_to_non_nullable
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
               as List<IngredientModel>,
       meta: null == meta
           ? _value.meta
@@ -84,7 +84,7 @@ abstract class _$$_GetIngredientDTOCopyWith<$Res>
       __$$_GetIngredientDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<IngredientModel> content, PaginationMetaDTO meta});
+  $Res call({List<IngredientModel> data, PaginationMetaDTO meta});
 
   @override
   $PaginationMetaDTOCopyWith<$Res> get meta;
@@ -101,13 +101,13 @@ class __$$_GetIngredientDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? content = null,
+    Object? data = null,
     Object? meta = null,
   }) {
     return _then(_$_GetIngredientDTO(
-      content: null == content
-          ? _value._content
-          : content // ignore: cast_nullable_to_non_nullable
+      data: null == data
+          ? _value._data
+          : data // ignore: cast_nullable_to_non_nullable
               as List<IngredientModel>,
       meta: null == meta
           ? _value.meta
@@ -121,18 +121,18 @@ class __$$_GetIngredientDTOCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$_GetIngredientDTO implements _GetIngredientDTO {
   const _$_GetIngredientDTO(
-      {required final List<IngredientModel> content, required this.meta})
-      : _content = content;
+      {required final List<IngredientModel> data, required this.meta})
+      : _data = data;
 
   factory _$_GetIngredientDTO.fromJson(Map<String, dynamic> json) =>
       _$$_GetIngredientDTOFromJson(json);
 
-  final List<IngredientModel> _content;
+  final List<IngredientModel> _data;
   @override
-  List<IngredientModel> get content {
-    if (_content is EqualUnmodifiableListView) return _content;
+  List<IngredientModel> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_content);
+    return EqualUnmodifiableListView(_data);
   }
 
   @override
@@ -140,7 +140,7 @@ class _$_GetIngredientDTO implements _GetIngredientDTO {
 
   @override
   String toString() {
-    return 'GetIngredientDTO(content: $content, meta: $meta)';
+    return 'GetIngredientDTO(data: $data, meta: $meta)';
   }
 
   @override
@@ -148,14 +148,14 @@ class _$_GetIngredientDTO implements _GetIngredientDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_GetIngredientDTO &&
-            const DeepCollectionEquality().equals(other._content, _content) &&
+            const DeepCollectionEquality().equals(other._data, _data) &&
             (identical(other.meta, meta) || other.meta == meta));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_content), meta);
+      runtimeType, const DeepCollectionEquality().hash(_data), meta);
 
   @JsonKey(ignore: true)
   @override
@@ -166,14 +166,14 @@ class _$_GetIngredientDTO implements _GetIngredientDTO {
 
 abstract class _GetIngredientDTO implements GetIngredientDTO {
   const factory _GetIngredientDTO(
-      {required final List<IngredientModel> content,
+      {required final List<IngredientModel> data,
       required final PaginationMetaDTO meta}) = _$_GetIngredientDTO;
 
   factory _GetIngredientDTO.fromJson(Map<String, dynamic> json) =
       _$_GetIngredientDTO.fromJson;
 
   @override
-  List<IngredientModel> get content;
+  List<IngredientModel> get data;
   @override
   PaginationMetaDTO get meta;
   @override

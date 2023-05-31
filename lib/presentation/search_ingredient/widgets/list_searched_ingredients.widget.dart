@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/constants/enums/get_ingredient_error_type.enum.dart';
-import 'package:smarthealthy/common/constants/enums/get_ingredient_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_error_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/common_not_found.widget.dart';
@@ -17,11 +17,11 @@ class ListSearchedIngredients extends StatelessWidget {
     BuildContext context,
   ) {
     switch (errorState.errorType) {
-      case GetIngredientErrorType.notFound:
+      case QueryErrorType.notFound:
         return CommonNotFound(
           text: LocaleKeys.search_ingredient_not_found.tr(),
         );
-      case GetIngredientErrorType.initial:
+      case QueryErrorType.initial:
         return const CommonError();
       default:
         return const SizedBox.shrink();
@@ -40,8 +40,7 @@ class ListSearchedIngredients extends StatelessWidget {
             failure: (errorState) => _getFailWidget(errorState, context),
           );
         },
-        buildWhen: (previous, current) =>
-            current.getType == GetIngredientType.initial,
+        buildWhen: (previous, current) => current.getType == QueryType.initial,
       ),
     );
   }

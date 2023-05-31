@@ -2,9 +2,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 enum RecipeLevel {
   @JsonValue('Dễ')
-  easy,
+  easy('Dễ'),
   @JsonValue('Vừa')
-  medium,
+  medium('Vừa'),
   @JsonValue('Khó')
-  hard,
+  hard('Khó');
+
+  final String value;
+
+  const RecipeLevel(this.value);
 }

@@ -26,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     this.isCenterTitle = true,
     this.automaticallyImplyLeading = true,
-    this.backgroundColor = Colors.transparent,
+    this.backgroundColor = Colors.white,
     this.titleColor = ColorStyles.zodiacBlue,
     this.toolbarHeight = AppSize.appBarHeight,
     this.titleSpacing = AppSize.titleSpacing,
@@ -41,6 +41,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           'Title must be a widget or string ',
         );
 
+  bool _canPop(BuildContext context) {
+    return automaticallyImplyLeading && Navigator.of(context).canPop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -48,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: backgroundColor,
       elevation: elevation,
       toolbarHeight: toolbarHeight,
-      titleSpacing: titleSpacing,
+      titleSpacing: _canPop(context) ? 0 : titleSpacing,
       automaticallyImplyLeading: false,
       title: title is Widget
           ? title
@@ -64,9 +68,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       actions: actions,
-      leading: (automaticallyImplyLeading && Navigator.of(context).canPop())
-          ? const AppBackButton()
-          : null,
+      leading: _canPop(context) ? const AppBackButton() : null,
     );
   }
 

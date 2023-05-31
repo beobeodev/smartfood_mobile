@@ -32,6 +32,7 @@
     "not_match_password": "Password and confirm password not match"
   },
   "search": {
-    "ingredient_not_found": "Did not find any ingredients for your search"
+    "ingredient_not_found": "Did not find any ingredients for your search",
+    "recipe": "Search for recipes"
   }
 }

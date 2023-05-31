@@ -28,6 +28,7 @@ abstract class  LocaleKeys {
   static const validator_not_match_password = 'validator.not_match_password';
   static const validator = 'validator';
   static const search_ingredient_not_found = 'search.ingredient_not_found';
+  static const search_recipe = 'search.recipe';
   static const search = 'search';
 
 }

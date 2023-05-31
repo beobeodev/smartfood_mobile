@@ -33,11 +33,12 @@ abstract class ColorStyles {
   static const Color gray600 = Color(0xFF666666);
   static const Color gray700 = Color(0xFF4D4D4D);
 
-  // New color
+  // Complementary colors
   static const Color zodiacBlue = Color(0xFF0F2D52);
   static const Color primary = Color(0xFFEC714C);
+  static const Color yellowGreen = Color(0xFF86BF3E);
+
   static const Color highlight = Color(0xFFE23E3E);
-  static const Color limeGreen = Color(0xFF38E54D);
   static const Color antiFlashWhite = Color(0xFFF1F1F1);
   static Color scaffoldBackground = Colors.grey[50]!;
   static const Color tint100 = Color.fromRGBO(248, 250, 252, 1);

@@ -17,8 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PaginationQueryDTO {
   int get page => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
-  List<String>? get sort => throw _privateConstructorUsedError;
+  int get limit => throw _privateConstructorUsedError;
+  @SortByConverter()
+  List<SortDTO>? get sortBy => throw _privateConstructorUsedError;
   List<String>? get filter => throw _privateConstructorUsedError;
   String? get search => throw _privateConstructorUsedError;
 
@@ -36,8 +37,8 @@ abstract class $PaginationQueryDTOCopyWith<$Res> {
   @useResult
   $Res call(
       {int page,
-      int size,
-      List<String>? sort,
+      int limit,
+      @SortByConverter() List<SortDTO>? sortBy,
       List<String>? filter,
       String? search});
 }
@@ -56,8 +57,8 @@ class _$PaginationQueryDTOCopyWithImpl<$Res, $Val extends PaginationQueryDTO>
   @override
   $Res call({
     Object? page = null,
-    Object? size = null,
-    Object? sort = freezed,
+    Object? limit = null,
+    Object? sortBy = freezed,
     Object? filter = freezed,
     Object? search = freezed,
   }) {
@@ -66,14 +67,14 @@ class _$PaginationQueryDTOCopyWithImpl<$Res, $Val extends PaginationQueryDTO>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
               as int,
-      sort: freezed == sort
-          ? _value.sort
-          : sort // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      sortBy: freezed == sortBy
+          ? _value.sortBy
+          : sortBy // ignore: cast_nullable_to_non_nullable
+              as List<SortDTO>?,
       filter: freezed == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
@@ -96,8 +97,8 @@ abstract class _$$_PaginationQueryDTOCopyWith<$Res>
   @useResult
   $Res call(
       {int page,
-      int size,
-      List<String>? sort,
+      int limit,
+      @SortByConverter() List<SortDTO>? sortBy,
       List<String>? filter,
       String? search});
 }
@@ -114,8 +115,8 @@ class __$$_PaginationQueryDTOCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = null,
-    Object? size = null,
-    Object? sort = freezed,
+    Object? limit = null,
+    Object? sortBy = freezed,
     Object? filter = freezed,
     Object? search = freezed,
   }) {
@@ -124,14 +125,14 @@ class __$$_PaginationQueryDTOCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
+      limit: null == limit
+          ? _value.limit
+          : limit // ignore: cast_nullable_to_non_nullable
               as int,
-      sort: freezed == sort
-          ? _value._sort
-          : sort // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      sortBy: freezed == sortBy
+          ? _value._sortBy
+          : sortBy // ignore: cast_nullable_to_non_nullable
+              as List<SortDTO>?,
       filter: freezed == filter
           ? _value._filter
           : filter // ignore: cast_nullable_to_non_nullable
@@ -151,11 +152,11 @@ class __$$_PaginationQueryDTOCopyWithImpl<$Res>
 class _$_PaginationQueryDTO implements _PaginationQueryDTO {
   const _$_PaginationQueryDTO(
       {this.page = 1,
-      this.size = 50,
-      final List<String>? sort,
+      this.limit = 50,
+      @SortByConverter() final List<SortDTO>? sortBy,
       final List<String>? filter,
       this.search})
-      : _sort = sort,
+      : _sortBy = sortBy,
         _filter = filter;
 
   @override
@@ -163,13 +164,14 @@ class _$_PaginationQueryDTO implements _PaginationQueryDTO {
   final int page;
   @override
   @JsonKey()
-  final int size;
-  final List<String>? _sort;
+  final int limit;
+  final List<SortDTO>? _sortBy;
   @override
-  List<String>? get sort {
-    final value = _sort;
+  @SortByConverter()
+  List<SortDTO>? get sortBy {
+    final value = _sortBy;
     if (value == null) return null;
-    if (_sort is EqualUnmodifiableListView) return _sort;
+    if (_sortBy is EqualUnmodifiableListView) return _sortBy;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -189,7 +191,7 @@ class _$_PaginationQueryDTO implements _PaginationQueryDTO {
 
   @override
   String toString() {
-    return 'PaginationQueryDTO(page: $page, size: $size, sort: $sort, filter: $filter, search: $search)';
+    return 'PaginationQueryDTO(page: $page, limit: $limit, sortBy: $sortBy, filter: $filter, search: $search)';
   }
 
   @override
@@ -198,8 +200,8 @@ class _$_PaginationQueryDTO implements _PaginationQueryDTO {
         (other.runtimeType == runtimeType &&
             other is _$_PaginationQueryDTO &&
             (identical(other.page, page) || other.page == page) &&
-            (identical(other.size, size) || other.size == size) &&
-            const DeepCollectionEquality().equals(other._sort, _sort) &&
+            (identical(other.limit, limit) || other.limit == limit) &&
+            const DeepCollectionEquality().equals(other._sortBy, _sortBy) &&
             const DeepCollectionEquality().equals(other._filter, _filter) &&
             (identical(other.search, search) || other.search == search));
   }
@@ -209,8 +211,8 @@ class _$_PaginationQueryDTO implements _PaginationQueryDTO {
   int get hashCode => Object.hash(
       runtimeType,
       page,
-      size,
-      const DeepCollectionEquality().hash(_sort),
+      limit,
+      const DeepCollectionEquality().hash(_sortBy),
       const DeepCollectionEquality().hash(_filter),
       search);
 
@@ -232,17 +234,18 @@ class _$_PaginationQueryDTO implements _PaginationQueryDTO {
 abstract class _PaginationQueryDTO implements PaginationQueryDTO {
   const factory _PaginationQueryDTO(
       {final int page,
-      final int size,
-      final List<String>? sort,
+      final int limit,
+      @SortByConverter() final List<SortDTO>? sortBy,
       final List<String>? filter,
       final String? search}) = _$_PaginationQueryDTO;
 
   @override
   int get page;
   @override
-  int get size;
+  int get limit;
   @override
-  List<String>? get sort;
+  @SortByConverter()
+  List<SortDTO>? get sortBy;
   @override
   List<String>? get filter;
   @override

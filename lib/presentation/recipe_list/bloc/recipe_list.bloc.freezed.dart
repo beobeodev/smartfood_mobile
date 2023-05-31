@@ -16,42 +16,55 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RecipeListEvent {
-  List<String> get ingredientIds => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<String> ingredientIds) get,
+    required TResult Function(List<String> ingredientIds) getByIngredients,
+    required TResult Function() getAll,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<String> ingredientIds)? get,
+    TResult? Function(List<String> ingredientIds)? getByIngredients,
+    TResult? Function()? getAll,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<String> ingredientIds)? get,
+    TResult Function(List<String> ingredientIds)? getByIngredients,
+    TResult Function()? getAll,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Get value) get,
+    required TResult Function(_GetByIngredients value) getByIngredients,
+    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Get value)? get,
+    TResult? Function(_GetByIngredients value)? getByIngredients,
+    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Get value)? get,
+    TResult Function(_GetByIngredients value)? getByIngredients,
+    TResult Function(_GetAll value)? getAll,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $RecipeListEventCopyWith<RecipeListEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +73,6 @@ abstract class $RecipeListEventCopyWith<$Res> {
   factory $RecipeListEventCopyWith(
           RecipeListEvent value, $Res Function(RecipeListEvent) then) =
       _$RecipeListEventCopyWithImpl<$Res, RecipeListEvent>;
-  @useResult
-  $Res call({List<String> ingredientIds});
 }
 
 /// @nodoc
@@ -73,35 +84,23 @@ class _$RecipeListEventCopyWithImpl<$Res, $Val extends RecipeListEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? ingredientIds = null,
-  }) {
-    return _then(_value.copyWith(
-      ingredientIds: null == ingredientIds
-          ? _value.ingredientIds
-          : ingredientIds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_GetCopyWith<$Res> implements $RecipeListEventCopyWith<$Res> {
-  factory _$$_GetCopyWith(_$_Get value, $Res Function(_$_Get) then) =
-      __$$_GetCopyWithImpl<$Res>;
-  @override
+abstract class _$$_GetByIngredientsCopyWith<$Res> {
+  factory _$$_GetByIngredientsCopyWith(
+          _$_GetByIngredients value, $Res Function(_$_GetByIngredients) then) =
+      __$$_GetByIngredientsCopyWithImpl<$Res>;
   @useResult
   $Res call({List<String> ingredientIds});
 }
 
 /// @nodoc
-class __$$_GetCopyWithImpl<$Res>
-    extends _$RecipeListEventCopyWithImpl<$Res, _$_Get>
-    implements _$$_GetCopyWith<$Res> {
-  __$$_GetCopyWithImpl(_$_Get _value, $Res Function(_$_Get) _then)
+class __$$_GetByIngredientsCopyWithImpl<$Res>
+    extends _$RecipeListEventCopyWithImpl<$Res, _$_GetByIngredients>
+    implements _$$_GetByIngredientsCopyWith<$Res> {
+  __$$_GetByIngredientsCopyWithImpl(
+      _$_GetByIngredients _value, $Res Function(_$_GetByIngredients) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +108,7 @@ class __$$_GetCopyWithImpl<$Res>
   $Res call({
     Object? ingredientIds = null,
   }) {
-    return _then(_$_Get(
+    return _then(_$_GetByIngredients(
       null == ingredientIds
           ? _value._ingredientIds
           : ingredientIds // ignore: cast_nullable_to_non_nullable
@@ -120,8 +119,8 @@ class __$$_GetCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Get implements _Get {
-  const _$_Get(final List<String> ingredientIds)
+class _$_GetByIngredients implements _GetByIngredients {
+  const _$_GetByIngredients(final List<String> ingredientIds)
       : _ingredientIds = ingredientIds;
 
   final List<String> _ingredientIds;
@@ -134,14 +133,14 @@ class _$_Get implements _Get {
 
   @override
   String toString() {
-    return 'RecipeListEvent.get(ingredientIds: $ingredientIds)';
+    return 'RecipeListEvent.getByIngredients(ingredientIds: $ingredientIds)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Get &&
+            other is _$_GetByIngredients &&
             const DeepCollectionEquality()
                 .equals(other._ingredientIds, _ingredientIds));
   }
@@ -153,33 +152,42 @@ class _$_Get implements _Get {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GetCopyWith<_$_Get> get copyWith =>
-      __$$_GetCopyWithImpl<_$_Get>(this, _$identity);
+  _$$_GetByIngredientsCopyWith<_$_GetByIngredients> get copyWith =>
+      __$$_GetByIngredientsCopyWithImpl<_$_GetByIngredients>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<String> ingredientIds) get,
+    required TResult Function(List<String> ingredientIds) getByIngredients,
+    required TResult Function() getAll,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
   }) {
-    return get(ingredientIds);
+    return getByIngredients(ingredientIds);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<String> ingredientIds)? get,
+    TResult? Function(List<String> ingredientIds)? getByIngredients,
+    TResult? Function()? getAll,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
   }) {
-    return get?.call(ingredientIds);
+    return getByIngredients?.call(ingredientIds);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<String> ingredientIds)? get,
+    TResult Function(List<String> ingredientIds)? getByIngredients,
+    TResult Function()? getAll,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
     required TResult orElse(),
   }) {
-    if (get != null) {
-      return get(ingredientIds);
+    if (getByIngredients != null) {
+      return getByIngredients(ingredientIds);
     }
     return orElse();
   }
@@ -187,87 +195,398 @@ class _$_Get implements _Get {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Get value) get,
+    required TResult Function(_GetByIngredients value) getByIngredients,
+    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
   }) {
-    return get(this);
+    return getByIngredients(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Get value)? get,
+    TResult? Function(_GetByIngredients value)? getByIngredients,
+    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
   }) {
-    return get?.call(this);
+    return getByIngredients?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Get value)? get,
+    TResult Function(_GetByIngredients value)? getByIngredients,
+    TResult Function(_GetAll value)? getAll,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
     required TResult orElse(),
   }) {
-    if (get != null) {
-      return get(this);
+    if (getByIngredients != null) {
+      return getByIngredients(this);
     }
     return orElse();
   }
 }
 
-abstract class _Get implements RecipeListEvent {
-  const factory _Get(final List<String> ingredientIds) = _$_Get;
+abstract class _GetByIngredients implements RecipeListEvent {
+  const factory _GetByIngredients(final List<String> ingredientIds) =
+      _$_GetByIngredients;
+
+  List<String> get ingredientIds;
+  @JsonKey(ignore: true)
+  _$$_GetByIngredientsCopyWith<_$_GetByIngredients> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAllCopyWith<$Res> {
+  factory _$$_GetAllCopyWith(_$_GetAll value, $Res Function(_$_GetAll) then) =
+      __$$_GetAllCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetAllCopyWithImpl<$Res>
+    extends _$RecipeListEventCopyWithImpl<$Res, _$_GetAll>
+    implements _$$_GetAllCopyWith<$Res> {
+  __$$_GetAllCopyWithImpl(_$_GetAll _value, $Res Function(_$_GetAll) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetAll implements _GetAll {
+  const _$_GetAll();
 
   @override
-  List<String> get ingredientIds;
+  String toString() {
+    return 'RecipeListEvent.getAll()';
+  }
+
   @override
-  @JsonKey(ignore: true)
-  _$$_GetCopyWith<_$_Get> get copyWith => throw _privateConstructorUsedError;
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetAll);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<String> ingredientIds) getByIngredients,
+    required TResult Function() getAll,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return getAll();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> ingredientIds)? getByIngredients,
+    TResult? Function()? getAll,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return getAll?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> ingredientIds)? getByIngredients,
+    TResult Function()? getAll,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (getAll != null) {
+      return getAll();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetByIngredients value) getByIngredients,
+    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return getAll(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetByIngredients value)? getByIngredients,
+    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return getAll?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetByIngredients value)? getByIngredients,
+    TResult Function(_GetAll value)? getAll,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (getAll != null) {
+      return getAll(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAll implements RecipeListEvent {
+  const factory _GetAll() = _$_GetAll;
+}
+
+/// @nodoc
+abstract class _$$_RefreshCopyWith<$Res> {
+  factory _$$_RefreshCopyWith(
+          _$_Refresh value, $Res Function(_$_Refresh) then) =
+      __$$_RefreshCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshCopyWithImpl<$Res>
+    extends _$RecipeListEventCopyWithImpl<$Res, _$_Refresh>
+    implements _$$_RefreshCopyWith<$Res> {
+  __$$_RefreshCopyWithImpl(_$_Refresh _value, $Res Function(_$_Refresh) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Refresh implements _Refresh {
+  const _$_Refresh();
+
+  @override
+  String toString() {
+    return 'RecipeListEvent.refresh()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Refresh);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<String> ingredientIds) getByIngredients,
+    required TResult Function() getAll,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return refresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> ingredientIds)? getByIngredients,
+    TResult? Function()? getAll,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return refresh?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> ingredientIds)? getByIngredients,
+    TResult Function()? getAll,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetByIngredients value) getByIngredients,
+    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return refresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetByIngredients value)? getByIngredients,
+    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return refresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetByIngredients value)? getByIngredients,
+    TResult Function(_GetAll value)? getAll,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Refresh implements RecipeListEvent {
+  const factory _Refresh() = _$_Refresh;
+}
+
+/// @nodoc
+abstract class _$$_LoadMoreCopyWith<$Res> {
+  factory _$$_LoadMoreCopyWith(
+          _$_LoadMore value, $Res Function(_$_LoadMore) then) =
+      __$$_LoadMoreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadMoreCopyWithImpl<$Res>
+    extends _$RecipeListEventCopyWithImpl<$Res, _$_LoadMore>
+    implements _$$_LoadMoreCopyWith<$Res> {
+  __$$_LoadMoreCopyWithImpl(
+      _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_LoadMore implements _LoadMore {
+  const _$_LoadMore();
+
+  @override
+  String toString() {
+    return 'RecipeListEvent.loadMore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadMore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<String> ingredientIds) getByIngredients,
+    required TResult Function() getAll,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+  }) {
+    return loadMore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> ingredientIds)? getByIngredients,
+    TResult? Function()? getAll,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+  }) {
+    return loadMore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> ingredientIds)? getByIngredients,
+    TResult Function()? getAll,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetByIngredients value) getByIngredients,
+    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+  }) {
+    return loadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetByIngredients value)? getByIngredients,
+    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+  }) {
+    return loadMore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetByIngredients value)? getByIngredients,
+    TResult Function(_GetAll value)? getAll,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMore implements RecipeListEvent {
+  const factory _LoadMore() = _$_LoadMore;
 }
 
 /// @nodoc
 mixin _$RecipeListState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(List<RecipeModel> recipes) success,
-    required TResult Function() failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(List<RecipeModel> recipes)? success,
-    TResult? Function()? failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<RecipeModel> recipes)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) =>
+  QueryDataStatusDTO get queryStatus => throw _privateConstructorUsedError;
+  List<RecipeModel>? get recipes => throw _privateConstructorUsedError;
+  QueryRecipesDTO get queryDto => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $RecipeListStateCopyWith<RecipeListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -276,6 +595,14 @@ abstract class $RecipeListStateCopyWith<$Res> {
   factory $RecipeListStateCopyWith(
           RecipeListState value, $Res Function(RecipeListState) then) =
       _$RecipeListStateCopyWithImpl<$Res, RecipeListState>;
+  @useResult
+  $Res call(
+      {QueryDataStatusDTO queryStatus,
+      List<RecipeModel>? recipes,
+      QueryRecipesDTO queryDto});
+
+  $QueryDataStatusDTOCopyWith<$Res> get queryStatus;
+  $QueryRecipesDTOCopyWith<$Res> get queryDto;
 }
 
 /// @nodoc
@@ -287,362 +614,164 @@ class _$RecipeListStateCopyWithImpl<$Res, $Val extends RecipeListState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? queryStatus = null,
+    Object? recipes = freezed,
+    Object? queryDto = null,
+  }) {
+    return _then(_value.copyWith(
+      queryStatus: null == queryStatus
+          ? _value.queryStatus
+          : queryStatus // ignore: cast_nullable_to_non_nullable
+              as QueryDataStatusDTO,
+      recipes: freezed == recipes
+          ? _value.recipes
+          : recipes // ignore: cast_nullable_to_non_nullable
+              as List<RecipeModel>?,
+      queryDto: null == queryDto
+          ? _value.queryDto
+          : queryDto // ignore: cast_nullable_to_non_nullable
+              as QueryRecipesDTO,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QueryDataStatusDTOCopyWith<$Res> get queryStatus {
+    return $QueryDataStatusDTOCopyWith<$Res>(_value.queryStatus, (value) {
+      return _then(_value.copyWith(queryStatus: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QueryRecipesDTOCopyWith<$Res> get queryDto {
+    return $QueryRecipesDTOCopyWith<$Res>(_value.queryDto, (value) {
+      return _then(_value.copyWith(queryDto: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_LoadingCopyWith<$Res> {
-  factory _$$_LoadingCopyWith(
-          _$_Loading value, $Res Function(_$_Loading) then) =
-      __$$_LoadingCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_LoadingCopyWithImpl<$Res>
-    extends _$RecipeListStateCopyWithImpl<$Res, _$_Loading>
-    implements _$$_LoadingCopyWith<$Res> {
-  __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Loading implements _Loading {
-  const _$_Loading();
-
+abstract class _$$_RecipeListStateCopyWith<$Res>
+    implements $RecipeListStateCopyWith<$Res> {
+  factory _$$_RecipeListStateCopyWith(
+          _$_RecipeListState value, $Res Function(_$_RecipeListState) then) =
+      __$$_RecipeListStateCopyWithImpl<$Res>;
   @override
-  String toString() {
-    return 'RecipeListState.loading()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Loading);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(List<RecipeModel> recipes) success,
-    required TResult Function() failure,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(List<RecipeModel> recipes)? success,
-    TResult? Function()? failure,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<RecipeModel> recipes)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Loading implements RecipeListState {
-  const factory _Loading() = _$_Loading;
-}
-
-/// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<RecipeModel> recipes});
+  $Res call(
+      {QueryDataStatusDTO queryStatus,
+      List<RecipeModel>? recipes,
+      QueryRecipesDTO queryDto});
+
+  @override
+  $QueryDataStatusDTOCopyWith<$Res> get queryStatus;
+  @override
+  $QueryRecipesDTOCopyWith<$Res> get queryDto;
 }
 
 /// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$RecipeListStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
+class __$$_RecipeListStateCopyWithImpl<$Res>
+    extends _$RecipeListStateCopyWithImpl<$Res, _$_RecipeListState>
+    implements _$$_RecipeListStateCopyWith<$Res> {
+  __$$_RecipeListStateCopyWithImpl(
+      _$_RecipeListState _value, $Res Function(_$_RecipeListState) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recipes = null,
+    Object? queryStatus = null,
+    Object? recipes = freezed,
+    Object? queryDto = null,
   }) {
-    return _then(_$_Success(
-      null == recipes
+    return _then(_$_RecipeListState(
+      queryStatus: null == queryStatus
+          ? _value.queryStatus
+          : queryStatus // ignore: cast_nullable_to_non_nullable
+              as QueryDataStatusDTO,
+      recipes: freezed == recipes
           ? _value._recipes
           : recipes // ignore: cast_nullable_to_non_nullable
-              as List<RecipeModel>,
+              as List<RecipeModel>?,
+      queryDto: null == queryDto
+          ? _value.queryDto
+          : queryDto // ignore: cast_nullable_to_non_nullable
+              as QueryRecipesDTO,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Success implements _Success {
-  const _$_Success(final List<RecipeModel> recipes) : _recipes = recipes;
+class _$_RecipeListState implements _RecipeListState {
+  const _$_RecipeListState(
+      {required this.queryStatus,
+      final List<RecipeModel>? recipes,
+      required this.queryDto})
+      : _recipes = recipes;
 
-  final List<RecipeModel> _recipes;
   @override
-  List<RecipeModel> get recipes {
+  final QueryDataStatusDTO queryStatus;
+  final List<RecipeModel>? _recipes;
+  @override
+  List<RecipeModel>? get recipes {
+    final value = _recipes;
+    if (value == null) return null;
     if (_recipes is EqualUnmodifiableListView) return _recipes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_recipes);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
+  final QueryRecipesDTO queryDto;
+
+  @override
   String toString() {
-    return 'RecipeListState.success(recipes: $recipes)';
+    return 'RecipeListState(queryStatus: $queryStatus, recipes: $recipes, queryDto: $queryDto)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Success &&
-            const DeepCollectionEquality().equals(other._recipes, _recipes));
+            other is _$_RecipeListState &&
+            (identical(other.queryStatus, queryStatus) ||
+                other.queryStatus == queryStatus) &&
+            const DeepCollectionEquality().equals(other._recipes, _recipes) &&
+            (identical(other.queryDto, queryDto) ||
+                other.queryDto == queryDto));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_recipes));
+  int get hashCode => Object.hash(runtimeType, queryStatus,
+      const DeepCollectionEquality().hash(_recipes), queryDto);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(List<RecipeModel> recipes) success,
-    required TResult Function() failure,
-  }) {
-    return success(recipes);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(List<RecipeModel> recipes)? success,
-    TResult? Function()? failure,
-  }) {
-    return success?.call(recipes);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<RecipeModel> recipes)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(recipes);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
+  _$$_RecipeListStateCopyWith<_$_RecipeListState> get copyWith =>
+      __$$_RecipeListStateCopyWithImpl<_$_RecipeListState>(this, _$identity);
 }
 
-abstract class _Success implements RecipeListState {
-  const factory _Success(final List<RecipeModel> recipes) = _$_Success;
+abstract class _RecipeListState implements RecipeListState {
+  const factory _RecipeListState(
+      {required final QueryDataStatusDTO queryStatus,
+      final List<RecipeModel>? recipes,
+      required final QueryRecipesDTO queryDto}) = _$_RecipeListState;
 
-  List<RecipeModel> get recipes;
+  @override
+  QueryDataStatusDTO get queryStatus;
+  @override
+  List<RecipeModel>? get recipes;
+  @override
+  QueryRecipesDTO get queryDto;
+  @override
   @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
+  _$$_RecipeListStateCopyWith<_$_RecipeListState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_FailureCopyWith<$Res> {
-  factory _$$_FailureCopyWith(
-          _$_Failure value, $Res Function(_$_Failure) then) =
-      __$$_FailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_FailureCopyWithImpl<$Res>
-    extends _$RecipeListStateCopyWithImpl<$Res, _$_Failure>
-    implements _$$_FailureCopyWith<$Res> {
-  __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Failure implements _Failure {
-  const _$_Failure();
-
-  @override
-  String toString() {
-    return 'RecipeListState.failure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Failure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loading,
-    required TResult Function(List<RecipeModel> recipes) success,
-    required TResult Function() failure,
-  }) {
-    return failure();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loading,
-    TResult? Function(List<RecipeModel> recipes)? success,
-    TResult? Function()? failure,
-  }) {
-    return failure?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loading,
-    TResult Function(List<RecipeModel> recipes)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Loading value) loading,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Failure value) failure,
-  }) {
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Failure value)? failure,
-  }) {
-    return failure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Loading value)? loading,
-    TResult Function(_Success value)? success,
-    TResult Function(_Failure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Failure implements RecipeListState {
-  const factory _Failure() = _$_Failure;
 }

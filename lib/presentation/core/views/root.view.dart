@@ -4,6 +4,7 @@ import 'package:smarthealthy/presentation/core/widgets/app_bottom_navigation_bar
 import 'package:smarthealthy/presentation/core/widgets/custom_lazy_indexed_stack.widget.dart';
 import 'package:smarthealthy/presentation/favorite/favorite.dart';
 import 'package:smarthealthy/presentation/home/home.dart';
+import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
 import 'package:smarthealthy/presentation/profile/profile.dart';
 import 'package:smarthealthy/presentation/core/core.dart';
@@ -14,7 +15,9 @@ class RootPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => RootBloc(),
+      create: (_) => RootBloc(
+        recipeFilterBloc: context.read<RecipeFilterBloc>(),
+      ),
       child: const _RootView(),
     );
   }

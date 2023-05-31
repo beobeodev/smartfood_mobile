@@ -10,7 +10,7 @@ Map<String, dynamic> _$$_PaginationQueryDTOToJson(
     _$_PaginationQueryDTO instance) {
   final val = <String, dynamic>{
     'page': instance.page,
-    'size': instance.size,
+    'limit': instance.limit,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -19,7 +19,7 @@ Map<String, dynamic> _$$_PaginationQueryDTOToJson(
     }
   }
 
-  writeNotNull('sort', instance.sort);
+  writeNotNull('sortBy', const SortByConverter().toJson(instance.sortBy));
   writeNotNull('filter', instance.filter);
   writeNotNull('search', instance.search);
   return val;

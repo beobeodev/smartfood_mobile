@@ -48,7 +48,8 @@ class CodegenLoader extends AssetLoader{
     "not_match_password": "Password and confirm password not match"
   },
   "search": {
-    "ingredient_not_found": "Did not find any ingredients for your search"
+    "ingredient_not_found": "Did not find any ingredients for your search",
+    "recipe": "Search for recipes"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -85,7 +86,8 @@ static const Map<String,dynamic> vi = {
     "not_match_password": "Mật khẩu xác nhận không trùng khớp"
   },
   "search": {
-    "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn"
+    "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",
+    "recipe": "Tìm kiếm công thức nấu ăn"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

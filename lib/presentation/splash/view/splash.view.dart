@@ -34,7 +34,7 @@ class _SplashView extends StatelessWidget {
               child: Assets.icons.launcher.appIcon.image(),
             ),
             const Spacer(),
-            const Text(
+            Text(
               'Powered by GDSC-DUT',
               style: TextStyles.s14RegularText,
             )

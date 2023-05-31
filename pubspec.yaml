@@ -64,6 +64,7 @@ dependencies:
   firebase_core: ^2.13.0
   firebase_messaging: ^14.6.1
   flutter_local_notifications: ^14.1.0
+  flutter_screenutil: ^5.8.2
 
 dev_dependencies:
   flutter_test:
@@ -141,9 +142,10 @@ flutter:
     - assets/
     - assets/fonts/
     - assets/icons/
+    - assets/icons/difficulty_level/
+    - assets/icons/home/
     - assets/icons/launcher/
     - assets/icons/navbar/
-    - assets/icons/home/
     - assets/icons/home/nutrition/
     - assets/locales/
     - assets/models/

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:smarthealthy/common/constants/enums/get_ingredient_error_type.enum.dart';
-import 'package:smarthealthy/common/constants/enums/get_ingredient_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_error_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
@@ -44,15 +44,15 @@ class _IngredientGridViewState extends State<IngredientGridView> {
   }
 
   void _onSuccess(SearchIngredientSuccess success) {
-    if (success.getType == GetIngredientType.refresh) {
+    if (success.getType == QueryType.refresh) {
       _refreshController.refreshCompleted();
-    } else if (success.getType == GetIngredientType.loadMore) {
+    } else if (success.getType == QueryType.loadMore) {
       _refreshController.loadComplete();
     }
   }
 
   void _onFail(SearchIngredientFailure failure) {
-    if (failure.errorType == GetIngredientErrorType.refresh) {
+    if (failure.errorType == QueryErrorType.refresh) {
       _refreshController.refreshFailed();
     } else {
       _refreshController.loadFailed();
@@ -72,8 +72,7 @@ class _IngredientGridViewState extends State<IngredientGridView> {
 
     final getType = current.getType;
 
-    return getType == GetIngredientType.loadMore ||
-        getType == GetIngredientType.refresh;
+    return getType == QueryType.loadMore || getType == QueryType.refresh;
   }
 
   @override

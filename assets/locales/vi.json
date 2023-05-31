@@ -32,6 +32,7 @@
     "not_match_password": "Mật khẩu xác nhận không trùng khớp"
   },
   "search": {
-    "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn"
+    "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",
+    "recipe": "Tìm kiếm công thức nấu ăn"
   }
 }

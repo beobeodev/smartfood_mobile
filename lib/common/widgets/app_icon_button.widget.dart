@@ -3,25 +3,32 @@ import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class AppIconButton extends StatelessWidget {
   final Color iconColor;
-  final IconData icon;
+  final dynamic icon;
   final VoidCallback onPressed;
+  final double iconSize;
 
   const AppIconButton({
     super.key,
     required this.icon,
     this.iconColor = ColorStyles.zodiacBlue,
     required this.onPressed,
-  });
+    this.iconSize = 28,
+  }) : assert(
+          icon != null && (icon is IconData || icon is Widget),
+          'Icon must not null and it must be IconData or Widget',
+        );
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: onPressed,
-      icon: Icon(
-        icon,
-        color: iconColor,
-        size: 28,
-      ),
+      icon: icon is IconData
+          ? Icon(
+              icon,
+              color: iconColor,
+              size: iconSize,
+            )
+          : icon,
       padding: EdgeInsets.zero,
       splashColor: Colors.transparent,
       focusColor: Colors.transparent,
