@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$QueryRecipesDTO {
   List<String>? get ids => throw _privateConstructorUsedError;
-  PaginationQueryDTO get pagination => throw _privateConstructorUsedError;
+  PaginationQueryDTO<dynamic> get pagination =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QueryRecipesDTOCopyWith<QueryRecipesDTO> get copyWith =>
@@ -30,9 +31,9 @@ abstract class $QueryRecipesDTOCopyWith<$Res> {
           QueryRecipesDTO value, $Res Function(QueryRecipesDTO) then) =
       _$QueryRecipesDTOCopyWithImpl<$Res, QueryRecipesDTO>;
   @useResult
-  $Res call({List<String>? ids, PaginationQueryDTO pagination});
+  $Res call({List<String>? ids, PaginationQueryDTO<dynamic> pagination});
 
-  $PaginationQueryDTOCopyWith<$Res> get pagination;
+  $PaginationQueryDTOCopyWith<dynamic, $Res> get pagination;
 }
 
 /// @nodoc
@@ -59,14 +60,15 @@ class _$QueryRecipesDTOCopyWithImpl<$Res, $Val extends QueryRecipesDTO>
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
-              as PaginationQueryDTO,
+              as PaginationQueryDTO<dynamic>,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PaginationQueryDTOCopyWith<$Res> get pagination {
-    return $PaginationQueryDTOCopyWith<$Res>(_value.pagination, (value) {
+  $PaginationQueryDTOCopyWith<dynamic, $Res> get pagination {
+    return $PaginationQueryDTOCopyWith<dynamic, $Res>(_value.pagination,
+        (value) {
       return _then(_value.copyWith(pagination: value) as $Val);
     });
   }
@@ -80,10 +82,10 @@ abstract class _$$_QueryRecipesDTOCopyWith<$Res>
       __$$_QueryRecipesDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String>? ids, PaginationQueryDTO pagination});
+  $Res call({List<String>? ids, PaginationQueryDTO<dynamic> pagination});
 
   @override
-  $PaginationQueryDTOCopyWith<$Res> get pagination;
+  $PaginationQueryDTOCopyWith<dynamic, $Res> get pagination;
 }
 
 /// @nodoc
@@ -108,16 +110,17 @@ class __$$_QueryRecipesDTOCopyWithImpl<$Res>
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
-              as PaginationQueryDTO,
+              as PaginationQueryDTO<dynamic>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_QueryRecipesDTO implements _QueryRecipesDTO {
+class _$_QueryRecipesDTO extends _QueryRecipesDTO {
   const _$_QueryRecipesDTO({final List<String>? ids, required this.pagination})
-      : _ids = ids;
+      : _ids = ids,
+        super._();
 
   final List<String>? _ids;
   @override
@@ -130,7 +133,7 @@ class _$_QueryRecipesDTO implements _QueryRecipesDTO {
   }
 
   @override
-  final PaginationQueryDTO pagination;
+  final PaginationQueryDTO<dynamic> pagination;
 
   @override
   String toString() {
@@ -158,15 +161,17 @@ class _$_QueryRecipesDTO implements _QueryRecipesDTO {
       __$$_QueryRecipesDTOCopyWithImpl<_$_QueryRecipesDTO>(this, _$identity);
 }
 
-abstract class _QueryRecipesDTO implements QueryRecipesDTO {
+abstract class _QueryRecipesDTO extends QueryRecipesDTO {
   const factory _QueryRecipesDTO(
-      {final List<String>? ids,
-      required final PaginationQueryDTO pagination}) = _$_QueryRecipesDTO;
+          {final List<String>? ids,
+          required final PaginationQueryDTO<dynamic> pagination}) =
+      _$_QueryRecipesDTO;
+  const _QueryRecipesDTO._() : super._();
 
   @override
   List<String>? get ids;
   @override
-  PaginationQueryDTO get pagination;
+  PaginationQueryDTO<dynamic> get pagination;
   @override
   @JsonKey(ignore: true)
   _$$_QueryRecipesDTOCopyWith<_$_QueryRecipesDTO> get copyWith =>

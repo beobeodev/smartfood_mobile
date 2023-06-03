@@ -65,6 +65,8 @@ dependencies:
   firebase_messaging: ^14.6.1
   flutter_local_notifications: ^14.1.0
   flutter_screenutil: ^5.8.2
+  im_stepper:
+    path: ./packages/im_stepper
 
 dev_dependencies:
   flutter_test:

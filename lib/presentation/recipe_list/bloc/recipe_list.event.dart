@@ -7,4 +7,6 @@ class RecipeListEvent with _$RecipeListEvent {
   const factory RecipeListEvent.getAll() = _GetAll;
   const factory RecipeListEvent.refresh() = _Refresh;
   const factory RecipeListEvent.loadMore() = _LoadMore;
+  const factory RecipeListEvent.applyFilter(List<RecipeFilterDTO> filters) =
+      _ApplyFilter;
 }

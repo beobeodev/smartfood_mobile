@@ -24,6 +24,8 @@ mixin _$LevelModel {
   RecipeLevel get name => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
   dynamic get isChosen => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set isChosen(dynamic value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LevelModelCopyWith<LevelModel> get copyWith =>
@@ -122,7 +124,7 @@ class __$$_LevelModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createToJson: false)
 class _$_LevelModel implements _LevelModel {
-  const _$_LevelModel(
+  _$_LevelModel(
       {required this.id,
       required this.name,
       @JsonKey(includeFromJson: false, includeToJson: false)
@@ -137,7 +139,7 @@ class _$_LevelModel implements _LevelModel {
   final RecipeLevel name;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  final dynamic isChosen;
+  dynamic isChosen;
 
   @override
   String toString() {
@@ -167,11 +169,11 @@ class _$_LevelModel implements _LevelModel {
 }
 
 abstract class _LevelModel implements LevelModel {
-  const factory _LevelModel(
+  factory _LevelModel(
       {required final String id,
       required final RecipeLevel name,
       @JsonKey(includeFromJson: false, includeToJson: false)
-          final dynamic isChosen}) = _$_LevelModel;
+          dynamic isChosen}) = _$_LevelModel;
 
   factory _LevelModel.fromJson(Map<String, dynamic> json) =
       _$_LevelModel.fromJson;
@@ -183,6 +185,8 @@ abstract class _LevelModel implements LevelModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   dynamic get isChosen;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set isChosen(dynamic value);
   @override
   @JsonKey(ignore: true)
   _$$_LevelModelCopyWith<_$_LevelModel> get copyWith =>

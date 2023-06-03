@@ -20,7 +20,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? bottom;
   final List<Widget> actions;
 
-  final Function()? onLeadingAction;
+  final void Function()? onLeadingAction;
 
   const CustomAppBar({
     super.key,
@@ -32,17 +32,29 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleSpacing = AppSize.titleSpacing,
     this.elevation = 0,
     this.bottomSize = 45,
-    required this.title,
+    this.title,
     this.bottom,
     this.actions = const [],
     this.onLeadingAction,
   }) : assert(
-          title is Widget || title is String,
-          'Title must be a widget or string ',
+          title == null || title is Widget || title is String,
+          'Title must be a widget or string',
         );
 
   bool _canPop(BuildContext context) {
     return automaticallyImplyLeading && Navigator.of(context).canPop();
+  }
+
+  Widget? _getTitle() {
+    if (title == null) return null;
+
+    return title is Widget
+        ? title
+        : Text(
+            title,
+            style:
+                TextStyles.boldText.copyWith(color: titleColor, fontSize: 16),
+          );
   }
 
   @override
@@ -54,13 +66,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       toolbarHeight: toolbarHeight,
       titleSpacing: _canPop(context) ? 0 : titleSpacing,
       automaticallyImplyLeading: false,
-      title: title is Widget
-          ? title
-          : Text(
-              title,
-              style:
-                  TextStyles.boldText.copyWith(color: titleColor, fontSize: 16),
-            ),
+      title: _getTitle(),
       bottom: bottom != null
           ? PreferredSize(
               preferredSize: Size.fromHeight(bottomSize),
@@ -68,7 +74,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       actions: actions,
-      leading: _canPop(context) ? const AppBackButton() : null,
+      leading: _canPop(context)
+          ? AppBackButton(
+              onAction: onLeadingAction,
+            )
+          : null,
     );
   }
 

@@ -22,6 +22,7 @@ mixin _$RecipeListEvent {
     required TResult Function() getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
+    required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$RecipeListEvent {
     TResult? Function()? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
+    TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$RecipeListEvent {
     TResult Function()? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
+    TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$RecipeListEvent {
     required TResult Function(_GetAll value) getAll,
     required TResult Function(_Refresh value) refresh,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_ApplyFilter value) applyFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$RecipeListEvent {
     TResult? Function(_GetAll value)? getAll,
     TResult? Function(_Refresh value)? refresh,
     TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_ApplyFilter value)? applyFilter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$RecipeListEvent {
     TResult Function(_GetAll value)? getAll,
     TResult Function(_Refresh value)? refresh,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_ApplyFilter value)? applyFilter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -162,6 +168,7 @@ class _$_GetByIngredients implements _GetByIngredients {
     required TResult Function() getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
+    required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
   }) {
     return getByIngredients(ingredientIds);
   }
@@ -173,6 +180,7 @@ class _$_GetByIngredients implements _GetByIngredients {
     TResult? Function()? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
+    TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
   }) {
     return getByIngredients?.call(ingredientIds);
   }
@@ -184,6 +192,7 @@ class _$_GetByIngredients implements _GetByIngredients {
     TResult Function()? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
+    TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
     required TResult orElse(),
   }) {
     if (getByIngredients != null) {
@@ -199,6 +208,7 @@ class _$_GetByIngredients implements _GetByIngredients {
     required TResult Function(_GetAll value) getAll,
     required TResult Function(_Refresh value) refresh,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_ApplyFilter value) applyFilter,
   }) {
     return getByIngredients(this);
   }
@@ -210,6 +220,7 @@ class _$_GetByIngredients implements _GetByIngredients {
     TResult? Function(_GetAll value)? getAll,
     TResult? Function(_Refresh value)? refresh,
     TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_ApplyFilter value)? applyFilter,
   }) {
     return getByIngredients?.call(this);
   }
@@ -221,6 +232,7 @@ class _$_GetByIngredients implements _GetByIngredients {
     TResult Function(_GetAll value)? getAll,
     TResult Function(_Refresh value)? refresh,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_ApplyFilter value)? applyFilter,
     required TResult orElse(),
   }) {
     if (getByIngredients != null) {
@@ -280,6 +292,7 @@ class _$_GetAll implements _GetAll {
     required TResult Function() getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
+    required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
   }) {
     return getAll();
   }
@@ -291,6 +304,7 @@ class _$_GetAll implements _GetAll {
     TResult? Function()? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
+    TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
   }) {
     return getAll?.call();
   }
@@ -302,6 +316,7 @@ class _$_GetAll implements _GetAll {
     TResult Function()? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
+    TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
     required TResult orElse(),
   }) {
     if (getAll != null) {
@@ -317,6 +332,7 @@ class _$_GetAll implements _GetAll {
     required TResult Function(_GetAll value) getAll,
     required TResult Function(_Refresh value) refresh,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_ApplyFilter value) applyFilter,
   }) {
     return getAll(this);
   }
@@ -328,6 +344,7 @@ class _$_GetAll implements _GetAll {
     TResult? Function(_GetAll value)? getAll,
     TResult? Function(_Refresh value)? refresh,
     TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_ApplyFilter value)? applyFilter,
   }) {
     return getAll?.call(this);
   }
@@ -339,6 +356,7 @@ class _$_GetAll implements _GetAll {
     TResult Function(_GetAll value)? getAll,
     TResult Function(_Refresh value)? refresh,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_ApplyFilter value)? applyFilter,
     required TResult orElse(),
   }) {
     if (getAll != null) {
@@ -393,6 +411,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function() getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
+    required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
   }) {
     return refresh();
   }
@@ -404,6 +423,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function()? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
+    TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
   }) {
     return refresh?.call();
   }
@@ -415,6 +435,7 @@ class _$_Refresh implements _Refresh {
     TResult Function()? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
+    TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -430,6 +451,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function(_GetAll value) getAll,
     required TResult Function(_Refresh value) refresh,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_ApplyFilter value) applyFilter,
   }) {
     return refresh(this);
   }
@@ -441,6 +463,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function(_GetAll value)? getAll,
     TResult? Function(_Refresh value)? refresh,
     TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_ApplyFilter value)? applyFilter,
   }) {
     return refresh?.call(this);
   }
@@ -452,6 +475,7 @@ class _$_Refresh implements _Refresh {
     TResult Function(_GetAll value)? getAll,
     TResult Function(_Refresh value)? refresh,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_ApplyFilter value)? applyFilter,
     required TResult orElse(),
   }) {
     if (refresh != null) {
@@ -507,6 +531,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function() getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
+    required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
   }) {
     return loadMore();
   }
@@ -518,6 +543,7 @@ class _$_LoadMore implements _LoadMore {
     TResult? Function()? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
+    TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
   }) {
     return loadMore?.call();
   }
@@ -529,6 +555,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
+    TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -544,6 +571,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function(_GetAll value) getAll,
     required TResult Function(_Refresh value) refresh,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_ApplyFilter value) applyFilter,
   }) {
     return loadMore(this);
   }
@@ -555,6 +583,7 @@ class _$_LoadMore implements _LoadMore {
     TResult? Function(_GetAll value)? getAll,
     TResult? Function(_Refresh value)? refresh,
     TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_ApplyFilter value)? applyFilter,
   }) {
     return loadMore?.call(this);
   }
@@ -566,6 +595,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_GetAll value)? getAll,
     TResult Function(_Refresh value)? refresh,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_ApplyFilter value)? applyFilter,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -577,6 +607,165 @@ class _$_LoadMore implements _LoadMore {
 
 abstract class _LoadMore implements RecipeListEvent {
   const factory _LoadMore() = _$_LoadMore;
+}
+
+/// @nodoc
+abstract class _$$_ApplyFilterCopyWith<$Res> {
+  factory _$$_ApplyFilterCopyWith(
+          _$_ApplyFilter value, $Res Function(_$_ApplyFilter) then) =
+      __$$_ApplyFilterCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<RecipeFilterDTO> filters});
+}
+
+/// @nodoc
+class __$$_ApplyFilterCopyWithImpl<$Res>
+    extends _$RecipeListEventCopyWithImpl<$Res, _$_ApplyFilter>
+    implements _$$_ApplyFilterCopyWith<$Res> {
+  __$$_ApplyFilterCopyWithImpl(
+      _$_ApplyFilter _value, $Res Function(_$_ApplyFilter) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? filters = null,
+  }) {
+    return _then(_$_ApplyFilter(
+      null == filters
+          ? _value._filters
+          : filters // ignore: cast_nullable_to_non_nullable
+              as List<RecipeFilterDTO>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ApplyFilter implements _ApplyFilter {
+  const _$_ApplyFilter(final List<RecipeFilterDTO> filters)
+      : _filters = filters;
+
+  final List<RecipeFilterDTO> _filters;
+  @override
+  List<RecipeFilterDTO> get filters {
+    if (_filters is EqualUnmodifiableListView) return _filters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filters);
+  }
+
+  @override
+  String toString() {
+    return 'RecipeListEvent.applyFilter(filters: $filters)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ApplyFilter &&
+            const DeepCollectionEquality().equals(other._filters, _filters));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_filters));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ApplyFilterCopyWith<_$_ApplyFilter> get copyWith =>
+      __$$_ApplyFilterCopyWithImpl<_$_ApplyFilter>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<String> ingredientIds) getByIngredients,
+    required TResult Function() getAll,
+    required TResult Function() refresh,
+    required TResult Function() loadMore,
+    required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
+  }) {
+    return applyFilter(filters);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(List<String> ingredientIds)? getByIngredients,
+    TResult? Function()? getAll,
+    TResult? Function()? refresh,
+    TResult? Function()? loadMore,
+    TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
+  }) {
+    return applyFilter?.call(filters);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<String> ingredientIds)? getByIngredients,
+    TResult Function()? getAll,
+    TResult Function()? refresh,
+    TResult Function()? loadMore,
+    TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
+    required TResult orElse(),
+  }) {
+    if (applyFilter != null) {
+      return applyFilter(filters);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetByIngredients value) getByIngredients,
+    required TResult Function(_GetAll value) getAll,
+    required TResult Function(_Refresh value) refresh,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_ApplyFilter value) applyFilter,
+  }) {
+    return applyFilter(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetByIngredients value)? getByIngredients,
+    TResult? Function(_GetAll value)? getAll,
+    TResult? Function(_Refresh value)? refresh,
+    TResult? Function(_LoadMore value)? loadMore,
+    TResult? Function(_ApplyFilter value)? applyFilter,
+  }) {
+    return applyFilter?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetByIngredients value)? getByIngredients,
+    TResult Function(_GetAll value)? getAll,
+    TResult Function(_Refresh value)? refresh,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_ApplyFilter value)? applyFilter,
+    required TResult orElse(),
+  }) {
+    if (applyFilter != null) {
+      return applyFilter(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ApplyFilter implements RecipeListEvent {
+  const factory _ApplyFilter(final List<RecipeFilterDTO> filters) =
+      _$_ApplyFilter;
+
+  List<RecipeFilterDTO> get filters;
+  @JsonKey(ignore: true)
+  _$$_ApplyFilterCopyWith<_$_ApplyFilter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

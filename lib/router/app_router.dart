@@ -1,10 +1,11 @@
 import 'package:advance_image_picker/advance_image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/core/views/root.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
-import 'package:smarthealthy/presentation/recipe/recipe.dart';
+import 'package:smarthealthy/presentation/recipe_detail/recipe.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/recipe_list/recipe_list.dart';
 import 'package:smarthealthy/presentation/splash/splash.dart';
@@ -97,21 +98,28 @@ abstract class AppRouter {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const RecipeDetailPage();
+            return RecipeDetailPage(
+              recipeId: arguments as String,
+            );
           },
         );
       case recipeStep:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const RecipeStepPage();
+            return RecipeStepPage(
+              steps: arguments as List<RecipeStepModel>,
+            );
           },
         );
       case recipeFilter:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const RecipeFilterPage();
+            return BlocProvider.value(
+              value: arguments as RecipeListBloc,
+              child: const RecipeFilterPage(),
+            );
           },
         );
       default:

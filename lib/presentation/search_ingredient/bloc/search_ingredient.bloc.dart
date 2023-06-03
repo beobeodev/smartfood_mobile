@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/constants/enums/query_error_type.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/constants/enums/sort_type.enum.dart';
-import 'package:smarthealthy/data/dtos/get_ingredient.dto.dart';
+import 'package:smarthealthy/data/dtos/get_ingredient_result.dto.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/dtos/sort.dto.dart';
@@ -102,7 +102,7 @@ class SearchIngredientBloc
     emit(_Loading(query: query));
 
     try {
-      final GetIngredientDTO getIngredientDTO = await _getIngredients(
+      final GetIngredientResultDTO getIngredientDTO = await _getIngredients(
         query,
       );
 
@@ -124,7 +124,9 @@ class SearchIngredientBloc
     }
   }
 
-  Future<GetIngredientDTO> _getIngredients(PaginationQueryDTO query) async {
+  Future<GetIngredientResultDTO> _getIngredients(
+    PaginationQueryDTO query,
+  ) async {
     return await _ingredientRepository.getIngredients(query);
   }
 

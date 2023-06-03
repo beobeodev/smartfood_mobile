@@ -34,5 +34,10 @@
   "search": {
     "ingredient_not_found": "Did not find any ingredients for your search",
     "recipe": "Search for recipes"
+  },
+  "filter": {
+    "level": "Level",
+    "cuisine": "Cuisine",
+    "category": "Category"
   }
 }

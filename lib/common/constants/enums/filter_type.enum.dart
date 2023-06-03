@@ -1,8 +1,8 @@
-enum FilterType {
+enum RecipeFilterType {
   level('level'),
   category('category'),
   cuisine('cuisine');
 
   final String value;
-  const FilterType(this.value);
+  const RecipeFilterType(this.value);
 }

@@ -13,8 +13,11 @@ class CurrentIngredientList extends StatelessWidget {
       builder: (context, state) {
         return ListView.separated(
           itemCount: state.ingredients.length,
-          padding: const EdgeInsets.all(
+          padding: const EdgeInsets.fromLTRB(
             AppSize.horizontalSpace,
+            AppSize.horizontalSpace,
+            AppSize.horizontalSpace,
+            100,
           ),
           separatorBuilder: (context, index) {
             return const SizedBox(

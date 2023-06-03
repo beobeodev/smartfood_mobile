@@ -24,6 +24,8 @@ mixin _$CategoryModel {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
   bool get isChosen => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set isChosen(bool value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CategoryModelCopyWith<CategoryModel> get copyWith =>
@@ -125,7 +127,7 @@ class __$$_CategoryModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createToJson: false)
 class _$_CategoryModel implements _CategoryModel {
-  const _$_CategoryModel(
+  _$_CategoryModel(
       {required this.id,
       required this.name,
       @JsonKey(includeFromJson: false, includeToJson: false)
@@ -140,7 +142,7 @@ class _$_CategoryModel implements _CategoryModel {
   final String name;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  final bool isChosen;
+  bool isChosen;
 
   @override
   String toString() {
@@ -170,11 +172,11 @@ class _$_CategoryModel implements _CategoryModel {
 }
 
 abstract class _CategoryModel implements CategoryModel {
-  const factory _CategoryModel(
+  factory _CategoryModel(
       {required final String id,
       required final String name,
       @JsonKey(includeFromJson: false, includeToJson: false)
-          final bool isChosen}) = _$_CategoryModel;
+          bool isChosen}) = _$_CategoryModel;
 
   factory _CategoryModel.fromJson(Map<String, dynamic> json) =
       _$_CategoryModel.fromJson;
@@ -186,6 +188,8 @@ abstract class _CategoryModel implements CategoryModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   bool get isChosen;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set isChosen(bool value);
   @override
   @JsonKey(ignore: true)
   _$$_CategoryModelCopyWith<_$_CategoryModel> get copyWith =>

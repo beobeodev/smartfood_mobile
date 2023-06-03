@@ -7,6 +7,7 @@ import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
+import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/recipe_list/recipe_list.dart';
 import 'package:smarthealthy/presentation/recipe_list/widgets/recipe_inherited.widget.dart';
 import 'package:smarthealthy/presentation/recipe_list/widgets/recipe_list.widget.dart';
@@ -22,6 +23,7 @@ class RecipeListPage extends StatelessWidget {
     return BlocProvider(
       create: (_) => RecipeListBloc(
         recipeRepository: getIt.get<RecipeRepository>(),
+        recipeFilterBloc: context.read<RecipeFilterBloc>(),
       )..add(
           ingredientIds == null
               ? const RecipeListEvent.getAll()

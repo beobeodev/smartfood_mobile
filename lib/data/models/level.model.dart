@@ -4,11 +4,11 @@ import 'package:smarthealthy/common/constants/enums/recipe_level.enum.dart';
 part 'level.model.freezed.dart';
 part 'level.model.g.dart';
 
-@Freezed(toJson: false)
+@Freezed(toJson: false, addImplicitFinal: false, equal: true)
 class LevelModel with _$LevelModel {
-  const factory LevelModel({
-    required String id,
-    required RecipeLevel name,
+  factory LevelModel({
+    required final String id,
+    required final RecipeLevel name,
     @JsonKey(includeFromJson: false, includeToJson: false)
     @Default(false)
         isChosen,

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/constants/enums/filter_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
-import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/custom_app_bar.widget.dart';
-import 'package:smarthealthy/presentation/recipe_filter/bloc/recipe_filter.bloc.dart';
+import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
+import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
+import 'package:smarthealthy/presentation/recipe_filter/widgets/category_filter_section.widget.dart';
+import 'package:smarthealthy/presentation/recipe_filter/widgets/cuisine_filter_section.widget.dart';
+import 'package:smarthealthy/presentation/recipe_filter/widgets/level_filter_section.widget.dart';
+import 'package:smarthealthy/presentation/recipe_list/bloc/recipe_list.bloc.dart';
 
 class RecipeFilterPage extends StatelessWidget {
   const RecipeFilterPage({super.key});
@@ -18,81 +22,58 @@ class RecipeFilterPage extends StatelessWidget {
 class _RecipeFilterView extends StatelessWidget {
   const _RecipeFilterView();
 
+  void _onLeadingAction(BuildContext context) {
+    final state = context.read<RecipeFilterBloc>().state;
+
+    context.read<RecipeListBloc>().add(
+          RecipeListEvent.applyFilter([
+            RecipeFilterDTO(
+              type: RecipeFilterType.level,
+              values: state.levels
+                  .where((element) => element.isChosen)
+                  .map((e) => e.name.value)
+                  .toList(),
+            ),
+            RecipeFilterDTO(
+              type: RecipeFilterType.category,
+              values: state.categories
+                  .where((element) => element.isChosen)
+                  .map((e) => e.name)
+                  .toList(),
+            ),
+            RecipeFilterDTO(
+              type: RecipeFilterType.cuisine,
+              values: state.cuisines
+                  .where((element) => element.isChosen)
+                  .map((e) => e.name)
+                  .toList(),
+            )
+          ]),
+        );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
         title: 'Filter',
         elevation: 1,
+        onLeadingAction: () => _onLeadingAction(context),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppSize.horizontalSpace),
+      body: const SingleChildScrollView(
+        padding: EdgeInsets.all(AppSize.horizontalSpace),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Level',
-              style: TextStyles.s17BoldText,
+            LevelFilterSection(),
+            SizedBox(
+              height: 10,
             ),
-            Wrap(
-              spacing: 5,
-              children: context.read<RecipeFilterBloc>().state.levels.map((e) {
-                return FilterChip(
-                  label: Text(e.name.value),
-                  labelStyle: TextStyles.s14RegularText,
-                  selectedColor: ColorStyles.yellowGreen,
-                  backgroundColor: ColorStyles.gray100,
-                  showCheckmark: false,
-                  elevation: 0,
-                  pressElevation: 0,
-                  onSelected: (value) {},
-                  // selected: true,
-                );
-              }).toList(),
+            CategoryFilterSection(),
+            SizedBox(
+              height: 10,
             ),
-            Text(
-              'Categories',
-              style: TextStyles.s17BoldText,
-            ),
-            Wrap(
-              spacing: 5,
-              children:
-                  context.read<RecipeFilterBloc>().state.categories.map((e) {
-                return FilterChip(
-                  label: Text(e.name),
-                  labelStyle: TextStyles.s14RegularText,
-
-                  selectedColor: ColorStyles.yellowGreen,
-                  backgroundColor: ColorStyles.gray100,
-                  showCheckmark: false,
-                  elevation: 0,
-                  pressElevation: 0,
-                  onSelected: (value) {},
-                  // selected: true,
-                );
-              }).toList(),
-            ),
-            Text(
-              'Cuisine',
-              style: TextStyles.s17BoldText,
-            ),
-            Wrap(
-              spacing: 5,
-              children:
-                  context.read<RecipeFilterBloc>().state.cuisines.map((e) {
-                return FilterChip(
-                  label: Text(e.name),
-                  selectedColor: ColorStyles.yellowGreen,
-                  backgroundColor: ColorStyles.gray100,
-                  showCheckmark: false,
-                  elevation: 0,
-                  labelStyle: TextStyles.s14RegularText,
-                  pressElevation: 0,
-                  onSelected: (value) {},
-                  // selected: true,
-                );
-              }).toList(),
-            ),
+            CuisineFilterSection(),
           ],
         ),
       ),

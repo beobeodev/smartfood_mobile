@@ -1,11 +1,12 @@
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class LoadingDot extends StatefulWidget {
   const LoadingDot({
     Key? key,
     this.size = 10,
-    this.dotColor = Colors.white,
+    this.dotColor = ColorStyles.yellowGreen,
   }) : super(key: key);
 
   final double size;

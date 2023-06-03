@@ -24,6 +24,8 @@ mixin _$CuisineModel {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(includeFromJson: false, includeToJson: false)
   bool get isChosen => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set isChosen(bool value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CuisineModelCopyWith<CuisineModel> get copyWith =>
@@ -125,7 +127,7 @@ class __$$_CuisineModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createToJson: false)
 class _$_CuisineModel implements _CuisineModel {
-  const _$_CuisineModel(
+  _$_CuisineModel(
       {required this.id,
       required this.name,
       @JsonKey(includeFromJson: false, includeToJson: false)
@@ -140,7 +142,7 @@ class _$_CuisineModel implements _CuisineModel {
   final String name;
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  final bool isChosen;
+  bool isChosen;
 
   @override
   String toString() {
@@ -170,11 +172,11 @@ class _$_CuisineModel implements _CuisineModel {
 }
 
 abstract class _CuisineModel implements CuisineModel {
-  const factory _CuisineModel(
+  factory _CuisineModel(
       {required final String id,
       required final String name,
       @JsonKey(includeFromJson: false, includeToJson: false)
-          final bool isChosen}) = _$_CuisineModel;
+          bool isChosen}) = _$_CuisineModel;
 
   factory _CuisineModel.fromJson(Map<String, dynamic> json) =
       _$_CuisineModel.fromJson;
@@ -186,6 +188,8 @@ abstract class _CuisineModel implements CuisineModel {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   bool get isChosen;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  set isChosen(bool value);
   @override
   @JsonKey(ignore: true)
   _$$_CuisineModelCopyWith<_$_CuisineModel> get copyWith =>

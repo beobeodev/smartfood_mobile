@@ -30,5 +30,9 @@ abstract class  LocaleKeys {
   static const search_ingredient_not_found = 'search.ingredient_not_found';
   static const search_recipe = 'search.recipe';
   static const search = 'search';
+  static const filter_level = 'filter.level';
+  static const filter_cuisine = 'filter.cuisine';
+  static const filter_category = 'filter.category';
+  static const filter = 'filter';
 
 }

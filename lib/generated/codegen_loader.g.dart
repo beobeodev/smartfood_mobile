@@ -50,6 +50,11 @@ class CodegenLoader extends AssetLoader{
   "search": {
     "ingredient_not_found": "Did not find any ingredients for your search",
     "recipe": "Search for recipes"
+  },
+  "filter": {
+    "level": "Level",
+    "cuisine": "Cuisine",
+    "category": "Category"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -88,6 +93,11 @@ static const Map<String,dynamic> vi = {
   "search": {
     "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",
     "recipe": "Tìm kiếm công thức nấu ăn"
+  },
+  "filter": {
+    "level": "Độ khó",
+    "cuisine": "Loại ẩm thực",
+    "category": "Loại món ăn"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

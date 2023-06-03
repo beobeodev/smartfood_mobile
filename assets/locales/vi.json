@@ -34,5 +34,10 @@
   "search": {
     "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",
     "recipe": "Tìm kiếm công thức nấu ăn"
+  },
+  "filter": {
+    "level": "Độ khó",
+    "cuisine": "Loại ẩm thực",
+    "category": "Loại món ăn"
   }
 }

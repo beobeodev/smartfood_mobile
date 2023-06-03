@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:smarthealthy/common/constants/endpoints.dart';
 import 'package:smarthealthy/common/helpers/dio.helper.dart';
-import 'package:smarthealthy/data/dtos/get_ingredient.dto.dart';
+import 'package:smarthealthy/data/dtos/get_ingredient_result.dto.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 
 @lazySingleton
@@ -10,7 +10,7 @@ class IngredientDataSource {
 
   IngredientDataSource(this._dio);
 
-  Future<GetIngredientDTO> getIngredients(
+  Future<GetIngredientResultDTO> getIngredients(
     PaginationQueryDTO queryIngredientDTO,
   ) async {
     final response = await _dio.get(
@@ -18,6 +18,6 @@ class IngredientDataSource {
       queryParameters: queryIngredientDTO.toJson(),
     );
 
-    return GetIngredientDTO.fromJson(response.data);
+    return GetIngredientResultDTO.fromJson(response.data);
   }
 }

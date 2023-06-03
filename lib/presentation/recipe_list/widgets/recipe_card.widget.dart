@@ -15,7 +15,8 @@ class RecipeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.of(context).pushNamed(AppRouter.recipeDetail),
+      onTap: () => Navigator.of(context)
+          .pushNamed(AppRouter.recipeDetail, arguments: recipe.id),
       child: Container(
         height: 220.h,
         decoration: BoxDecoration(
@@ -30,7 +31,6 @@ class RecipeCard extends StatelessWidget {
         ),
         alignment: Alignment.bottomCenter,
         child: Container(
-          height: 70.h,
           width: double.infinity,
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
@@ -44,12 +44,16 @@ class RecipeCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 recipe.name,
                 style: TextStyles.s17MediumText
                     .copyWith(overflow: TextOverflow.ellipsis),
-                maxLines: 1,
+                maxLines: 2,
+              ),
+              const SizedBox(
+                height: 10,
               ),
               DifficultyTimeCalories(
                 level: recipe.level.name,

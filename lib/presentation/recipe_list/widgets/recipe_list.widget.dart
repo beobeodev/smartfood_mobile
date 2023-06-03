@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -57,8 +55,6 @@ class _RecipeListState extends State<RecipeList> {
     if (type == QueryType.refresh) {
       _refreshController.refreshCompleted();
     } else if (type == QueryType.loadMore) {
-      log('loadComplete');
-
       _refreshController.loadComplete();
     }
   }
