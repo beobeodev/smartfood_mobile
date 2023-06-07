@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
@@ -31,12 +32,15 @@ class _SplashView extends StatelessWidget {
           children: [
             const Spacer(),
             Center(
-              child: Assets.icons.launcher.appIcon.image(),
+              child: Assets.icons.launcher.appIconPng.image(),
             ),
             const Spacer(),
-            Text(
-              'Powered by GDSC-DUT',
-              style: TextStyles.s14RegularText,
+            Padding(
+              padding: EdgeInsets.only(bottom: context.bottomSpacing),
+              child: Text(
+                'Powered by GDSC-DUT',
+                style: TextStyles.s17MediumText,
+              ),
             )
           ],
         ),

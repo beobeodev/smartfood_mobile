@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/circle_network_image.widget.dart';
@@ -44,9 +45,7 @@ class CurrentIngredientItem extends StatelessWidget {
                   );
                 },
               ),
-              const SizedBox(
-                width: 15,
-              ),
+              AppSize.w15,
               Expanded(
                 child: Text(
                   ingredient.name,

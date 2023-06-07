@@ -19,9 +19,7 @@ class RecipeSearchBar extends StatelessWidget implements PreferredSizeWidget {
     return CommonSearchBar(
       autoFocus: autoFocus,
       actions: [
-        const SizedBox(
-          width: 10,
-        ),
+        AppSize.w10,
         AppIconButton(
           onPressed: () => Navigator.of(context).pushNamed(
             AppRouter.recipeFilter,

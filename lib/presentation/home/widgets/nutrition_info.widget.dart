@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/presentation/home/widgets/calo_type_progress.widget.dart';
@@ -63,18 +64,14 @@ class NutritionInfo extends StatelessWidget {
                     progressColor: Colors.white,
                     backgroundColor: ColorStyles.tint100.withOpacity(0.2),
                   ),
-                  const SizedBox(
-                    width: 20,
-                  ),
+                  AppSize.w20,
                   const CalorieTypeProgress()
                 ],
               );
             },
           ),
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        AppSize.h15,
         // LayoutBuilder(
         //   builder: (context, constraints) {
         //     final double itemWidth = (constraints.maxWidth - 2 * 15) / 3;

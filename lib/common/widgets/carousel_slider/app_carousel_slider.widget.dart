@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class AppCarouselSlider extends StatefulWidget {
@@ -35,9 +36,7 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
           carouselController: _carouselController,
           items: widget.items,
         ),
-        const SizedBox(
-          height: 10,
-        ),
+        AppSize.h10,
         SizedBox(
           height: 9,
           child: ListView.separated(

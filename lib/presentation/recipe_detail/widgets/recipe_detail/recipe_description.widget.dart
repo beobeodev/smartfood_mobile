@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 
 class RecipeDescription extends StatelessWidget {
@@ -15,9 +16,7 @@ class RecipeDescription extends StatelessWidget {
           'Description',
           style: TextStyles.s17BoldText,
         ),
-        const SizedBox(
-          height: 15,
-        ),
+        AppSize.h15,
         Text(
           description,
           style: TextStyles.s14RegularText,

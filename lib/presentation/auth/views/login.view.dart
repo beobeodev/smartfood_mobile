@@ -1,17 +1,18 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/extensions/string.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
-import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/di/di.dart';
-import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/auth/bloc/login/login.bloc.dart';
+import 'package:smarthealthy/presentation/auth/widgets/auth_introduction.widget.dart';
+import 'package:smarthealthy/presentation/auth/widgets/auth_navigation_action.widget.dart';
+import 'package:smarthealthy/presentation/auth/widgets/login_button.widget.dart';
 import 'package:smarthealthy/presentation/auth/widgets/login_form.widget.dart';
+import 'package:smarthealthy/presentation/auth/widgets/social_login.widget.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -60,43 +61,35 @@ class _LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.symmetric(
-                horizontal: AppSize.horizontalSpace,
+      body: SingleChildScrollView(
+        padding: EdgeInsets.fromLTRB(
+          AppSize.horizontalSpace,
+          context.paddingTop,
+          AppSize.horizontalSpace,
+          0,
+        ),
+        child: SizedBox(
+          height: context.height - context.paddingTop,
+          child: Column(
+            children: [
+              const Spacer(),
+              const AuthIntroduction(),
+              LoginForm(
+                formKey: _formKey,
+                emailEditController: _emailEditController,
+                passwordEditController: _passwordEditController,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    LocaleKeys.auth_welcome_back.tr(),
-                    style: TextStyles.s17BoldText,
-                  ),
-                  LoginForm(
-                    formKey: _formKey,
-                    emailEditController: _emailEditController,
-                    passwordEditController: _passwordEditController,
-                  ),
-                  BlocBuilder<LoginBloc, LoginState>(
-                    builder: (context, state) {
-                      return AppRoundedButton(
-                        onPressed: () {
-                          _submitLogin(context);
-                        },
-                        isLoading: state is LoginLoading,
-                        content: LocaleKeys.auth_sign_in.tr(),
-                        width: double.infinity,
-                      );
-                    },
-                  ),
-                ],
+              LoginButton(
+                action: () => _submitLogin(context),
               ),
-            ),
+              const SocialLogin(),
+              const Spacer(),
+              const AuthNavigationAction()
+            ],
           ),
         ),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

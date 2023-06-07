@@ -54,9 +54,7 @@ class RecipeCard extends StatelessWidget {
                       .copyWith(overflow: TextOverflow.ellipsis),
                   maxLines: 2,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                AppSize.h10,
                 DifficultyTimeCalories(
                   level: recipe.level.name,
                 )

@@ -29,6 +29,8 @@ class CommonSearchField extends StatelessWidget {
       onFieldSubmitted: onFieldSubmitted,
       readOnly: readOnly,
       autoFocus: autoFocus,
+      height: 45,
+      isDense: true,
     );
   }
 }

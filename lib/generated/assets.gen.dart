@@ -31,6 +31,8 @@ class $AssetsFontsGen {
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  $AssetsIconsAuthGen get auth => const $AssetsIconsAuthGen();
+
   /// File path: assets/icons/calo.svg
   SvgGenImage get calo => const SvgGenImage('assets/icons/calo.svg');
 
@@ -81,6 +83,16 @@ class $AssetsModelsGen {
   List<String> get values => [best, labels];
 }
 
+class $AssetsIconsAuthGen {
+  const $AssetsIconsAuthGen();
+
+  /// File path: assets/icons/auth/google.svg
+  SvgGenImage get google => const SvgGenImage('assets/icons/auth/google.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [google];
+}
+
 class $AssetsIconsDiaryGen {
   const $AssetsIconsDiaryGen();
 
@@ -122,11 +134,15 @@ class $AssetsIconsLauncherGen {
   const $AssetsIconsLauncherGen();
 
   /// File path: assets/icons/launcher/app_icon.png
-  AssetGenImage get appIcon =>
+  AssetGenImage get appIconPng =>
       const AssetGenImage('assets/icons/launcher/app_icon.png');
 
+  /// File path: assets/icons/launcher/app_icon.svg
+  SvgGenImage get appIconSvg =>
+      const SvgGenImage('assets/icons/launcher/app_icon.svg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [appIcon];
+  List<dynamic> get values => [appIconPng, appIconSvg];
 }
 
 class $AssetsIconsNavbarGen {

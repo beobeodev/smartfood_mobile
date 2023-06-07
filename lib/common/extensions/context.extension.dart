@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 
 extension ContextExtension on BuildContext {
@@ -14,8 +15,8 @@ extension ContextExtension on BuildContext {
   /// Check if dark mode theme is enable
   bool get isDarkMode => theme.brightness == Brightness.dark;
 
-  /// similar to [MediaQuery.of(context).padding]
-  EdgeInsets get mediaQueryPadding => MediaQuery.of(this).padding;
+  /// similar to [MediaQuery.of(context).viewPadding]
+  EdgeInsets get mediaQueryPadding => MediaQuery.of(this).viewPadding;
 
   double get paddingTop => mediaQueryPadding.top;
 
@@ -27,4 +28,7 @@ extension ContextExtension on BuildContext {
   double dialogInsideWidth({double contentPadding = AppSize.horizontalSpace}) {
     return width - 40 * 2 - 2 * contentPadding;
   }
+
+  double get bottomSpacing =>
+      paddingBottom > 0 ? paddingBottom : AppSize.horizontalSpace.h;
 }

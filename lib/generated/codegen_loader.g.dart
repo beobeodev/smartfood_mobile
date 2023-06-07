@@ -33,7 +33,16 @@ class CodegenLoader extends AssetLoader{
   },
   "auth": {
     "welcome_back": "Nice to have you back!",
-    "sign_in": "Sign in"
+    "sign_in": "Sign In",
+    "sign_in_introduction": "Sign in to your account - experience amazing features to enjoy delicious food, healthy diet, and more.",
+    "sign_up": "Sign Up",
+    "sign_up_introduction": "Sign up for an account and start experiencing amazing features to enjoy delicious food, healthy diet, and more.",
+    "sign_in_with": "or sign in with",
+    "sign_in_with_google": "Sign in with Google",
+    "sign_in_with_apple": "Sign in with Apple",
+    "forgot_password": "Forgot password?",
+    "not_have_account": "Don’t Have an account?",
+    "have_account": "Have an account?"
   },
   "ingredient": {
     "find": "Search for ingredients"
@@ -76,7 +85,16 @@ static const Map<String,dynamic> vi = {
   },
   "auth": {
     "welcome_back": "Rất vui khi được gặp lại bạn!",
-    "sign_in": "Đăng nhập"
+    "sign_in": "Đăng Nhập",
+    "sign_in_introduction": "Đăng nhập vào tài khoản của bạn - trải nghiệm những tính năng tuyệt vời để tận hưởng các món ăn ngon, chế độ ăn uống lành mạnh và hơn thế nữa.",
+    "sign_up": "Đăng Ký",
+    "sign_up_introduction": "Đăng ký tài khoản và bắt đầu trải nghiệm những tính năng tuyệt vời để tận hưởng các món ăn ngon, chế độ ăn uống lành mạnh và hơn thế nữa.",
+    "sign_in_with": "hoặc đăng nhập với",
+    "sign_in_with_google": "Đăng nhập với Google",
+    "sign_in_with_apple": "Đăng nhập với Apple",
+    "forgot_password": "Quên mật khẩu?",
+    "not_have_account": "Chưa có tài khoản?",
+    "have_account": "Đã có tài khoản?"
   },
   "ingredient": {
     "find": "Tìm kiếm nguyên liệu"

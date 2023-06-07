@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
@@ -8,11 +10,11 @@ class AppRoundedButton extends StatelessWidget {
     Key? key,
     required this.onPressed,
     this.width,
-    this.height = 48,
+    this.height,
     this.borderRadius = 7,
     this.elevation = 0,
-    this.backgroundColor = ColorStyles.blue400,
-    this.disableBackgroundColor = ColorStyles.gray300,
+    this.backgroundColor = ColorStyles.primary,
+    this.disableBackgroundColor = ColorStyles.gray100,
     this.shadowColor,
     required this.content,
     TextStyle? textStyle,
@@ -29,7 +31,7 @@ class AppRoundedButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   final double? width;
-  final double height;
+  final double? height;
   final double borderRadius;
   final double elevation;
 
@@ -54,7 +56,7 @@ class AppRoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: height,
+      height: height ?? 48.h,
       child: Theme(
         data: ThemeData(
           elevatedButtonTheme: ElevatedButtonThemeData(
@@ -95,7 +97,9 @@ class AppRoundedButton extends StatelessWidget {
             enableFeedback: false,
           ),
           child: isLoading
-              ? const LoadingDot()
+              ? const LoadingDot(
+                  color: ColorStyles.primary,
+                )
               : (child ??
                   FittedBox(
                     child: Row(
@@ -105,9 +109,7 @@ class AppRoundedButton extends StatelessWidget {
                           Row(
                             children: [
                               prefixIcon!,
-                              const SizedBox(
-                                width: 15,
-                              ),
+                              AppSize.w15,
                             ],
                           ),
                         Text(
@@ -118,12 +120,7 @@ class AppRoundedButton extends StatelessWidget {
                         ),
                         if (suffixIcon != null)
                           Row(
-                            children: [
-                              const SizedBox(
-                                width: 15,
-                              ),
-                              suffixIcon!
-                            ],
+                            children: [AppSize.w15, suffixIcon!],
                           ),
                       ],
                     ),
