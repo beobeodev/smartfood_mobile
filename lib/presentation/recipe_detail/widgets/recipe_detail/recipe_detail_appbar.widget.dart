@@ -76,9 +76,12 @@ class RecipeDetailAppBar extends StatelessWidget {
       elevation: 0,
       backgroundColor: ColorStyles.yellowGreen,
       flexibleSpace: FlexibleSpaceBar(
-        background: Image.network(
-          'https://assets.bonappetit.com/photos/61b775620fb3fcc4cbf036c1/3:2/w_3000,h_2000,c_limit/20211208%20Spaghetti%20Squash%20with%20Tomato%20Sauce%20and%20Mozarella%20LEDE.jpg',
-          fit: BoxFit.cover,
+        background: Hero(
+          tag: recipe.id,
+          child: Image.network(
+            'https://i-giadinh.vnecdn.net/2021/10/26/saladrauqua-1635240739-5476-1635240778.jpg',
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

@@ -34,6 +34,7 @@ class $AssetsIconsGen {
   /// File path: assets/icons/calo.svg
   SvgGenImage get calo => const SvgGenImage('assets/icons/calo.svg');
 
+  $AssetsIconsDiaryGen get diary => const $AssetsIconsDiaryGen();
   $AssetsIconsDifficultyLevelGen get difficultyLevel =>
       const $AssetsIconsDifficultyLevelGen();
 
@@ -80,6 +81,17 @@ class $AssetsModelsGen {
   List<String> get values => [best, labels];
 }
 
+class $AssetsIconsDiaryGen {
+  const $AssetsIconsDiaryGen();
+
+  /// File path: assets/icons/diary/calendar.svg
+  SvgGenImage get calendar =>
+      const SvgGenImage('assets/icons/diary/calendar.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [calendar];
+}
+
 class $AssetsIconsDifficultyLevelGen {
   const $AssetsIconsDifficultyLevelGen();
 
@@ -120,6 +132,9 @@ class $AssetsIconsLauncherGen {
 class $AssetsIconsNavbarGen {
   const $AssetsIconsNavbarGen();
 
+  /// File path: assets/icons/navbar/diary.svg
+  SvgGenImage get diary => const SvgGenImage('assets/icons/navbar/diary.svg');
+
   /// File path: assets/icons/navbar/favorite.svg
   SvgGenImage get favorite =>
       const SvgGenImage('assets/icons/navbar/favorite.svg');
@@ -136,7 +151,7 @@ class $AssetsIconsNavbarGen {
       const SvgGenImage('assets/icons/navbar/profile.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [favorite, findRecipe, home, profile];
+  List<SvgGenImage> get values => [diary, favorite, findRecipe, home, profile];
 }
 
 class $AssetsImagesLottieGen {

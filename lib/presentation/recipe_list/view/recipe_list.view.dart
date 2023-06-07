@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
@@ -49,7 +48,7 @@ class _RecipeListView extends StatelessWidget {
           switch (state.queryStatus.status) {
             case QueryStatus.loading:
               return const LoadingDot(
-                dotColor: ColorStyles.yellowGreen,
+                
               );
             case QueryStatus.success:
               return const RecipeList();

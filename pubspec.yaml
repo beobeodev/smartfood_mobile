@@ -67,6 +67,7 @@ dependencies:
   flutter_screenutil: ^5.8.2
   im_stepper:
     path: ./packages/im_stepper
+  syncfusion_flutter_datepicker: ^21.2.8
 
 dev_dependencies:
   flutter_test:
@@ -144,6 +145,7 @@ flutter:
     - assets/
     - assets/fonts/
     - assets/icons/
+    - assets/icons/diary/
     - assets/icons/difficulty_level/
     - assets/icons/home/
     - assets/icons/launcher/

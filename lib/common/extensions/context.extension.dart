@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 
 extension ContextExtension on BuildContext {
   /// The same of [MediaQuery.of(context).size]
@@ -22,4 +23,8 @@ extension ContextExtension on BuildContext {
 
   /// similar to [MediaQuery.of(context).devicePixelRatio]
   double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
+
+  double dialogInsideWidth({double contentPadding = AppSize.horizontalSpace}) {
+    return width - 40 * 2 - 2 * contentPadding;
+  }
 }

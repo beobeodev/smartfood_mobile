@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/presentation/core/widgets/app_bottom_navigation_bar.widget.dart';
 import 'package:smarthealthy/presentation/core/widgets/custom_lazy_indexed_stack.widget.dart';
-import 'package:smarthealthy/presentation/favorite/favorite.dart';
+import 'package:smarthealthy/presentation/diary/view/diary.view.dart';
 import 'package:smarthealthy/presentation/home/home.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
@@ -39,7 +39,7 @@ class _RootView extends StatelessWidget {
             children: const [
               HomePage(),
               SearchIngredientPage(),
-              FavoritePage(),
+              DiaryPage(),
               ProfilePage()
             ],
           );
