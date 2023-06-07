@@ -32,9 +32,7 @@ class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
       titleColor: ColorStyles.primary,
       actions: [
         if (actions != null) ...actions!,
-        const SizedBox(
-          width: AppSize.horizontalSpace,
-        ),
+        AppSize.w20,
       ],
       elevation: 0.1,
     );

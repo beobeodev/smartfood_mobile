@@ -84,9 +84,7 @@ class _RecipeListState extends State<RecipeList> {
           child: ListView.separated(
             padding: const EdgeInsets.all(AppSize.horizontalSpace),
             itemCount: state.recipes!.length,
-            separatorBuilder: (_, __) => const SizedBox(
-              height: 20,
-            ),
+            separatorBuilder: (_, __) => AppSize.h20,
             itemBuilder: (context, index) {
               return RecipeCard(recipe: state.recipes![index]);
             },

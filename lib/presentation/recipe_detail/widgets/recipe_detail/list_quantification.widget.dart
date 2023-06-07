@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/data/models/quantification.model.dart';
@@ -42,9 +43,7 @@ class ListQuantification extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
+                AppSize.w10,
                 Text(
                   currentQuantification.ingredient.name,
                   style: TextStyles.mediumText.copyWith(fontSize: 15.sp),

@@ -1,16 +1,17 @@
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class LoadingDot extends StatefulWidget {
   const LoadingDot({
     Key? key,
     this.size = 10,
-    this.dotColor = ColorStyles.yellowGreen,
+    this.color = ColorStyles.yellowGreen,
   }) : super(key: key);
 
   final double size;
-  final Color dotColor;
+  final Color color;
 
   @override
   State<LoadingDot> createState() => _LoadingDotState();
@@ -89,7 +90,7 @@ class _LoadingDotState extends State<LoadingDot> with TickerProviderStateMixin {
           scale: _scaleAnimations[i],
           child: DecoratedBox(
             decoration: BoxDecoration(
-              color: widget.dotColor,
+              color: widget.color,
               borderRadius: BorderRadius.circular(50),
             ),
             child: SizedBox(
@@ -106,15 +107,15 @@ class _LoadingDotState extends State<LoadingDot> with TickerProviderStateMixin {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           widgets[0],
-          const SizedBox(width: 5),
+          AppSize.w5,
           widgets[1],
-          const SizedBox(width: 5),
+          AppSize.w5,
           widgets[2],
-          const SizedBox(width: 5),
+          AppSize.w5,
           widgets[3],
-          const SizedBox(width: 5),
+          AppSize.w5,
           widgets[4],
-          const SizedBox(width: 5),
+          AppSize.w5,
           widgets[5],
         ],
       ),

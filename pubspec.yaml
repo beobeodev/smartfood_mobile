@@ -145,6 +145,7 @@ flutter:
     - assets/
     - assets/fonts/
     - assets/icons/
+    - assets/icons/auth/
     - assets/icons/diary/
     - assets/icons/difficulty_level/
     - assets/icons/home/

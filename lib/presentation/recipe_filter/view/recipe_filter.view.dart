@@ -66,13 +66,9 @@ class _RecipeFilterView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             LevelFilterSection(),
-            SizedBox(
-              height: 10,
-            ),
+            AppSize.h10,
             CategoryFilterSection(),
-            SizedBox(
-              height: 10,
-            ),
+            AppSize.h10,
             CuisineFilterSection(),
           ],
         ),

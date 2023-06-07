@@ -16,6 +16,15 @@ abstract class  LocaleKeys {
   static const root = 'root';
   static const auth_welcome_back = 'auth.welcome_back';
   static const auth_sign_in = 'auth.sign_in';
+  static const auth_sign_in_introduction = 'auth.sign_in_introduction';
+  static const auth_sign_up = 'auth.sign_up';
+  static const auth_sign_up_introduction = 'auth.sign_up_introduction';
+  static const auth_sign_in_with = 'auth.sign_in_with';
+  static const auth_sign_in_with_google = 'auth.sign_in_with_google';
+  static const auth_sign_in_with_apple = 'auth.sign_in_with_apple';
+  static const auth_forgot_password = 'auth.forgot_password';
+  static const auth_not_have_account = 'auth.not_have_account';
+  static const auth_have_account = 'auth.have_account';
   static const auth = 'auth';
   static const ingredient_find = 'ingredient.find';
   static const ingredient = 'ingredient';

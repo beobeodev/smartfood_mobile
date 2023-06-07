@@ -20,9 +20,7 @@ class CurrentIngredientList extends StatelessWidget {
             100,
           ),
           separatorBuilder: (context, index) {
-            return const SizedBox(
-              height: 10,
-            );
+            return AppSize.h10;
           },
           itemBuilder: (context, index) {
             final ingredient = state.ingredients[index];

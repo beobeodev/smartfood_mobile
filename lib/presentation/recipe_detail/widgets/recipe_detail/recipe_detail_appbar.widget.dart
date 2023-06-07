@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
@@ -55,9 +56,7 @@ class RecipeDetailAppBar extends StatelessWidget {
                   maxLines: 2,
                 ),
               ),
-              const SizedBox(
-                width: 10,
-              ),
+              AppSize.w10,
               Row(
                 children: List.generate(
                   3,

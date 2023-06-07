@@ -8,15 +8,19 @@ class AppTextFormField extends StatelessWidget {
     this.textController,
     this.isObscure = false,
     this.readOnly = false,
-    this.extendField = true,
+    this.extendField = false,
     this.enabled = true,
     this.isCenterText = false,
     this.autoFocus = false,
+    this.isDense = false,
+    this.expands = false,
     this.hintText,
     this.errorText,
     this.labelText,
     this.initialValue,
-    this.borderRadius = 6,
+    this.borderRadius = 100,
+    this.height,
+    this.suffixIconSize,
     this.borderColor = Colors.transparent,
     this.focusedBorderColor = ColorStyles.yellowGreen,
     this.fillColor = ColorStyles.antiFlashWhite,
@@ -34,6 +38,8 @@ class AppTextFormField extends StatelessWidget {
     this.onTapSuffixIcon,
     this.labelStyle,
     this.focusNode,
+    this.maxLines = 1,
+    this.contentPadding = const EdgeInsets.symmetric(horizontal: 20),
   }) : super(key: key);
 
   final TextEditingController? textController;
@@ -44,6 +50,8 @@ class AppTextFormField extends StatelessWidget {
   final bool enabled;
   final bool isCenterText;
   final bool autoFocus;
+  final bool isDense;
+  final bool expands;
 
   final String? hintText;
   final String? errorText;
@@ -51,6 +59,8 @@ class AppTextFormField extends StatelessWidget {
   final String? initialValue;
 
   final double borderRadius;
+  final double? height;
+  final double? suffixIconSize;
 
   final Color focusedBorderColor;
   final Color borderColor;
@@ -76,23 +86,28 @@ class AppTextFormField extends StatelessWidget {
 
   final FocusNode? focusNode;
 
+  final int maxLines;
+
+  final EdgeInsetsGeometry contentPadding;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (labelText != null)
-          Text(
-            labelText!,
-            style: labelStyle ?? TextStyles.s14MediumText,
-          ),
-        if (labelText != null)
-          const SizedBox(
-            height: 5,
+          Padding(
+            padding: const EdgeInsets.only(bottom: 5),
+            child: Text(
+              labelText!,
+              style: labelStyle ?? TextStyles.s14MediumText,
+            ),
           ),
         SizedBox(
-          height: 45,
+          height: height,
           child: TextFormField(
+            maxLines: maxLines,
+            expands: expands,
             controller: textController,
             focusNode: focusNode,
             autofocus: autoFocus,
@@ -143,7 +158,7 @@ class AppTextFormField extends StatelessWidget {
                   color: ColorStyles.red600,
                 ),
               ),
-              isDense: true,
+              isDense: isDense,
               filled: true,
               fillColor: fillColor,
               contentPadding: const EdgeInsets.symmetric(horizontal: 20),
@@ -164,17 +179,16 @@ class AppTextFormField extends StatelessWidget {
                       child: Icon(
                         suffixIcon,
                         color: suffixIconColor,
+                        size: suffixIconSize,
                       ),
                     )
                   : null,
               helperText: extendField ? '' : null,
-              helperStyle: extendField
-                  ? TextStyles.regularText.copyWith(fontSize: 13)
-                  : null,
+              helperStyle: extendField ? TextStyles.s14RegularText : null,
               errorText:
                   errorText == '' || errorText == null ? null : errorText,
-              errorStyle: TextStyles.regularText
-                  .copyWith(color: Colors.red, fontSize: 13, height: 0),
+              errorStyle: TextStyles.s14RegularText
+                  .copyWith(color: Colors.red, height: 0),
             ),
           ),
         ),

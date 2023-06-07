@@ -30,9 +30,7 @@ class RecipeDetailBody extends StatelessWidget {
               ListQuantification(
                 quantification: recipe.quantification!,
               ),
-            const SizedBox(
-              height: 5,
-            ),
+            AppSize.h5,
           ],
         ),
       ),

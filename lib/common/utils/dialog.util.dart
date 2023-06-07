@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
@@ -85,9 +86,7 @@ abstract class DialogUtil {
                 backgroundColor: Colors.transparent,
                 height: 45,
               ),
-            const SizedBox(
-              width: 15,
-            ),
+            AppSize.w15,
             AppRoundedButton(
               width: isConfirmDialog ? null : double.infinity,
               onPressed: () {

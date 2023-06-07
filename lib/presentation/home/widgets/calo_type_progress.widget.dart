@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 
@@ -30,9 +31,7 @@ class CalorieTypeTile extends StatelessWidget {
           'Carbs',
           style: TextStyles.s14MediumText.copyWith(color: Colors.white),
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        AppSize.h5,
         LayoutBuilder(
           builder: (context, constraints) {
             return LinearPercentIndicator(
@@ -48,9 +47,7 @@ class CalorieTypeTile extends StatelessWidget {
             );
           },
         ),
-        const SizedBox(
-          height: 5,
-        ),
+        AppSize.h5,
         Text(
           '14/32 g',
           style: TextStyles.s14MediumText.copyWith(color: Colors.white),
