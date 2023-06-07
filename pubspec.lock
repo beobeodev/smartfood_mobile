@@ -301,10 +301,10 @@ packages:
     dependency: "direct dev"
     description:
       name: dart_code_metrics
-      sha256: "162c81dbd0a2ba182f38ca615335f3e8878f212ec7beea83d6bfad4e99eb541a"
+      sha256: "1dc1fa763b73ed52147bd91b015d81903edc3f227b77b1672fcddba43390ed18"
       url: "https://pub.dev"
     source: hosted
-    version: "5.7.3"
+    version: "5.7.5"
   dart_code_metrics_presets:
     dependency: transitive
     description:
