@@ -5,6 +5,7 @@ import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/core/bloc/root.bloc.dart';
+import 'package:smarthealthy/presentation/core/widgets/nav_item.widget.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   const AppBottomNavigationBar({super.key});
@@ -20,6 +21,8 @@ class AppBottomNavigationBar extends StatelessWidget {
           return BottomNavigationBar(
             currentIndex: state.currentIndex,
             type: BottomNavigationBarType.fixed,
+            elevation: 20,
+            backgroundColor: Colors.white,
             onTap: (int newIndex) {
               context
                   .read<RootBloc>()
@@ -30,65 +33,22 @@ class AppBottomNavigationBar extends StatelessWidget {
             showSelectedLabels: false,
             showUnselectedLabels: false,
             items: [
-              BottomNavigationBarItem(
-                icon: Assets.icons.navbar.home.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.gray400,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                activeIcon: Assets.icons.navbar.home.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.primary,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                label: LocaleKeys.root_home.tr(),
+              NavItem(
+                iconSvg: Assets.icons.navbar.home,
+                title: LocaleKeys.root_home.tr(),
               ),
-              BottomNavigationBarItem(
-                icon: Assets.icons.navbar.findRecipe.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.gray400,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                activeIcon: Assets.icons.navbar.findRecipe.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.primary,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                label: LocaleKeys.root_management.tr(),
+              NavItem(
+                iconSvg: Assets.icons.navbar.findRecipe,
+                title: LocaleKeys.root_management.tr(),
               ),
-              BottomNavigationBarItem(
-                icon: Assets.icons.navbar.favorite.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.gray400,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                activeIcon: Assets.icons.navbar.favorite.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.primary,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                label: LocaleKeys.texts_notification.tr(),
+              NavItem(
+                iconSvg: Assets.icons.navbar.diary,
+                title: LocaleKeys.root_management.tr(),
+                iconSize: 29,
               ),
-              BottomNavigationBarItem(
-                icon: Assets.icons.navbar.profile.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.gray400,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                activeIcon: Assets.icons.navbar.profile.svg(
-                  colorFilter: const ColorFilter.mode(
-                    ColorStyles.primary,
-                    BlendMode.srcIn,
-                  ),
-                ),
-                label: LocaleKeys.root_profile.tr(),
+              NavItem(
+                iconSvg: Assets.icons.navbar.profile,
+                title: LocaleKeys.root_management.tr(),
               )
             ],
           );

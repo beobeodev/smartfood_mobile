@@ -17,48 +17,51 @@ class RecipeCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context)
           .pushNamed(AppRouter.recipeDetail, arguments: recipe.id),
-      child: Container(
-        height: 220.h,
-        decoration: BoxDecoration(
-          boxShadow: AppTheme.primaryShadow,
-          borderRadius: BorderRadius.circular(AppSize.cardRadius),
-          image: const DecorationImage(
-            image: NetworkImage(
-              'https://i-giadinh.vnecdn.net/2021/10/26/saladrauqua-1635240739-5476-1635240778.jpg',
-            ),
-            fit: BoxFit.cover,
-          ),
-        ),
-        alignment: Alignment.bottomCenter,
+      child: Hero(
+        tag: recipe.id,
         child: Container(
-          width: double.infinity,
-          margin: const EdgeInsets.all(8),
+          height: 220.h,
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.9),
+            boxShadow: AppTheme.primaryShadow,
             borderRadius: BorderRadius.circular(AppSize.cardRadius),
-          ),
-          padding: EdgeInsets.symmetric(
-            horizontal: AppSize.horizontalSpace,
-            vertical: 10.h,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                recipe.name,
-                style: TextStyles.s17MediumText
-                    .copyWith(overflow: TextOverflow.ellipsis),
-                maxLines: 2,
+            image: const DecorationImage(
+              image: NetworkImage(
+                'https://i-giadinh.vnecdn.net/2021/10/26/saladrauqua-1635240739-5476-1635240778.jpg',
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              DifficultyTimeCalories(
-                level: recipe.level.name,
-              )
-            ],
+              fit: BoxFit.cover,
+            ),
+          ),
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            width: double.infinity,
+            margin: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.9),
+              borderRadius: BorderRadius.circular(AppSize.cardRadius),
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSize.horizontalSpace,
+              vertical: 10.h,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  recipe.name,
+                  style: TextStyles.s17MediumText
+                      .copyWith(overflow: TextOverflow.ellipsis),
+                  maxLines: 2,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                DifficultyTimeCalories(
+                  level: recipe.level.name,
+                )
+              ],
+            ),
           ),
         ),
       ),
