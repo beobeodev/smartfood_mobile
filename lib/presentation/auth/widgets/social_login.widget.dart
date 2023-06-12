@@ -41,7 +41,7 @@ class SocialLogin extends StatelessWidget {
         AppSize.h20,
         LayoutBuilder(
           builder: (context, constrains) {
-            final itemWith = constrains.maxWidth / 2 - 20;
+            final itemWith = (constrains.maxWidth - 40) / 2;
 
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

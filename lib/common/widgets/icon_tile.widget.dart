@@ -7,6 +7,7 @@ class IconTile extends StatelessWidget {
   final String title;
   final Color color;
   final TextStyle? textStyle;
+  final bool isCenter;
 
   const IconTile({
     super.key,
@@ -14,6 +15,7 @@ class IconTile extends StatelessWidget {
     required this.title,
     this.color = ColorStyles.yellowGreen,
     this.textStyle,
+    this.isCenter = true,
   }) : assert(
           icon != null && (icon is IconData || icon is Widget),
           'Icon must not null and it must be IconData or Widget',
@@ -22,7 +24,8 @@ class IconTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment:
+          isCenter ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         icon is IconData
             ? Icon(

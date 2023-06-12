@@ -1,0 +1,31 @@
+<svg width="120" height="35" viewBox="0 0 120 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Weather / Morning / Foggy / 2">
+<g clip-path="url(#clip0_177_690)">
+<rect width="120" height="35" rx="17.5" fill="url(#paint0_linear_177_690)"/>
+<path id="Path 54" fill-rule="evenodd" clip-rule="evenodd" d="M123.046 13.7184C123.046 13.7184 109.061 4.08325 98.4984 4.08325C84.5263 4.08325 75.1846 17.2239 63.8826 17.2239C50.7105 17.2239 49.053 13.4267 41.6666 13.4267C31.2271 13.4267 17.4486 20.547 10.1821 17.9772C4.31824 15.9034 -2.74114 11.7147 -2.74114 11.7147V46.886L123.046 48.9999V13.7184Z" fill="url(#paint1_linear_177_690)"/>
+<path id="Path 51" fill-rule="evenodd" clip-rule="evenodd" d="M-2.74121 41.2778C-2.74121 41.2778 -2.1142 19.0725 12.1001 15.6004C24.5279 13.5356 34.1094 29.5619 45.2223 29.5619C58.1739 29.5619 64.2776 20.261 76.8523 20.261C86.0237 20.261 94.9793 28.3473 107.469 25.5443C135.209 19.3185 120.94 18.2503 120.94 18.2503V53.5454L-2.74121 55.6667V41.2778Z" fill="url(#paint2_linear_177_690)"/>
+<path id="Path 53" fill-rule="evenodd" clip-rule="evenodd" d="M-3 31.4767C-3 31.4767 4.40672 26.0381 10.2195 25.4905C16.0322 24.943 19.2494 30.2446 19.2494 30.2446C19.2494 30.2446 21.9709 30.0126 23.4491 30.2446C24.9273 30.4765 26.0978 31.4767 26.0978 31.4767C26.0978 31.4767 27.9805 28.282 35.7982 28.282C43.6159 28.282 47.5878 32.598 47.5878 32.598C47.5878 32.598 50.19 31.4767 52.9 31.4767C55.6099 31.4767 58.6774 32.598 58.6774 32.598C58.6774 32.598 60.5917 28.282 68.6689 28.282C76.7461 28.282 80.1916 31.9447 80.1916 31.9447C80.1916 31.9447 83.4551 30.8197 86.6262 30.8197C89.7972 30.8197 93.5813 31.9447 93.5813 31.9447C93.5813 31.9447 94.6431 28.3913 99.3666 26.2968C104.09 24.2024 114.374 25.4905 114.374 25.4905L120 27.1084V44H-3V31.4767Z" fill="url(#paint3_linear_177_690)"/>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_177_690" x1="0" y1="0" x2="0" y2="35" gradientUnits="userSpaceOnUse">
+<stop stop-color="#A2E9FF"/>
+<stop offset="0.552083" stop-color="#DDFDFF"/>
+</linearGradient>
+<linearGradient id="paint1_linear_177_690" x1="123.046" y1="4.08325" x2="123.046" y2="48.9999" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AAF3FA"/>
+<stop offset="1" stop-color="#D5FAFD"/>
+</linearGradient>
+<linearGradient id="paint2_linear_177_690" x1="-2.74121" y1="15.4167" x2="-2.74121" y2="55.6667" gradientUnits="userSpaceOnUse">
+<stop stop-color="#7EDEE7"/>
+<stop offset="1" stop-color="#B5F1F5"/>
+</linearGradient>
+<linearGradient id="paint3_linear_177_690" x1="-3" y1="25" x2="-3" y2="44" gradientUnits="userSpaceOnUse">
+<stop stop-color="#4297A8"/>
+<stop offset="1" stop-color="#77C8D3"/>
+</linearGradient>
+<clipPath id="clip0_177_690">
+<rect width="120" height="35" rx="17.5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

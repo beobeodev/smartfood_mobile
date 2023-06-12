@@ -48,5 +48,20 @@
     "level": "Độ khó",
     "cuisine": "Loại ẩm thực",
     "category": "Loại món ăn"
+  },
+  "measure": {
+    "height": "Chiều cao (cm)",
+    "weight": "Cân nặng (kg)",
+    "age": "Độ tuổi"
+  },
+  "macros": {
+    "protein": "Chất đạm",
+    "carbs": "Carbs",
+    "fat": "Chất béo"
+  },
+  "meal": {
+    "morning": "Buổi sáng",
+    "noon": "Buổi trưa",
+    "night": "Buổi tối"
   }
 }

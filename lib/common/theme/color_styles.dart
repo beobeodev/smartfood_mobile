@@ -37,12 +37,13 @@ abstract class ColorStyles {
   static const Color zodiacBlue = Color(0xFF0F2D52);
   static const Color primary = Color(0xFFEC714C);
   static const Color yellowGreen = Color(0xFF86BF3E);
-
-  static const Color highlight = Color(0xFFE23E3E);
+  static const Color aliceBlue = Color(0xFFF4F7FC);
   static const Color antiFlashWhite = Color(0xFFF1F1F1);
-  static Color scaffoldBackground = Colors.grey[50]!;
   static const Color tint100 = Color.fromRGBO(248, 250, 252, 1);
   static const Color caloriesBackground = Color.fromRGBO(83, 95, 247, 1);
 
+  static const Color lightSkyBlue = Color(0xFF93C9FB);
+  static const Color mediumAquamarine = Color(0xFF6AD2A7);
+  static const Color brilliantLavender = Color(0xFFF9BAF9);
   // static const Color lavenderSilver = Color(0xFFFDEFEF);
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail_appbar.widget.dart';
@@ -38,12 +38,11 @@ class RecipeDetail extends StatelessWidget {
               );
             },
             content: 'Start cooking',
-            suffixIcon: const Icon(
+            suffixIcon: Icon(
               UniconsLine.play_circle,
               color: Colors.white,
-              size: 27,
+              size: 27.sp,
             ),
-            backgroundColor: ColorStyles.primary,
           ),
         )
       ],

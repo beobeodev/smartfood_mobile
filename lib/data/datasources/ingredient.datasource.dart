@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+
 import 'package:smarthealthy/common/constants/endpoints.dart';
 import 'package:smarthealthy/common/helpers/dio.helper.dart';
 import 'package:smarthealthy/data/dtos/get_ingredient_result.dto.dart';

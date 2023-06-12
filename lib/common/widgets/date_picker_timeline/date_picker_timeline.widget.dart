@@ -116,6 +116,8 @@ class DatePickerController {
     duration = const Duration(milliseconds: 500),
     curve = Curves.linear,
   }) {
+    log('animateToSelection');
+
     assert(
       _datePickerState != null,
       'DatePickerController is not attached to any DatePicker View.',
@@ -164,8 +166,6 @@ class DatePickerController {
       date.year == _getStartDate().year && date.month == _getStartDate().month,
       'Navigation Date must be as the same month and year as the startDate',
     );
-
-    log('message');
 
     _datePickerState!._controller.animateTo(
       _calculateDateOffset(date),

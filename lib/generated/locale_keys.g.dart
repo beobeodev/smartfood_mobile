@@ -43,5 +43,17 @@ abstract class  LocaleKeys {
   static const filter_cuisine = 'filter.cuisine';
   static const filter_category = 'filter.category';
   static const filter = 'filter';
+  static const measure_height = 'measure.height';
+  static const measure_weight = 'measure.weight';
+  static const measure_age = 'measure.age';
+  static const measure = 'measure';
+  static const macros_protein = 'macros.protein';
+  static const macros_carbs = 'macros.carbs';
+  static const macros_fat = 'macros.fat';
+  static const macros = 'macros';
+  static const meal_morning = 'meal.morning';
+  static const meal_noon = 'meal.noon';
+  static const meal_night = 'meal.night';
+  static const meal = 'meal';
 
 }

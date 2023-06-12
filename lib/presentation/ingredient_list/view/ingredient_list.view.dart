@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/custom_app_bar.widget.dart';
 import 'package:smarthealthy/presentation/ingredient_list/widgets/current_ingredient_list.widget.dart';
 import 'package:smarthealthy/presentation/ingredient_list/widgets/start_button.widget.dart';
@@ -18,13 +17,11 @@ class _IngredientListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(
         title: 'Danh sách nguyên liệu',
-        backgroundColor: ColorStyles.scaffoldBackground,
-        elevation: 0.2,
       ),
-      body: const Stack(
+      body: Stack(
         children: [CurrentIngredientList(), StartButton()],
       ),
     );
