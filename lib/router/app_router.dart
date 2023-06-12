@@ -7,6 +7,7 @@ import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/auth/views/register.view.dart';
 import 'package:smarthealthy/presentation/core/views/root.view.dart';
+import 'package:smarthealthy/presentation/diary/view/calorie_measure.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/recipe_detail/recipe.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
@@ -34,6 +35,9 @@ abstract class AppRouter {
   static const String recipeFilter = '/recipe_filter';
 
   static const String imagePicker = '/image_picker';
+
+  // Nutrition
+  static const String calorieMeasure = '/calorie_measure';
 
   static Route? onGenerateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
@@ -132,6 +136,13 @@ abstract class AppRouter {
               value: arguments as RecipeListBloc,
               child: const RecipeFilterPage(),
             );
+          },
+        );
+      case calorieMeasure:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const CalorieMeasureView();
           },
         );
       default:

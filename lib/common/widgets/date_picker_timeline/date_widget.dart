@@ -27,8 +27,8 @@ class DateWidget extends StatelessWidget {
         width: width,
         margin: const EdgeInsets.all(3.0),
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-          color: isSelected ? ColorStyles.yellowGreen : Colors.white,
+          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          color: isSelected ? ColorStyles.yellowGreen : Colors.transparent,
         ),
         padding: const EdgeInsets.all(8),
         child: Column(

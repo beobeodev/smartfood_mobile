@@ -48,5 +48,20 @@
     "level": "Level",
     "cuisine": "Cuisine",
     "category": "Category"
+  },
+  "measure": {
+    "height": "Height (in cm)",
+    "weight": "Weight (in kg)",
+    "age": "Age"
+  },
+  "macros": {
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat"
+  },
+  "meal": {
+    "morning": "Morning",
+    "noon": "Noon",
+    "night": "Night"
   }
 }

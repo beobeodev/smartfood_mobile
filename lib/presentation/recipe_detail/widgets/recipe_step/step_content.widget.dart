@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_step/stepper_and_step_pageview.widget.dart';
@@ -27,7 +26,7 @@ class _StepContentState extends State<StepContent> {
           pageController: _pageController,
         ),
         Positioned(
-          bottom: context.paddingBottom,
+          bottom: context.bottomSpacing,
           width: context.width / 2,
           child: AppRoundedButton(
             onPressed: () {
@@ -38,7 +37,6 @@ class _StepContentState extends State<StepContent> {
               );
             },
             content: 'Tiếp theo',
-            backgroundColor: ColorStyles.primary,
           ),
         )
       ],

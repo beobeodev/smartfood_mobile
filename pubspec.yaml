@@ -68,6 +68,7 @@ dependencies:
   im_stepper:
     path: ./packages/im_stepper
   syncfusion_flutter_datepicker: ^21.2.8
+  syncfusion_flutter_gauges: ^21.2.9
 
 dev_dependencies:
   flutter_test:
@@ -155,6 +156,8 @@ flutter:
     - assets/locales/
     - assets/models/
     - assets/images/
+    - assets/images/bmi/
+    - assets/images/diary/
     - assets/images/lottie/
 
   # An image asset can refer to one or more resolution-specific "variants", see

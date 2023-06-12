@@ -34,6 +34,7 @@ class WeightSliderInternal extends StatelessWidget {
   @override
   build(BuildContext context) {
     int itemCount = (maxValue - minValue) + 3;
+
     return NotificationListener(
       onNotification: _onNotification,
       child: ListView.builder(
@@ -50,7 +51,7 @@ class WeightSliderInternal extends StatelessWidget {
               ? Container()
               : GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: () => _animateTo(itemValue, durationMillis: 50),
+                  onTap: () => _animateTo(itemValue, durationMilliseconds: 50),
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
@@ -93,11 +94,12 @@ class WeightSliderInternal extends StatelessWidget {
         scrollController.position.activity is! HoldScrollActivity;
   }
 
-  _animateTo(int valueToSelect, {int durationMillis = 200}) {
+  void _animateTo(int valueToSelect, {int durationMilliseconds = 200}) {
     double targetExtent = (valueToSelect - minValue) * itemExtent;
+
     scrollController.animateTo(
       targetExtent,
-      duration: Duration(milliseconds: durationMillis),
+      duration: Duration(milliseconds: durationMilliseconds),
       curve: Curves.decelerate,
     );
   }

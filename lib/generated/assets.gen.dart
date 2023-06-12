@@ -47,13 +47,18 @@ class $AssetsIconsGen {
   $AssetsIconsLauncherGen get launcher => const $AssetsIconsLauncherGen();
   $AssetsIconsNavbarGen get navbar => const $AssetsIconsNavbarGen();
 
+  /// File path: assets/icons/weight.svg
+  SvgGenImage get weight => const SvgGenImage('assets/icons/weight.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [calo, filter];
+  List<SvgGenImage> get values => [calo, filter, weight];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  $AssetsImagesBmiGen get bmi => const $AssetsImagesBmiGen();
+  $AssetsImagesDiaryGen get diary => const $AssetsImagesDiaryGen();
   $AssetsImagesLottieGen get lottie => const $AssetsImagesLottieGen();
 }
 
@@ -168,6 +173,36 @@ class $AssetsIconsNavbarGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [diary, favorite, findRecipe, home, profile];
+}
+
+class $AssetsImagesBmiGen {
+  const $AssetsImagesBmiGen();
+
+  /// File path: assets/images/bmi/man.svg
+  SvgGenImage get man => const SvgGenImage('assets/images/bmi/man.svg');
+
+  /// File path: assets/images/bmi/woman.svg
+  SvgGenImage get woman => const SvgGenImage('assets/images/bmi/woman.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [man, woman];
+}
+
+class $AssetsImagesDiaryGen {
+  const $AssetsImagesDiaryGen();
+
+  /// File path: assets/images/diary/morning.svg
+  SvgGenImage get morning =>
+      const SvgGenImage('assets/images/diary/morning.svg');
+
+  /// File path: assets/images/diary/night.svg
+  SvgGenImage get night => const SvgGenImage('assets/images/diary/night.svg');
+
+  /// File path: assets/images/diary/noon.svg
+  SvgGenImage get noon => const SvgGenImage('assets/images/diary/noon.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [morning, night, noon];
 }
 
 class $AssetsImagesLottieGen {
