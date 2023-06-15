@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/widgets/custom_app_bar.widget.dart';
+import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_step/step_content.widget.dart';
 
@@ -27,7 +27,7 @@ class _RecipeStepViewState extends State<_RecipeStepView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(),
+      appBar: const CommonAppBar(),
       body: StepContent(steps: widget.steps),
       backgroundColor: Colors.white,
     );

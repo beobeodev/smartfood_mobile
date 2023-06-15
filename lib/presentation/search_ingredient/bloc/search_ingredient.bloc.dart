@@ -23,6 +23,7 @@ class SearchIngredientBloc
           const SearchIngredientState.loading(
             query: PaginationQueryDTO(
               sortBy: [SortDTO('name', SortType.ASC)],
+              limit: 48,
             ),
           ),
         ) {

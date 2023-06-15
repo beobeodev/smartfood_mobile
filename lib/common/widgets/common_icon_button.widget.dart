@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 
-class AppIconButton extends StatelessWidget {
+class CommonIconButton extends StatelessWidget {
   final Color iconColor;
   final dynamic icon;
   final VoidCallback onPressed;
   final double iconSize;
 
-  const AppIconButton({
+  const CommonIconButton({
     super.key,
     required this.icon,
     this.iconColor = ColorStyles.zodiacBlue,

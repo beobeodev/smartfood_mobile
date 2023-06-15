@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/extensions/map.extension.dart';
 import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
@@ -53,7 +54,13 @@ Map<String, dynamic>? _filterToJson<T>(List<T>? filters) {
       for (var item in tempFilter) {
         if (item.values.isNotEmpty) {
           result['filter.${item.type.value}.name'] =
-              item.values.map((e) => '\$ilike:$e').toList();
+              item.values.mapIndexed((index, e) {
+            if (index == 0) {
+              return '\$ilike:$e';
+            }
+
+            return '\$or:\$ilike:$e';
+          }).toList();
         }
       }
 

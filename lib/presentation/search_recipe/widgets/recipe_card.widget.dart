@@ -4,7 +4,7 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/app_theme.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
-import 'package:smarthealthy/presentation/recipe_list/widgets/difficulty_time_level.widget.dart';
+import 'package:smarthealthy/presentation/search_recipe/widgets/difficulty_time_level.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
 
 class RecipeCard extends StatelessWidget {

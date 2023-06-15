@@ -1,10 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
-import 'package:smarthealthy/common/widgets/app_back_button.widget.dart';
+import 'package:smarthealthy/common/widgets/common_back_button.widget.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool isCenterTitle;
   final bool automaticallyImplyLeading;
 
@@ -13,16 +16,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final double toolbarHeight;
   final double titleSpacing;
-  final double elevation;
+  final double? elevation;
   final double bottomSize;
+  final double? leadingWidth;
 
   final dynamic title;
-  final Widget? bottom;
   final List<Widget> actions;
+
+  final Widget? bottom;
+  final Widget? leading;
 
   final void Function()? onLeadingAction;
 
-  const CustomAppBar({
+  const CommonAppBar({
     super.key,
     this.isCenterTitle = true,
     this.automaticallyImplyLeading = true,
@@ -30,10 +36,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.titleColor = ColorStyles.zodiacBlue,
     this.toolbarHeight = AppSize.appBarHeight,
     this.titleSpacing = AppSize.titleSpacing,
-    this.elevation = 0,
+    this.elevation,
     this.bottomSize = 45,
+    this.leadingWidth,
     this.title,
     this.bottom,
+    this.leading,
     this.actions = const [],
     this.onLeadingAction,
   }) : assert(
@@ -52,9 +60,25 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ? title
         : Text(
             title,
-            style:
-                TextStyles.boldText.copyWith(color: titleColor, fontSize: 16),
+            style: TextStyles.boldText
+                .copyWith(color: titleColor, fontSize: 20.sp),
           );
+  }
+
+  double _getElevation() {
+    if (elevation != null) return elevation!;
+
+    return Platform.isIOS ? 0.1 : 0.4;
+  }
+
+  Widget? _getLeading(BuildContext context) {
+    if (leading != null) return leading;
+
+    return _canPop(context)
+        ? CommonBackButton(
+            onAction: onLeadingAction,
+          )
+        : null;
   }
 
   @override
@@ -62,11 +86,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: isCenterTitle,
       backgroundColor: backgroundColor,
-      elevation: elevation,
+      elevation: _getElevation(),
       toolbarHeight: toolbarHeight,
       titleSpacing: _canPop(context) ? 0 : titleSpacing,
       automaticallyImplyLeading: false,
       title: _getTitle(),
+      leadingWidth: leadingWidth,
       bottom: bottom != null
           ? PreferredSize(
               preferredSize: Size.fromHeight(bottomSize),
@@ -74,11 +99,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       actions: actions,
-      leading: _canPop(context)
-          ? AppBackButton(
-              onAction: onLeadingAction,
-            )
-          : null,
+      leading: _getLeading(context),
     );
   }
 

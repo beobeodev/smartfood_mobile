@@ -60,8 +60,16 @@
     "fat": "Chất béo"
   },
   "meal": {
-    "morning": "Buổi sáng",
-    "noon": "Buổi trưa",
-    "night": "Buổi tối"
+    "title": "Bữa ăn",
+    "breakfast": "Bữa sáng",
+    "lunch": "Bữa trưa",
+    "dinner": "Bữa tối",
+    "list": "Danh sách món ăn",
+    "add_dish": "Thêm món ăn",
+    "enter_dish": "Nhập tên món ăn"
+  },
+  "diary_mode": {
+    "meal": "Bữa ăn",
+    "workout": "Tập luyện"
   }
 }

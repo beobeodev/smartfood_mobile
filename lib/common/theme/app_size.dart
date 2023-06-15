@@ -8,6 +8,8 @@ abstract class AppSize {
   static const double appBarHeight = 60;
   static const double titleSpacing = 20;
 
+  static const double choiceChipHeight = 48;
+
   // Width
   static const SizedBox w5 = SizedBox(
     width: 5,

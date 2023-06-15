@@ -105,8 +105,15 @@ class $AssetsIconsDiaryGen {
   SvgGenImage get calendar =>
       const SvgGenImage('assets/icons/diary/calendar.svg');
 
+  /// File path: assets/icons/diary/meal.svg
+  SvgGenImage get meal => const SvgGenImage('assets/icons/diary/meal.svg');
+
+  /// File path: assets/icons/diary/workout.svg
+  SvgGenImage get workout =>
+      const SvgGenImage('assets/icons/diary/workout.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [calendar];
+  List<SvgGenImage> get values => [calendar, meal, workout];
 }
 
 class $AssetsIconsDifficultyLevelGen {
