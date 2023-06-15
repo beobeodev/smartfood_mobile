@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
-import 'package:smarthealthy/common/widgets/app_icon_button.widget.dart';
+import 'package:smarthealthy/common/widgets/common_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_search_field.widget.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/home/bloc/home.bloc.dart';
@@ -42,7 +42,7 @@ class _HomeView extends StatelessWidget {
                 ),
               ),
               actions: [
-                AppIconButton(
+                CommonIconButton(
                   onPressed: () {},
                   icon: Icons.notifications_on_outlined,
                   iconColor: ColorStyles.primary,

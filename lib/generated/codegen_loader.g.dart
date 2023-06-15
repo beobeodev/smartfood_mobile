@@ -76,9 +76,17 @@ class CodegenLoader extends AssetLoader{
     "fat": "Fat"
   },
   "meal": {
-    "morning": "Morning",
-    "noon": "Noon",
-    "night": "Night"
+    "title": "Meal",
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "list": "List of dishes",
+    "add_dish": "Add dishes",
+    "enter_dish": "Enter a dish name"
+  },
+  "diary_mode": {
+    "meal": "Meal",
+    "workout": "Workout"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -143,9 +151,17 @@ static const Map<String,dynamic> vi = {
     "fat": "Chất béo"
   },
   "meal": {
-    "morning": "Buổi sáng",
-    "noon": "Buổi trưa",
-    "night": "Buổi tối"
+    "title": "Bữa ăn",
+    "breakfast": "Bữa sáng",
+    "lunch": "Bữa trưa",
+    "dinner": "Bữa tối",
+    "list": "Danh sách món ăn",
+    "add_dish": "Thêm món ăn",
+    "enter_dish": "Nhập tên món ăn"
+  },
+  "diary_mode": {
+    "meal": "Bữa ăn",
+    "workout": "Tập luyện"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

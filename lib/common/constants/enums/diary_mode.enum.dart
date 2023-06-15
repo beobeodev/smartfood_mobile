@@ -1,0 +1,4 @@
+enum DiaryMode {
+  meal,
+  workout,
+}

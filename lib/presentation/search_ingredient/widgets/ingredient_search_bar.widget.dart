@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
-import 'package:smarthealthy/common/widgets/app_icon_button.widget.dart';
+import 'package:smarthealthy/common/widgets/common_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_search_bar.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
 import 'package:smarthealthy/presentation/search_ingredient/bloc/search_ingredient.bloc.dart';
@@ -37,7 +37,7 @@ class IngredientSearchBar extends StatelessWidget
     return CommonSearchBar(
       onFieldSubmitted: (value) => _onSearchIngredients(context, value),
       actions: [
-        AppIconButton(
+        CommonIconButton(
           onPressed: () => _navigateToImagePicker(context),
           icon: UniconsLine.focus_target,
           iconColor: ColorStyles.primary,

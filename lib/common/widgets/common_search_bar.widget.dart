@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/common_search_field.widget.dart';
-import 'package:smarthealthy/common/widgets/custom_app_bar.widget.dart';
+import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 
 class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
   final void Function(String)? onFieldSubmitted;
@@ -22,7 +22,7 @@ class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomAppBar(
+    return CommonAppBar(
       title: CommonSearchField(
         hintText: hintText,
         onTap: onTap,
@@ -34,7 +34,6 @@ class CommonSearchBar extends StatelessWidget implements PreferredSizeWidget {
         if (actions != null) ...actions!,
         AppSize.w20,
       ],
-      elevation: 0.1,
     );
   }
 

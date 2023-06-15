@@ -60,8 +60,16 @@
     "fat": "Fat"
   },
   "meal": {
-    "morning": "Morning",
-    "noon": "Noon",
-    "night": "Night"
+    "title": "Meal",
+    "breakfast": "Breakfast",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "list": "List of dishes",
+    "add_dish": "Add dishes",
+    "enter_dish": "Enter a dish name"
+  },
+  "diary_mode": {
+    "meal": "Meal",
+    "workout": "Workout"
   }
 }

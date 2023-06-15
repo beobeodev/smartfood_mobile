@@ -33,6 +33,13 @@ class _DiaryTimelineState extends State<DiaryTimeline> {
   }
 
   @override
+  void dispose() {
+    _selectedDateNotifier.dispose();
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _datePickerController.animateToSelection();

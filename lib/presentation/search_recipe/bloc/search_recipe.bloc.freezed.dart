@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'recipe_list.bloc.dart';
+part of 'search_recipe.bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -19,7 +19,7 @@ mixin _$RecipeListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<String> ingredientIds) getByIngredients,
-    required TResult Function() getAll,
+    required TResult Function(String? searchKey) getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
     required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
@@ -28,7 +28,7 @@ mixin _$RecipeListEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<String> ingredientIds)? getByIngredients,
-    TResult? Function()? getAll,
+    TResult? Function(String? searchKey)? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
     TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -37,7 +37,7 @@ mixin _$RecipeListEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<String> ingredientIds)? getByIngredients,
-    TResult Function()? getAll,
+    TResult Function(String? searchKey)? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
     TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -77,12 +77,12 @@ mixin _$RecipeListEvent {
 /// @nodoc
 abstract class $RecipeListEventCopyWith<$Res> {
   factory $RecipeListEventCopyWith(
-          RecipeListEvent value, $Res Function(RecipeListEvent) then) =
-      _$RecipeListEventCopyWithImpl<$Res, RecipeListEvent>;
+          SearchRecipeEvent value, $Res Function(SearchRecipeEvent) then) =
+      _$RecipeListEventCopyWithImpl<$Res, SearchRecipeEvent>;
 }
 
 /// @nodoc
-class _$RecipeListEventCopyWithImpl<$Res, $Val extends RecipeListEvent>
+class _$RecipeListEventCopyWithImpl<$Res, $Val extends SearchRecipeEvent>
     implements $RecipeListEventCopyWith<$Res> {
   _$RecipeListEventCopyWithImpl(this._value, this._then);
 
@@ -165,7 +165,7 @@ class _$_GetByIngredients implements _GetByIngredients {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<String> ingredientIds) getByIngredients,
-    required TResult Function() getAll,
+    required TResult Function(String? searchKey) getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
     required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
@@ -177,7 +177,7 @@ class _$_GetByIngredients implements _GetByIngredients {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<String> ingredientIds)? getByIngredients,
-    TResult? Function()? getAll,
+    TResult? Function(String? searchKey)? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
     TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -189,7 +189,7 @@ class _$_GetByIngredients implements _GetByIngredients {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<String> ingredientIds)? getByIngredients,
-    TResult Function()? getAll,
+    TResult Function(String? searchKey)? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
     TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -242,7 +242,7 @@ class _$_GetByIngredients implements _GetByIngredients {
   }
 }
 
-abstract class _GetByIngredients implements RecipeListEvent {
+abstract class _GetByIngredients implements SearchRecipeEvent {
   const factory _GetByIngredients(final List<String> ingredientIds) =
       _$_GetByIngredients;
 
@@ -256,6 +256,8 @@ abstract class _GetByIngredients implements RecipeListEvent {
 abstract class _$$_GetAllCopyWith<$Res> {
   factory _$$_GetAllCopyWith(_$_GetAll value, $Res Function(_$_GetAll) then) =
       __$$_GetAllCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String? searchKey});
 }
 
 /// @nodoc
@@ -264,63 +266,88 @@ class __$$_GetAllCopyWithImpl<$Res>
     implements _$$_GetAllCopyWith<$Res> {
   __$$_GetAllCopyWithImpl(_$_GetAll _value, $Res Function(_$_GetAll) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? searchKey = freezed,
+  }) {
+    return _then(_$_GetAll(
+      searchKey: freezed == searchKey
+          ? _value.searchKey
+          : searchKey // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_GetAll implements _GetAll {
-  const _$_GetAll();
+  const _$_GetAll({this.searchKey});
+
+  @override
+  final String? searchKey;
 
   @override
   String toString() {
-    return 'RecipeListEvent.getAll()';
+    return 'RecipeListEvent.getAll(searchKey: $searchKey)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetAll);
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAll &&
+            (identical(other.searchKey, searchKey) ||
+                other.searchKey == searchKey));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, searchKey);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAllCopyWith<_$_GetAll> get copyWith =>
+      __$$_GetAllCopyWithImpl<_$_GetAll>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<String> ingredientIds) getByIngredients,
-    required TResult Function() getAll,
+    required TResult Function(String? searchKey) getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
     required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
   }) {
-    return getAll();
+    return getAll(searchKey);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<String> ingredientIds)? getByIngredients,
-    TResult? Function()? getAll,
+    TResult? Function(String? searchKey)? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
     TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
   }) {
-    return getAll?.call();
+    return getAll?.call(searchKey);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<String> ingredientIds)? getByIngredients,
-    TResult Function()? getAll,
+    TResult Function(String? searchKey)? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
     TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
     required TResult orElse(),
   }) {
     if (getAll != null) {
-      return getAll();
+      return getAll(searchKey);
     }
     return orElse();
   }
@@ -366,8 +393,13 @@ class _$_GetAll implements _GetAll {
   }
 }
 
-abstract class _GetAll implements RecipeListEvent {
-  const factory _GetAll() = _$_GetAll;
+abstract class _GetAll implements SearchRecipeEvent {
+  const factory _GetAll({final String? searchKey}) = _$_GetAll;
+
+  String? get searchKey;
+  @JsonKey(ignore: true)
+  _$$_GetAllCopyWith<_$_GetAll> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -408,7 +440,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<String> ingredientIds) getByIngredients,
-    required TResult Function() getAll,
+    required TResult Function(String? searchKey) getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
     required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
@@ -420,7 +452,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<String> ingredientIds)? getByIngredients,
-    TResult? Function()? getAll,
+    TResult? Function(String? searchKey)? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
     TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -432,7 +464,7 @@ class _$_Refresh implements _Refresh {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<String> ingredientIds)? getByIngredients,
-    TResult Function()? getAll,
+    TResult Function(String? searchKey)? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
     TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -485,7 +517,7 @@ class _$_Refresh implements _Refresh {
   }
 }
 
-abstract class _Refresh implements RecipeListEvent {
+abstract class _Refresh implements SearchRecipeEvent {
   const factory _Refresh() = _$_Refresh;
 }
 
@@ -528,7 +560,7 @@ class _$_LoadMore implements _LoadMore {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<String> ingredientIds) getByIngredients,
-    required TResult Function() getAll,
+    required TResult Function(String? searchKey) getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
     required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
@@ -540,7 +572,7 @@ class _$_LoadMore implements _LoadMore {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<String> ingredientIds)? getByIngredients,
-    TResult? Function()? getAll,
+    TResult? Function(String? searchKey)? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
     TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -552,7 +584,7 @@ class _$_LoadMore implements _LoadMore {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<String> ingredientIds)? getByIngredients,
-    TResult Function()? getAll,
+    TResult Function(String? searchKey)? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
     TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -605,7 +637,7 @@ class _$_LoadMore implements _LoadMore {
   }
 }
 
-abstract class _LoadMore implements RecipeListEvent {
+abstract class _LoadMore implements SearchRecipeEvent {
   const factory _LoadMore() = _$_LoadMore;
 }
 
@@ -681,7 +713,7 @@ class _$_ApplyFilter implements _ApplyFilter {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(List<String> ingredientIds) getByIngredients,
-    required TResult Function() getAll,
+    required TResult Function(String? searchKey) getAll,
     required TResult Function() refresh,
     required TResult Function() loadMore,
     required TResult Function(List<RecipeFilterDTO> filters) applyFilter,
@@ -693,7 +725,7 @@ class _$_ApplyFilter implements _ApplyFilter {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<String> ingredientIds)? getByIngredients,
-    TResult? Function()? getAll,
+    TResult? Function(String? searchKey)? getAll,
     TResult? Function()? refresh,
     TResult? Function()? loadMore,
     TResult? Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -705,7 +737,7 @@ class _$_ApplyFilter implements _ApplyFilter {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<String> ingredientIds)? getByIngredients,
-    TResult Function()? getAll,
+    TResult Function(String? searchKey)? getAll,
     TResult Function()? refresh,
     TResult Function()? loadMore,
     TResult Function(List<RecipeFilterDTO> filters)? applyFilter,
@@ -758,7 +790,7 @@ class _$_ApplyFilter implements _ApplyFilter {
   }
 }
 
-abstract class _ApplyFilter implements RecipeListEvent {
+abstract class _ApplyFilter implements SearchRecipeEvent {
   const factory _ApplyFilter(final List<RecipeFilterDTO> filters) =
       _$_ApplyFilter;
 
@@ -775,15 +807,15 @@ mixin _$RecipeListState {
   QueryRecipesDTO get queryDto => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $RecipeListStateCopyWith<RecipeListState> get copyWith =>
+  $RecipeListStateCopyWith<SearchRecipeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $RecipeListStateCopyWith<$Res> {
   factory $RecipeListStateCopyWith(
-          RecipeListState value, $Res Function(RecipeListState) then) =
-      _$RecipeListStateCopyWithImpl<$Res, RecipeListState>;
+          SearchRecipeState value, $Res Function(SearchRecipeState) then) =
+      _$RecipeListStateCopyWithImpl<$Res, SearchRecipeState>;
   @useResult
   $Res call(
       {QueryDataStatusDTO queryStatus,
@@ -795,7 +827,7 @@ abstract class $RecipeListStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RecipeListStateCopyWithImpl<$Res, $Val extends RecipeListState>
+class _$RecipeListStateCopyWithImpl<$Res, $Val extends SearchRecipeState>
     implements $RecipeListStateCopyWith<$Res> {
   _$RecipeListStateCopyWithImpl(this._value, this._then);
 
@@ -947,7 +979,7 @@ class _$_RecipeListState implements _RecipeListState {
       __$$_RecipeListStateCopyWithImpl<_$_RecipeListState>(this, _$identity);
 }
 
-abstract class _RecipeListState implements RecipeListState {
+abstract class _RecipeListState implements SearchRecipeState {
   const factory _RecipeListState(
       {required final QueryDataStatusDTO queryStatus,
       final List<RecipeModel>? recipes,

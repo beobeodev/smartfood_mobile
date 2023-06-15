@@ -6,12 +6,17 @@ import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
-import 'package:smarthealthy/presentation/recipe_list/recipe_list.dart';
-import 'package:smarthealthy/presentation/recipe_list/widgets/recipe_card.widget.dart';
+import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/dish_card.widget.dart';
+import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
+import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_card.widget.dart';
 
 class RecipeList extends StatefulWidget {
+  final void Function(RecipeModel)? onAddDish;
+
   const RecipeList({
     super.key,
+    this.onAddDish,
   });
 
   @override
@@ -20,6 +25,13 @@ class RecipeList extends StatefulWidget {
 
 class _RecipeListState extends State<RecipeList> {
   final RefreshController _refreshController = RefreshController();
+  late final bool isDishCard;
+
+  @override
+  void initState() {
+    isDishCard = widget.onAddDish != null;
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -28,16 +40,16 @@ class _RecipeListState extends State<RecipeList> {
   }
 
   void _onLoadRefresh([bool isRefresh = false]) {
-    final searchIngredientBloc = context.read<RecipeListBloc>();
+    final searchIngredientBloc = context.read<SearchRecipeBloc>();
 
     searchIngredientBloc.add(
       isRefresh
-          ? const RecipeListEvent.refresh()
-          : const RecipeListEvent.loadMore(),
+          ? const SearchRecipeEvent.refresh()
+          : const SearchRecipeEvent.loadMore(),
     );
   }
 
-  void _listenGetChanged(BuildContext context, RecipeListState state) {
+  void _listenGetChanged(BuildContext context, SearchRecipeState state) {
     final queryStatus = state.queryStatus;
 
     switch (queryStatus.status) {
@@ -73,7 +85,7 @@ class _RecipeListState extends State<RecipeList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<RecipeListBloc, RecipeListState>(
+    return BlocConsumer<SearchRecipeBloc, SearchRecipeState>(
       listener: _listenGetChanged,
       builder: (context, state) {
         return SmartRefresher(
@@ -81,12 +93,21 @@ class _RecipeListState extends State<RecipeList> {
           enablePullUp: state.queryStatus.canLoadMore,
           onLoading: _onLoadRefresh,
           onRefresh: () => _onLoadRefresh(true),
+          enablePullDown: !isDishCard,
           child: ListView.separated(
             padding: const EdgeInsets.all(AppSize.horizontalSpace),
             itemCount: state.recipes!.length,
-            separatorBuilder: (_, __) => AppSize.h20,
+            shrinkWrap: true,
+            separatorBuilder: (_, __) => isDishCard ? AppSize.h10 : AppSize.h20,
             itemBuilder: (context, index) {
-              return RecipeCard(recipe: state.recipes![index]);
+              final recipe = state.recipes![index];
+
+              return isDishCard
+                  ? DishCard(
+                      recipe: recipe,
+                      onAdd: widget.onAddDish,
+                    )
+                  : RecipeCard(recipe: recipe);
             },
           ),
         );

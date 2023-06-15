@@ -1,16 +1,20 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/constants/enums/page_transition_type.enum.dart';
 
 /// This package allows you amazing transition for your routes
 
 /// Page transition class extends PageRouteBuilder
-class PageTransition<T> extends PageRoute<T> {
+class TransitionPageRoute<T> extends PageRoute<T> {
   /// Child for your next page
   final WidgetBuilder builder;
 
   /// Transition types
   ///  fade,rightToLeft,leftToRight, upToDown,downToUp,scale,rotate,size,rightToLeftWithFade,leftToRightWithFade
   final PageTransitionType? type;
+
+  final PageTransitionsBuilder matchingBuilder;
 
   /// Curves for transitions
   final Curve curve;
@@ -19,17 +23,20 @@ class PageTransition<T> extends PageRoute<T> {
 
   final Duration reverseDuration;
 
+  final bool isIos;
+
   /// Page transition constructor. We can pass the next page as a child,
-  PageTransition({
+  TransitionPageRoute({
     Key? key,
     required this.builder,
     this.type,
+    this.matchingBuilder = const CupertinoPageTransitionsBuilder(),
     this.curve = Curves.linear,
     super.settings,
     this.maintainState = true,
     this.duration = const Duration(milliseconds: 300),
     this.reverseDuration = const Duration(milliseconds: 300),
-  });
+  }) : isIos = Platform.isIOS;
 
   @override
   final bool maintainState;
@@ -43,7 +50,7 @@ class PageTransition<T> extends PageRoute<T> {
   ) {
     switch (type) {
       case PageTransitionType.fade:
-        return SlideTransition(
+        final transitionChild = SlideTransition(
           position: animation.drive(
             Tween<Offset>(
               begin: const Offset(0.0, 0.25),
@@ -56,6 +63,16 @@ class PageTransition<T> extends PageRoute<T> {
           ),
         );
 
+        return isIos
+            ? matchingBuilder.buildTransitions(
+                this,
+                context,
+                animation,
+                secondaryAnimation,
+                transitionChild,
+              )
+            : transitionChild;
+
       case PageTransitionType.fadeIn:
         return FadeTransition(
           opacity: animation,
@@ -63,13 +80,23 @@ class PageTransition<T> extends PageRoute<T> {
         );
 
       case PageTransitionType.rightToLeft:
-        SlideTransition(
+        final transitionChild = SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(1.0, 0.0),
             end: Offset.zero,
           ).animate(animation),
           child: child,
         );
+
+        return isIos
+            ? matchingBuilder.buildTransitions(
+                this,
+                context,
+                animation,
+                secondaryAnimation,
+                transitionChild,
+              )
+            : transitionChild;
 
       case PageTransitionType.leftToRight:
         return SlideTransition(
@@ -81,7 +108,7 @@ class PageTransition<T> extends PageRoute<T> {
         );
 
       case PageTransitionType.downToUp:
-        return SlideTransition(
+        final transitionChild = SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(0.0, 1.0),
             end: Offset.zero,
@@ -89,14 +116,34 @@ class PageTransition<T> extends PageRoute<T> {
           child: child,
         );
 
+        return isIos
+            ? matchingBuilder.buildTransitions(
+                this,
+                context,
+                animation,
+                secondaryAnimation,
+                transitionChild,
+              )
+            : transitionChild;
+
       case PageTransitionType.upToDown:
-        return SlideTransition(
+        final transitionChild = SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(0.0, -1.0),
             end: Offset.zero,
           ).animate(animation),
           child: child,
         );
+
+        return isIos
+            ? matchingBuilder.buildTransitions(
+                this,
+                context,
+                animation,
+                secondaryAnimation,
+                transitionChild,
+              )
+            : transitionChild;
 
       default:
         final PageTransitionsTheme theme =
@@ -109,14 +156,6 @@ class PageTransition<T> extends PageRoute<T> {
           child,
         );
     }
-
-    return SlideTransition(
-      position: Tween<Offset>(
-        begin: const Offset(1, 0),
-        end: Offset.zero,
-      ).animate(animation),
-      child: child,
-    );
   }
 
   @override

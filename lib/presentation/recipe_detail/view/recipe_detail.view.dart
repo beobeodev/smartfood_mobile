@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
-import 'package:smarthealthy/common/widgets/custom_app_bar.widget.dart';
+import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
@@ -33,8 +33,8 @@ class _RecipeDetailView extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: state.mapOrNull(
-            loading: (_) => const CustomAppBar(),
-            failure: (_) => const CustomAppBar(),
+            loading: (_) => const CommonAppBar(),
+            failure: (_) => const CommonAppBar(),
           ),
           body: state.map(
             loading: (_) => const Center(

@@ -3,7 +3,7 @@ import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/calorie_in_day.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/macro_statistic.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/meal_plan.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/meal_and_workout_plan.widget.dart';
 
 class NutritionInDay extends StatelessWidget {
   const NutritionInDay({super.key});
@@ -38,7 +38,7 @@ class NutritionInDay extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              MealPlan()
+              MealAndWorkoutPlan()
             ],
           ),
         ),

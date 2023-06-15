@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/constants/enums/filter_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/widgets/custom_app_bar.widget.dart';
+import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/category_filter_section.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/cuisine_filter_section.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/level_filter_section.widget.dart';
-import 'package:smarthealthy/presentation/recipe_list/bloc/recipe_list.bloc.dart';
+import 'package:smarthealthy/presentation/search_recipe/bloc/search_recipe.bloc.dart';
 
 class RecipeFilterPage extends StatelessWidget {
   const RecipeFilterPage({super.key});
@@ -25,8 +25,8 @@ class _RecipeFilterView extends StatelessWidget {
   void _onLeadingAction(BuildContext context) {
     final state = context.read<RecipeFilterBloc>().state;
 
-    context.read<RecipeListBloc>().add(
-          RecipeListEvent.applyFilter([
+    context.read<SearchRecipeBloc>().add(
+          SearchRecipeEvent.applyFilter([
             RecipeFilterDTO(
               type: RecipeFilterType.level,
               values: state.levels
@@ -55,9 +55,8 @@ class _RecipeFilterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: CommonAppBar(
         title: 'Filter',
-        elevation: 1,
         onLeadingAction: () => _onLeadingAction(context),
       ),
       body: const SingleChildScrollView(

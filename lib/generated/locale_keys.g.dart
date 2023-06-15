@@ -51,9 +51,16 @@ abstract class  LocaleKeys {
   static const macros_carbs = 'macros.carbs';
   static const macros_fat = 'macros.fat';
   static const macros = 'macros';
-  static const meal_morning = 'meal.morning';
-  static const meal_noon = 'meal.noon';
-  static const meal_night = 'meal.night';
+  static const meal_title = 'meal.title';
+  static const meal_breakfast = 'meal.breakfast';
+  static const meal_lunch = 'meal.lunch';
+  static const meal_dinner = 'meal.dinner';
+  static const meal_list = 'meal.list';
+  static const meal_add_dish = 'meal.add_dish';
+  static const meal_enter_dish = 'meal.enter_dish';
   static const meal = 'meal';
+  static const diary_mode_meal = 'diary_mode.meal';
+  static const diary_mode_workout = 'diary_mode.workout';
+  static const diary_mode = 'diary_mode';
 
 }

@@ -10,23 +10,19 @@ import 'package:smarthealthy/data/dtos/query_recipes.dto.dart';
 import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
-import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 
-part 'recipe_list.event.dart';
-part 'recipe_list.state.dart';
-part 'recipe_list.bloc.freezed.dart';
+part 'search_recipe.event.dart';
+part 'search_recipe.state.dart';
+part 'search_recipe.bloc.freezed.dart';
 
-class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
+class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
   final RecipeRepository _recipeRepository;
-  final RecipeFilterBloc _recipeFilterBloc;
 
-  RecipeListBloc({
+  SearchRecipeBloc({
     required RecipeRepository recipeRepository,
-    required RecipeFilterBloc recipeFilterBloc,
   })  : _recipeRepository = recipeRepository,
-        _recipeFilterBloc = recipeFilterBloc,
         super(
-          const RecipeListState(
+          const SearchRecipeState(
             queryStatus: QueryDataStatusDTO(
               status: QueryStatus.loading,
             ),
@@ -35,7 +31,7 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
             ),
           ),
         ) {
-    on<RecipeListEvent>((event, emit) async {
+    on<SearchRecipeEvent>((event, emit) async {
       await event.map(
         getByIngredients: (event) => _onGetByIngredients(event, emit),
         getAll: (event) => _onGetAll(event, emit),
@@ -48,15 +44,14 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
 
   Future<void> _onGetByIngredients(
     _GetByIngredients event,
-    Emitter<RecipeListState> emit,
+    Emitter<SearchRecipeState> emit,
   ) async {
     emit(
       state.copyWith
           .queryDto(ids: event.ingredientIds)
           .copyWith
-          .queryStatus(status: QueryStatus.loading),
+          .queryStatus(status: QueryStatus.loading, type: QueryType.initial),
     );
-    _resetFilters();
 
     try {
       final recipeDto = await _getRecipes();
@@ -83,10 +78,15 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
 
   Future<void> _onGetAll(
     _GetAll event,
-    Emitter<RecipeListState> emit,
+    Emitter<SearchRecipeState> emit,
   ) async {
-    emit(state.copyWith.queryStatus(status: QueryStatus.loading));
-    _resetFilters();
+    emit(
+      state.copyWith
+          .queryStatus(status: QueryStatus.loading, type: QueryType.initial)
+          .copyWith
+          .queryDto
+          .pagination(search: event.searchKey),
+    );
 
     try {
       final recipeDto = await _getRecipes();
@@ -112,7 +112,10 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
     }
   }
 
-  Future<void> _onRefresh(_Refresh event, Emitter<RecipeListState> emit) async {
+  Future<void> _onRefresh(
+    _Refresh event,
+    Emitter<SearchRecipeState> emit,
+  ) async {
     emit(
       state.copyWith.queryDto
           .pagination(page: 1)
@@ -145,7 +148,7 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
 
   Future<void> _onLoadMore(
     _LoadMore event,
-    Emitter<RecipeListState> emit,
+    Emitter<SearchRecipeState> emit,
   ) async {
     emit(
       state.copyWith.queryDto
@@ -183,7 +186,7 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
 
   Future<void> _onApplyFilter(
     _ApplyFilter event,
-    Emitter<RecipeListState> emit,
+    Emitter<SearchRecipeState> emit,
   ) async {
     emit(
       state.copyWith.queryDto
@@ -222,9 +225,5 @@ class RecipeListBloc extends Bloc<RecipeListEvent, RecipeListState> {
     final recipes = await _recipeRepository.getRecipes(query);
 
     return recipes;
-  }
-
-  void _resetFilters() {
-    _recipeFilterBloc.add(const RecipeFilterEvent.reset());
   }
 }
