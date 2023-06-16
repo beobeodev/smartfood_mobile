@@ -4,7 +4,8 @@
     "success": "Success",
     "error_occur": "An error has occurred, please try again later",
     "email_address": "Email Address",
-    "password": "Password"
+    "password": "Password",
+    "delete_all": "Delete all"
   },
   "button": {
     "cancel": "Cancel",
@@ -28,9 +29,6 @@
     "not_have_account": "Don’t Have an account?",
     "have_account": "Have an account?"
   },
-  "ingredient": {
-    "find": "Search for ingredients"
-  },
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
@@ -42,12 +40,15 @@
   },
   "search": {
     "ingredient_not_found": "Did not find any ingredients for your search",
-    "recipe": "Search for recipes"
+    "recipe": "Search for recipes",
+    "ingredient": "Enter a ingredient name"
   },
   "filter": {
     "level": "Level",
     "cuisine": "Cuisine",
-    "category": "Category"
+    "category": "Category",
+    "ingredient": "Ingredient",
+    "add_ingredient": "Add ingredient"
   },
   "measure": {
     "height": "Height (in cm)",

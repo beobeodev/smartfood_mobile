@@ -4,26 +4,31 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/circle_network_image.widget.dart';
+import 'package:smarthealthy/common/widgets/common_dismissible.widget.dart'
+    as common;
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/ingredient_list/widgets/dismiss_background.widget.dart';
 
-class CurrentIngredientItem extends StatelessWidget {
+class IngredientListItem extends StatelessWidget {
   final IngredientModel ingredient;
+  final bool hasDismiss;
 
-  const CurrentIngredientItem({super.key, required this.ingredient});
+  const IngredientListItem({
+    super.key,
+    required this.ingredient,
+    this.hasDismiss = true,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 55,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: ColorStyles.gray100),
-      ),
-      child: Dismissible(
+      child: common.CommonDismissible(
         key: ValueKey(ingredient.id),
+        direction: hasDismiss
+            ? common.DismissDirection.endToStart
+            : common.DismissDirection.none,
         resizeDuration: const Duration(milliseconds: 100),
         onDismissed: (_) {
           context
@@ -31,8 +36,13 @@ class CurrentIngredientItem extends StatelessWidget {
               .add(IngredientListEvent.updated(ingredient));
         },
         background: const DismissBackground(),
-        child: Padding(
+        child: Container(
           padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: ColorStyles.gray100),
+          ),
           child: Row(
             children: [
               LayoutBuilder(
@@ -57,5 +67,14 @@ class CurrentIngredientItem extends StatelessWidget {
         ),
       ),
     );
+    // return Container(
+    //   height: 55,
+    //   decoration: BoxDecoration(
+    //     color: Colors.white,
+    //     borderRadius: BorderRadius.circular(10),
+    //     border: Border.all(color: ColorStyles.gray100),
+    //   ),
+    //   child: ,
+    // );
   }
 }

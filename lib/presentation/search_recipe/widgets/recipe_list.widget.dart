@@ -50,7 +50,7 @@ class _RecipeListState extends State<RecipeList> {
   }
 
   void _listenGetChanged(BuildContext context, SearchRecipeState state) {
-    final queryStatus = state.queryStatus;
+    final queryStatus = state.queryInfo;
 
     switch (queryStatus.status) {
       case QueryStatus.error:
@@ -90,7 +90,7 @@ class _RecipeListState extends State<RecipeList> {
       builder: (context, state) {
         return SmartRefresher(
           controller: _refreshController,
-          enablePullUp: state.queryStatus.canLoadMore,
+          enablePullUp: state.queryInfo.canLoadMore,
           onLoading: _onLoadRefresh,
           onRefresh: () => _onLoadRefresh(true),
           enablePullDown: !isDishCard,

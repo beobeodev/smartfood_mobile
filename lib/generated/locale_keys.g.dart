@@ -6,6 +6,7 @@ abstract class  LocaleKeys {
   static const texts_error_occur = 'texts.error_occur';
   static const texts_email_address = 'texts.email_address';
   static const texts_password = 'texts.password';
+  static const texts_delete_all = 'texts.delete_all';
   static const texts = 'texts';
   static const button_cancel = 'button.cancel';
   static const button_confirm = 'button.confirm';
@@ -26,8 +27,6 @@ abstract class  LocaleKeys {
   static const auth_not_have_account = 'auth.not_have_account';
   static const auth_have_account = 'auth.have_account';
   static const auth = 'auth';
-  static const ingredient_find = 'ingredient.find';
-  static const ingredient = 'ingredient';
   static const validator_email_required = 'validator.email_required';
   static const validator_password_required = 'validator.password_required';
   static const validator_invalid_email = 'validator.invalid_email';
@@ -38,10 +37,13 @@ abstract class  LocaleKeys {
   static const validator = 'validator';
   static const search_ingredient_not_found = 'search.ingredient_not_found';
   static const search_recipe = 'search.recipe';
+  static const search_ingredient = 'search.ingredient';
   static const search = 'search';
   static const filter_level = 'filter.level';
   static const filter_cuisine = 'filter.cuisine';
   static const filter_category = 'filter.category';
+  static const filter_ingredient = 'filter.ingredient';
+  static const filter_add_ingredient = 'filter.add_ingredient';
   static const filter = 'filter';
   static const measure_height = 'measure.height';
   static const measure_weight = 'measure.weight';

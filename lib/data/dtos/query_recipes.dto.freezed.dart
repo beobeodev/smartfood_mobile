@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$QueryRecipesDTO {
-  List<String>? get ids => throw _privateConstructorUsedError;
+  List<IngredientModel>? get ingredients => throw _privateConstructorUsedError;
   PaginationQueryDTO<dynamic> get pagination =>
       throw _privateConstructorUsedError;
 
@@ -31,7 +31,9 @@ abstract class $QueryRecipesDTOCopyWith<$Res> {
           QueryRecipesDTO value, $Res Function(QueryRecipesDTO) then) =
       _$QueryRecipesDTOCopyWithImpl<$Res, QueryRecipesDTO>;
   @useResult
-  $Res call({List<String>? ids, PaginationQueryDTO<dynamic> pagination});
+  $Res call(
+      {List<IngredientModel>? ingredients,
+      PaginationQueryDTO<dynamic> pagination});
 
   $PaginationQueryDTOCopyWith<dynamic, $Res> get pagination;
 }
@@ -49,14 +51,14 @@ class _$QueryRecipesDTOCopyWithImpl<$Res, $Val extends QueryRecipesDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ids = freezed,
+    Object? ingredients = freezed,
     Object? pagination = null,
   }) {
     return _then(_value.copyWith(
-      ids: freezed == ids
-          ? _value.ids
-          : ids // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      ingredients: freezed == ingredients
+          ? _value.ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>?,
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -82,7 +84,9 @@ abstract class _$$_QueryRecipesDTOCopyWith<$Res>
       __$$_QueryRecipesDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String>? ids, PaginationQueryDTO<dynamic> pagination});
+  $Res call(
+      {List<IngredientModel>? ingredients,
+      PaginationQueryDTO<dynamic> pagination});
 
   @override
   $PaginationQueryDTOCopyWith<dynamic, $Res> get pagination;
@@ -99,14 +103,14 @@ class __$$_QueryRecipesDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? ids = freezed,
+    Object? ingredients = freezed,
     Object? pagination = null,
   }) {
     return _then(_$_QueryRecipesDTO(
-      ids: freezed == ids
-          ? _value._ids
-          : ids // ignore: cast_nullable_to_non_nullable
-              as List<String>?,
+      ingredients: freezed == ingredients
+          ? _value._ingredients
+          : ingredients // ignore: cast_nullable_to_non_nullable
+              as List<IngredientModel>?,
       pagination: null == pagination
           ? _value.pagination
           : pagination // ignore: cast_nullable_to_non_nullable
@@ -118,16 +122,17 @@ class __$$_QueryRecipesDTOCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_QueryRecipesDTO extends _QueryRecipesDTO {
-  const _$_QueryRecipesDTO({final List<String>? ids, required this.pagination})
-      : _ids = ids,
+  const _$_QueryRecipesDTO(
+      {final List<IngredientModel>? ingredients, required this.pagination})
+      : _ingredients = ingredients,
         super._();
 
-  final List<String>? _ids;
+  final List<IngredientModel>? _ingredients;
   @override
-  List<String>? get ids {
-    final value = _ids;
+  List<IngredientModel>? get ingredients {
+    final value = _ingredients;
     if (value == null) return null;
-    if (_ids is EqualUnmodifiableListView) return _ids;
+    if (_ingredients is EqualUnmodifiableListView) return _ingredients;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -137,7 +142,7 @@ class _$_QueryRecipesDTO extends _QueryRecipesDTO {
 
   @override
   String toString() {
-    return 'QueryRecipesDTO(ids: $ids, pagination: $pagination)';
+    return 'QueryRecipesDTO(ingredients: $ingredients, pagination: $pagination)';
   }
 
   @override
@@ -145,14 +150,15 @@ class _$_QueryRecipesDTO extends _QueryRecipesDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_QueryRecipesDTO &&
-            const DeepCollectionEquality().equals(other._ids, _ids) &&
+            const DeepCollectionEquality()
+                .equals(other._ingredients, _ingredients) &&
             (identical(other.pagination, pagination) ||
                 other.pagination == pagination));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_ids), pagination);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_ingredients), pagination);
 
   @JsonKey(ignore: true)
   @override
@@ -163,13 +169,13 @@ class _$_QueryRecipesDTO extends _QueryRecipesDTO {
 
 abstract class _QueryRecipesDTO extends QueryRecipesDTO {
   const factory _QueryRecipesDTO(
-          {final List<String>? ids,
+          {final List<IngredientModel>? ingredients,
           required final PaginationQueryDTO<dynamic> pagination}) =
       _$_QueryRecipesDTO;
   const _QueryRecipesDTO._() : super._();
 
   @override
-  List<String>? get ids;
+  List<IngredientModel>? get ingredients;
   @override
   PaginationQueryDTO<dynamic> get pagination;
   @override

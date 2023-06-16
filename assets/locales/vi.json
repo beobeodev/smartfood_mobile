@@ -4,7 +4,8 @@
     "success": "Thành công",
     "error_occur": "Đã có lỗi xảy ra, vui lòng thử lại sau",
     "email_address": "Email",
-    "password": "Mật khẩu"
+    "password": "Mật khẩu",
+    "delete_all": "Xoá tất cả"
   },
   "button": {
     "cancel": "Hủy",
@@ -28,9 +29,6 @@
     "not_have_account": "Chưa có tài khoản?",
     "have_account": "Đã có tài khoản?"
   },
-  "ingredient": {
-    "find": "Tìm kiếm nguyên liệu"
-  },
   "validator": {
     "email_required": "Vui lòng nhập email",
     "password_required": "Vui lòng nhập mật khẩu",
@@ -42,12 +40,15 @@
   },
   "search": {
     "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",
-    "recipe": "Tìm kiếm công thức nấu ăn"
+    "recipe": "Tìm kiếm công thức nấu ăn",
+    "ingredient": "Nhập tên nguyên liệu"
   },
   "filter": {
     "level": "Độ khó",
     "cuisine": "Loại ẩm thực",
-    "category": "Loại món ăn"
+    "category": "Loại món ăn",
+    "ingredient": "Nguyên liệu",
+    "add_ingredient": "Thêm nguyên liệu"
   },
   "measure": {
     "height": "Chiều cao (cm)",

@@ -6,18 +6,20 @@ import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
+import 'package:smarthealthy/data/models/ingredient.model.dart';
+import 'package:smarthealthy/presentation/ingredient_list/widgets/ingredient_list_item.widget.dart';
 import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
 
-class IngredientGridView extends StatefulWidget {
-  const IngredientGridView({
+class SearchedIngredientList extends StatefulWidget {
+  const SearchedIngredientList({
     super.key,
   });
 
   @override
-  State<IngredientGridView> createState() => _IngredientGridViewState();
+  State<SearchedIngredientList> createState() => _SearchedIngredientListState();
 }
 
-class _IngredientGridViewState extends State<IngredientGridView> {
+class _SearchedIngredientListState extends State<SearchedIngredientList> {
   final RefreshController _refreshController = RefreshController();
 
   @override
@@ -26,14 +28,10 @@ class _IngredientGridViewState extends State<IngredientGridView> {
     super.dispose();
   }
 
-  void _onLoadRefresh([bool isRefresh = false]) {
-    final searchIngredientBloc = context.read<SearchIngredientBloc>();
-
-    searchIngredientBloc.add(
-      isRefresh
-          ? const SearchIngredientEvent.refresh()
-          : const SearchIngredientEvent.loadMore(),
-    );
+  void _onLoad() {
+    context
+        .read<SearchIngredientBloc>()
+        .add(const SearchIngredientEvent.loadMore());
   }
 
   void _listenGetChanged(BuildContext context, SearchIngredientState state) {
@@ -47,21 +45,18 @@ class _IngredientGridViewState extends State<IngredientGridView> {
         _onSuccess(queryStatus.type);
         break;
       default:
+        return;
     }
   }
 
   void _onSuccess(QueryType type) {
-    if (type == QueryType.refresh) {
-      _refreshController.refreshCompleted();
-    } else if (type == QueryType.loadMore) {
+    if (type == QueryType.loadMore) {
       _refreshController.loadComplete();
     }
   }
 
   void _onFail(QueryErrorType? failure) {
     if (failure == QueryErrorType.refresh) {
-      _refreshController.refreshFailed();
-    } else {
       _refreshController.loadFailed();
     }
 
@@ -70,28 +65,36 @@ class _IngredientGridViewState extends State<IngredientGridView> {
     );
   }
 
+  void _onSelectIngredient(IngredientModel ingredient) {
+    Navigator.of(context).pop(ingredient);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SearchIngredientBloc, SearchIngredientState>(
       listener: _listenGetChanged,
       builder: (context, state) {
+        final ingredients = state.ingredients!;
+
         return SmartRefresher(
           controller: _refreshController,
+          enablePullDown: false,
           enablePullUp: state.queryInfo.canLoadMore,
-          onLoading: _onLoadRefresh,
-          onRefresh: () => _onLoadRefresh(true),
-          child: GridView.builder(
-            padding: const EdgeInsets.only(top: AppSize.horizontalSpace),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 10,
-              childAspectRatio: 1 / 1.35,
+          onLoading: _onLoad,
+          child: ListView.separated(
+            itemCount: ingredients.length,
+            separatorBuilder: (context, index) => AppSize.h10,
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSize.horizontalSpace,
+              vertical: 10,
             ),
-            itemCount: state.ingredients!.length,
             itemBuilder: (context, index) {
-              return IngredientGridItem(
-                ingredient: state.ingredients![index],
+              return GestureDetector(
+                onTap: () => _onSelectIngredient(ingredients[index]),
+                child: IngredientListItem(
+                  ingredient: ingredients[index],
+                  hasDismiss: false,
+                ),
               );
             },
           ),

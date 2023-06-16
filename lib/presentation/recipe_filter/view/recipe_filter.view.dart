@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/constants/enums/filter_type.enum.dart';
-import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
-import 'package:smarthealthy/presentation/recipe_filter/widgets/category_filter_section.widget.dart';
-import 'package:smarthealthy/presentation/recipe_filter/widgets/cuisine_filter_section.widget.dart';
-import 'package:smarthealthy/presentation/recipe_filter/widgets/level_filter_section.widget.dart';
+import 'package:smarthealthy/presentation/recipe_filter/widgets/recipe_filter_body.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/bloc/search_recipe.bloc.dart';
 
 class RecipeFilterPage extends StatelessWidget {
@@ -26,7 +23,7 @@ class _RecipeFilterView extends StatelessWidget {
     final state = context.read<RecipeFilterBloc>().state;
 
     context.read<SearchRecipeBloc>().add(
-          SearchRecipeEvent.applyFilter([
+          SearchRecipeEvent.applyFilters([
             RecipeFilterDTO(
               type: RecipeFilterType.level,
               values: state.levels
@@ -59,19 +56,7 @@ class _RecipeFilterView extends StatelessWidget {
         title: 'Filter',
         onLeadingAction: () => _onLeadingAction(context),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.all(AppSize.horizontalSpace),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            LevelFilterSection(),
-            AppSize.h10,
-            CategoryFilterSection(),
-            AppSize.h10,
-            CuisineFilterSection(),
-          ],
-        ),
-      ),
+      body: const RecipeFilterBody(),
     );
   }
 }

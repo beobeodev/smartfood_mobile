@@ -127,4 +127,4 @@ fvm flutter build apk --release --flavor staging -t lib/main_staging.dart
 
 ### Bundle Android Release
 
-fvm flutter build appbundle --flavor staging -t lib/main_stating.dart
+fvm flutter build appbundle --flavor staging -t lib/main_staging.dart

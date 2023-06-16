@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/extensions/map.extension.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
+import 'package:smarthealthy/data/models/ingredient.model.dart';
 
 part 'query_recipes.dto.freezed.dart';
 
@@ -9,7 +10,7 @@ class QueryRecipesDTO with _$QueryRecipesDTO {
   const QueryRecipesDTO._();
 
   const factory QueryRecipesDTO({
-    List<String>? ids,
+    List<IngredientModel>? ingredients,
     required final PaginationQueryDTO pagination,
   }) = _QueryRecipesDTO;
 
@@ -18,7 +19,7 @@ class QueryRecipesDTO with _$QueryRecipesDTO {
 
     result.writeNotNull(
       'filter.quantification.ingredient.id',
-      _ingredientIdsToJson(ids),
+      _ingredientIdsToJson(ingredients?.map((e) => e.id).toList()),
     );
 
     return result;

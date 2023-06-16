@@ -11,7 +11,7 @@ class RecipeRepository {
   RecipeRepository(this._recipeDataSource);
 
   Future<GetRecipeResultDTO> getRecipes(QueryRecipesDTO queryDto) {
-    if (queryDto.ids != null) {
+    if (queryDto.ingredients != null) {
       return _recipeDataSource.getRecipeByIngredients(queryDto);
     }
     return _recipeDataSource.getRecipes(queryDto);

@@ -8,6 +8,7 @@ import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 import 'package:smarthealthy/data/dtos/query_data_status.dto.dart';
 import 'package:smarthealthy/data/dtos/query_recipes.dto.dart';
 import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
+import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 
@@ -23,7 +24,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
   })  : _recipeRepository = recipeRepository,
         super(
           const SearchRecipeState(
-            queryStatus: QueryDataStatusDTO(
+            queryInfo: QueryDataInfo(
               status: QueryStatus.loading,
             ),
             queryDto: QueryRecipesDTO(
@@ -37,7 +38,8 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
         getAll: (event) => _onGetAll(event, emit),
         refresh: (event) => _onRefresh(event, emit),
         loadMore: (event) => _onLoadMore(event, emit),
-        applyFilter: (event) => _onApplyFilter(event, emit),
+        addIngredient: (event) async => _onAddIngredient(event, emit),
+        applyFilters: (event) => _onApplyFilters(event, emit),
       );
     });
   }
@@ -48,9 +50,9 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
   ) async {
     emit(
       state.copyWith
-          .queryDto(ids: event.ingredientIds)
+          .queryDto(ingredients: event.ingredients)
           .copyWith
-          .queryStatus(status: QueryStatus.loading, type: QueryType.initial),
+          .queryInfo(status: QueryStatus.loading, type: QueryType.initial),
     );
 
     try {
@@ -58,7 +60,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
 
       emit(
         state.copyWith
-            .queryStatus(
+            .queryInfo(
               status: QueryStatus.success,
               canLoadMore: recipeDto.meta.canLoadMore,
             )
@@ -68,7 +70,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
       );
     } catch (err) {
       emit(
-        state.copyWith.queryStatus(
+        state.copyWith.queryInfo(
           status: QueryStatus.error,
           errorType: QueryErrorType.initial,
         ),
@@ -82,10 +84,10 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
   ) async {
     emit(
       state.copyWith
-          .queryStatus(status: QueryStatus.loading, type: QueryType.initial)
+          .queryInfo(status: QueryStatus.loading, type: QueryType.initial)
           .copyWith
           .queryDto
-          .pagination(search: event.searchKey),
+          .pagination(search: event.searchKey, page: 1),
     );
 
     try {
@@ -97,14 +99,14 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
               recipes: recipeDto.data,
             )
             .copyWith
-            .queryStatus(
+            .queryInfo(
               status: QueryStatus.success,
               canLoadMore: recipeDto.meta.canLoadMore,
             ),
       );
     } catch (err) {
       emit(
-        state.copyWith.queryStatus(
+        state.copyWith.queryInfo(
           status: QueryStatus.error,
           errorType: QueryErrorType.initial,
         ),
@@ -120,7 +122,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
       state.copyWith.queryDto
           .pagination(page: 1)
           .copyWith
-          .queryStatus(type: QueryType.refresh, status: QueryStatus.loading),
+          .queryInfo(type: QueryType.refresh, status: QueryStatus.loading),
     );
 
     try {
@@ -128,7 +130,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
 
       emit(
         state.copyWith
-            .queryStatus(
+            .queryInfo(
               canLoadMore: recipeDto.meta.canLoadMore,
               status: QueryStatus.success,
             )
@@ -138,7 +140,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
       );
     } catch (err) {
       emit(
-        state.copyWith.queryStatus(
+        state.copyWith.queryInfo(
           status: QueryStatus.error,
           errorType: QueryErrorType.refresh,
         ),
@@ -154,7 +156,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
       state.copyWith.queryDto
           .pagination(page: state.queryDto.pagination.page + 1)
           .copyWith
-          .queryStatus(type: QueryType.loadMore, status: QueryStatus.loading),
+          .queryInfo(type: QueryType.loadMore, status: QueryStatus.loading),
     );
 
     try {
@@ -169,14 +171,14 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
               ],
             )
             .copyWith
-            .queryStatus(
+            .queryInfo(
               canLoadMore: recipeDto.meta.canLoadMore,
               status: QueryStatus.success,
             ),
       );
     } catch (err) {
       emit(
-        state.copyWith.queryStatus(
+        state.copyWith.queryInfo(
           status: QueryStatus.error,
           errorType: QueryErrorType.loadMore,
         ),
@@ -184,15 +186,15 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
     }
   }
 
-  Future<void> _onApplyFilter(
-    _ApplyFilter event,
+  Future<void> _onApplyFilters(
+    _ApplyFilters event,
     Emitter<SearchRecipeState> emit,
   ) async {
     emit(
       state.copyWith.queryDto
           .pagination(page: 1, filter: event.filters)
           .copyWith
-          .queryStatus(status: QueryStatus.loading),
+          .queryInfo(status: QueryStatus.loading),
     );
 
     try {
@@ -204,19 +206,31 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
               recipes: recipeDto.data,
             )
             .copyWith
-            .queryStatus(
+            .queryInfo(
               status: QueryStatus.success,
               canLoadMore: recipeDto.meta.canLoadMore,
             ),
       );
     } catch (err) {
       emit(
-        state.copyWith.queryStatus(
+        state.copyWith.queryInfo(
           status: QueryStatus.error,
           errorType: QueryErrorType.initial,
         ),
       );
     }
+  }
+
+  void _onAddIngredient(_AddIngredient event, Emitter<SearchRecipeState> emit) {
+    emit(
+      state.copyWith.queryDto(
+        ingredients: [
+          if (state.queryDto.ingredients != null)
+            ...state.queryDto.ingredients!,
+          event.ingredient
+        ],
+      ),
+    );
   }
 
   Future<GetRecipeResultDTO> _getRecipes() async {

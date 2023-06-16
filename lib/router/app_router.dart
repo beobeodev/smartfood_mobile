@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/constants/enums/page_transition_type.enum.dart';
 import 'package:smarthealthy/common/widgets/page_transition/transition_page_route.dart';
+import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/auth/views/register.view.dart';
@@ -107,8 +108,8 @@ abstract class AppRouter {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return RecipeListPage(
-              ingredientIds: arguments as List<String>?,
+            return SearchRecipePage(
+              ingredients: arguments as List<IngredientModel>?,
             );
           },
         );

@@ -33,7 +33,7 @@ class _SearchIngredientView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       appBar: IngredientSearchBar(),
-      body: ListSearchedIngredients(),
+      body: SearchIngredientBody(),
       floatingActionButton: IngredientListFAB(),
       backgroundColor: Colors.white,
     );
