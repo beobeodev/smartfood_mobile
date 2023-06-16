@@ -8,10 +8,10 @@ import 'package:smarthealthy/common/widgets/ellipsis_overflow_text.widget.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 
-class IngredientItem extends StatelessWidget {
+class IngredientGridItem extends StatelessWidget {
   final IngredientModel ingredient;
 
-  const IngredientItem({super.key, required this.ingredient});
+  const IngredientGridItem({super.key, required this.ingredient});
 
   @override
   Widget build(BuildContext context) {

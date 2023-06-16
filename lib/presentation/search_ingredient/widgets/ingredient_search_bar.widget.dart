@@ -27,9 +27,9 @@ class IngredientSearchBar extends StatelessWidget
   }
 
   void _onSearchIngredients(BuildContext context, String value) {
-    context
-        .read<SearchIngredientBloc>()
-        .add(SearchIngredientEvent.searched(text: value));
+    context.read<SearchIngredientBloc>().add(
+          SearchIngredientEvent.getAll(searchKey: value.isEmpty ? null : value),
+        );
   }
 
   @override

@@ -82,9 +82,9 @@ class AppRoundedButton extends StatelessWidget {
             ),
           ),
         ),
-        child: ElevatedButton(
+        child: FilledButton(
           onPressed: (isLoading || isDisable) ? null : onPressed,
-          style: ElevatedButton.styleFrom(
+          style: FilledButton.styleFrom(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
               side: borderSide ?? BorderSide.none,
@@ -95,6 +95,7 @@ class AppRoundedButton extends StatelessWidget {
             disabledBackgroundColor: disableBackgroundColor,
             disabledForegroundColor: disableBackgroundColor,
             enableFeedback: false,
+            backgroundColor: backgroundColor,
           ),
           child: isLoading
               ? const LoadingDot(

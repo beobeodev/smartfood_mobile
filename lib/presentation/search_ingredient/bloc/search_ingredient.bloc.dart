@@ -1,10 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/constants/enums/query_error_type.enum.dart';
+import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/constants/enums/sort_type.enum.dart';
 import 'package:smarthealthy/data/dtos/get_ingredient_result.dto.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
+import 'package:smarthealthy/data/dtos/query_data_status.dto.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/dtos/sort.dto.dart';
 import 'package:smarthealthy/data/repositories/ingredient.repository.dart';
@@ -20,70 +22,91 @@ class SearchIngredientBloc
   SearchIngredientBloc({required IngredientRepository ingredientRepository})
       : _ingredientRepository = ingredientRepository,
         super(
-          const SearchIngredientState.loading(
-            query: PaginationQueryDTO(
+          const SearchIngredientState(
+            paginationDto: PaginationQueryDTO(
               sortBy: [SortDTO('name', SortType.ASC)],
               limit: 48,
             ),
+            queryInfo: QueryDataInfo(status: QueryStatus.loading),
           ),
         ) {
     on<SearchIngredientEvent>((events, emit) async {
       await events.map(
-        started: (_Started event) => _onStarted(event, emit),
-        filtered: (_Filtered event) {},
+        getAll: (event) => _onGetAll(event, emit),
         loadMore: (_LoadMore event) => _onLoadMore(event, emit),
         refresh: (_Refresh event) => _onRefresh(event, emit),
-        searched: (_Searched event) => _onSearched(event, emit),
       );
     });
-    add(
-      const _Started(),
+    add(const SearchIngredientEvent.getAll());
+  }
+
+  Future<void> _onGetAll(
+    _GetAll event,
+    Emitter<SearchIngredientState> emit,
+  ) async {
+    emit(
+      state.copyWith
+          .queryInfo(status: QueryStatus.loading, type: QueryType.initial)
+          .copyWith
+          .paginationDto(search: event.searchKey, page: 1),
     );
-  }
 
-  Future<void> _onStarted(
-    _Started event,
-    Emitter<SearchIngredientState> emit,
-  ) async {
-    await _handleInitAndSearch(emit);
-  }
+    try {
+      final ingredientDto = await _getIngredients();
 
-  Future<void> _onSearched(
-    _Searched event,
-    Emitter<SearchIngredientState> emit,
-  ) async {
-    await _handleInitAndSearch(emit, event.text);
+      emit(
+        state
+            .copyWith(
+              ingredients: ingredientDto.data,
+            )
+            .copyWith
+            .queryInfo(
+              status: QueryStatus.success,
+              canLoadMore: ingredientDto.meta.canLoadMore,
+            ),
+      );
+    } catch (err) {
+      emit(
+        state.copyWith.queryInfo(
+          status: QueryStatus.error,
+          errorType: QueryErrorType.initial,
+        ),
+      );
+    }
   }
 
   Future<void> _onLoadMore(
     _LoadMore event,
     Emitter<SearchIngredientState> emit,
   ) async {
-    if (state is! SearchIngredientSuccess) {
-      return;
-    }
-
-    final query = state.query.copyWith(page: state.query.page + 1);
+    emit(
+      state.copyWith
+          .paginationDto(page: state.paginationDto.page + 1)
+          .copyWith
+          .queryInfo(type: QueryType.loadMore, status: QueryStatus.loading),
+    );
 
     try {
-      final getIngredientDTO = await _getIngredients(
-        query,
-      );
-      final ingredients = [...state.ingredients!, ...getIngredientDTO.data];
+      final ingredientDto = await _getIngredients();
 
       emit(
-        SearchIngredientSuccess(
-          query: query,
-          ingredients: ingredients,
-          getType: QueryType.loadMore,
-          canLoadMore: getIngredientDTO.meta.canLoadMore,
-        ),
+        state
+            .copyWith(
+              ingredients: [
+                ...state.ingredients!,
+                ...ingredientDto.data,
+              ],
+            )
+            .copyWith
+            .queryInfo(
+              canLoadMore: ingredientDto.meta.canLoadMore,
+              status: QueryStatus.success,
+            ),
       );
-    } catch (_) {
+    } catch (err) {
       emit(
-        SearchIngredientFailure(
-          query: query,
-          getType: QueryType.loadMore,
+        state.copyWith.queryInfo(
+          status: QueryStatus.error,
           errorType: QueryErrorType.loadMore,
         ),
       );
@@ -94,77 +117,42 @@ class SearchIngredientBloc
     _Refresh event,
     Emitter<SearchIngredientState> emit,
   ) async {
-    if (state is! SearchIngredientSuccess) {
-      return;
-    }
-
-    final query = state.query.copyWith(page: 1);
-
-    emit(_Loading(query: query));
+    emit(
+      state.copyWith
+          .paginationDto(page: 1)
+          .copyWith
+          .queryInfo(type: QueryType.refresh, status: QueryStatus.loading),
+    );
 
     try {
-      final GetIngredientResultDTO getIngredientDTO = await _getIngredients(
-        query,
-      );
+      final ingredientDto = await _getIngredients();
 
       emit(
-        SearchIngredientSuccess(
-          query: query,
-          ingredients: getIngredientDTO.data,
-          canLoadMore: getIngredientDTO.meta.canLoadMore,
-        ),
+        state.copyWith
+            .queryInfo(
+              canLoadMore: ingredientDto.meta.canLoadMore,
+              status: QueryStatus.success,
+            )
+            .copyWith(
+              ingredients: ingredientDto.data,
+            ),
       );
-    } catch (_) {
+    } catch (err) {
       emit(
-        SearchIngredientFailure(
-          query: query,
-          getType: QueryType.refresh,
+        state.copyWith.queryInfo(
+          status: QueryStatus.error,
           errorType: QueryErrorType.refresh,
         ),
       );
     }
   }
 
-  Future<GetIngredientResultDTO> _getIngredients(
-    PaginationQueryDTO query,
-  ) async {
-    return await _ingredientRepository.getIngredients(query);
-  }
+  Future<GetIngredientResultDTO> _getIngredients() async {
+    final pagination = state.paginationDto;
 
-  Future<void> _handleInitAndSearch(
-    Emitter<SearchIngredientState> emit, [
-    String? searchText,
-  ]) async {
-    PaginationQueryDTO query = state.query;
-    if (searchText != null) {
-      query = query.copyWith(search: searchText, page: 1);
-    }
+    final ingredientDto =
+        await _ingredientRepository.getIngredients(pagination);
 
-    emit(_Loading(query: query));
-
-    try {
-      final getIngredientDTO = await _getIngredients(
-        query,
-      );
-
-      if (searchText != null && getIngredientDTO.data.isEmpty) {
-        emit(
-          SearchIngredientFailure(
-            query: query,
-            errorType: QueryErrorType.notFound,
-          ),
-        );
-      } else {
-        emit(
-          SearchIngredientSuccess(
-            ingredients: getIngredientDTO.data,
-            query: query,
-            canLoadMore: getIngredientDTO.meta.canLoadMore,
-          ),
-        );
-      }
-    } catch (_) {
-      emit(SearchIngredientFailure(query: query));
-    }
+    return ingredientDto;
   }
 }

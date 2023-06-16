@@ -12,12 +12,7 @@ class StartButton extends StatelessWidget {
   void _startToRecipes(BuildContext context) {
     Navigator.of(context).pushNamed(
       AppRouter.recipeList,
-      arguments: context
-          .read<IngredientListBloc>()
-          .state
-          .ingredients
-          .map((e) => e.id)
-          .toList(),
+      arguments: context.read<IngredientListBloc>().state.ingredients,
     );
   }
 

@@ -38,7 +38,6 @@ class _HomeView extends StatelessWidget {
                 hintText: LocaleKeys.search_recipe.tr(),
                 onTap: () => Navigator.of(context).pushNamed(
                   AppRouter.recipeList,
-                  arguments: null,
                 ),
               ),
               actions: [

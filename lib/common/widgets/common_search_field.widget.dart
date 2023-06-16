@@ -22,7 +22,6 @@ class CommonSearchField extends StatelessWidget {
     return AppTextFormField(
       hintText: hintText,
       prefixIcon: Icons.search,
-      extendField: false,
       borderRadius: 1000,
       focusedBorderColor: Colors.transparent,
       onTap: onTap,

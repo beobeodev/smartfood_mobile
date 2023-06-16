@@ -4,6 +4,7 @@ import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
+import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
@@ -12,13 +13,13 @@ import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_inherited
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_list.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_search_bar.widget.dart';
 
-class RecipeListPage extends StatelessWidget {
-  final List<String>? ingredientIds;
+class SearchRecipePage extends StatelessWidget {
+  final List<IngredientModel>? ingredients;
 
-  const RecipeListPage({super.key, required this.ingredientIds});
+  const SearchRecipePage({super.key, required this.ingredients});
 
   void _listenBlocChanged(BuildContext context, SearchRecipeState state) {
-    if (state.queryStatus.type == QueryType.initial) {
+    if (state.queryInfo.type == QueryType.initial) {
       context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.reset());
     }
   }
@@ -29,23 +30,23 @@ class RecipeListPage extends StatelessWidget {
       create: (_) => SearchRecipeBloc(
         recipeRepository: getIt.get<RecipeRepository>(),
       )..add(
-          ingredientIds == null
+          ingredients == null
               ? const SearchRecipeEvent.getAll()
-              : SearchRecipeEvent.getByIngredients(ingredientIds!),
+              : SearchRecipeEvent.getByIngredients(ingredients!),
         ),
       child: BlocListener<SearchRecipeBloc, SearchRecipeState>(
         listener: (context, state) => _listenBlocChanged(context, state),
         child: RecipeListProvider(
-          autoFocus: ingredientIds == null,
-          child: const _RecipeListView(),
+          autoFocus: ingredients == null,
+          child: const _SearchRecipeView(),
         ),
       ),
     );
   }
 }
 
-class _RecipeListView extends StatelessWidget {
-  const _RecipeListView();
+class _SearchRecipeView extends StatelessWidget {
+  const _SearchRecipeView();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,7 @@ class _RecipeListView extends StatelessWidget {
       appBar: const RecipeSearchBar(),
       body: BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
         builder: (context, state) {
-          switch (state.queryStatus.status) {
+          switch (state.queryInfo.status) {
             case QueryStatus.loading:
               return const LoadingDot();
             case QueryStatus.success:
@@ -63,8 +64,8 @@ class _RecipeListView extends StatelessWidget {
           }
         },
         buildWhen: (previous, current) =>
-            previous.queryStatus != current.queryStatus &&
-            current.queryStatus.type == QueryType.initial,
+            previous.queryInfo != current.queryInfo &&
+            current.queryInfo.type == QueryType.initial,
       ),
       backgroundColor: Colors.white,
     );

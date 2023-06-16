@@ -8,17 +8,17 @@ import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_list.widget.dart';
 
-class SheetBody extends StatelessWidget {
+class DishSheetBody extends StatelessWidget {
   final void Function(RecipeModel) onAddDish;
 
-  const SheetBody({super.key, required this.onAddDish});
+  const DishSheetBody({super.key, required this.onAddDish});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
         builder: (context, state) {
-          return switch (state.queryStatus.status) {
+          return switch (state.queryInfo.status) {
             QueryStatus.loading => const LoadingDot(),
             QueryStatus.success => RecipeList(
                 onAddDish: onAddDish,
@@ -27,8 +27,8 @@ class SheetBody extends StatelessWidget {
           };
         },
         buildWhen: (previous, current) =>
-            previous.queryStatus != current.queryStatus &&
-            current.queryStatus.type == QueryType.initial,
+            previous.queryInfo != current.queryInfo &&
+            current.queryInfo.type == QueryType.initial,
       ),
     );
   }

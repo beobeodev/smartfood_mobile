@@ -1,27 +1,18 @@
-import 'dart:developer';
-
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/app_text_form_field.widget.dart';
-import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 import 'package:unicons/unicons.dart';
 
-class DishSearchField extends StatelessWidget {
-  const DishSearchField({
+class SheetSearchField extends StatelessWidget {
+  final String hintText;
+  final void Function(String)? onFieldSubmitted;
+
+  const SheetSearchField({
     super.key,
+    required this.hintText,
+    this.onFieldSubmitted,
   });
-
-  void _onSubmitField(BuildContext context, String value) {
-    log(value);
-
-    context
-        .read<SearchRecipeBloc>()
-        .add(SearchRecipeEvent.getAll(searchKey: value));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +29,8 @@ class DishSearchField extends StatelessWidget {
         borderColor: ColorStyles.gray200,
         prefixIcon: UniconsLine.search,
         prefixIconColor: ColorStyles.yellowGreen,
-        hintText: LocaleKeys.meal_enter_dish.tr(),
-        onFieldSubmitted: (value) => _onSubmitField(context, value),
+        hintText: hintText,
+        onFieldSubmitted: onFieldSubmitted,
       ),
     );
   }

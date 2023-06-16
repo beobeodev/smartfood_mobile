@@ -20,7 +20,8 @@ class CodegenLoader extends AssetLoader{
     "success": "Success",
     "error_occur": "An error has occurred, please try again later",
     "email_address": "Email Address",
-    "password": "Password"
+    "password": "Password",
+    "delete_all": "Delete all"
   },
   "button": {
     "cancel": "Cancel",
@@ -44,9 +45,6 @@ class CodegenLoader extends AssetLoader{
     "not_have_account": "Don’t Have an account?",
     "have_account": "Have an account?"
   },
-  "ingredient": {
-    "find": "Search for ingredients"
-  },
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
@@ -58,12 +56,15 @@ class CodegenLoader extends AssetLoader{
   },
   "search": {
     "ingredient_not_found": "Did not find any ingredients for your search",
-    "recipe": "Search for recipes"
+    "recipe": "Search for recipes",
+    "ingredient": "Enter a ingredient name"
   },
   "filter": {
     "level": "Level",
     "cuisine": "Cuisine",
-    "category": "Category"
+    "category": "Category",
+    "ingredient": "Ingredient",
+    "add_ingredient": "Add ingredient"
   },
   "measure": {
     "height": "Height (in cm)",
@@ -95,7 +96,8 @@ static const Map<String,dynamic> vi = {
     "success": "Thành công",
     "error_occur": "Đã có lỗi xảy ra, vui lòng thử lại sau",
     "email_address": "Email",
-    "password": "Mật khẩu"
+    "password": "Mật khẩu",
+    "delete_all": "Xoá tất cả"
   },
   "button": {
     "cancel": "Hủy",
@@ -119,9 +121,6 @@ static const Map<String,dynamic> vi = {
     "not_have_account": "Chưa có tài khoản?",
     "have_account": "Đã có tài khoản?"
   },
-  "ingredient": {
-    "find": "Tìm kiếm nguyên liệu"
-  },
   "validator": {
     "email_required": "Vui lòng nhập email",
     "password_required": "Vui lòng nhập mật khẩu",
@@ -133,12 +132,15 @@ static const Map<String,dynamic> vi = {
   },
   "search": {
     "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",
-    "recipe": "Tìm kiếm công thức nấu ăn"
+    "recipe": "Tìm kiếm công thức nấu ăn",
+    "ingredient": "Nhập tên nguyên liệu"
   },
   "filter": {
     "level": "Độ khó",
     "cuisine": "Loại ẩm thực",
-    "category": "Loại món ăn"
+    "category": "Loại món ăn",
+    "ingredient": "Nguyên liệu",
+    "add_ingredient": "Thêm nguyên liệu"
   },
   "measure": {
     "height": "Chiều cao (cm)",
