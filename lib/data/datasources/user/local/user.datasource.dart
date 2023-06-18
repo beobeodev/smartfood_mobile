@@ -14,14 +14,10 @@ class UserLocalDataSource {
 
   final Box _authBox;
 
-  UserModel? getUserInfo() {
-    final String? rawData = _authBox.get(HiveKeys.user);
+  bool checkHasLogin() {
+    final String? rawData = _authBox.get(HiveKeys.accessToken);
 
-    if (rawData == null) {
-      return null;
-    } else {
-      return UserModel.fromJson(Map<String, dynamic>.from(jsonDecode(rawData)));
-    }
+    return rawData != null;
   }
 
   Future<void> setUserInfo(UserModel user) async {
@@ -34,7 +30,6 @@ class UserLocalDataSource {
     } else {
       await _authBox.putAll({
         ...response.toRefreshTokenDTO().toLocalJson(),
-        HiveKeys.user: jsonEncode(response.user),
       });
     }
   }

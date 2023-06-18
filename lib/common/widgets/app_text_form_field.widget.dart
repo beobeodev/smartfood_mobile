@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 
@@ -100,7 +101,8 @@ class AppTextFormField extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 5),
             child: Text(
               labelText!,
-              style: labelStyle ?? TextStyles.s14MediumText,
+              style:
+                  labelStyle ?? TextStyles.mediumText.copyWith(fontSize: 15.sp),
             ),
           ),
         SizedBox(
@@ -131,7 +133,7 @@ class AppTextFormField extends StatelessWidget {
               focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(borderRadius),
                 borderSide: const BorderSide(
-                  color: ColorStyles.red600,
+                  color: ColorStyles.red400,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
@@ -155,7 +157,7 @@ class AppTextFormField extends StatelessWidget {
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(borderRadius),
                 borderSide: const BorderSide(
-                  color: ColorStyles.red600,
+                  color: ColorStyles.red400,
                 ),
               ),
               isDense: isDense,
@@ -188,7 +190,7 @@ class AppTextFormField extends StatelessWidget {
               errorText:
                   errorText == '' || errorText == null ? null : errorText,
               errorStyle: TextStyles.s14RegularText
-                  .copyWith(color: Colors.red, height: 0),
+                  .copyWith(color: ColorStyles.red400, height: 0),
             ),
           ),
         ),

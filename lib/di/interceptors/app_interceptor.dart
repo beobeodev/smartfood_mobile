@@ -24,7 +24,7 @@ class AppInterceptor extends QueuedInterceptor {
   ) async {
     log('REQUEST[${options.method}] => PATH: ${options.path}');
 
-    _checkTokenExpired();
+    // _checkTokenExpired();
 
     final String? accessToken = _authBox.get(HiveKeys.accessToken);
 
@@ -41,26 +41,24 @@ class AppInterceptor extends QueuedInterceptor {
   void onResponse(Response response, ResponseInterceptorHandler handler) {
     log(
       'RESPONSE[${response.statusCode}] => PATH: ${response.requestOptions.path}',
-      name: 'Intercepter: onResponse',
+      name: 'Interceptor: onResponse',
     );
 
-    return handler.next(response);
+    return super.onResponse(response, handler);
   }
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
     if (err.response?.statusCode == 401) {
       // HACK: handle logout, maybe
-
-      return;
     }
 
     log(
       'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}',
-      name: 'Intercepter: onError',
+      name: 'Interceptor: onError',
     );
 
-    return handler.next(err);
+    return super.onError(err, handler);
   }
 
   Future<void> _checkTokenExpired() async {

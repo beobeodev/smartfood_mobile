@@ -3,7 +3,9 @@ import 'package:smarthealthy/flavors.dart';
 abstract class Endpoints {
   static final String apiUrl = AppFlavor.apiBaseUrl;
 
+  // Auth
   static final String login = '$apiUrl/auth/login';
+  static final String register = '$apiUrl/auth/register';
   static final String userInfo = '$apiUrl/auth/me';
 
   // Ingredient

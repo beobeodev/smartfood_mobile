@@ -6,7 +6,7 @@ import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/constants/enums/sort_type.enum.dart';
 import 'package:smarthealthy/data/dtos/get_ingredient_result.dto.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
-import 'package:smarthealthy/data/dtos/query_data_status.dto.dart';
+import 'package:smarthealthy/data/dtos/query_data_info.dto.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/dtos/sort.dto.dart';
 import 'package:smarthealthy/data/repositories/ingredient.repository.dart';

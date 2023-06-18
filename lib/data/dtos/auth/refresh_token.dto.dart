@@ -7,16 +7,16 @@ part 'refresh_token.dto.g.dart';
 class RefreshTokenDTO {
   RefreshTokenDTO({
     required this.accessToken,
-    required this.refreshToken,
-    required this.expiresIn,
+    this.refreshToken,
+    this.expiresIn,
   });
 
   factory RefreshTokenDTO.fromJson(Map<String, dynamic> json) =>
       _$RefreshTokenDTOFromJson(json);
 
   final String accessToken;
-  final String refreshToken;
-  final int expiresIn;
+  final String? refreshToken;
+  final int? expiresIn;
 
   Map<String, dynamic> toJson() => _$RefreshTokenDTOToJson(this);
 

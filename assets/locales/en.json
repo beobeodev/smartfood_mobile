@@ -3,9 +3,15 @@
     "notification": "Notification",
     "success": "Success",
     "error_occur": "An error has occurred, please try again later",
-    "email_address": "Email Address",
+    "email_address": "Email",
     "password": "Password",
-    "delete_all": "Delete all"
+    "confirm_password": "Confirm password",
+    "delete_all": "Delete all",
+    "enter_first_name": "Enter your first name",
+    "enter_last_name": "Enter your last name",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "register_success": "Register successfully"
   },
   "button": {
     "cancel": "Cancel",
@@ -33,10 +39,14 @@
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
     "invalid_email": "Invalid email address",
+    "first_name_required": "Please enter your first name",
+    "last_name_required": "Please enter your last name",
+    "confirm_password_required": "Please confirm your password",
     "incorrect_email_password": "Incorrect email or password",
-    "invalid_password": "Password must be at least 8 characters",
-    "field_required": "This field is required",
-    "not_match_password": "Password and confirm password not match"
+    "invalid_password": "Password must be more than 5 characters, should contain at least 1 uppercase, 1 lowercase, 1 numeric and 1 special character",
+    "invalid_login_password": "Password must be more than 5 characters",
+    "not_match_password": "Password and confirm password not match",
+    "email_existed": "Email address already registered"
   },
   "search": {
     "ingredient_not_found": "Did not find any ingredients for your search",

@@ -1,6 +1,6 @@
 import 'package:smarthealthy/data/datasources/user/user.datasource.dart';
 import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
-import 'package:smarthealthy/data/models/user.model.dart';
+import 'package:smarthealthy/data/dtos/auth/register_request.dto.dart';
 import 'package:injectable/injectable.dart';
 
 @lazySingleton
@@ -11,11 +11,19 @@ class UserRepository {
 
   final UserDataSource _dataSource;
 
-  Future<UserModel> loginByEmail(LoginByEmailRequestDTO params) {
+  Future<void> loginByEmail(LoginByEmailRequestDTO params) {
     return _dataSource.loginByEmail(params);
   }
 
-  UserModel? getUserInfo() {
-    return _dataSource.getUserInfo();
+  Future<void> register(RegisterRequestDTO registerDto) {
+    return _dataSource.register(registerDto);
+  }
+
+  bool checkHasLogin() {
+    return _dataSource.checkHasLogin();
+  }
+
+  Future<void> clearAuthBox() {
+    return _dataSource.clearAuthBox();
   }
 }

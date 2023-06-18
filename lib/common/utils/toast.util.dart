@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 
 enum ToastPosition { TOP, BOTTOM }
@@ -10,7 +11,7 @@ abstract class ToastUtil {
   static void showSuccess(
     BuildContext context, {
     String? text,
-    ToastPosition position = ToastPosition.BOTTOM,
+    ToastPosition position = ToastPosition.TOP,
   }) {
     _showToast(
       context,
@@ -28,7 +29,7 @@ abstract class ToastUtil {
   static void showError(
     BuildContext context, {
     String? text,
-    ToastPosition position = ToastPosition.BOTTOM,
+    ToastPosition position = ToastPosition.TOP,
   }) {
     _showToast(
       context,
@@ -55,8 +56,8 @@ abstract class ToastUtil {
     Widget? leading,
     Widget? trailing,
   }) {
-    ToastView.dismiss();
-    ToastView.createView(
+    _ToastView.dismiss();
+    _ToastView.createView(
       context,
       text: text,
       duration: duration,
@@ -71,10 +72,10 @@ abstract class ToastUtil {
   }
 }
 
-class ToastView {
-  ToastView._internal();
-  factory ToastView() => _instance;
-  static final ToastView _instance = ToastView._internal();
+class _ToastView {
+  _ToastView._internal();
+  factory _ToastView() => _instance;
+  static final _ToastView _instance = _ToastView._internal();
 
   static OverlayState? overlayState;
   static OverlayEntry? _overlayEntry;
@@ -157,7 +158,7 @@ class ToastView {
         );
       default:
         return Positioned(
-          bottom: MediaQuery.of(context).padding.bottom,
+          bottom: context.bottomSpacing,
           left: 10,
           right: 10,
           child: child,

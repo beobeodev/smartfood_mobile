@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 
 part 'auth.event.dart';
@@ -20,23 +19,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     Emitter<AuthState> emit,
   ) {
     try {
-      final UserModel? user = _userRepository.getUserInfo();
+      final bool hasLogin = _userRepository.checkHasLogin();
 
-      _changeAuthState(user, emit);
+      _changeAuthState(hasLogin, emit);
     } catch (err) {
       emit(const AuthState.unauthenticated());
     }
   }
 
   void _onSetUserInfo(AuthUserInfoSet event, Emitter<AuthState> emit) {
-    _changeAuthState(event.currentUser, emit);
+    if (!event.hasLogin) {
+      _userRepository.clearAuthBox();
+    }
+
+    _changeAuthState(event.hasLogin, emit);
   }
 
-  void _changeAuthState(UserModel? user, Emitter<AuthState> emit) {
-    if (user == null) {
-      emit(const AuthState.unauthenticated());
-    } else {
-      emit(AuthState.authenticated(user));
-    }
+  void _changeAuthState(bool hasLogin, Emitter<AuthState> emit) {
+    emit(
+      hasLogin
+          ? const AuthState.authenticated()
+          : const AuthState.unauthenticated(),
+    );
   }
 }

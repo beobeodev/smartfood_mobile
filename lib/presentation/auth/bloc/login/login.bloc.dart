@@ -1,11 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
+import 'package:smarthealthy/common/constants/enums/auth_error_type.enum.dart';
 import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
-import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
-import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 
 part 'login.event.dart';
@@ -31,25 +29,27 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(LoginLoading());
 
     try {
-      final UserModel user = await _userRepository.loginByEmail(
+      await _userRepository.loginByEmail(
         LoginByEmailRequestDTO(
           email: event.email,
           password: event.password,
         ),
       );
 
-      _authBloc.add(AuthUserInfoSet(currentUser: user));
+      _authBloc.add(const AuthUserInfoSet(true));
     } catch (err) {
       bool isUnauthorizedError =
           err is DioError && err.response?.statusCode == 401;
 
-      emit(
-        LoginNotSuccess(
-          error: isUnauthorizedError
-              ? LocaleKeys.validator_incorrect_email_password.tr()
-              : null,
-        ),
-      );
+      if (isUnauthorizedError) {
+        emit(
+          const LoginNotSuccess(
+            error: AuthErrorType.incorrectEmailPassword,
+          ),
+        );
+      } else {
+        emit(const LoginNotSuccess(error: AuthErrorType.unknown));
+      }
     }
   }
 }

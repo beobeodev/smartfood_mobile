@@ -5,7 +5,7 @@ abstract class LoginState extends Equatable {
     this.error,
   });
 
-  final String? error;
+  final AuthErrorType? error;
 
   @override
   List<Object?> get props => [error];

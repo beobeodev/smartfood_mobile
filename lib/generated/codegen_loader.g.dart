@@ -19,9 +19,15 @@ class CodegenLoader extends AssetLoader{
     "notification": "Notification",
     "success": "Success",
     "error_occur": "An error has occurred, please try again later",
-    "email_address": "Email Address",
+    "email_address": "Email",
     "password": "Password",
-    "delete_all": "Delete all"
+    "confirm_password": "Confirm password",
+    "delete_all": "Delete all",
+    "enter_first_name": "Enter your first name",
+    "enter_last_name": "Enter your last name",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "register_success": "Register successfully"
   },
   "button": {
     "cancel": "Cancel",
@@ -49,10 +55,14 @@ class CodegenLoader extends AssetLoader{
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
     "invalid_email": "Invalid email address",
+    "first_name_required": "Please enter your first name",
+    "last_name_required": "Please enter your last name",
+    "confirm_password_required": "Please confirm your password",
     "incorrect_email_password": "Incorrect email or password",
-    "invalid_password": "Password must be at least 8 characters",
-    "field_required": "This field is required",
-    "not_match_password": "Password and confirm password not match"
+    "invalid_password": "Password must be more than 5 characters, should contain at least 1 uppercase, 1 lowercase, 1 numeric and 1 special character",
+    "invalid_login_password": "Password must be more than 5 characters",
+    "not_match_password": "Password and confirm password not match",
+    "email_existed": "Email address already registered"
   },
   "search": {
     "ingredient_not_found": "Did not find any ingredients for your search",
@@ -97,7 +107,13 @@ static const Map<String,dynamic> vi = {
     "error_occur": "Đã có lỗi xảy ra, vui lòng thử lại sau",
     "email_address": "Email",
     "password": "Mật khẩu",
-    "delete_all": "Xoá tất cả"
+    "confirm_password": "Xác nhận mật khẩu",
+    "enter_first_name": "Nhập tên của bạn",
+    "enter_last_name": "Nhập họ của bạn",
+    "delete_all": "Xoá tất cả",
+    "first_name": "Tên",
+    "last_name": "Họ",
+    "register_success": "Đăng ký tài khoản thành công"
   },
   "button": {
     "cancel": "Hủy",
@@ -122,13 +138,17 @@ static const Map<String,dynamic> vi = {
     "have_account": "Đã có tài khoản?"
   },
   "validator": {
-    "email_required": "Vui lòng nhập email",
+    "email_required": "Vui lòng nhập email của bạn",
     "password_required": "Vui lòng nhập mật khẩu",
-    "invalid_email": "Không đúng định dạng email",
+    "first_name_required": "Vui lòng nhập tên của bạn",
+    "last_name_required": "Vui lòng nhập họ của bạn",
+    "confirm_password_required": "Vui lòng xác nhận lại mật khẩu",
+    "invalid_email": "Định dạng email không đúng",
     "incorrect_email_password": "Email hoặc mật khẩu không đúng",
-    "invalid_password": "Mật khẩu phải có ít nhất 8 kí tự",
-    "field_required": "Không được để trống",
-    "not_match_password": "Mật khẩu xác nhận không trùng khớp"
+    "invalid_password": "Mật khẩu phải nhiều hơn 5 kí tự, chứa ít nhất 1 kí tự in hoa, 1 kí tự thường, 1 chữ số và 1 kí tự đặt biệt",
+    "invalid_login_password": "Mật khẩu phải nhiều hơn 5 kí tự",
+    "not_match_password": "Mật khẩu xác nhận không trùng khớp",
+    "email_existed": "Email này đã được đăng ký"
   },
   "search": {
     "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",

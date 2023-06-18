@@ -5,7 +5,13 @@
     "error_occur": "Đã có lỗi xảy ra, vui lòng thử lại sau",
     "email_address": "Email",
     "password": "Mật khẩu",
-    "delete_all": "Xoá tất cả"
+    "confirm_password": "Xác nhận mật khẩu",
+    "enter_first_name": "Nhập tên của bạn",
+    "enter_last_name": "Nhập họ của bạn",
+    "delete_all": "Xoá tất cả",
+    "first_name": "Tên",
+    "last_name": "Họ",
+    "register_success": "Đăng ký tài khoản thành công"
   },
   "button": {
     "cancel": "Hủy",
@@ -30,13 +36,17 @@
     "have_account": "Đã có tài khoản?"
   },
   "validator": {
-    "email_required": "Vui lòng nhập email",
+    "email_required": "Vui lòng nhập email của bạn",
     "password_required": "Vui lòng nhập mật khẩu",
-    "invalid_email": "Không đúng định dạng email",
+    "first_name_required": "Vui lòng nhập tên của bạn",
+    "last_name_required": "Vui lòng nhập họ của bạn",
+    "confirm_password_required": "Vui lòng xác nhận lại mật khẩu",
+    "invalid_email": "Định dạng email không đúng",
     "incorrect_email_password": "Email hoặc mật khẩu không đúng",
-    "invalid_password": "Mật khẩu phải có ít nhất 8 kí tự",
-    "field_required": "Không được để trống",
-    "not_match_password": "Mật khẩu xác nhận không trùng khớp"
+    "invalid_password": "Mật khẩu phải nhiều hơn 5 kí tự, chứa ít nhất 1 kí tự in hoa, 1 kí tự thường, 1 chữ số và 1 kí tự đặt biệt",
+    "invalid_login_password": "Mật khẩu phải nhiều hơn 5 kí tự",
+    "not_match_password": "Mật khẩu xác nhận không trùng khớp",
+    "email_existed": "Email này đã được đăng ký"
   },
   "search": {
     "ingredient_not_found": "Không có nguyên liệu nào phù hợp với tìm kiếm của bạn",

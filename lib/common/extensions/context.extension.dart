@@ -29,6 +29,5 @@ extension ContextExtension on BuildContext {
     return width - 40 * 2 - 2 * contentPadding;
   }
 
-  double get bottomSpacing =>
-      paddingBottom > 0 ? paddingBottom : AppSize.horizontalSpace.h;
+  double get bottomSpacing => paddingBottom > 0 ? paddingBottom : 10.h;
 }

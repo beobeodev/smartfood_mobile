@@ -12,5 +12,10 @@ abstract class AppTheme {
   static final ThemeData themeData = ThemeData(
     fontFamily: 'Mulish',
     scaffoldBackgroundColor: Colors.white,
+    textTheme: const TextTheme(
+      displayLarge: TextStyle(
+        fontSize: 20,
+      ),
+    ),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 
@@ -94,8 +95,8 @@ class _LoadingDotState extends State<LoadingDot> with TickerProviderStateMixin {
               borderRadius: BorderRadius.circular(50),
             ),
             child: SizedBox(
-              width: widget.size,
-              height: widget.size,
+              width: widget.size.w,
+              height: widget.size.w,
             ),
           ),
         ),

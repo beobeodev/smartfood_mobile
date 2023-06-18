@@ -9,8 +9,8 @@ part of 'refresh_token.dto.dart';
 RefreshTokenDTO _$RefreshTokenDTOFromJson(Map<String, dynamic> json) =>
     RefreshTokenDTO(
       accessToken: json['accessToken'] as String,
-      refreshToken: json['refreshToken'] as String,
-      expiresIn: json['expiresIn'] as int,
+      refreshToken: json['refreshToken'] as String?,
+      expiresIn: json['expiresIn'] as int?,
     );
 
 Map<String, dynamic> _$RefreshTokenDTOToJson(RefreshTokenDTO instance) =>

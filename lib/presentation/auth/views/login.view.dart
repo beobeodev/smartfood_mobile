@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/constants/enums/auth_error_type.enum.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
-import 'package:smarthealthy/common/extensions/string.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
@@ -17,14 +17,6 @@ import 'package:smarthealthy/presentation/auth/widgets/social_login.widget.dart'
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
-  void _listenLoginStateChanged(BuildContext context, LoginState state) {
-    if (state is LoginNotSuccess && state.error.isNullOrEmpty) {
-      ToastUtil.showError(
-        context,
-      );
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -37,6 +29,14 @@ class LoginPage extends StatelessWidget {
         child: _LoginView(),
       ),
     );
+  }
+
+  void _listenLoginStateChanged(BuildContext context, LoginState state) {
+    if (state is LoginNotSuccess && state.error == AuthErrorType.unknown) {
+      ToastUtil.showError(
+        context,
+      );
+    }
   }
 }
 

@@ -20,11 +20,10 @@ class IngredientListBloc
     _Updated event,
     Emitter<IngredientListState> emit,
   ) {
-    final bool isExist = state.ingredients
-        .where((element) => element.id == event.ingredient.id)
-        .isNotEmpty;
+    final bool isExist =
+        state.ingredients.any((element) => element.id == event.ingredient.id);
 
-    final List<IngredientModel> ingredients = List.from(state.ingredients);
+    final ingredients = List.of(state.ingredients);
 
     if (isExist) {
       ingredients.removeWhere((element) => element.id == event.ingredient.id);
