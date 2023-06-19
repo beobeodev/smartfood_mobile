@@ -110,6 +110,7 @@ class _DiaryFabState extends State<DiaryFab> with TickerProviderStateMixin {
           itemBuilder: (context, index) {
             return DiaryModeItem(
               mode: _diaryModes[index],
+              onPressed: _onPressed,
             );
           },
           separatorBuilder: (_, __) {

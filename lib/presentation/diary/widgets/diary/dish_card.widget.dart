@@ -8,7 +8,7 @@ import 'package:smarthealthy/common/widgets/icon_tile.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/diary/widgets/filled_icon_button.widget.dart';
+import 'package:smarthealthy/common/widgets/filled_icon_button.widget.dart';
 import 'package:unicons/unicons.dart';
 
 class DishCard extends StatelessWidget {

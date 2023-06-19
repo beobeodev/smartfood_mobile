@@ -18,36 +18,36 @@ class IngredientImageSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final maxHeightItem =
-            recognitionResult.values.map((e) => e.imageSize).reduce(
-                  (current, next) =>
-                      current.height > next.height ? current : next,
-                );
+        final itemWidth =
+            constraints.maxWidth - 2 * AppSize.horizontalSpacingInDetectionPage;
 
-        final parentMaxHeight = ((constraints.maxWidth -
-                    2 * AppSize.horizontalSpacingInDetectionPage) *
-                maxHeightItem.height) /
-            maxHeightItem.width;
-
-        return Stack(
-          children: [
-            SizedBox(
-              width: context.width,
-              height: parentMaxHeight,
-              child: PageView.builder(
-                itemBuilder: (context, index) {
-                  final RecognitionWrapper wrapperItem =
-                      recognitionResult[imagePaths[index]]!;
-
-                  return IngredientImageItem(
-                    wrapper: wrapperItem,
-                    imagePath: imagePaths[index],
-                  );
-                },
-                itemCount: imagePaths.length,
+        final highestItemSize = recognitionResult.values
+            .map(
+              (e) => Size(
+                itemWidth,
+                (itemWidth * e.imageSize.height) / e.imageSize.width,
               ),
-            ),
-          ],
+            )
+            .reduce(
+              (value, element) =>
+                  value.height > element.height ? value : element,
+            );
+
+        return SizedBox(
+          width: context.width,
+          height: highestItemSize.height,
+          child: PageView.builder(
+            itemBuilder: (context, index) {
+              final RecognitionWrapper wrapperItem =
+                  recognitionResult[imagePaths[index]]!;
+
+              return IngredientImageItem(
+                wrapper: wrapperItem,
+                imagePath: imagePaths[index],
+              );
+            },
+            itemCount: imagePaths.length,
+          ),
         );
       },
     );

@@ -6,11 +6,15 @@ class DiaryModeItem extends StatelessWidget {
   const DiaryModeItem({
     super.key,
     required this.mode,
+    required this.onPressed,
   });
-  final DiaryModeUIModel mode;
 
-  void _onPressed(BuildContext context) {
+  final DiaryModeUIModel mode;
+  final VoidCallback onPressed;
+
+  void _navigateToNewRoute(BuildContext context) {
     Navigator.of(context).pushNamed(mode.route);
+    onPressed();
   }
 
   @override
@@ -21,7 +25,7 @@ class DiaryModeItem extends StatelessWidget {
         return Visibility(
           visible: !mode.animation!.isDismissed,
           child: GestureDetector(
-            onTap: () => _onPressed(context),
+            onTap: () => _navigateToNewRoute(context),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               mainAxisSize: MainAxisSize.min,

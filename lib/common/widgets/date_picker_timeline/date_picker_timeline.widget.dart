@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/extensions/date_time.extension.dart';
 import 'package:smarthealthy/common/widgets/date_picker_timeline/date_widget.dart';
@@ -116,8 +114,6 @@ class DatePickerController {
     duration = const Duration(milliseconds: 500),
     curve = Curves.linear,
   }) {
-    log('animateToSelection');
-
     assert(
       _datePickerState != null,
       'DatePickerController is not attached to any DatePicker View.',

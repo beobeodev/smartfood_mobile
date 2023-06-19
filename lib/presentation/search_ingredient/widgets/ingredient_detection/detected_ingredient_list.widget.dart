@@ -3,14 +3,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
-import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/widgets/title_add_button.widget.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/models/recognition.model.dart';
 import 'package:smarthealthy/data/repositories/ingredient.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/diary/widgets/filled_icon_button.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/add_ingredient_sheet.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/ingredient_chip.widget.dart';
 import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
@@ -65,18 +63,9 @@ class DetectedIngredientList extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      LocaleKeys.texts_ingredient_list.tr(),
-                      style: TextStyles.s17MediumText,
-                    ),
-                    FilledIconButton(
-                      onTap: () => _showBottomSheet(context),
-                      backgroundColor: ColorStyles.yellowGreen,
-                    )
-                  ],
+                TitleAddButton(
+                  title: LocaleKeys.texts_ingredient_list.tr(),
+                  onAdd: () => _showBottomSheet(context),
                 ),
                 ValueListenableBuilder(
                   valueListenable: ingredientNotifier,

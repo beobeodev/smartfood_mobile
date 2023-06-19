@@ -48,30 +48,36 @@ class _DetectionBodyState extends State<DetectionBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-        AppSize.horizontalSpacing,
-        AppSize.horizontalSpacing,
-        AppSize.horizontalSpacing,
-        context.bottomSpacing,
-      ),
-      child: Column(
-        children: [
-          IngredientImageSlider(
-            imagePaths: widget.imagePaths,
-            recognitionResult: widget.result,
+    return Column(
+      children: [
+        IngredientImageSlider(
+          imagePaths: widget.imagePaths,
+          recognitionResult: widget.result,
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(
+              AppSize.horizontalSpacing,
+              AppSize.horizontalSpacing,
+              AppSize.horizontalSpacing,
+              context.bottomSpacing,
+            ),
+            child: Column(
+              children: [
+                DetectedIngredientList(
+                  result: widget.result,
+                  ingredientNotifier: _ingredientNotifier,
+                ),
+                AppRoundedButton(
+                  onPressed: () => _searchRecipes(context),
+                  content: LocaleKeys.search_recipe.tr(),
+                  width: double.infinity,
+                ),
+              ],
+            ),
           ),
-          DetectedIngredientList(
-            result: widget.result,
-            ingredientNotifier: _ingredientNotifier,
-          ),
-          AppRoundedButton(
-            onPressed: () => _searchRecipes(context),
-            content: LocaleKeys.search_recipe.tr(),
-            width: double.infinity,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
