@@ -14,9 +14,9 @@ class RecipeDetailBody extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.fromLTRB(
-          AppSize.horizontalSpace,
-          AppSize.horizontalSpace,
-          AppSize.horizontalSpace,
+          AppSize.horizontalSpacing,
+          AppSize.horizontalSpacing,
+          AppSize.horizontalSpacing,
           100,
         ),
         child: Column(

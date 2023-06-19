@@ -18,9 +18,9 @@ class SheetSearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-        AppSize.horizontalSpace,
-        AppSize.horizontalSpace,
-        AppSize.horizontalSpace,
+        AppSize.horizontalSpacing,
+        AppSize.horizontalSpacing,
+        AppSize.horizontalSpacing,
         10,
       ),
       child: AppTextFormField(

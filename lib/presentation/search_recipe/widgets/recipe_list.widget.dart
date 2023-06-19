@@ -95,7 +95,7 @@ class _RecipeListState extends State<RecipeList> {
           onRefresh: () => _onLoadRefresh(true),
           enablePullDown: !isDishCard,
           child: ListView.separated(
-            padding: const EdgeInsets.all(AppSize.horizontalSpace),
+            padding: const EdgeInsets.all(AppSize.horizontalSpacing),
             itemCount: state.recipes!.length,
             shrinkWrap: true,
             separatorBuilder: (_, __) => isDishCard ? AppSize.h10 : AppSize.h20,

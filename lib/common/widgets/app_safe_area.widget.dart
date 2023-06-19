@@ -12,9 +12,9 @@ class AppSafeArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(
-        AppSize.horizontalSpace,
+        AppSize.horizontalSpacing,
         context.paddingTop,
-        AppSize.horizontalSpace,
+        AppSize.horizontalSpacing,
         paddingBottom,
       ),
       child: child,

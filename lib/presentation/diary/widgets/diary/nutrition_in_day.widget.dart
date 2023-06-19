@@ -21,14 +21,14 @@ class NutritionInDay extends StatelessWidget {
         ),
         width: context.width,
         padding: const EdgeInsets.fromLTRB(
-          AppSize.horizontalSpace,
-          AppSize.horizontalSpace,
-          AppSize.horizontalSpace,
+          AppSize.horizontalSpacing,
+          AppSize.horizontalSpacing,
+          AppSize.horizontalSpacing,
           0,
         ),
         child: const SingleChildScrollView(
           physics: ClampingScrollPhysics(),
-          padding: EdgeInsets.only(bottom: AppSize.horizontalSpace),
+          padding: EdgeInsets.only(bottom: AppSize.horizontalSpacing),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

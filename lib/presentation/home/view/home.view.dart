@@ -37,7 +37,7 @@ class _HomeView extends StatelessWidget {
                 readOnly: true,
                 hintText: LocaleKeys.search_recipe.tr(),
                 onTap: () => Navigator.of(context).pushNamed(
-                  AppRouter.recipeList,
+                  AppRouter.searchRecipe,
                 ),
               ),
               actions: [
@@ -57,7 +57,7 @@ class _HomeView extends StatelessWidget {
           ];
         },
         body: const SingleChildScrollView(
-          padding: EdgeInsets.all(AppSize.horizontalSpace),
+          padding: EdgeInsets.all(AppSize.horizontalSpacing),
           physics: ClampingScrollPhysics(),
           child: Column(
             children: [

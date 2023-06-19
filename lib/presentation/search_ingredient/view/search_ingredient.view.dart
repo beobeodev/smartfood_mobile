@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/data/repositories/ingredient.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
-import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 
 class SearchIngredientPage extends StatelessWidget {
   const SearchIngredientPage({super.key});

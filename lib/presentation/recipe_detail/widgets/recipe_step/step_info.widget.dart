@@ -36,9 +36,9 @@ class _StepInfoState extends State<StepInfo>
         Expanded(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
-              AppSize.horizontalSpace,
+              AppSize.horizontalSpacing,
               10,
-              AppSize.horizontalSpace,
+              AppSize.horizontalSpacing,
               0,
             ),
             child: Text(

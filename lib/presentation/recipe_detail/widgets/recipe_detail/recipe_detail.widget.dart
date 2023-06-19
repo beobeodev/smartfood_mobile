@@ -28,7 +28,7 @@ class RecipeDetail extends StatelessWidget {
         Positioned(
           bottom: context.paddingBottom > 0
               ? context.paddingBottom
-              : AppSize.horizontalSpace,
+              : AppSize.horizontalSpacing,
           width: context.width / 2,
           child: AppRoundedButton(
             onPressed: () {

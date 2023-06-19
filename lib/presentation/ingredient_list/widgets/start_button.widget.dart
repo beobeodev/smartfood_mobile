@@ -11,7 +11,7 @@ class StartButton extends StatelessWidget {
 
   void _startToRecipes(BuildContext context) {
     Navigator.of(context).pushNamed(
-      AppRouter.recipeList,
+      AppRouter.searchRecipe,
       arguments: context.read<IngredientListBloc>().state.ingredients,
     );
   }
@@ -20,8 +20,8 @@ class StartButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: context.bottomSpacing,
-      left: AppSize.horizontalSpace,
-      right: AppSize.horizontalSpace,
+      left: AppSize.horizontalSpacing,
+      right: AppSize.horizontalSpacing,
       child: AppRoundedButton(
         onPressed: () => _startToRecipes(context),
         content: 'Bắt đầu',

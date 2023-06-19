@@ -19,9 +19,9 @@ class DateSelection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-        AppSize.horizontalSpace,
+        AppSize.horizontalSpacing,
         0,
-        AppSize.horizontalSpace,
+        AppSize.horizontalSpacing,
         10,
       ),
       child: GestureDetector(

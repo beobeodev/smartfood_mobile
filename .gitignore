@@ -58,3 +58,10 @@ mason-lock.json
 
 .firebase/
 config.json
+
+# yolov5 models
+assets/models/best.tflite
+assets/models/labels.txt
+assets/models/label_slug.json
+lib/common/helpers/ingredient_detector.dart
+lib/data/models/recognition.model.dart

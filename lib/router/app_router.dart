@@ -13,6 +13,7 @@ import 'package:smarthealthy/presentation/diary/view/calorie_measure.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/recipe_detail/recipe.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 import 'package:smarthealthy/presentation/splash/splash.dart';
 
@@ -31,7 +32,7 @@ abstract class AppRouter {
   static const String detectIngredient = '/detect_ingredient';
 
   // Recipe
-  static const String recipeList = '/recipe_list';
+  static const String searchRecipe = '/search_recipe';
   static const String recipeDetail = '/recipe_detail';
   static const String recipeStep = '/recipe_step';
   static const String recipeFilter = '/recipe_filter';
@@ -104,7 +105,7 @@ abstract class AppRouter {
             );
           },
         );
-      case recipeList:
+      case searchRecipe:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {

@@ -27,11 +27,14 @@ class CodegenLoader extends AssetLoader{
     "enter_last_name": "Enter your last name",
     "first_name": "First name",
     "last_name": "Last name",
-    "register_success": "Register successfully"
+    "register_success": "Register successfully",
+    "ingredient_list": "List of ingredients",
+    "ingredient_detection": "Ingredient Detection"
   },
   "button": {
     "cancel": "Cancel",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "try_again": "Try again"
   },
   "root": {
     "home": "Home",
@@ -113,11 +116,14 @@ static const Map<String,dynamic> vi = {
     "delete_all": "Xoá tất cả",
     "first_name": "Tên",
     "last_name": "Họ",
-    "register_success": "Đăng ký tài khoản thành công"
+    "register_success": "Đăng ký tài khoản thành công",
+    "ingredient_list": "Danh sách nguyên liệu",
+    "ingredient_detection": "Nhận diện nguyên liệu"
   },
   "button": {
     "cancel": "Hủy",
-    "confirm": "Xác nhận"
+    "confirm": "Xác nhận",
+    "try_again": "Thử lại"
   },
   "root": {
     "home": "Trang chủ",

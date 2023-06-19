@@ -8,7 +8,8 @@ import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/widgets/filled_icon_button.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/add_ingredient_sheet.widget.dart';
-import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
+import 'package:smarthealthy/presentation/recipe_filter/widgets/ingredient_chip.widget.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 
 class IngredientFilterSection extends StatelessWidget {
@@ -65,23 +66,9 @@ class IngredientFilterSection extends StatelessWidget {
             return Wrap(
               spacing: 5,
               children: state.queryDto.ingredients?.map((e) {
-                    return Chip(
-                      deleteIcon: const Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 5,
-                      ),
+                    return IngredientChip(
+                      name: e.name,
                       onDeleted: () {},
-                      label: Text(
-                        e.name,
-                        style: TextStyles.s14RegularText
-                            .copyWith(color: Colors.white),
-                      ),
-                      backgroundColor: ColorStyles.yellowGreen,
                     );
                   }).toList() ??
                   [],

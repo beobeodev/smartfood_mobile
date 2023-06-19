@@ -63,9 +63,9 @@ class _LoginView extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(
-          AppSize.horizontalSpace,
+          AppSize.horizontalSpacing,
           context.paddingTop,
-          AppSize.horizontalSpace,
+          AppSize.horizontalSpacing,
           0,
         ),
         child: SizedBox(

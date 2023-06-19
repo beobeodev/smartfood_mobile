@@ -6,7 +6,7 @@ import 'package:smarthealthy/common/widgets/bottom_sheet/sheet_header.widget.dar
 import 'package:smarthealthy/common/widgets/bottom_sheet/sheet_search_field.widget.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/ingredient_sheet_body.widget.dart';
-import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 
 class AddIngredientSheet extends StatefulWidget {
   const AddIngredientSheet({super.key});

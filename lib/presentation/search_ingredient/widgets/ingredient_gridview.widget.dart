@@ -6,7 +6,7 @@ import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
-import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 
 class IngredientGridView extends StatefulWidget {
   const IngredientGridView({
@@ -81,7 +81,7 @@ class _IngredientGridViewState extends State<IngredientGridView> {
           onLoading: _onLoadRefresh,
           onRefresh: () => _onLoadRefresh(true),
           child: GridView.builder(
-            padding: const EdgeInsets.only(top: AppSize.horizontalSpace),
+            padding: const EdgeInsets.only(top: AppSize.horizontalSpacing),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 3,
               mainAxisSpacing: 10,

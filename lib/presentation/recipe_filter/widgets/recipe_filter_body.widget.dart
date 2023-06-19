@@ -11,7 +11,7 @@ class RecipeFilterBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SingleChildScrollView(
-      padding: EdgeInsets.all(AppSize.horizontalSpace),
+      padding: EdgeInsets.all(AppSize.horizontalSpacing),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

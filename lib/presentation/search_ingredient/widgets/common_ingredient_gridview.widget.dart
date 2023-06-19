@@ -14,7 +14,7 @@ class CommonIngredientGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.only(top: AppSize.horizontalSpace),
+      padding: const EdgeInsets.only(top: AppSize.horizontalSpacing),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         mainAxisSpacing: 10,

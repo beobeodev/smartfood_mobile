@@ -11,11 +11,14 @@
     "enter_last_name": "Enter your last name",
     "first_name": "First name",
     "last_name": "Last name",
-    "register_success": "Register successfully"
+    "register_success": "Register successfully",
+    "ingredient_list": "List of ingredients",
+    "ingredient_detection": "Ingredient Detection"
   },
   "button": {
     "cancel": "Cancel",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "try_again": "Try again"
   },
   "root": {
     "home": "Home",

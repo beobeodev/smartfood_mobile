@@ -40,7 +40,7 @@ class RecipeCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppSize.cardRadius),
             ),
             padding: EdgeInsets.symmetric(
-              horizontal: AppSize.horizontalSpace,
+              horizontal: AppSize.horizontalSpacing,
               vertical: 10.h,
             ),
             child: Column(

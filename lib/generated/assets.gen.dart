@@ -81,11 +81,14 @@ class $AssetsModelsGen {
   /// File path: assets/models/best.tflite
   String get best => 'assets/models/best.tflite';
 
+  /// File path: assets/models/label_slug.json
+  String get labelSlug => 'assets/models/label_slug.json';
+
   /// File path: assets/models/labels.txt
   String get labels => 'assets/models/labels.txt';
 
   /// List of all assets
-  List<String> get values => [best, labels];
+  List<String> get values => [best, labelSlug, labels];
 }
 
 class $AssetsIconsAuthGen {

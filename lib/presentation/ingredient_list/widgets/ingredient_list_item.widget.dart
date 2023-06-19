@@ -23,7 +23,7 @@ class IngredientListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 55,
+      height: AppSize.ingredientListItemHeight,
       child: common.CommonDismissible(
         key: ValueKey(ingredient.id),
         direction: hasDismiss

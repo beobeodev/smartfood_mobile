@@ -18,15 +18,15 @@ class QueryRecipesDTO with _$QueryRecipesDTO {
     final Map<String, dynamic> result = pagination.toJson();
 
     result.writeNotNull(
-      'filter.quantification.ingredient.id',
-      _ingredientIdsToJson(ingredients?.map((e) => e.id).toList()),
+      'filter.quantification.ingredient.slug',
+      _ingredientSlugToJson(ingredients?.map((e) => e.slug).toList()),
     );
 
     return result;
   }
 }
 
-String? _ingredientIdsToJson(List<String>? ids) {
+String? _ingredientSlugToJson(List<String>? ids) {
   if (ids == null) return null;
   return '\$in:${ids.join(',')}';
 }

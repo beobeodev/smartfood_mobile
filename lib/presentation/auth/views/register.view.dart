@@ -64,9 +64,9 @@ class _RegisterView extends StatelessWidget {
             hasScrollBody: false,
             child: Container(
               padding: EdgeInsets.fromLTRB(
-                AppSize.horizontalSpace,
+                AppSize.horizontalSpacing,
                 context.paddingTop,
-                AppSize.horizontalSpace,
+                AppSize.horizontalSpacing,
                 0,
               ),
               child: const Column(

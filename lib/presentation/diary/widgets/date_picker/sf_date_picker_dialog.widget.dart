@@ -23,7 +23,7 @@ class SfDatePickerDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: Colors.white,
-      contentPadding: const EdgeInsets.all(AppSize.horizontalSpace),
+      contentPadding: const EdgeInsets.all(AppSize.horizontalSpacing),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),

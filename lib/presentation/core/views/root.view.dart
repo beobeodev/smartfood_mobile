@@ -5,7 +5,7 @@ import 'package:smarthealthy/presentation/core/widgets/custom_lazy_indexed_stack
 import 'package:smarthealthy/presentation/diary/view/diary.view.dart';
 import 'package:smarthealthy/presentation/home/home.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
-import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 import 'package:smarthealthy/presentation/profile/profile.dart';
 import 'package:smarthealthy/presentation/core/core.dart';
 

@@ -13,9 +13,12 @@ abstract class  LocaleKeys {
   static const texts_first_name = 'texts.first_name';
   static const texts_last_name = 'texts.last_name';
   static const texts_register_success = 'texts.register_success';
+  static const texts_ingredient_list = 'texts.ingredient_list';
+  static const texts_ingredient_detection = 'texts.ingredient_detection';
   static const texts = 'texts';
   static const button_cancel = 'button.cancel';
   static const button_confirm = 'button.confirm';
+  static const button_try_again = 'button.try_again';
   static const button = 'button';
   static const root_home = 'root.home';
   static const root_profile = 'root.profile';

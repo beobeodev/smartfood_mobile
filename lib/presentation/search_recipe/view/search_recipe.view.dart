@@ -18,12 +18,6 @@ class SearchRecipePage extends StatelessWidget {
 
   const SearchRecipePage({super.key, required this.ingredients});
 
-  void _listenBlocChanged(BuildContext context, SearchRecipeState state) {
-    if (state.queryInfo.type == QueryType.initial) {
-      context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.reset());
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -43,10 +37,20 @@ class SearchRecipePage extends StatelessWidget {
       ),
     );
   }
+
+  void _listenBlocChanged(BuildContext context, SearchRecipeState state) {
+    if (state.queryInfo.type == QueryType.initial) {
+      context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.reset());
+    }
+  }
 }
 
 class _SearchRecipeView extends StatelessWidget {
   const _SearchRecipeView();
+
+  void _refreshError(BuildContext context) {
+    context.read<SearchRecipeBloc>().add(const SearchRecipeEvent.getAll());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +58,13 @@ class _SearchRecipeView extends StatelessWidget {
       appBar: const RecipeSearchBar(),
       body: BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
         builder: (context, state) {
-          switch (state.queryInfo.status) {
-            case QueryStatus.loading:
-              return const LoadingDot();
-            case QueryStatus.success:
-              return const RecipeList();
-            case QueryStatus.error:
-              return const CommonError();
-          }
+          return switch (state.queryInfo.status) {
+            QueryStatus.loading => const LoadingDot(),
+            QueryStatus.success => const RecipeList(),
+            QueryStatus.error => CommonError(
+                onRefresh: () => _refreshError(context),
+              ),
+          };
         },
         buildWhen: (previous, current) =>
             previous.queryInfo != current.queryInfo &&

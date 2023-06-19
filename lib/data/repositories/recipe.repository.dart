@@ -14,6 +14,7 @@ class RecipeRepository {
     if (queryDto.ingredients != null) {
       return _recipeDataSource.getRecipeByIngredients(queryDto);
     }
+
     return _recipeDataSource.getRecipes(queryDto);
   }
 

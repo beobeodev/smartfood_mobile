@@ -10,4 +10,5 @@ _$_IngredientModel _$$_IngredientModelFromJson(Map<String, dynamic> json) =>
     _$_IngredientModel(
       id: json['id'] as String,
       name: json['name'] as String? ?? '',
+      slug: json['slug'] as String? ?? '',
     );

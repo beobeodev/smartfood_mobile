@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 abstract class AppSize {
-  static const double horizontalSpace = 20;
+  static const double horizontalSpacing = 20;
   static const double cardRadius = 15;
 
   // App bar
@@ -9,6 +9,11 @@ abstract class AppSize {
   static const double titleSpacing = 20;
 
   static const double choiceChipHeight = 48;
+
+  // Detection page
+  static const double horizontalSpacingInDetectionPage = 60;
+
+  static const double ingredientListItemHeight = 55;
 
   // Width
   static const SizedBox w5 = SizedBox(

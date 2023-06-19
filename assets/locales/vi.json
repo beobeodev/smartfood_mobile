@@ -11,11 +11,14 @@
     "delete_all": "Xoá tất cả",
     "first_name": "Tên",
     "last_name": "Họ",
-    "register_success": "Đăng ký tài khoản thành công"
+    "register_success": "Đăng ký tài khoản thành công",
+    "ingredient_list": "Danh sách nguyên liệu",
+    "ingredient_detection": "Nhận diện nguyên liệu"
   },
   "button": {
     "cancel": "Hủy",
-    "confirm": "Xác nhận"
+    "confirm": "Xác nhận",
+    "try_again": "Thử lại"
   },
   "root": {
     "home": "Trang chủ",

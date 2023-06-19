@@ -9,6 +9,7 @@ class IngredientModel with _$IngredientModel {
   const factory IngredientModel({
     required String id,
     @JsonKey(defaultValue: '') required String name,
+    @JsonKey(defaultValue: '') required String slug,
   }) = _IngredientModel;
 
   factory IngredientModel.fromJson(Map<String, Object?> json) =>

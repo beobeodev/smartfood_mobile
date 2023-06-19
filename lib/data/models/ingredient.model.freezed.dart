@@ -23,6 +23,8 @@ mixin _$IngredientModel {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
   String get name => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
+  String get slug => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $IngredientModelCopyWith<IngredientModel> get copyWith =>
@@ -35,7 +37,10 @@ abstract class $IngredientModelCopyWith<$Res> {
           IngredientModel value, $Res Function(IngredientModel) then) =
       _$IngredientModelCopyWithImpl<$Res, IngredientModel>;
   @useResult
-  $Res call({String id, @JsonKey(defaultValue: '') String name});
+  $Res call(
+      {String id,
+      @JsonKey(defaultValue: '') String name,
+      @JsonKey(defaultValue: '') String slug});
 }
 
 /// @nodoc
@@ -53,6 +58,7 @@ class _$IngredientModelCopyWithImpl<$Res, $Val extends IngredientModel>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? slug = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -62,6 +68,10 @@ class _$IngredientModelCopyWithImpl<$Res, $Val extends IngredientModel>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -75,7 +85,10 @@ abstract class _$$_IngredientModelCopyWith<$Res>
       __$$_IngredientModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, @JsonKey(defaultValue: '') String name});
+  $Res call(
+      {String id,
+      @JsonKey(defaultValue: '') String name,
+      @JsonKey(defaultValue: '') String slug});
 }
 
 /// @nodoc
@@ -91,6 +104,7 @@ class __$$_IngredientModelCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? slug = null,
   }) {
     return _then(_$_IngredientModel(
       id: null == id
@@ -101,6 +115,10 @@ class __$$_IngredientModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      slug: null == slug
+          ? _value.slug
+          : slug // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -110,7 +128,9 @@ class __$$_IngredientModelCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$_IngredientModel implements _IngredientModel {
   const _$_IngredientModel(
-      {required this.id, @JsonKey(defaultValue: '') required this.name});
+      {required this.id,
+      @JsonKey(defaultValue: '') required this.name,
+      @JsonKey(defaultValue: '') required this.slug});
 
   factory _$_IngredientModel.fromJson(Map<String, dynamic> json) =>
       _$$_IngredientModelFromJson(json);
@@ -120,10 +140,13 @@ class _$_IngredientModel implements _IngredientModel {
   @override
   @JsonKey(defaultValue: '')
   final String name;
+  @override
+  @JsonKey(defaultValue: '')
+  final String slug;
 
   @override
   String toString() {
-    return 'IngredientModel(id: $id, name: $name)';
+    return 'IngredientModel(id: $id, name: $name, slug: $slug)';
   }
 
   @override
@@ -132,12 +155,13 @@ class _$_IngredientModel implements _IngredientModel {
         (other.runtimeType == runtimeType &&
             other is _$_IngredientModel &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name));
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.slug, slug) || other.slug == slug));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name);
+  int get hashCode => Object.hash(runtimeType, id, name, slug);
 
   @JsonKey(ignore: true)
   @override
@@ -149,7 +173,8 @@ class _$_IngredientModel implements _IngredientModel {
 abstract class _IngredientModel implements IngredientModel {
   const factory _IngredientModel(
           {required final String id,
-          @JsonKey(defaultValue: '') required final String name}) =
+          @JsonKey(defaultValue: '') required final String name,
+          @JsonKey(defaultValue: '') required final String slug}) =
       _$_IngredientModel;
 
   factory _IngredientModel.fromJson(Map<String, dynamic> json) =
@@ -160,6 +185,9 @@ abstract class _IngredientModel implements IngredientModel {
   @override
   @JsonKey(defaultValue: '')
   String get name;
+  @override
+  @JsonKey(defaultValue: '')
+  String get slug;
   @override
   @JsonKey(ignore: true)
   _$$_IngredientModelCopyWith<_$_IngredientModel> get copyWith =>

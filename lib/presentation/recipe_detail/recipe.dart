@@ -1,7 +1,4 @@
-export 'bloc/ingredient_detection/ingredient_detection.bloc.dart';
-export 'view/ingredient_detection.view.dart';
-
-export 'bloc/recipe_detail/recipe_detail.bloc.dart';
+export 'bloc/recipe_detail.bloc.dart';
 export 'view/recipe_detail.view.dart';
 
 export 'view/recipe_step.view.dart';

@@ -14,9 +14,9 @@ class CurrentIngredientList extends StatelessWidget {
         return ListView.separated(
           itemCount: state.ingredients.length,
           padding: const EdgeInsets.fromLTRB(
-            AppSize.horizontalSpace,
-            AppSize.horizontalSpace,
-            AppSize.horizontalSpace,
+            AppSize.horizontalSpacing,
+            AppSize.horizontalSpacing,
+            AppSize.horizontalSpacing,
             100,
           ),
           separatorBuilder: (context, index) {

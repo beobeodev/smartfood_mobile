@@ -5,7 +5,7 @@ import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
-import 'package:smarthealthy/presentation/recipe_detail/bloc/recipe_detail/recipe_detail.bloc.dart';
+import 'package:smarthealthy/presentation/recipe_detail/bloc/recipe_detail.bloc.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail.widget.dart';
 
 class RecipeDetailPage extends StatelessWidget {

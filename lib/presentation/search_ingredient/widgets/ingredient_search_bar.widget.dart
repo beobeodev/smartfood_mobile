@@ -1,12 +1,14 @@
 import 'package:advance_image_picker/advance_image_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/common_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_search_bar.widget.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/router/app_router.dart';
-import 'package:smarthealthy/presentation/search_ingredient/bloc/search_ingredient.bloc.dart';
+import 'package:smarthealthy/presentation/search_ingredient/bloc/search_ingredient/search_ingredient.bloc.dart';
 import 'package:unicons/unicons.dart';
 
 class IngredientSearchBar extends StatelessWidget
@@ -35,6 +37,7 @@ class IngredientSearchBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return CommonSearchBar(
+      hintText: LocaleKeys.search_ingredient.tr(),
       onFieldSubmitted: (value) => _onSearchIngredients(context, value),
       actions: [
         CommonIconButton(

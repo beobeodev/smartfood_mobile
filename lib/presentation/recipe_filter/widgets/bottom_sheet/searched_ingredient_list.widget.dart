@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -6,9 +7,11 @@ import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
+import 'package:smarthealthy/common/widgets/common_not_found.widget.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/ingredient_list/widgets/ingredient_list_item.widget.dart';
-import 'package:smarthealthy/presentation/search_ingredient/ingredient.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 
 class SearchedIngredientList extends StatefulWidget {
   const SearchedIngredientList({
@@ -76,6 +79,17 @@ class _SearchedIngredientListState extends State<SearchedIngredientList> {
       builder: (context, state) {
         final ingredients = state.ingredients!;
 
+        if (ingredients.isEmpty) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: AppSize.horizontalSpacing,
+            ),
+            child: CommonNotFound(
+              text: LocaleKeys.search_ingredient_not_found.tr(),
+            ),
+          );
+        }
+
         return SmartRefresher(
           controller: _refreshController,
           enablePullDown: false,
@@ -85,7 +99,7 @@ class _SearchedIngredientListState extends State<SearchedIngredientList> {
             itemCount: ingredients.length,
             separatorBuilder: (context, index) => AppSize.h10,
             padding: const EdgeInsets.symmetric(
-              horizontal: AppSize.horizontalSpace,
+              horizontal: AppSize.horizontalSpacing,
               vertical: 10,
             ),
             itemBuilder: (context, index) {

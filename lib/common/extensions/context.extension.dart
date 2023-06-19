@@ -25,7 +25,8 @@ extension ContextExtension on BuildContext {
   /// similar to [MediaQuery.of(context).devicePixelRatio]
   double get devicePixelRatio => MediaQuery.of(this).devicePixelRatio;
 
-  double dialogInsideWidth({double contentPadding = AppSize.horizontalSpace}) {
+  double dialogInsideWidth(
+      {double contentPadding = AppSize.horizontalSpacing}) {
     return width - 40 * 2 - 2 * contentPadding;
   }
 
