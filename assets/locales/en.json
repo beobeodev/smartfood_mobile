@@ -18,7 +18,10 @@
   "button": {
     "cancel": "Cancel",
     "confirm": "Confirm",
-    "try_again": "Try again"
+    "try_again": "Try again",
+    "continue": "Continue",
+    "return": "Return",
+    "complete": "Complete"
   },
   "root": {
     "home": "Home",

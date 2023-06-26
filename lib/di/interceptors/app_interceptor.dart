@@ -22,7 +22,10 @@ class AppInterceptor extends QueuedInterceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    log('REQUEST[${options.method}] => PATH: ${options.path}');
+    log(
+      'REQUEST[${options.method}] => PATH: ${options.path} | QUERY: ${options.queryParameters} | DATA: ${options.data}',
+      name: 'Interceptor: onRequest',
+    );
 
     // _checkTokenExpired();
 

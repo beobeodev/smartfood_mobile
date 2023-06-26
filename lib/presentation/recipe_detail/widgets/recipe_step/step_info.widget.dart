@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/widgets/app_carousel_slider.widget.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 
 class StepInfo extends StatefulWidget {
@@ -19,20 +20,22 @@ class _StepInfoState extends State<StepInfo>
     super.build(context);
     return Column(
       children: [
-        // AppCarouselSlider(
-        //   items: widget.currentStep.images.map(
-        //     (item) {
-        //       return ClipRRect(
-        //         borderRadius: BorderRadius.circular(10),
-        //         child: Image.network(
-        //           item,
-        //           fit: BoxFit.cover,
-        //           width: double.infinity,
-        //         ),
-        //       );
-        //     },
-        //   ).toList(),
-        // ),
+        if (widget.currentStep.media != null &&
+            widget.currentStep.media!.isNotEmpty)
+          AppCarouselSlider(
+            items: widget.currentStep.media!.map(
+              (item) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    item.url,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
+                );
+              },
+            ).toList(),
+          ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(

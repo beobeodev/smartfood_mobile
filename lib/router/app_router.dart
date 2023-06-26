@@ -1,15 +1,17 @@
 import 'package:advance_image_picker/advance_image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/constants/enums/page_transition_type.enum.dart';
+import 'package:smarthealthy/common/enums/page_transition_type.enum.dart';
 import 'package:smarthealthy/common/widgets/page_transition/transition_page_route.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/auth/views/register.view.dart';
 import 'package:smarthealthy/presentation/core/views/root.view.dart';
+import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/view/add_meal.view.dart';
 import 'package:smarthealthy/presentation/diary/view/calorie_measure.view.dart';
+import 'package:smarthealthy/presentation/diary/view/measure_nutrition_result.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/recipe_detail/recipe.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
@@ -41,6 +43,7 @@ abstract class AppRouter {
 
   // Nutrition
   static const String calorieMeasure = '/calorie_measure';
+  static const String measureResult = '/measure_result';
   static const String addMealPlan = '/add_meal_plan';
 
   static Route? onGenerateRoute(RouteSettings settings) {
@@ -146,7 +149,16 @@ abstract class AppRouter {
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const CalorieMeasureView();
+            return const CalorieMeasurePage();
+          },
+        );
+      case measureResult:
+        return MaterialPageRoute(
+          settings: settings,
+          builder: (_) {
+            return MeasureNutritionResultPage(
+              nutrition: arguments as NutritionWrapper,
+            );
           },
         );
       case addMealPlan:

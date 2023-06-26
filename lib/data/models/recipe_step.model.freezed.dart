@@ -23,6 +23,7 @@ mixin _$RecipeStepModel {
   String get id => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   int get order => throw _privateConstructorUsedError;
+  List<MediaModel>? get media => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RecipeStepModelCopyWith<RecipeStepModel> get copyWith =>
@@ -35,7 +36,7 @@ abstract class $RecipeStepModelCopyWith<$Res> {
           RecipeStepModel value, $Res Function(RecipeStepModel) then) =
       _$RecipeStepModelCopyWithImpl<$Res, RecipeStepModel>;
   @useResult
-  $Res call({String id, String content, int order});
+  $Res call({String id, String content, int order, List<MediaModel>? media});
 }
 
 /// @nodoc
@@ -54,6 +55,7 @@ class _$RecipeStepModelCopyWithImpl<$Res, $Val extends RecipeStepModel>
     Object? id = null,
     Object? content = null,
     Object? order = null,
+    Object? media = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -68,6 +70,10 @@ class _$RecipeStepModelCopyWithImpl<$Res, $Val extends RecipeStepModel>
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as int,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as List<MediaModel>?,
     ) as $Val);
   }
 }
@@ -80,7 +86,7 @@ abstract class _$$_RecipeStepModelCopyWith<$Res>
       __$$_RecipeStepModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String content, int order});
+  $Res call({String id, String content, int order, List<MediaModel>? media});
 }
 
 /// @nodoc
@@ -97,6 +103,7 @@ class __$$_RecipeStepModelCopyWithImpl<$Res>
     Object? id = null,
     Object? content = null,
     Object? order = null,
+    Object? media = freezed,
   }) {
     return _then(_$_RecipeStepModel(
       id: null == id
@@ -111,6 +118,10 @@ class __$$_RecipeStepModelCopyWithImpl<$Res>
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
               as int,
+      media: freezed == media
+          ? _value._media
+          : media // ignore: cast_nullable_to_non_nullable
+              as List<MediaModel>?,
     ));
   }
 }
@@ -119,7 +130,11 @@ class __$$_RecipeStepModelCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$_RecipeStepModel implements _RecipeStepModel {
   _$_RecipeStepModel(
-      {required this.id, required this.content, required this.order});
+      {required this.id,
+      required this.content,
+      required this.order,
+      final List<MediaModel>? media})
+      : _media = media;
 
   factory _$_RecipeStepModel.fromJson(Map<String, dynamic> json) =>
       _$$_RecipeStepModelFromJson(json);
@@ -130,10 +145,19 @@ class _$_RecipeStepModel implements _RecipeStepModel {
   final String content;
   @override
   final int order;
+  final List<MediaModel>? _media;
+  @override
+  List<MediaModel>? get media {
+    final value = _media;
+    if (value == null) return null;
+    if (_media is EqualUnmodifiableListView) return _media;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'RecipeStepModel(id: $id, content: $content, order: $order)';
+    return 'RecipeStepModel(id: $id, content: $content, order: $order, media: $media)';
   }
 
   @override
@@ -143,12 +167,14 @@ class _$_RecipeStepModel implements _RecipeStepModel {
             other is _$_RecipeStepModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.content, content) || other.content == content) &&
-            (identical(other.order, order) || other.order == order));
+            (identical(other.order, order) || other.order == order) &&
+            const DeepCollectionEquality().equals(other._media, _media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, content, order);
+  int get hashCode => Object.hash(runtimeType, id, content, order,
+      const DeepCollectionEquality().hash(_media));
 
   @JsonKey(ignore: true)
   @override
@@ -161,7 +187,8 @@ abstract class _RecipeStepModel implements RecipeStepModel {
   factory _RecipeStepModel(
       {required final String id,
       required final String content,
-      required final int order}) = _$_RecipeStepModel;
+      required final int order,
+      final List<MediaModel>? media}) = _$_RecipeStepModel;
 
   factory _RecipeStepModel.fromJson(Map<String, dynamic> json) =
       _$_RecipeStepModel.fromJson;
@@ -172,6 +199,8 @@ abstract class _RecipeStepModel implements RecipeStepModel {
   String get content;
   @override
   int get order;
+  @override
+  List<MediaModel>? get media;
   @override
   @JsonKey(ignore: true)
   _$$_RecipeStepModelCopyWith<_$_RecipeStepModel> get copyWith =>

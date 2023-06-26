@@ -35,7 +35,7 @@ class DishCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: Image.network(
-              'https://www.thatlangon.com/wp-content/uploads/2020/05/salad-1-1-e1589019780961-large.jpg',
+              recipe.avatar,
               width: 60.w,
               height: 60.w,
               fit: BoxFit.cover,

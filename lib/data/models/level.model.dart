@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/constants/enums/recipe_level.enum.dart';
+import 'package:smarthealthy/common/enums/recipe_level.enum.dart';
 
 part 'level.model.freezed.dart';
 part 'level.model.g.dart';

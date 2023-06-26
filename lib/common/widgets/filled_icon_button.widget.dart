@@ -8,6 +8,7 @@ class FilledIconButton extends StatelessWidget {
   final double iconSize;
   final Color backgroundColor;
   final Color iconColor;
+  final IconData icon;
 
   const FilledIconButton({
     super.key,
@@ -16,6 +17,7 @@ class FilledIconButton extends StatelessWidget {
     this.iconSize = 18,
     this.backgroundColor = ColorStyles.primary,
     this.iconColor = Colors.white,
+    this.icon = Icons.add,
   });
 
   @override
@@ -29,7 +31,7 @@ class FilledIconButton extends StatelessWidget {
           shape: BoxShape.circle,
         ),
         child: Icon(
-          Icons.add,
+          icon,
           color: iconColor,
           size: iconSize.sp,
         ),

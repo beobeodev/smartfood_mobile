@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
-import 'package:smarthealthy/common/constants/enums/auth_error_type.enum.dart';
+import 'package:smarthealthy/common/enums/auth_error_type.enum.dart';
 import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';

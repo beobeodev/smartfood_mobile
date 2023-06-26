@@ -11,4 +11,7 @@ _$_RecipeStepModel _$$_RecipeStepModelFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       content: json['content'] as String,
       order: json['order'] as int,
+      media: (json['media'] as List<dynamic>?)
+          ?.map((e) => MediaModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );

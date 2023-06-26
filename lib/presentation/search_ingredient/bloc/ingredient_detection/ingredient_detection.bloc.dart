@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:image/image.dart' as img;
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/helpers/ingredient_detector.dart';
 import 'package:smarthealthy/data/models/recognition.model.dart';
 

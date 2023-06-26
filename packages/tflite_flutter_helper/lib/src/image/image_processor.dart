@@ -8,8 +8,8 @@ import 'package:tflite_flutter_helper/src/common/tensor_operator.dart';
 import 'package:tflite_flutter_helper/src/image/ops/tensor_operator_wrapper.dart';
 import 'package:tflite_flutter_helper/src/image/tensor_image.dart';
 
-import 'image_operator.dart';
-import 'ops/rot90_op.dart';
+import 'package:tflite_flutter_helper/src/image/image_operator.dart';
+import 'package:tflite_flutter_helper/src/image/ops/rot90_op.dart';
 
 /// ImageProcessor is a helper class for preprocessing and postprocessing [TensorImage].
 ///
@@ -36,7 +36,10 @@ class ImageProcessor extends SequentialProcessor<TensorImage> {
   /// Transforms a [point] from coordinates system of the result image back to the one of the input
   /// image.
   Point inverseTransform(
-      Point point, int inputImageHeight, int inputImageWidth) {
+    Point point,
+    int inputImageHeight,
+    int inputImageWidth,
+  ) {
     List<int> widths = [];
     List<int> heights = [];
     int currentWidth = inputImageWidth;
@@ -71,24 +74,41 @@ class ImageProcessor extends SequentialProcessor<TensorImage> {
   /// Transforms a [rect] from coordinates system of the result image back to the one of the input
   /// image.
   Rect inverseTransformRect(
-      Rect rect, int inputImageHeight, int inputImageWidth) {
+    Rect rect,
+    int inputImageHeight,
+    int inputImageWidth,
+  ) {
     // when rotation is involved, corner order may change - top left changes to bottom right, .etc
     Point p1 = inverseTransform(
-        Point(rect.left, rect.top), inputImageHeight, inputImageWidth);
+      Point(rect.left, rect.top),
+      inputImageHeight,
+      inputImageWidth,
+    );
     Point p2 = inverseTransform(
-        Point(rect.right, rect.bottom), inputImageHeight, inputImageWidth);
-    return Rect.fromLTRB(min(p1.x, p2.x) as double, min(p1.y, p2.y) as double,
-        max(p1.x, p2.x) as double, max(p1.y, p2.y) as double);
+      Point(rect.right, rect.bottom),
+      inputImageHeight,
+      inputImageWidth,
+    );
+    return Rect.fromLTRB(
+      min(p1.x, p2.x) as double,
+      min(p1.y, p2.y) as double,
+      max(p1.x, p2.x) as double,
+      max(p1.y, p2.y) as double,
+    );
   }
 
   void updateNumberOfRotations(int k, int occurrence) {
     SupportPreconditions.checkState(
-        operatorIndex.containsKey(Rot90Op().runtimeType.toString()),
-        errorMessage: "The Rot90Op has not been added to the ImageProcessor.");
+      operatorIndex.containsKey(Rot90Op().runtimeType.toString()),
+      errorMessage: 'The Rot90Op has not been added to the ImageProcessor.',
+    );
 
     List<int> indexes = operatorIndex[Rot90Op().runtimeType.toString()]!;
-    SupportPreconditions.checkElementIndex(occurrence, indexes.length,
-        desc: "occurrence");
+    SupportPreconditions.checkElementIndex(
+      occurrence,
+      indexes.length,
+      desc: 'occurrence',
+    );
 
     // The index of the Rot90Op to be replaced in operatorList.
     int index = indexes[occurrence];
@@ -116,7 +136,8 @@ class ImageProcessorBuilder extends SequentialProcessorBuilder<TensorImage> {
       return this.add(TensorOperatorWrapper(op));
     } else {
       throw UnsupportedError(
-          '${op.runtimeType} is not supported, only ImageOperator and TensorOperator is supported');
+        '${op.runtimeType} is not supported, only ImageOperator and TensorOperator is supported',
+      );
     }
   }
 

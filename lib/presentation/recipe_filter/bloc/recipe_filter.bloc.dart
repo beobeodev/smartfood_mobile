@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/data/models/category.model.dart';
 import 'package:smarthealthy/data/models/cuisine.model.dart';
 import 'package:smarthealthy/data/models/level.model.dart';

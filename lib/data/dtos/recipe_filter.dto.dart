@@ -1,4 +1,4 @@
-import 'package:smarthealthy/common/constants/enums/filter_type.enum.dart';
+import 'package:smarthealthy/common/enums/filter_type.enum.dart';
 
 class RecipeFilterDTO {
   final RecipeFilterType type;

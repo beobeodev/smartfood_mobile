@@ -34,7 +34,10 @@ class CodegenLoader extends AssetLoader{
   "button": {
     "cancel": "Cancel",
     "confirm": "Confirm",
-    "try_again": "Try again"
+    "try_again": "Try again",
+    "continue": "Continue",
+    "return": "Return",
+    "complete": "Complete"
   },
   "root": {
     "home": "Home",
@@ -123,7 +126,10 @@ static const Map<String,dynamic> vi = {
   "button": {
     "cancel": "Hủy",
     "confirm": "Xác nhận",
-    "try_again": "Thử lại"
+    "try_again": "Thử lại",
+    "continue": "Tiếp theo",
+    "return": "Trở về",
+    "complete": "Hoàn thành"
   },
   "root": {
     "home": "Trang chủ",

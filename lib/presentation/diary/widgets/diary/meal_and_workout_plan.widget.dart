@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/constants/enums/meal_type.enum.dart';
+import 'package:smarthealthy/common/enums/meal_type.enum.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/meal_plan_item.widget.dart';
 
 class MealAndWorkoutPlan extends StatelessWidget {

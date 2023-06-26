@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/constants/enums/recipe_level.enum.dart';
+import 'package:smarthealthy/common/enums/recipe_level.enum.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/icon_tile.widget.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';

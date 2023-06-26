@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/constants/enums/filter_type.enum.dart';
+import 'package:smarthealthy/common/enums/filter_type.enum.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/data/dtos/recipe_filter.dto.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';

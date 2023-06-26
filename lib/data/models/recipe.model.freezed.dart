@@ -22,13 +22,14 @@ RecipeModel _$RecipeModelFromJson(Map<String, dynamic> json) {
 mixin _$RecipeModel {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
   LevelModel get level => throw _privateConstructorUsedError;
   CategoryModel get category => throw _privateConstructorUsedError;
   CuisineModel get cuisine => throw _privateConstructorUsedError;
   List<QuantificationModel>? get quantification =>
       throw _privateConstructorUsedError;
   List<RecipeStepModel>? get recipeStep => throw _privateConstructorUsedError;
+  List<MediaModel>? get media => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RecipeModelCopyWith<RecipeModel> get copyWith =>
@@ -44,12 +45,13 @@ abstract class $RecipeModelCopyWith<$Res> {
   $Res call(
       {String id,
       String name,
-      String description,
+      String? description,
       LevelModel level,
       CategoryModel category,
       CuisineModel cuisine,
       List<QuantificationModel>? quantification,
-      List<RecipeStepModel>? recipeStep});
+      List<RecipeStepModel>? recipeStep,
+      List<MediaModel>? media});
 
   $LevelModelCopyWith<$Res> get level;
   $CategoryModelCopyWith<$Res> get category;
@@ -71,12 +73,13 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? level = null,
     Object? category = null,
     Object? cuisine = null,
     Object? quantification = freezed,
     Object? recipeStep = freezed,
+    Object? media = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -87,10 +90,10 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -111,6 +114,10 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
           ? _value.recipeStep
           : recipeStep // ignore: cast_nullable_to_non_nullable
               as List<RecipeStepModel>?,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as List<MediaModel>?,
     ) as $Val);
   }
 
@@ -150,12 +157,13 @@ abstract class _$$_RecipeModelCopyWith<$Res>
   $Res call(
       {String id,
       String name,
-      String description,
+      String? description,
       LevelModel level,
       CategoryModel category,
       CuisineModel cuisine,
       List<QuantificationModel>? quantification,
-      List<RecipeStepModel>? recipeStep});
+      List<RecipeStepModel>? recipeStep,
+      List<MediaModel>? media});
 
   @override
   $LevelModelCopyWith<$Res> get level;
@@ -178,12 +186,13 @@ class __$$_RecipeModelCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? description = null,
+    Object? description = freezed,
     Object? level = null,
     Object? category = null,
     Object? cuisine = null,
     Object? quantification = freezed,
     Object? recipeStep = freezed,
+    Object? media = freezed,
   }) {
     return _then(_$_RecipeModel(
       id: null == id
@@ -194,10 +203,10 @@ class __$$_RecipeModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
+      description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       level: null == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
@@ -218,24 +227,31 @@ class __$$_RecipeModelCopyWithImpl<$Res>
           ? _value._recipeStep
           : recipeStep // ignore: cast_nullable_to_non_nullable
               as List<RecipeStepModel>?,
+      media: freezed == media
+          ? _value._media
+          : media // ignore: cast_nullable_to_non_nullable
+              as List<MediaModel>?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_RecipeModel implements _RecipeModel {
+class _$_RecipeModel extends _RecipeModel {
   _$_RecipeModel(
       {required this.id,
       required this.name,
-      required this.description,
+      this.description,
       required this.level,
       required this.category,
       required this.cuisine,
       final List<QuantificationModel>? quantification,
-      final List<RecipeStepModel>? recipeStep})
+      final List<RecipeStepModel>? recipeStep,
+      final List<MediaModel>? media})
       : _quantification = quantification,
-        _recipeStep = recipeStep;
+        _recipeStep = recipeStep,
+        _media = media,
+        super._();
 
   factory _$_RecipeModel.fromJson(Map<String, dynamic> json) =>
       _$$_RecipeModelFromJson(json);
@@ -245,7 +261,7 @@ class _$_RecipeModel implements _RecipeModel {
   @override
   final String name;
   @override
-  final String description;
+  final String? description;
   @override
   final LevelModel level;
   @override
@@ -272,9 +288,19 @@ class _$_RecipeModel implements _RecipeModel {
     return EqualUnmodifiableListView(value);
   }
 
+  final List<MediaModel>? _media;
+  @override
+  List<MediaModel>? get media {
+    final value = _media;
+    if (value == null) return null;
+    if (_media is EqualUnmodifiableListView) return _media;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'RecipeModel(id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep)';
+    return 'RecipeModel(id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media)';
   }
 
   @override
@@ -293,7 +319,8 @@ class _$_RecipeModel implements _RecipeModel {
             const DeepCollectionEquality()
                 .equals(other._quantification, _quantification) &&
             const DeepCollectionEquality()
-                .equals(other._recipeStep, _recipeStep));
+                .equals(other._recipeStep, _recipeStep) &&
+            const DeepCollectionEquality().equals(other._media, _media));
   }
 
   @JsonKey(ignore: true)
@@ -307,7 +334,8 @@ class _$_RecipeModel implements _RecipeModel {
       category,
       cuisine,
       const DeepCollectionEquality().hash(_quantification),
-      const DeepCollectionEquality().hash(_recipeStep));
+      const DeepCollectionEquality().hash(_recipeStep),
+      const DeepCollectionEquality().hash(_media));
 
   @JsonKey(ignore: true)
   @override
@@ -316,16 +344,18 @@ class _$_RecipeModel implements _RecipeModel {
       __$$_RecipeModelCopyWithImpl<_$_RecipeModel>(this, _$identity);
 }
 
-abstract class _RecipeModel implements RecipeModel {
+abstract class _RecipeModel extends RecipeModel {
   factory _RecipeModel(
       {required final String id,
       required final String name,
-      required final String description,
+      final String? description,
       required final LevelModel level,
       required final CategoryModel category,
       required final CuisineModel cuisine,
       final List<QuantificationModel>? quantification,
-      final List<RecipeStepModel>? recipeStep}) = _$_RecipeModel;
+      final List<RecipeStepModel>? recipeStep,
+      final List<MediaModel>? media}) = _$_RecipeModel;
+  _RecipeModel._() : super._();
 
   factory _RecipeModel.fromJson(Map<String, dynamic> json) =
       _$_RecipeModel.fromJson;
@@ -335,7 +365,7 @@ abstract class _RecipeModel implements RecipeModel {
   @override
   String get name;
   @override
-  String get description;
+  String? get description;
   @override
   LevelModel get level;
   @override
@@ -346,6 +376,8 @@ abstract class _RecipeModel implements RecipeModel {
   List<QuantificationModel>? get quantification;
   @override
   List<RecipeStepModel>? get recipeStep;
+  @override
+  List<MediaModel>? get media;
   @override
   @JsonKey(ignore: true)
   _$$_RecipeModelCopyWith<_$_RecipeModel> get copyWith =>

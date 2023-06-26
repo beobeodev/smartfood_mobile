@@ -19,6 +19,9 @@ abstract class  LocaleKeys {
   static const button_cancel = 'button.cancel';
   static const button_confirm = 'button.confirm';
   static const button_try_again = 'button.try_again';
+  static const button_continue = 'button.continue';
+  static const button_return = 'button.return';
+  static const button_complete = 'button.complete';
   static const button = 'button';
   static const root_home = 'root.home';
   static const root_profile = 'root.profile';

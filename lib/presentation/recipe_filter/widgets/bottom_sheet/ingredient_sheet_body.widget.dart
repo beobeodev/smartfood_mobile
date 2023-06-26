@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
-import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
+import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/searched_ingredient_list.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/shimmer_ingredient_list.widget.dart';

@@ -24,9 +24,9 @@ class RecipeCard extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: AppTheme.primaryShadow,
             borderRadius: BorderRadius.circular(AppSize.cardRadius),
-            image: const DecorationImage(
+            image: DecorationImage(
               image: NetworkImage(
-                'https://i-giadinh.vnecdn.net/2021/10/26/saladrauqua-1635240739-5476-1635240778.jpg',
+                recipe.avatar,
               ),
               fit: BoxFit.cover,
             ),

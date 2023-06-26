@@ -22,9 +22,9 @@ class RecipeDetailBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            if (recipe.description.isNotEmpty)
+            if (recipe.description != null && recipe.description!.isNotEmpty)
               RecipeDescription(
-                description: recipe.description,
+                description: recipe.description!,
               ),
             if (recipe.quantification != null)
               ListQuantification(

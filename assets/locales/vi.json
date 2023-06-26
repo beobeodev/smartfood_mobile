@@ -18,7 +18,10 @@
   "button": {
     "cancel": "Hủy",
     "confirm": "Xác nhận",
-    "try_again": "Thử lại"
+    "try_again": "Thử lại",
+    "continue": "Tiếp theo",
+    "return": "Trở về",
+    "complete": "Hoàn thành"
   },
   "root": {
     "home": "Trang chủ",

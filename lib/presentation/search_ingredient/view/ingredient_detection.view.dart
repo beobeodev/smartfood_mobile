@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/helpers/ingredient_detector.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';

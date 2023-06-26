@@ -1,4 +1,4 @@
-import 'package:smarthealthy/common/constants/enums/sort_type.enum.dart';
+import 'package:smarthealthy/common/enums/sort_type.enum.dart';
 
 class SortDTO {
   final String value;

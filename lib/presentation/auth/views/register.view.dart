@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/constants/enums/auth_error_type.enum.dart';
+import 'package:smarthealthy/common/enums/auth_error_type.enum.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';

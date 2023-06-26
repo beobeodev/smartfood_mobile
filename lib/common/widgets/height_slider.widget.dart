@@ -16,7 +16,7 @@ class HeightSlider extends StatefulWidget {
   const HeightSlider({
     this.from = 100,
     this.max = 250,
-    this.initialValue = 150,
+    this.initialValue = 170,
     this.onChanged,
     super.key,
   });

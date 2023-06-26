@@ -14,21 +14,16 @@ class RecipeStepPage extends StatelessWidget {
   }
 }
 
-class _RecipeStepView extends StatefulWidget {
+class _RecipeStepView extends StatelessWidget {
   final List<RecipeStepModel> steps;
 
   const _RecipeStepView(this.steps);
 
   @override
-  State<_RecipeStepView> createState() => _RecipeStepViewState();
-}
-
-class _RecipeStepViewState extends State<_RecipeStepView> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CommonAppBar(),
-      body: StepContent(steps: widget.steps),
+      body: StepContent(steps: steps),
       backgroundColor: Colors.white,
     );
   }

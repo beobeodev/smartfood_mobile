@@ -10,7 +10,7 @@ _$_RecipeModel _$$_RecipeModelFromJson(Map<String, dynamic> json) =>
     _$_RecipeModel(
       id: json['id'] as String,
       name: json['name'] as String,
-      description: json['description'] as String,
+      description: json['description'] as String?,
       level: LevelModel.fromJson(json['level'] as Map<String, dynamic>),
       category:
           CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
@@ -20,5 +20,8 @@ _$_RecipeModel _$$_RecipeModelFromJson(Map<String, dynamic> json) =>
           .toList(),
       recipeStep: (json['recipeStep'] as List<dynamic>?)
           ?.map((e) => RecipeStepModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      media: (json['media'] as List<dynamic>?)
+          ?.map((e) => MediaModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );

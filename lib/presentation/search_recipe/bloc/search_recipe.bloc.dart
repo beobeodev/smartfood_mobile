@@ -1,8 +1,10 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/constants/enums/query_error_type.enum.dart';
-import 'package:smarthealthy/common/constants/enums/query_status.enum.dart';
-import 'package:smarthealthy/common/constants/enums/query_type.enum.dart';
+import 'package:smarthealthy/common/enums/query_error_type.enum.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
+import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/data/dtos/get_recipes_result.dto.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
 import 'package:smarthealthy/data/dtos/query_data_info.dto.dart';
@@ -68,7 +70,9 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
               recipes: recipeDto.data,
             ),
       );
-    } catch (err) {
+    } catch (err, stack) {
+      log(stack.toString());
+
       emit(
         state.copyWith.queryInfo(
           status: QueryStatus.error,

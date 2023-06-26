@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/constants/enums/page_transition_type.enum.dart';
+import 'package:smarthealthy/common/enums/page_transition_type.enum.dart';
 
 /// This package allows you amazing transition for your routes
 
