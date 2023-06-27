@@ -13,14 +13,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc({
     required UserRepository userRepository,
     required AuthBloc authBloc,
-  })  : _authBloc = authBloc,
-        _userRepository = userRepository,
+  })  : _userRepository = userRepository,
+        _authBloc = authBloc,
         super(LoginInitial()) {
     on<LoginSubmit>(_onLoginSubmit);
   }
 
-  final AuthBloc _authBloc;
   final UserRepository _userRepository;
+  final AuthBloc _authBloc;
 
   Future<void> _onLoginSubmit(
     LoginSubmit event,
@@ -29,26 +29,28 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     emit(LoginLoading());
 
     try {
-      await _userRepository.loginByEmail(
+      final response = await _userRepository.loginByEmail(
         LoginByEmailRequestDTO(
           email: event.email,
           password: event.password,
         ),
       );
 
-      _authBloc.add(const AuthUserInfoSet(true));
+      await _userRepository.setUserAuth(response);
+
+      _authBloc.add(AuthUserInfoCheck());
     } catch (err) {
       bool isUnauthorizedError =
           err is DioError && err.response?.statusCode == 401;
 
       if (isUnauthorizedError) {
         emit(
-          const LoginNotSuccess(
+          const LoginFailure(
             error: AuthErrorType.incorrectEmailPassword,
           ),
         );
       } else {
-        emit(const LoginNotSuccess(error: AuthErrorType.unknown));
+        emit(const LoginFailure(error: AuthErrorType.unknown));
       }
     }
   }

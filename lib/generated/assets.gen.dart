@@ -46,6 +46,7 @@ class $AssetsIconsGen {
   $AssetsIconsHomeGen get home => const $AssetsIconsHomeGen();
   $AssetsIconsLauncherGen get launcher => const $AssetsIconsLauncherGen();
   $AssetsIconsNavbarGen get navbar => const $AssetsIconsNavbarGen();
+  $AssetsIconsProfileGen get profile => const $AssetsIconsProfileGen();
 
   /// File path: assets/icons/weight.svg
   SvgGenImage get weight => const SvgGenImage('assets/icons/weight.svg');
@@ -185,6 +186,17 @@ class $AssetsIconsNavbarGen {
   List<SvgGenImage> get values => [diary, favorite, findRecipe, home, profile];
 }
 
+class $AssetsIconsProfileGen {
+  const $AssetsIconsProfileGen();
+
+  /// File path: assets/icons/profile/premium.svg
+  SvgGenImage get premium =>
+      const SvgGenImage('assets/icons/profile/premium.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [premium];
+}
+
 class $AssetsImagesBmiGen {
   const $AssetsImagesBmiGen();
 
@@ -211,8 +223,12 @@ class $AssetsImagesDiaryGen {
   /// File path: assets/images/diary/noon.svg
   SvgGenImage get noon => const SvgGenImage('assets/images/diary/noon.svg');
 
+  /// File path: assets/images/diary/nutrition_not_found.svg
+  SvgGenImage get nutritionNotFound =>
+      const SvgGenImage('assets/images/diary/nutrition_not_found.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [morning, night, noon];
+  List<SvgGenImage> get values => [morning, night, noon, nutritionNotFound];
 }
 
 class $AssetsImagesLottieGen {

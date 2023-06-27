@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,6 +10,7 @@ import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/common/widgets/filled_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/height_slider.widget.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/bloc/calorie_measure/calorie_measure.bloc.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/body_info_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/gender_selection.widget.dart';
@@ -113,8 +115,8 @@ class _CalorieMeasureViewState extends State<_CalorieMeasureView> {
                 horizontal: AppSize.horizontalSpacing,
               ),
               child: Text(
-                'Trước khi bắt đầu với quản lý dinh dưỡng, hãy cung cấp những thông tin về bản thân',
-                style: TextStyles.mediumText.copyWith(fontSize: 20.sp),
+                LocaleKeys.measure_introduction.tr(),
+                style: TextStyles.regularText.copyWith(fontSize: 20.sp),
               ),
             ),
             Expanded(

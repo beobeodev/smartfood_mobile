@@ -52,9 +52,9 @@ class AppInterceptor extends QueuedInterceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
-    if (err.response?.statusCode == 401) {
-      // HACK: handle logout, maybe
-    }
+    // if (err.response?.statusCode == 401) {
+    //   // HACK: handle logout, maybe
+    // }
 
     log(
       'ERROR[${err.response?.statusCode}] => PATH: ${err.requestOptions.path}',

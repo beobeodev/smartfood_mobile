@@ -71,53 +71,6 @@ class NutritionInfo extends StatelessWidget {
             },
           ),
         ),
-        AppSize.h15,
-        // LayoutBuilder(
-        //   builder: (context, constraints) {
-        //     final double itemWidth = (constraints.maxWidth - 2 * 15) / 3;
-
-        //     return Row(
-        //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //       children: [
-        //         LiquidCustomProgressIndicator(
-        //           direction: Axis.vertical,
-        //           shapePath: Path()
-        //             ..addRRect(
-        //               RRect.fromRectAndRadius(
-        //                 Rect.fromLTWH(0, 0, itemWidth, 120),
-        //                 const Radius.circular(20),
-        //               ),
-        //             ),
-        //           backgroundColor: ColorStyles.gray100,
-        //           // valueColor: const AlwaysStoppedAnimation<Color>(
-        //           //   ColorStyles.caloriesBackground,
-        //           // ),
-        //           center: const Text(
-        //             '1500/2000\nml',
-        //             style: TextStyles.s14MediumText,
-        //             textAlign: TextAlign.center,
-        //           ),
-        //         ),
-        //         Container(
-        //           width: itemWidth,
-        //           height: 120,
-        //           decoration: BoxDecoration(
-        //             color: Colors.red,
-        //             borderRadius: BorderRadius.circular(15),
-        //           ),
-        //         ),
-        //         Container(
-        //           width: itemWidth,
-        //           height: 120,
-        //           decoration: BoxDecoration(
-        //             color: Colors.red,
-        //             borderRadius: BorderRadius.circular(15),
-        //           ),
-        //         )
-        //       ],
-        //     );
-        //   },
-        // )
       ],
     );
   }

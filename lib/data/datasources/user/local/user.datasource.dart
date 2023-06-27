@@ -14,23 +14,23 @@ class UserLocalDataSource {
 
   final Box _authBox;
 
-  bool checkHasLogin() {
+  String? getAccessToken() {
     final String? rawData = _authBox.get(HiveKeys.accessToken);
 
-    return rawData != null;
+    return rawData;
   }
 
   Future<void> setUserInfo(UserModel user) async {
     await _authBox.put(HiveKeys.user, jsonEncode(user));
   }
 
-  Future<void> setUserAuth(LoginResponseDTO? response) async {
-    if (response == null) {
-      await _authBox.clear();
-    } else {
-      await _authBox.putAll({
-        ...response.toRefreshTokenDTO().toLocalJson(),
-      });
-    }
+  Future<void> setUserAuth(LoginResponseDTO response) async {
+    await _authBox.putAll({
+      ...response.toRefreshTokenDTO().toLocalJson(),
+    });
+  }
+
+  Future<void> clearAuthBox() async {
+    await _authBox.clear();
   }
 }

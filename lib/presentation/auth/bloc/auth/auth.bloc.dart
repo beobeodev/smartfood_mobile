@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 
 part 'auth.event.dart';
@@ -9,37 +11,37 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({required UserRepository userRepository})
       : _userRepository = userRepository,
         super(const AuthState.unknown()) {
-    on<AuthUserInfoSet>(_onSetUserInfo);
+    on<AuthUserSet>(_onSetUser);
     on<AuthUserInfoCheck>(_onCheckUserInfo);
+    on<AuthLogout>(_onLogout);
   }
   final UserRepository _userRepository;
 
-  void _onCheckUserInfo(
+  Future<void> _onCheckUserInfo(
     AuthUserInfoCheck event,
     Emitter<AuthState> emit,
-  ) {
+  ) async {
     try {
-      final bool hasLogin = _userRepository.checkHasLogin();
+      final String? accessToken = _userRepository.getAccessToken();
 
-      _changeAuthState(hasLogin, emit);
+      if (accessToken == null) {
+        emit(const AuthState.unauthenticated());
+      } else {
+        final user = await _userRepository.getUserProfile();
+        emit(AuthState.authenticated(user));
+      }
+    } on DioError {
+      emit(const AuthState.reLogin());
     } catch (err) {
       emit(const AuthState.unauthenticated());
     }
   }
 
-  void _onSetUserInfo(AuthUserInfoSet event, Emitter<AuthState> emit) {
-    if (!event.hasLogin) {
-      _userRepository.clearAuthBox();
-    }
+  void _onSetUser(AuthUserSet event, Emitter<AuthState> emit) {}
 
-    _changeAuthState(event.hasLogin, emit);
-  }
+  void _onLogout(AuthLogout event, Emitter<AuthState> emit) async {
+    await _userRepository.clearAuthBox();
 
-  void _changeAuthState(bool hasLogin, Emitter<AuthState> emit) {
-    emit(
-      hasLogin
-          ? const AuthState.authenticated()
-          : const AuthState.unauthenticated(),
-    );
+    emit(const AuthState.unauthenticated());
   }
 }

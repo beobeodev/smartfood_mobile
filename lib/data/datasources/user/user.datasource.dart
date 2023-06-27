@@ -4,6 +4,7 @@ import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/register_request.dto.dart';
 import 'package:injectable/injectable.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 
 @lazySingleton
 class UserDataSource {
@@ -16,22 +17,31 @@ class UserDataSource {
   final UserRemoteDataSource _remoteDataSource;
   final UserLocalDataSource _localDataSource;
 
-  Future<void> loginByEmail(LoginByEmailRequestDTO params) async {
+  Future<LoginResponseDTO> loginByEmail(LoginByEmailRequestDTO params) async {
     final LoginResponseDTO loginResponse =
         await _remoteDataSource.loginByEmail(params);
 
-    await _localDataSource.setUserAuth(loginResponse);
+    // await _localDataSource.setUserAuth(loginResponse);
+    return loginResponse;
   }
 
   Future<void> register(RegisterRequestDTO registerDto) {
     return _remoteDataSource.register(registerDto);
   }
 
-  bool checkHasLogin() {
-    return _localDataSource.checkHasLogin();
+  Future<UserModel> getUserProfile() {
+    return _remoteDataSource.getUserProfile();
+  }
+
+  String? getAccessToken() {
+    return _localDataSource.getAccessToken();
+  }
+
+  Future<void> setUserAuth(LoginResponseDTO response) {
+    return _localDataSource.setUserAuth(response);
   }
 
   Future<void> clearAuthBox() {
-    return _localDataSource.setUserAuth(null);
+    return _localDataSource.clearAuthBox();
   }
 }

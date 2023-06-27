@@ -4,6 +4,7 @@ import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/register_request.dto.dart';
 import 'package:injectable/injectable.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 
 @lazySingleton
 class UserRemoteDataSource {
@@ -24,5 +25,13 @@ class UserRemoteDataSource {
 
   Future<void> register(RegisterRequestDTO registerDto) async {
     await _dioHelper.post(Endpoints.register, data: registerDto.toJson());
+  }
+
+  Future<UserModel> getUserProfile() async {
+    final HttpRequestResponse response = await _dioHelper.get(
+      Endpoints.profile,
+    );
+
+    return UserModel.fromJson(response.data['data']);
   }
 }

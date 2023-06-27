@@ -9,11 +9,13 @@ abstract class AuthEvent extends Equatable {
 
 class AuthUserInfoCheck extends AuthEvent {}
 
-class AuthUserInfoSet extends AuthEvent {
-  const AuthUserInfoSet(this.hasLogin);
+class AuthUserSet extends AuthEvent {
+  const AuthUserSet(this.hasLogin);
 
   final bool hasLogin;
 
   @override
   List<Object?> get props => [hasLogin];
 }
+
+class AuthLogout extends AuthEvent {}

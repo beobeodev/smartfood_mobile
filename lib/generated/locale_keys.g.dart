@@ -4,6 +4,7 @@ abstract class  LocaleKeys {
   static const texts_notification = 'texts.notification';
   static const texts_success = 'texts.success';
   static const texts_error_occur = 'texts.error_occur';
+  static const texts_error_re_login = 'texts.error_re_login';
   static const texts_email_address = 'texts.email_address';
   static const texts_password = 'texts.password';
   static const texts_confirm_password = 'texts.confirm_password';
@@ -22,6 +23,7 @@ abstract class  LocaleKeys {
   static const button_continue = 'button.continue';
   static const button_return = 'button.return';
   static const button_complete = 'button.complete';
+  static const button_start = 'button.start';
   static const button = 'button';
   static const root_home = 'root.home';
   static const root_profile = 'root.profile';
@@ -31,6 +33,7 @@ abstract class  LocaleKeys {
   static const auth_sign_in = 'auth.sign_in';
   static const auth_sign_in_introduction = 'auth.sign_in_introduction';
   static const auth_sign_up = 'auth.sign_up';
+  static const auth_logout = 'auth.logout';
   static const auth_sign_up_introduction = 'auth.sign_up_introduction';
   static const auth_sign_in_with = 'auth.sign_in_with';
   static const auth_sign_in_with_google = 'auth.sign_in_with_google';
@@ -61,6 +64,13 @@ abstract class  LocaleKeys {
   static const filter_ingredient = 'filter.ingredient';
   static const filter_add_ingredient = 'filter.add_ingredient';
   static const filter = 'filter';
+  static const measure_introduction = 'measure.introduction';
+  static const measure_practice_question = 'measure.practice_question';
+  static const measure_sedentary = 'measure.sedentary';
+  static const measure_light = 'measure.light';
+  static const measure_moderate = 'measure.moderate';
+  static const measure_heavy = 'measure.heavy';
+  static const measure_very_heavy = 'measure.very_heavy';
   static const measure_height = 'measure.height';
   static const measure_weight = 'measure.weight';
   static const measure_age = 'measure.age';
@@ -80,5 +90,9 @@ abstract class  LocaleKeys {
   static const diary_mode_meal = 'diary_mode.meal';
   static const diary_mode_workout = 'diary_mode.workout';
   static const diary_mode = 'diary_mode';
+  static const diary_not_found = 'diary.not_found';
+  static const diary = 'diary';
+  static const profile_settings = 'profile.settings';
+  static const profile = 'profile';
 
 }

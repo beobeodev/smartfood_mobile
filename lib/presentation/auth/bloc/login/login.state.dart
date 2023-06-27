@@ -15,6 +15,6 @@ class LoginInitial extends LoginState {}
 
 class LoginLoading extends LoginState {}
 
-class LoginNotSuccess extends LoginState {
-  const LoginNotSuccess({required super.error});
+class LoginFailure extends LoginState {
+  const LoginFailure({required super.error});
 }

@@ -42,4 +42,10 @@ class RecipeDataSource {
 
     return RecipeModel.fromJson(response.data);
   }
+
+  Future<List<RecipeModel>> getRecommendedRecipes() async {
+    final response = await _dioHelper.get(Endpoints.recommendedRecipes);
+
+    return (response.data as List).map((e) => RecipeModel.fromJson(e)).toList();
+  }
 }

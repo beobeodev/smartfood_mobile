@@ -3,6 +3,7 @@
     "notification": "Notification",
     "success": "Success",
     "error_occur": "An error has occurred, please try again later",
+    "error_re_login": "An error has occurred, please re-login",
     "email_address": "Email",
     "password": "Password",
     "confirm_password": "Confirm password",
@@ -21,7 +22,8 @@
     "try_again": "Try again",
     "continue": "Continue",
     "return": "Return",
-    "complete": "Complete"
+    "complete": "Complete",
+    "start": "Start"
   },
   "root": {
     "home": "Home",
@@ -33,6 +35,7 @@
     "sign_in": "Sign In",
     "sign_in_introduction": "Sign in to your account - experience amazing features to enjoy delicious food, healthy diet, and more.",
     "sign_up": "Sign Up",
+    "logout": "Logout",
     "sign_up_introduction": "Sign up for an account and start experiencing amazing features to enjoy delicious food, healthy diet, and more.",
     "sign_in_with": "or sign in with",
     "sign_in_with_google": "Sign in with Google",
@@ -67,6 +70,13 @@
     "add_ingredient": "Add ingredient"
   },
   "measure": {
+    "introduction": "Before you get started with nutrition management, provide information about yourself.",
+    "practice_question": "How often do you exercise like?",
+    "sedentary": "Sedentary",
+    "light": "Light exercise (1-3 times/week)",
+    "moderate": "Moderate exercise (3-5 times/week)",
+    "heavy": "Heavy exercise (6-7 times/week)",
+    "very_heavy": "Very heavy exercise (1-2 times/day)",
     "height": "Height (in cm)",
     "weight": "Weight (in kg)",
     "age": "Age"
@@ -88,5 +98,11 @@
   "diary_mode": {
     "meal": "Meal",
     "workout": "Workout"
+  },
+  "diary": {
+    "not_found": "You haven't updated your nutrition information. Let's hit the start button!"
+  },
+  "profile": {
+    "settings": "Settings"
   }
 }

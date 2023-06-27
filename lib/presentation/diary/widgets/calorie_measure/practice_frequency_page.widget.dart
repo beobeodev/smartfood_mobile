@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/practice_frequency.model.dart';
 
 class PracticeFrequencyPage extends StatefulWidget {
@@ -19,24 +21,24 @@ class PracticeFrequencyPage extends StatefulWidget {
 
 class _PracticeFrequencyPageState extends State<PracticeFrequencyPage> {
   final _items = [
-    const PracticeFrequencyUIModel(
-      title: 'Ít vận động',
+    PracticeFrequencyUIModel(
+      title: LocaleKeys.measure_sedentary.tr(),
       index: PracticeIndex.light,
     ),
-    const PracticeFrequencyUIModel(
-      title: 'Vận động nhẹ (1-3 lần/tuần)',
+    PracticeFrequencyUIModel(
+      title: LocaleKeys.measure_light.tr(),
       index: PracticeIndex.light,
     ),
-    const PracticeFrequencyUIModel(
-      title: 'Vận động vừa phải (3-5 lần/tuần)',
+    PracticeFrequencyUIModel(
+      title: LocaleKeys.measure_moderate.tr(),
       index: PracticeIndex.light,
     ),
-    const PracticeFrequencyUIModel(
-      title: 'Vận động nặng (6-7 lần/tuần)',
+    PracticeFrequencyUIModel(
+      title: LocaleKeys.measure_heavy.tr(),
       index: PracticeIndex.light,
     ),
-    const PracticeFrequencyUIModel(
-      title: 'Vận động rất nặng (1-2 lần/ngày)',
+    PracticeFrequencyUIModel(
+      title: LocaleKeys.measure_very_heavy.tr(),
       index: PracticeIndex.light,
     )
   ];
@@ -58,7 +60,7 @@ class _PracticeFrequencyPageState extends State<PracticeFrequencyPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Tần suất tập luyện thể dục của bạn như thế nào?',
+            LocaleKeys.measure_practice_question.tr(),
             style: TextStyles.s17MediumText,
           ),
           AppSize.h20,

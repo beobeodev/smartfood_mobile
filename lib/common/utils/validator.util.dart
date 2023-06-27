@@ -19,15 +19,16 @@ abstract class ValidatorUtil {
     if (value != null) {
       if (value.isEmpty) {
         return LocaleKeys.validator_password_required.tr();
-      } else {
-        RegExp regex = RegExp(
-          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$',
-        );
-
-        if (!regex.hasMatch(value)) {
-          return LocaleKeys.validator_invalid_password.tr();
-        }
       }
+      // else {
+      //   RegExp regex = RegExp(
+      //     r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$',
+      //   );
+
+      //   if (!regex.hasMatch(value)) {
+      //     return LocaleKeys.validator_invalid_password.tr();
+      //   }
+      // }
     }
 
     return null;

@@ -3,6 +3,7 @@
     "notification": "Thông báo",
     "success": "Thành công",
     "error_occur": "Đã có lỗi xảy ra, vui lòng thử lại sau",
+    "error_re_login": "Đã có lỗi xảy ra, vui lòng đăng nhập lại",
     "email_address": "Email",
     "password": "Mật khẩu",
     "confirm_password": "Xác nhận mật khẩu",
@@ -21,7 +22,8 @@
     "try_again": "Thử lại",
     "continue": "Tiếp theo",
     "return": "Trở về",
-    "complete": "Hoàn thành"
+    "complete": "Hoàn thành",
+    "start": "Bắt đầu"
   },
   "root": {
     "home": "Trang chủ",
@@ -33,6 +35,7 @@
     "sign_in": "Đăng Nhập",
     "sign_in_introduction": "Đăng nhập vào tài khoản của bạn - trải nghiệm những tính năng tuyệt vời để tận hưởng các món ăn ngon, chế độ ăn uống lành mạnh và hơn thế nữa.",
     "sign_up": "Đăng Ký",
+    "logout": "Đăng xuất",
     "sign_up_introduction": "Đăng ký tài khoản và bắt đầu trải nghiệm những tính năng tuyệt vời để tận hưởng các món ăn ngon, chế độ ăn uống lành mạnh và hơn thế nữa.",
     "sign_in_with": "hoặc đăng nhập với",
     "sign_in_with_google": "Đăng nhập với Google",
@@ -67,6 +70,13 @@
     "add_ingredient": "Thêm nguyên liệu"
   },
   "measure": {
+    "introduction": "Trước khi bắt đầu với quản lý dinh dưỡng, hãy cung cấp những thông tin về bản thân.",
+    "practice_question": "Tần suất tập luyện thể dục của bạn như thế nào?",
+    "sedentary": "Ít vận động",
+    "light": "Vận động nhẹ (1-3 lần/tuần)",
+    "moderate": "Vận động vừa phải (3-5 lần/tuần)",
+    "heavy": "Vận động nặng (6-7 lần/tuần)",
+    "very_heavy": "Vận động rất nặng (1-2 lần/ngày)",
     "height": "Chiều cao (cm)",
     "weight": "Cân nặng (kg)",
     "age": "Độ tuổi"
@@ -88,5 +98,11 @@
   "diary_mode": {
     "meal": "Bữa ăn",
     "workout": "Tập luyện"
+  },
+  "diary": {
+    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng. Hãy nhấn nút bắt đầu!"
+  },
+  "profile": {
+    "settings": "Cài đặt"
   }
 }

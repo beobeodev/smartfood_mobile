@@ -19,6 +19,7 @@ class CodegenLoader extends AssetLoader{
     "notification": "Notification",
     "success": "Success",
     "error_occur": "An error has occurred, please try again later",
+    "error_re_login": "An error has occurred, please re-login",
     "email_address": "Email",
     "password": "Password",
     "confirm_password": "Confirm password",
@@ -37,7 +38,8 @@ class CodegenLoader extends AssetLoader{
     "try_again": "Try again",
     "continue": "Continue",
     "return": "Return",
-    "complete": "Complete"
+    "complete": "Complete",
+    "start": "Start"
   },
   "root": {
     "home": "Home",
@@ -49,6 +51,7 @@ class CodegenLoader extends AssetLoader{
     "sign_in": "Sign In",
     "sign_in_introduction": "Sign in to your account - experience amazing features to enjoy delicious food, healthy diet, and more.",
     "sign_up": "Sign Up",
+    "logout": "Logout",
     "sign_up_introduction": "Sign up for an account and start experiencing amazing features to enjoy delicious food, healthy diet, and more.",
     "sign_in_with": "or sign in with",
     "sign_in_with_google": "Sign in with Google",
@@ -83,6 +86,13 @@ class CodegenLoader extends AssetLoader{
     "add_ingredient": "Add ingredient"
   },
   "measure": {
+    "introduction": "Before you get started with nutrition management, provide information about yourself.",
+    "practice_question": "How often do you exercise like?",
+    "sedentary": "Sedentary",
+    "light": "Light exercise (1-3 times/week)",
+    "moderate": "Moderate exercise (3-5 times/week)",
+    "heavy": "Heavy exercise (6-7 times/week)",
+    "very_heavy": "Very heavy exercise (1-2 times/day)",
     "height": "Height (in cm)",
     "weight": "Weight (in kg)",
     "age": "Age"
@@ -104,6 +114,12 @@ class CodegenLoader extends AssetLoader{
   "diary_mode": {
     "meal": "Meal",
     "workout": "Workout"
+  },
+  "diary": {
+    "not_found": "You haven't updated your nutrition information. Let's hit the start button!"
+  },
+  "profile": {
+    "settings": "Settings"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -111,6 +127,7 @@ static const Map<String,dynamic> vi = {
     "notification": "Thông báo",
     "success": "Thành công",
     "error_occur": "Đã có lỗi xảy ra, vui lòng thử lại sau",
+    "error_re_login": "Đã có lỗi xảy ra, vui lòng đăng nhập lại",
     "email_address": "Email",
     "password": "Mật khẩu",
     "confirm_password": "Xác nhận mật khẩu",
@@ -129,7 +146,8 @@ static const Map<String,dynamic> vi = {
     "try_again": "Thử lại",
     "continue": "Tiếp theo",
     "return": "Trở về",
-    "complete": "Hoàn thành"
+    "complete": "Hoàn thành",
+    "start": "Bắt đầu"
   },
   "root": {
     "home": "Trang chủ",
@@ -141,6 +159,7 @@ static const Map<String,dynamic> vi = {
     "sign_in": "Đăng Nhập",
     "sign_in_introduction": "Đăng nhập vào tài khoản của bạn - trải nghiệm những tính năng tuyệt vời để tận hưởng các món ăn ngon, chế độ ăn uống lành mạnh và hơn thế nữa.",
     "sign_up": "Đăng Ký",
+    "logout": "Đăng xuất",
     "sign_up_introduction": "Đăng ký tài khoản và bắt đầu trải nghiệm những tính năng tuyệt vời để tận hưởng các món ăn ngon, chế độ ăn uống lành mạnh và hơn thế nữa.",
     "sign_in_with": "hoặc đăng nhập với",
     "sign_in_with_google": "Đăng nhập với Google",
@@ -175,6 +194,13 @@ static const Map<String,dynamic> vi = {
     "add_ingredient": "Thêm nguyên liệu"
   },
   "measure": {
+    "introduction": "Trước khi bắt đầu với quản lý dinh dưỡng, hãy cung cấp những thông tin về bản thân.",
+    "practice_question": "Tần suất tập luyện thể dục của bạn như thế nào?",
+    "sedentary": "Ít vận động",
+    "light": "Vận động nhẹ (1-3 lần/tuần)",
+    "moderate": "Vận động vừa phải (3-5 lần/tuần)",
+    "heavy": "Vận động nặng (6-7 lần/tuần)",
+    "very_heavy": "Vận động rất nặng (1-2 lần/ngày)",
     "height": "Chiều cao (cm)",
     "weight": "Cân nặng (kg)",
     "age": "Độ tuổi"
@@ -196,6 +222,12 @@ static const Map<String,dynamic> vi = {
   "diary_mode": {
     "meal": "Bữa ăn",
     "workout": "Tập luyện"
+  },
+  "diary": {
+    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng. Hãy nhấn nút bắt đầu!"
+  },
+  "profile": {
+    "settings": "Cài đặt"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

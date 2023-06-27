@@ -150,9 +150,10 @@ flutter:
     - assets/icons/diary/
     - assets/icons/difficulty_level/
     - assets/icons/home/
+    - assets/icons/home/nutrition/
     - assets/icons/launcher/
     - assets/icons/navbar/
-    - assets/icons/home/nutrition/
+    - assets/icons/profile/
     - assets/locales/
     - assets/models/
     - assets/images/

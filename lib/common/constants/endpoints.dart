@@ -8,11 +8,15 @@ abstract class Endpoints {
   static final String register = '$apiUrl/auth/register';
   static final String userInfo = '$apiUrl/auth/me';
 
+  // User
+  static final String profile = '$apiUrl/users/profile';
+
   // Ingredient
   static final String ingredient = '$apiUrl/ingredients';
 
   // Recipe
   static final String recipes = '$apiUrl/recipes';
+  static final String recommendedRecipes = '$apiUrl/recipes/recommend';
   static final String getRecipesByIngredients = '$apiUrl/recipes/ingredients';
 
   // Level

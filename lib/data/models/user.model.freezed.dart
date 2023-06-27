@@ -23,9 +23,12 @@ mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get firstName => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
   double? get height => throw _privateConstructorUsedError;
   double? get weight => throw _privateConstructorUsedError;
   int? get age => throw _privateConstructorUsedError;
+  bool? get gender => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserModelCopyWith<UserModel> get copyWith =>
@@ -41,9 +44,12 @@ abstract class $UserModelCopyWith<$Res> {
       {String id,
       String firstName,
       String lastName,
+      String email,
+      String? avatar,
       double? height,
       double? weight,
-      int? age});
+      int? age,
+      bool? gender});
 }
 
 /// @nodoc
@@ -62,9 +68,12 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? id = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? email = null,
+    Object? avatar = freezed,
     Object? height = freezed,
     Object? weight = freezed,
     Object? age = freezed,
+    Object? gender = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -79,6 +88,14 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
       height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -91,6 +108,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -106,9 +127,12 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       {String id,
       String firstName,
       String lastName,
+      String email,
+      String? avatar,
       double? height,
       double? weight,
-      int? age});
+      int? age,
+      bool? gender});
 }
 
 /// @nodoc
@@ -125,9 +149,12 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? id = null,
     Object? firstName = null,
     Object? lastName = null,
+    Object? email = null,
+    Object? avatar = freezed,
     Object? height = freezed,
     Object? weight = freezed,
     Object? age = freezed,
+    Object? gender = freezed,
   }) {
     return _then(_$_UserModel(
       id: null == id
@@ -142,6 +169,14 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.lastName
           : lastName // ignore: cast_nullable_to_non_nullable
               as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
       height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
@@ -154,20 +189,28 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_UserModel implements _UserModel {
+class _$_UserModel extends _UserModel {
   _$_UserModel(
       {required this.id,
       required this.firstName,
       required this.lastName,
+      required this.email,
+      this.avatar,
       this.height,
       this.weight,
-      this.age});
+      this.age,
+      this.gender})
+      : super._();
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserModelFromJson(json);
@@ -179,15 +222,21 @@ class _$_UserModel implements _UserModel {
   @override
   final String lastName;
   @override
+  final String email;
+  @override
+  final String? avatar;
+  @override
   final double? height;
   @override
   final double? weight;
   @override
   final int? age;
+  @override
+  final bool? gender;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, firstName: $firstName, lastName: $lastName, height: $height, weight: $weight, age: $age)';
+    return 'UserModel(id: $id, firstName: $firstName, lastName: $lastName, email: $email, avatar: $avatar, height: $height, weight: $weight, age: $age, gender: $gender)';
   }
 
   @override
@@ -200,15 +249,18 @@ class _$_UserModel implements _UserModel {
                 other.firstName == firstName) &&
             (identical(other.lastName, lastName) ||
                 other.lastName == lastName) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.age, age) || other.age == age));
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.gender, gender) || other.gender == gender));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, firstName, lastName, height, weight, age);
+  int get hashCode => Object.hash(runtimeType, id, firstName, lastName, email,
+      avatar, height, weight, age, gender);
 
   @JsonKey(ignore: true)
   @override
@@ -217,14 +269,18 @@ class _$_UserModel implements _UserModel {
       __$$_UserModelCopyWithImpl<_$_UserModel>(this, _$identity);
 }
 
-abstract class _UserModel implements UserModel {
+abstract class _UserModel extends UserModel {
   factory _UserModel(
       {required final String id,
       required final String firstName,
       required final String lastName,
+      required final String email,
+      final String? avatar,
       final double? height,
       final double? weight,
-      final int? age}) = _$_UserModel;
+      final int? age,
+      final bool? gender}) = _$_UserModel;
+  _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$_UserModel.fromJson;
@@ -236,11 +292,17 @@ abstract class _UserModel implements UserModel {
   @override
   String get lastName;
   @override
+  String get email;
+  @override
+  String? get avatar;
+  @override
   double? get height;
   @override
   double? get weight;
   @override
   int? get age;
+  @override
+  bool? get gender;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
