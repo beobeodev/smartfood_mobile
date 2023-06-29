@@ -20,6 +20,7 @@ RecipeModel _$RecipeModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecipeModel {
+  dynamic get mealType => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -43,7 +44,8 @@ abstract class $RecipeModelCopyWith<$Res> {
       _$RecipeModelCopyWithImpl<$Res, RecipeModel>;
   @useResult
   $Res call(
-      {String id,
+      {dynamic mealType,
+      String id,
       String name,
       String? description,
       LevelModel level,
@@ -71,6 +73,7 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? mealType = freezed,
     Object? id = null,
     Object? name = null,
     Object? description = freezed,
@@ -82,6 +85,10 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
     Object? media = freezed,
   }) {
     return _then(_value.copyWith(
+      mealType: freezed == mealType
+          ? _value.mealType
+          : mealType // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -155,7 +162,8 @@ abstract class _$$_RecipeModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {dynamic mealType,
+      String id,
       String name,
       String? description,
       LevelModel level,
@@ -184,6 +192,7 @@ class __$$_RecipeModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? mealType = freezed,
     Object? id = null,
     Object? name = null,
     Object? description = freezed,
@@ -195,6 +204,7 @@ class __$$_RecipeModelCopyWithImpl<$Res>
     Object? media = freezed,
   }) {
     return _then(_$_RecipeModel(
+      mealType: freezed == mealType ? _value.mealType! : mealType,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -239,7 +249,8 @@ class __$$_RecipeModelCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$_RecipeModel extends _RecipeModel {
   _$_RecipeModel(
-      {required this.id,
+      {this.mealType = MealType.breakfast,
+      required this.id,
       required this.name,
       this.description,
       required this.level,
@@ -256,6 +267,9 @@ class _$_RecipeModel extends _RecipeModel {
   factory _$_RecipeModel.fromJson(Map<String, dynamic> json) =>
       _$$_RecipeModelFromJson(json);
 
+  @override
+  @JsonKey()
+  final dynamic mealType;
   @override
   final String id;
   @override
@@ -300,7 +314,7 @@ class _$_RecipeModel extends _RecipeModel {
 
   @override
   String toString() {
-    return 'RecipeModel(id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media)';
+    return 'RecipeModel(mealType: $mealType, id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media)';
   }
 
   @override
@@ -308,6 +322,7 @@ class _$_RecipeModel extends _RecipeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RecipeModel &&
+            const DeepCollectionEquality().equals(other.mealType, mealType) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -327,6 +342,7 @@ class _$_RecipeModel extends _RecipeModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(mealType),
       id,
       name,
       description,
@@ -346,7 +362,8 @@ class _$_RecipeModel extends _RecipeModel {
 
 abstract class _RecipeModel extends RecipeModel {
   factory _RecipeModel(
-      {required final String id,
+      {final dynamic mealType,
+      required final String id,
       required final String name,
       final String? description,
       required final LevelModel level,
@@ -360,6 +377,8 @@ abstract class _RecipeModel extends RecipeModel {
   factory _RecipeModel.fromJson(Map<String, dynamic> json) =
       _$_RecipeModel.fromJson;
 
+  @override
+  dynamic get mealType;
   @override
   String get id;
   @override

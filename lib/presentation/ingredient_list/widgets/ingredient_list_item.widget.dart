@@ -4,11 +4,9 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/circle_network_image.widget.dart';
-import 'package:smarthealthy/common/widgets/common_dismissible.widget.dart'
-    as common;
+import 'package:smarthealthy/common/widgets/dismissible/common_dismissible.widget.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
-import 'package:smarthealthy/presentation/ingredient_list/widgets/dismiss_background.widget.dart';
 
 class IngredientListItem extends StatelessWidget {
   final IngredientModel ingredient;
@@ -24,18 +22,14 @@ class IngredientListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: AppSize.ingredientListItemHeight,
-      child: common.CommonDismissible(
-        key: ValueKey(ingredient.id),
-        direction: hasDismiss
-            ? common.DismissDirection.endToStart
-            : common.DismissDirection.none,
-        resizeDuration: const Duration(milliseconds: 100),
-        onDismissed: (_) {
+      child: CommonDismissible(
+        valueKey: ValueKey(ingredient.id),
+        hasDismiss: hasDismiss,
+        onDismissed: () {
           context
               .read<IngredientListBloc>()
               .add(IngredientListEvent.updated(ingredient));
         },
-        background: const DismissBackground(),
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -50,7 +44,7 @@ class IngredientListItem extends StatelessWidget {
                   final imageSize = constraints.maxHeight;
 
                   return CircleNetworkImage(
-                    'https://www.halfyourplate.ca/wp-content/uploads/2014/12/one-apple-with-leaves.jpg',
+                    ingredient.avatar,
                     size: imageSize,
                   );
                 },
@@ -67,14 +61,5 @@ class IngredientListItem extends StatelessWidget {
         ),
       ),
     );
-    // return Container(
-    //   height: 55,
-    //   decoration: BoxDecoration(
-    //     color: Colors.white,
-    //     borderRadius: BorderRadius.circular(10),
-    //     border: Border.all(color: ColorStyles.gray100),
-    //   ),
-    //   child: ,
-    // );
   }
 }

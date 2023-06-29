@@ -8,6 +8,7 @@ import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/auth/views/register.view.dart';
 import 'package:smarthealthy/presentation/core/views/root.view.dart';
+import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/view/add_meal.view.dart';
 import 'package:smarthealthy/presentation/diary/view/calorie_measure.view.dart';
@@ -38,6 +39,7 @@ abstract class AppRouter {
   static const String recipeDetail = '/recipe_detail';
   static const String recipeStep = '/recipe_step';
   static const String recipeFilter = '/recipe_filter';
+  static const String recipeComplete = '/recipe_complete';
 
   static const String imagePicker = '/image_picker';
 
@@ -135,6 +137,14 @@ abstract class AppRouter {
             );
           },
         );
+      case recipeComplete:
+        return TransitionPageRoute(
+          settings: settings,
+          type: PageTransitionType.downToUp,
+          builder: (_) {
+            return const RecipeCompleteView();
+          },
+        );
       case recipeFilter:
         return MaterialPageRoute(
           settings: settings,
@@ -165,7 +175,10 @@ abstract class AppRouter {
         return TransitionPageRoute(
           settings: settings,
           builder: (_) {
-            return const AddMealPage();
+            return BlocProvider.value(
+              value: arguments as DiaryBloc,
+              child: const AddMealPage(),
+            );
           },
           type: PageTransitionType.rightToLeft,
         );

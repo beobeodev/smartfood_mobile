@@ -7,4 +7,8 @@ extension DateTimeExtension on DateTime {
   String formatMonthYear(BuildContext context) {
     return DateFormat('M - yyyy').format(this);
   }
+
+  bool isSameDateWith(DateTime other) {
+    return year == other.year && month == other.month && day == other.day;
+  }
 }

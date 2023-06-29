@@ -23,7 +23,7 @@ class _RecipeStepView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CommonAppBar(),
-      body: StepContent(steps: steps),
+      body: RecipeStepBody(steps: steps),
       backgroundColor: Colors.white,
     );
   }

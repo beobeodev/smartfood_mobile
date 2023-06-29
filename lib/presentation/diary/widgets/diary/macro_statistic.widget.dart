@@ -18,12 +18,44 @@ class MacroStatistic extends StatelessWidget {
 
         return Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(3, (index) {
-            return MacrosItem(
-              type: MacrosType.values[index],
-              width: itemSize,
-            );
-          }),
+          children: [
+            Column(
+              children: [
+                MacrosItem(
+                  type: MacrosType.values[0],
+                  width: itemSize,
+                ),
+                Text(
+                  '58 / 116 g',
+                  style: TextStyles.s14RegularText,
+                )
+              ],
+            ),
+            Column(
+              children: [
+                MacrosItem(
+                  type: MacrosType.values[1],
+                  width: itemSize,
+                ),
+                Text(
+                  '59 / 188 g',
+                  style: TextStyles.s14RegularText,
+                )
+              ],
+            ),
+            Column(
+              children: [
+                MacrosItem(
+                  type: MacrosType.values[2],
+                  width: itemSize,
+                ),
+                Text(
+                  '48 / 96 g',
+                  style: TextStyles.s14RegularText,
+                )
+              ],
+            )
+          ],
         );
       },
     );
@@ -83,10 +115,6 @@ class MacrosItem extends StatelessWidget {
             showTicks: false,
           ),
           AppSize.h10,
-          Text(
-            '43 / 95 g',
-            style: TextStyles.s14RegularText,
-          )
         ],
       ),
     );

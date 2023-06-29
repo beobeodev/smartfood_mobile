@@ -42,7 +42,7 @@ class IngredientGridItem extends StatelessWidget {
                     final imageWith = constrains.maxWidth - 15;
 
                     return CircleNetworkImage(
-                      'https://www.halfyourplate.ca/wp-content/uploads/2014/12/one-apple-with-leaves.jpg',
+                      ingredient.avatar,
                       size: imageWith,
                     );
                   },

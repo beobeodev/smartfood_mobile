@@ -15,6 +15,9 @@ abstract class AppSize {
 
   static const double ingredientListItemHeight = 55;
 
+  // Profile
+  static const double profileImageSize = 55;
+
   // Width
   static const SizedBox w5 = SizedBox(
     width: 5,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/date_picker_timeline/date_picker_timeline.widget.dart';
+import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/widgets/date_picker/date_selection.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/date_picker/sf_date_picker_dialog.widget.dart';
 
@@ -30,6 +32,10 @@ class _DiaryTimelineState extends State<DiaryTimeline> {
     if (selectedDate != null) {
       _selectedDateNotifier.value = selectedDate;
     }
+  }
+
+  void _onDateChange(DateTime date) {
+    context.read<DiaryBloc>().add(DiaryEvent.getByDay(date));
   }
 
   @override
@@ -63,6 +69,7 @@ class _DiaryTimelineState extends State<DiaryTimeline> {
               return DatePickerTimeline(
                 startDate: value,
                 controller: _datePickerController,
+                onDateChange: _onDateChange,
               );
             },
           )

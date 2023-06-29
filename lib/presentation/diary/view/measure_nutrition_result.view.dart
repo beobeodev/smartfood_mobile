@@ -35,47 +35,52 @@ class _MeasureNutritionResultView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: AppSafeArea(
-        paddingBottom: context.bottomSpacing,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            AppSize.h20,
-            Text(
-              'Lượng Calorie mà bạn cần nạp vào cơ thể hằng ngày là:',
-              style: TextStyles.s17MediumText,
-            ),
-            AppSize.h20,
-            Align(
-              child: Text(
-                '${nutrition.calorie.toString()}kcal',
-                style: TextStyles.boldText
-                    .copyWith(fontSize: 24.sp, color: ColorStyles.yellowGreen),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: AppSafeArea(
+          paddingBottom: context.bottomSpacing,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              AppSize.h20,
+              Text(
+                'Lượng Calorie mà bạn cần nạp vào cơ thể hằng ngày là:',
+                style: TextStyles.s17MediumText,
               ),
-            ),
-            AppSize.h20,
-            NutritionRichText(
-              title: LocaleKeys.macros_protein.tr(),
-              value: nutrition.protein,
-            ),
-            AppSize.h10,
-            NutritionRichText(
-              title: LocaleKeys.macros_carbs.tr(),
-              value: nutrition.carbs,
-            ),
-            AppSize.h10,
-            NutritionRichText(
-              title: LocaleKeys.macros_fat.tr(),
-              value: nutrition.fat,
-            ),
-            const Spacer(),
-            AppRoundedButton(
-              width: double.infinity,
-              onPressed: () => Navigator.of(context).pop(),
-              content: LocaleKeys.button_complete.tr(),
-            ),
-          ],
+              AppSize.h20,
+              Align(
+                child: Text(
+                  '${nutrition.calorie.toString()}kcal',
+                  style: TextStyles.boldText.copyWith(
+                    fontSize: 24.sp,
+                    color: ColorStyles.yellowGreen,
+                  ),
+                ),
+              ),
+              AppSize.h20,
+              NutritionRichText(
+                title: LocaleKeys.macros_protein.tr(),
+                value: nutrition.protein,
+              ),
+              AppSize.h10,
+              NutritionRichText(
+                title: LocaleKeys.macros_carbs.tr(),
+                value: nutrition.carbs,
+              ),
+              AppSize.h10,
+              NutritionRichText(
+                title: LocaleKeys.macros_fat.tr(),
+                value: nutrition.fat,
+              ),
+              const Spacer(),
+              AppRoundedButton(
+                width: double.infinity,
+                onPressed: () => Navigator.of(context).pop(),
+                content: LocaleKeys.button_complete.tr(),
+              ),
+            ],
+          ),
         ),
       ),
     );

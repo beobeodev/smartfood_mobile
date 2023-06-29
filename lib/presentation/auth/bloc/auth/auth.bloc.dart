@@ -31,6 +31,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthState.authenticated(user));
       }
     } on DioError {
+      _userRepository.clearAuthBox();
+
       emit(const AuthState.reLogin());
     } catch (err) {
       emit(const AuthState.unauthenticated());

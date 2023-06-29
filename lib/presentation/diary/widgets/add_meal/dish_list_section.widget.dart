@@ -5,32 +5,27 @@ import 'package:smarthealthy/common/widgets/title_add_button.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/widgets/add_meal/bottom_sheet/add_dish_bottom_sheet.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/add_meal/dish_list.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/add_meal/selected_dish_list.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 
-class DishListSection extends StatefulWidget {
-  const DishListSection({super.key});
+class DishListSection extends StatelessWidget {
+  final ValueNotifier<List<RecipeModel>> dishesNotifier;
 
-  @override
-  State<DishListSection> createState() => _DishListSectionState();
-}
+  const DishListSection({super.key, required this.dishesNotifier});
 
-class _DishListSectionState extends State<DishListSection> {
-  final ValueNotifier<List<RecipeModel>> _dishesNotifier = ValueNotifier([]);
-
-  void _onAddDish(RecipeModel recipe) {
-    _dishesNotifier.value = [..._dishesNotifier.value, recipe];
+  void _onAddDish(RecipeModel recipe, BuildContext context) {
+    dishesNotifier.value = [...dishesNotifier.value, recipe];
     Navigator.of(context).pop();
   }
 
-  void _showAddDishBottomSheet() {
+  void _showAddDishBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (_) {
         return BlocProvider.value(
           value: context.read<SearchRecipeBloc>(),
           child: AddDishBottomSheet(
-            onAddDish: (recipe) => _onAddDish(recipe),
+            onAddDish: (recipe) => _onAddDish(recipe, context),
           ),
         );
       },
@@ -48,15 +43,10 @@ class _DishListSectionState extends State<DishListSection> {
       children: [
         TitleAddButton(
           title: LocaleKeys.meal_list.tr(),
-          onAdd: _showAddDishBottomSheet,
+          onAdd: () => _showAddDishBottomSheet(context),
         ),
-        ValueListenableBuilder(
-          valueListenable: _dishesNotifier,
-          builder: (context, value, child) {
-            return DishList(
-              recipes: value,
-            );
-          },
+        SelectedDishList(
+          dishesNotifier: dishesNotifier,
         )
       ],
     );

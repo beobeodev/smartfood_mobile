@@ -14,7 +14,8 @@
     "last_name": "Họ",
     "register_success": "Đăng ký tài khoản thành công",
     "ingredient_list": "Danh sách nguyên liệu",
-    "ingredient_detection": "Nhận diện nguyên liệu"
+    "ingredient_detection": "Nhận diện nguyên liệu",
+    "no_data": "Không có dữ liệu"
   },
   "button": {
     "cancel": "Hủy",
@@ -23,7 +24,8 @@
     "continue": "Tiếp theo",
     "return": "Trở về",
     "complete": "Hoàn thành",
-    "start": "Bắt đầu"
+    "start": "Bắt đầu",
+    "start_cooking": "Bắt đầu nấu ăn"
   },
   "root": {
     "home": "Trang chủ",
@@ -100,9 +102,10 @@
     "workout": "Tập luyện"
   },
   "diary": {
-    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng. Hãy nhấn nút bắt đầu!"
+    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng.\nHãy nhấn nút bắt đầu!"
   },
   "profile": {
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "personal_data": "Thông tin cá nhân"
   }
 }

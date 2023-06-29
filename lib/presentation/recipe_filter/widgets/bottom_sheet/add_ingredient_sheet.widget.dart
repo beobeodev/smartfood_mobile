@@ -18,9 +18,6 @@ class AddIngredientSheet extends StatefulWidget {
 class _AddIngredientSheetState extends State<AddIngredientSheet> {
   @override
   void initState() {
-    context
-        .read<SearchIngredientBloc>()
-        .add(const SearchIngredientEvent.getAll());
     super.initState();
   }
 

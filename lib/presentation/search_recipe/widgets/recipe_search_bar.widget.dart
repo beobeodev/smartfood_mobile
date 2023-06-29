@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/constants/constants.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/common_icon_button.widget.dart';
@@ -37,8 +38,9 @@ class RecipeSearchBar extends StatelessWidget implements PreferredSizeWidget {
         CommonIconButton(
           onPressed: () => _navigateToRecipeFilter(context),
           icon: Assets.icons.filter.svg(
-            colorFilter:
-                const ColorFilter.mode(ColorStyles.primary, BlendMode.srcIn),
+            colorFilter: colorSvg(
+              ColorStyles.primary,
+            ),
           ),
           iconSize: 22,
           iconColor: ColorStyles.primary,

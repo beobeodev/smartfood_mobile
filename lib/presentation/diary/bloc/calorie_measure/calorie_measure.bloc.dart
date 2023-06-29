@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:smarthealthy/common/helpers/nutrition_calculator.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/body_info_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
@@ -18,29 +19,6 @@ class CalorieMeasureBloc
     });
   }
 
-  NutritionWrapper _calculateNutrition(BodyInfoWrapper bodyInfo) {
-    final double bmr;
-
-    if (bodyInfo.gender) {
-      bmr = (13.397 * bodyInfo.weight) +
-          (4.799 * bodyInfo.height) -
-          (5.677 * bodyInfo.age) +
-          88.362;
-    } else {
-      bmr = (9.247 * bodyInfo.weight) +
-          (3.098 * bodyInfo.height) -
-          (4.330 * bodyInfo.age) +
-          447.593;
-    }
-
-    return NutritionWrapper(
-      calorie: (bmr * bodyInfo.practiceIndex).round(),
-      carbs: 188,
-      fat: 96,
-      protein: 116,
-    );
-  }
-
   Future<void> _onCalculateNutrition(
     CalorieMeasureEvent event,
     Emitter<CalorieMeasureState> emit,
@@ -49,7 +27,7 @@ class CalorieMeasureBloc
     try {
       emit(
         CalorieMeasureState.success(
-          _calculateNutrition(event.bodyInfo),
+          NutritionCalculator.calculate(event.bodyInfo),
         ),
       );
     } catch (e) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/diary_mode.model.dart';
 
 class DiaryModeItem extends StatelessWidget {
@@ -13,7 +15,8 @@ class DiaryModeItem extends StatelessWidget {
   final VoidCallback onPressed;
 
   void _navigateToNewRoute(BuildContext context) {
-    Navigator.of(context).pushNamed(mode.route);
+    Navigator.of(context)
+        .pushNamed(mode.route, arguments: context.read<DiaryBloc>());
     onPressed();
   }
 

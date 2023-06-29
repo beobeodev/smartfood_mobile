@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/constants/constants.dart';
 import 'package:smarthealthy/common/enums/recipe_level.enum.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/icon_tile.widget.dart';
@@ -59,9 +60,8 @@ class DifficultyTimeCalories extends StatelessWidget {
           child: IconTile(
             icon: Assets.icons.calo.svg(
               width: 14,
-              colorFilter: const ColorFilter.mode(
+              colorFilter: colorSvg(
                 ColorStyles.yellowGreen,
-                BlendMode.srcIn,
               ),
             ),
             title: '100 kcal',

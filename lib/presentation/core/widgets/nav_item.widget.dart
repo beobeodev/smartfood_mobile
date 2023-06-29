@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/constants/constants.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 
@@ -11,9 +12,8 @@ class NavItem implements BottomNavigationBarItem {
 
   @override
   Widget get activeIcon => iconSvg.svg(
-        colorFilter: const ColorFilter.mode(
+        colorFilter: colorSvg(
           ColorStyles.primary,
-          BlendMode.srcIn,
         ),
       );
 
@@ -23,9 +23,8 @@ class NavItem implements BottomNavigationBarItem {
   @override
   Widget get icon => iconSvg.svg(
         width: iconSize,
-        colorFilter: const ColorFilter.mode(
+        colorFilter: colorSvg(
           ColorStyles.gray300,
-          BlendMode.srcIn,
         ),
       );
 

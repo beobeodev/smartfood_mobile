@@ -13,11 +13,85 @@ class LeftConsumedTotalCalorie extends StatelessWidget {
     return Expanded(
       child: SizedBox(
         height: itemSize,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: List.generate(3, (index) {
-            return const CalorieStatisticItem();
-          }),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '1610 ',
+                          style: TextStyles.boldText.copyWith(fontSize: 22.sp),
+                        ),
+                        TextSpan(
+                          text: 'kcal',
+                          style: TextStyles.s17BoldText,
+                        )
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'cần nạp',
+                    style: TextStyles.regularText
+                        .copyWith(color: ColorStyles.gray400, fontSize: 14.sp),
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '1047 ',
+                          style: TextStyles.boldText.copyWith(fontSize: 22.sp),
+                        ),
+                        TextSpan(
+                          text: 'kcal',
+                          style: TextStyles.s17BoldText,
+                        )
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'đã nạp',
+                    style: TextStyles.regularText
+                        .copyWith(color: ColorStyles.gray400, fontSize: 14.sp),
+                  )
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: '563 ',
+                          style: TextStyles.boldText.copyWith(fontSize: 22.sp),
+                        ),
+                        TextSpan(
+                          text: 'kcal',
+                          style: TextStyles.s17BoldText,
+                        )
+                      ],
+                    ),
+                  ),
+                  Text(
+                    'còn lại',
+                    style: TextStyles.regularText
+                        .copyWith(color: ColorStyles.gray400, fontSize: 14.sp),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

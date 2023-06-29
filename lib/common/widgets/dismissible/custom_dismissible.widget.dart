@@ -11,48 +11,48 @@ const double _kMinFlingVelocityDelta = 400.0;
 const double _kFlingVelocityScale = 1.0 / 300.0;
 const double _kDismissThreshold = 0.4;
 
-/// Signature used by [CommonDismissible] to indicate that it has been dismissed in
+/// Signature used by [CustomDismissible] to indicate that it has been dismissed in
 /// the given `direction`.
 ///
-/// Used by [CommonDismissible.onDismissed].
+/// Used by [CustomDismissible.onDismissed].
 typedef DismissDirectionCallback = void Function(DismissDirection direction);
 
-/// Signature used by [CommonDismissible] to give the application an opportunity to
+/// Signature used by [CustomDismissible] to give the application an opportunity to
 /// confirm or veto a dismiss gesture.
 ///
-/// Used by [CommonDismissible.confirmDismiss].
+/// Used by [CustomDismissible.confirmDismiss].
 typedef ConfirmDismissCallback = Future<bool?> Function(
   DismissDirection direction,
 );
 
-/// Signature used by [CommonDismissible] to indicate that the dismissible has been dragged.
+/// Signature used by [CustomDismissible] to indicate that the dismissible has been dragged.
 ///
-/// Used by [CommonDismissible.onUpdate].
+/// Used by [CustomDismissible.onUpdate].
 typedef DismissUpdateCallback = void Function(DismissUpdateDetails details);
 
-/// The direction in which a [CommonDismissible] can be dismissed.
+/// The direction in which a [CustomDismissible] can be dismissed.
 enum DismissDirection {
-  /// The [CommonDismissible] can be dismissed by dragging either up or down.
+  /// The [CustomDismissible] can be dismissed by dragging either up or down.
   vertical,
 
-  /// The [CommonDismissible] can be dismissed by dragging either left or right.
+  /// The [CustomDismissible] can be dismissed by dragging either left or right.
   horizontal,
 
-  /// The [CommonDismissible] can be dismissed by dragging in the reverse of the
+  /// The [CustomDismissible] can be dismissed by dragging in the reverse of the
   /// reading direction (e.g., from right to left in left-to-right languages).
   endToStart,
 
-  /// The [CommonDismissible] can be dismissed by dragging in the reading direction
+  /// The [CustomDismissible] can be dismissed by dragging in the reading direction
   /// (e.g., from left to right in left-to-right languages).
   startToEnd,
 
-  /// The [CommonDismissible] can be dismissed by dragging up only.
+  /// The [CustomDismissible] can be dismissed by dragging up only.
   up,
 
-  /// The [CommonDismissible] can be dismissed by dragging down only.
+  /// The [CustomDismissible] can be dismissed by dragging down only.
   down,
 
-  /// The [CommonDismissible] cannot be dismissed by dragging.
+  /// The [CustomDismissible] cannot be dismissed by dragging.
   none
 }
 
@@ -66,7 +66,7 @@ enum DismissDirection {
 /// {@youtube 560 315 https://www.youtube.com/watch?v=iEMgjrfuc58}
 ///
 /// {@tool dartpad}
-/// This sample shows how you can use the [CommonDismissible] widget to
+/// This sample shows how you can use the [CustomDismissible] widget to
 /// remove list items using swipe gestures. Swipe any of the list
 /// tiles to the left or right to dismiss them from the [ListView].
 ///
@@ -82,16 +82,16 @@ enum DismissDirection {
 /// the slide animation (if [resizeDuration] is null). If the Dismissible is a
 /// list item, it must have a key that distinguishes it from the other items and
 /// its [onDismissed] callback must remove the item from the list.
-class CommonDismissible extends StatefulWidget {
+class CustomDismissible extends StatefulWidget {
   /// Creates a widget that can be dismissed.
   ///
-  /// The [key] argument must not be null because [CommonDismissible]s are commonly
+  /// The [key] argument must not be null because [CustomDismissible]s are commonly
   /// used in lists and removed from the list when dismissed. Without keys, the
   /// default behavior is to sync widgets based on their index in the list,
   /// which means the item after the dismissed item would be synced with the
   /// state of the dismissed item. Using keys causes the widgets to sync
   /// according to their keys and avoids this pitfall.
-  const CommonDismissible({
+  const CustomDismissible({
     required Key key,
     required this.child,
     this.background,
@@ -213,14 +213,14 @@ class CommonDismissible extends StatefulWidget {
   final DismissUpdateCallback? onUpdate;
 
   @override
-  State<CommonDismissible> createState() => _CommonDismissibleState();
+  State<CustomDismissible> createState() => _CustomDismissibleState();
 }
 
 /// Details for [DismissUpdateCallback].
 ///
 /// See also:
 ///
-///   * [CommonDismissible.onUpdate], which receives this information.
+///   * [CustomDismissible.onUpdate], which receives this information.
 class DismissUpdateDetails {
   /// Create a new instance of [DismissUpdateDetails].
   DismissUpdateDetails({
@@ -239,7 +239,7 @@ class DismissUpdateDetails {
   /// Whether the dismiss threshold was reached the last time this callback was invoked.
   ///
   /// This can be used in conjunction with [DismissUpdateDetails.reached] to catch the moment
-  /// that the [CommonDismissible] is dragged across the threshold.
+  /// that the [CustomDismissible] is dragged across the threshold.
   final bool previousReached;
 
   /// The offset ratio of the dismissible in its parent container.
@@ -301,7 +301,7 @@ class _DismissibleClipper extends CustomClipper<Rect> {
 
 enum _FlingGestureKind { none, forward, reverse }
 
-class _CommonDismissibleState extends State<CommonDismissible>
+class _CustomDismissibleState extends State<CustomDismissible>
     with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   @override
   void initState() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/constants/constants.dart';
 import 'package:smarthealthy/common/extensions/date_time.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
@@ -29,9 +30,8 @@ class DateSelection extends StatelessWidget {
         child: Row(
           children: [
             Assets.icons.diary.calendar.svg(
-              colorFilter: const ColorFilter.mode(
+              colorFilter: colorSvg(
                 ColorStyles.primary,
-                BlendMode.srcIn,
               ),
             ),
             const SizedBox(

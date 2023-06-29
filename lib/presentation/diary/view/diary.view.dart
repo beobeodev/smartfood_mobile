@@ -8,7 +8,6 @@ import 'package:smarthealthy/presentation/diary/widgets/date_picker/diary_timeli
 import 'package:smarthealthy/presentation/diary/widgets/diary/diary_backdrop.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/fab/diary_fab.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/nutrition_in_day.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/nutrition_not_found.widget.dart';
 
 class DiaryPage extends StatelessWidget {
   const DiaryPage({super.key});
@@ -48,30 +47,37 @@ class _DiaryViewState extends State<_DiaryView> {
   }
 
   Widget _getBody() {
-    if (hasNutrition) {
-      return Stack(
-        children: [
-          const Column(
-            children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
-          ),
-          DiaryBackdrop(animatingNotifier: _animatingNotifier)
-        ],
-      );
-    } else {
-      return const NutritionNotFound();
-    }
+    return Stack(
+      children: [
+        const Column(
+          children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
+        ),
+        DiaryBackdrop(animatingNotifier: _animatingNotifier)
+      ],
+    );
+
+    // if (hasNutrition) {
+    //   return Stack(
+    //     children: [
+    //       const Column(
+    //         children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
+    //       ),
+    //       DiaryBackdrop(animatingNotifier: _animatingNotifier)
+    //     ],
+    //   );
+    // } else {
+    //   return const NutritionNotFound();
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _getBody(),
-      floatingActionButton: hasNutrition
-          ? DiaryFab(
-              animatingNotifier: _animatingNotifier,
-            )
-          : null,
-      backgroundColor: hasNutrition ? ColorStyles.aliceBlue : Colors.white,
+      floatingActionButton: DiaryFab(
+        animatingNotifier: _animatingNotifier,
+      ),
+      backgroundColor: ColorStyles.aliceBlue,
     );
   }
 }

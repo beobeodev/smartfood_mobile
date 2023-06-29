@@ -25,6 +25,7 @@ mixin _$IngredientModel {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
   String get slug => throw _privateConstructorUsedError;
+  List<MediaModel>? get media => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $IngredientModelCopyWith<IngredientModel> get copyWith =>
@@ -40,7 +41,8 @@ abstract class $IngredientModelCopyWith<$Res> {
   $Res call(
       {String id,
       @JsonKey(defaultValue: '') String name,
-      @JsonKey(defaultValue: '') String slug});
+      @JsonKey(defaultValue: '') String slug,
+      List<MediaModel>? media});
 }
 
 /// @nodoc
@@ -59,6 +61,7 @@ class _$IngredientModelCopyWithImpl<$Res, $Val extends IngredientModel>
     Object? id = null,
     Object? name = null,
     Object? slug = null,
+    Object? media = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -73,6 +76,10 @@ class _$IngredientModelCopyWithImpl<$Res, $Val extends IngredientModel>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as List<MediaModel>?,
     ) as $Val);
   }
 }
@@ -88,7 +95,8 @@ abstract class _$$_IngredientModelCopyWith<$Res>
   $Res call(
       {String id,
       @JsonKey(defaultValue: '') String name,
-      @JsonKey(defaultValue: '') String slug});
+      @JsonKey(defaultValue: '') String slug,
+      List<MediaModel>? media});
 }
 
 /// @nodoc
@@ -105,6 +113,7 @@ class __$$_IngredientModelCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? slug = null,
+    Object? media = freezed,
   }) {
     return _then(_$_IngredientModel(
       id: null == id
@@ -119,6 +128,10 @@ class __$$_IngredientModelCopyWithImpl<$Res>
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
               as String,
+      media: freezed == media
+          ? _value._media
+          : media // ignore: cast_nullable_to_non_nullable
+              as List<MediaModel>?,
     ));
   }
 }
@@ -126,11 +139,14 @@ class __$$_IngredientModelCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(createToJson: false)
-class _$_IngredientModel implements _IngredientModel {
+class _$_IngredientModel extends _IngredientModel {
   const _$_IngredientModel(
       {required this.id,
       @JsonKey(defaultValue: '') required this.name,
-      @JsonKey(defaultValue: '') required this.slug});
+      @JsonKey(defaultValue: '') required this.slug,
+      final List<MediaModel>? media})
+      : _media = media,
+        super._();
 
   factory _$_IngredientModel.fromJson(Map<String, dynamic> json) =>
       _$$_IngredientModelFromJson(json);
@@ -143,10 +159,19 @@ class _$_IngredientModel implements _IngredientModel {
   @override
   @JsonKey(defaultValue: '')
   final String slug;
+  final List<MediaModel>? _media;
+  @override
+  List<MediaModel>? get media {
+    final value = _media;
+    if (value == null) return null;
+    if (_media is EqualUnmodifiableListView) return _media;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'IngredientModel(id: $id, name: $name, slug: $slug)';
+    return 'IngredientModel(id: $id, name: $name, slug: $slug, media: $media)';
   }
 
   @override
@@ -156,12 +181,14 @@ class _$_IngredientModel implements _IngredientModel {
             other is _$_IngredientModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.slug, slug) || other.slug == slug));
+            (identical(other.slug, slug) || other.slug == slug) &&
+            const DeepCollectionEquality().equals(other._media, _media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, slug);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, slug, const DeepCollectionEquality().hash(_media));
 
   @JsonKey(ignore: true)
   @override
@@ -170,12 +197,13 @@ class _$_IngredientModel implements _IngredientModel {
       __$$_IngredientModelCopyWithImpl<_$_IngredientModel>(this, _$identity);
 }
 
-abstract class _IngredientModel implements IngredientModel {
+abstract class _IngredientModel extends IngredientModel {
   const factory _IngredientModel(
-          {required final String id,
-          @JsonKey(defaultValue: '') required final String name,
-          @JsonKey(defaultValue: '') required final String slug}) =
-      _$_IngredientModel;
+      {required final String id,
+      @JsonKey(defaultValue: '') required final String name,
+      @JsonKey(defaultValue: '') required final String slug,
+      final List<MediaModel>? media}) = _$_IngredientModel;
+  const _IngredientModel._() : super._();
 
   factory _IngredientModel.fromJson(Map<String, dynamic> json) =
       _$_IngredientModel.fromJson;
@@ -188,6 +216,8 @@ abstract class _IngredientModel implements IngredientModel {
   @override
   @JsonKey(defaultValue: '')
   String get slug;
+  @override
+  List<MediaModel>? get media;
   @override
   @JsonKey(ignore: true)
   _$$_IngredientModelCopyWith<_$_IngredientModel> get copyWith =>

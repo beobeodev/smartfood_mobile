@@ -59,6 +59,7 @@ class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   $AssetsImagesBmiGen get bmi => const $AssetsImagesBmiGen();
+  $AssetsImagesCookingGen get cooking => const $AssetsImagesCookingGen();
   $AssetsImagesDiaryGen get diary => const $AssetsImagesDiaryGen();
   $AssetsImagesLottieGen get lottie => const $AssetsImagesLottieGen();
 }
@@ -208,6 +209,17 @@ class $AssetsImagesBmiGen {
 
   /// List of all assets
   List<SvgGenImage> get values => [man, woman];
+}
+
+class $AssetsImagesCookingGen {
+  const $AssetsImagesCookingGen();
+
+  /// File path: assets/images/cooking/complete.svg
+  SvgGenImage get complete =>
+      const SvgGenImage('assets/images/cooking/complete.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values => [complete];
 }
 
 class $AssetsImagesDiaryGen {

@@ -6,8 +6,6 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/title_add_button.widget.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/models/recognition.model.dart';
-import 'package:smarthealthy/data/repositories/ingredient.repository.dart';
-import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/add_ingredient_sheet.widget.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/ingredient_chip.widget.dart';
@@ -31,10 +29,8 @@ class DetectedIngredientList extends StatelessWidget {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) {
-        return BlocProvider(
-          create: (_) => SearchIngredientBloc(
-            ingredientRepository: getIt.get<IngredientRepository>(),
-          ),
+        return BlocProvider.value(
+          value: context.read<SearchIngredientBloc>(),
           child: const AddIngredientSheet(),
         );
       },

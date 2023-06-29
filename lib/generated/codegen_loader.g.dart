@@ -30,7 +30,8 @@ class CodegenLoader extends AssetLoader{
     "last_name": "Last name",
     "register_success": "Register successfully",
     "ingredient_list": "List of ingredients",
-    "ingredient_detection": "Ingredient Detection"
+    "ingredient_detection": "Ingredient Detection",
+    "no_data": "No data"
   },
   "button": {
     "cancel": "Cancel",
@@ -39,7 +40,8 @@ class CodegenLoader extends AssetLoader{
     "continue": "Continue",
     "return": "Return",
     "complete": "Complete",
-    "start": "Start"
+    "start": "Start",
+    "start_cooking": "Start cooking"
   },
   "root": {
     "home": "Home",
@@ -116,10 +118,11 @@ class CodegenLoader extends AssetLoader{
     "workout": "Workout"
   },
   "diary": {
-    "not_found": "You haven't updated your nutrition information. Let's hit the start button!"
+    "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!"
   },
   "profile": {
-    "settings": "Settings"
+    "settings": "Settings",
+    "personal_data": "Personal data"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -138,7 +141,8 @@ static const Map<String,dynamic> vi = {
     "last_name": "Họ",
     "register_success": "Đăng ký tài khoản thành công",
     "ingredient_list": "Danh sách nguyên liệu",
-    "ingredient_detection": "Nhận diện nguyên liệu"
+    "ingredient_detection": "Nhận diện nguyên liệu",
+    "no_data": "Không có dữ liệu"
   },
   "button": {
     "cancel": "Hủy",
@@ -147,7 +151,8 @@ static const Map<String,dynamic> vi = {
     "continue": "Tiếp theo",
     "return": "Trở về",
     "complete": "Hoàn thành",
-    "start": "Bắt đầu"
+    "start": "Bắt đầu",
+    "start_cooking": "Bắt đầu nấu ăn"
   },
   "root": {
     "home": "Trang chủ",
@@ -224,10 +229,11 @@ static const Map<String,dynamic> vi = {
     "workout": "Tập luyện"
   },
   "diary": {
-    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng. Hãy nhấn nút bắt đầu!"
+    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng.\nHãy nhấn nút bắt đầu!"
   },
   "profile": {
-    "settings": "Cài đặt"
+    "settings": "Cài đặt",
+    "personal_data": "Thông tin cá nhân"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

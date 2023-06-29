@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/meal_plan_item.widget.dart';
@@ -8,8 +9,14 @@ class MealAndWorkoutPlan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: MealType.values.map((e) {
-        return MealPlanItem(mealType: e);
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: MealType.values.mapIndexed((index, e) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: index == MealType.values.length - 1 ? 0 : 20,
+          ),
+          child: MealPlanItem(mealType: e),
+        );
       }).toList(),
     );
   }

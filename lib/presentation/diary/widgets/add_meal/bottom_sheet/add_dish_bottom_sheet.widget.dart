@@ -19,12 +19,6 @@ class AddDishBottomSheet extends StatefulWidget {
 }
 
 class _AddDishBottomSheetState extends State<AddDishBottomSheet> {
-  @override
-  void initState() {
-    context.read<SearchRecipeBloc>().add(const SearchRecipeEvent.getAll());
-    super.initState();
-  }
-
   void _onSearchChanged(BuildContext context, String value) {
     context
         .read<SearchRecipeBloc>()

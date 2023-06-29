@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/router/app_router.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 
@@ -24,7 +26,7 @@ class StartButton extends StatelessWidget {
       right: AppSize.horizontalSpacing,
       child: AppRoundedButton(
         onPressed: () => _startToRecipes(context),
-        content: 'Bắt đầu',
+        content: LocaleKeys.button_start.tr(),
       ),
     );
   }

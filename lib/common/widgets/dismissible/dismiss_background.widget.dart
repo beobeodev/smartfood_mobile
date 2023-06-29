@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class DismissBackground extends StatelessWidget {
-  const DismissBackground({super.key});
+  final double radius;
+
+  const DismissBackground({super.key, this.radius = 10});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,7 @@ class DismissBackground extends StatelessWidget {
       padding: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         color: Colors.red,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(radius),
       ),
       child: const Icon(
         Icons.delete,

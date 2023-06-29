@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail_appbar.widget.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail_body.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
@@ -37,7 +39,7 @@ class RecipeDetail extends StatelessWidget {
                 arguments: recipe.recipeStep,
               );
             },
-            content: 'Start cooking',
+            content: LocaleKeys.button_start_cooking.tr(),
             suffixIcon: Icon(
               UniconsLine.play_circle,
               color: Colors.white,

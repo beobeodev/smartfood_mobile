@@ -5,8 +5,8 @@ import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/presentation/diary/widgets/add_meal/dish_list.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
-import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_list.widget.dart';
 
 class DishSheetBody extends StatelessWidget {
   final void Function(RecipeModel) onAddDish;
@@ -20,7 +20,7 @@ class DishSheetBody extends StatelessWidget {
         builder: (context, state) {
           return switch (state.queryInfo.status) {
             QueryStatus.loading => const LoadingDot(),
-            QueryStatus.success => RecipeList(
+            QueryStatus.success => DishList(
                 onAddDish: onAddDish,
               ),
             QueryStatus.error => const CommonError()

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/enums/query_error_type.enum.dart';
@@ -65,7 +67,10 @@ class SearchIngredientBloc
               canLoadMore: ingredientDto.meta.canLoadMore,
             ),
       );
-    } catch (err) {
+    } catch (err, stack) {
+      log(err.toString());
+      log(stack.toString());
+
       emit(
         state.copyWith.queryInfo(
           status: QueryStatus.error,

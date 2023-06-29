@@ -14,7 +14,8 @@
     "last_name": "Last name",
     "register_success": "Register successfully",
     "ingredient_list": "List of ingredients",
-    "ingredient_detection": "Ingredient Detection"
+    "ingredient_detection": "Ingredient Detection",
+    "no_data": "No data"
   },
   "button": {
     "cancel": "Cancel",
@@ -23,7 +24,8 @@
     "continue": "Continue",
     "return": "Return",
     "complete": "Complete",
-    "start": "Start"
+    "start": "Start",
+    "start_cooking": "Start cooking"
   },
   "root": {
     "home": "Home",
@@ -100,9 +102,10 @@
     "workout": "Workout"
   },
   "diary": {
-    "not_found": "You haven't updated your nutrition information. Let's hit the start button!"
+    "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!"
   },
   "profile": {
-    "settings": "Settings"
+    "settings": "Settings",
+    "personal_data": "Personal data"
   }
 }

@@ -6,9 +6,10 @@ import 'package:smarthealthy/common/helpers/ingredient_detector.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
+import 'package:smarthealthy/data/repositories/ingredient.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/search_ingredient/bloc/ingredient_detection/ingredient_detection.bloc.dart';
+import 'package:smarthealthy/presentation/search_ingredient/search_ingredient.dart';
 import 'package:smarthealthy/presentation/search_ingredient/widgets/ingredient_detection/detection_body.widget.dart';
 
 class IngredientDetectionPage extends StatelessWidget {
@@ -18,10 +19,20 @@ class IngredientDetectionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => IngredientDetectionBloc(
-        ingredientDetector: getIt.get<IngredientDetector>(),
-      )..add(IngredientDetectionEvent.started(imagePaths)),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => IngredientDetectionBloc(
+            ingredientDetector: getIt.get<IngredientDetector>(),
+          )..add(IngredientDetectionEvent.started(imagePaths)),
+        ),
+        BlocProvider(
+          create: (_) => SearchIngredientBloc(
+            ingredientRepository: getIt.get<IngredientRepository>(),
+          ),
+          lazy: false,
+        ),
+      ],
       child: _IngredientDetectionView(imagePaths),
     );
   }

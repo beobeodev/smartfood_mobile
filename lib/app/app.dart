@@ -5,12 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:smarthealthy/common/constants/locales.dart';
 import 'package:smarthealthy/common/theme/app_theme.dart';
-import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/common/widgets/refresh_indicator.widget.dart';
 import 'package:smarthealthy/data/repositories/category.repository.dart';
 import 'package:smarthealthy/data/repositories/cuisine.repository.dart';
 import 'package:smarthealthy/data/repositories/level.repository.dart';
-import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/router/app_router.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
@@ -102,12 +100,6 @@ class _AppState extends State<App> {
                                 );
                                 break;
                               case AuthenticationStatus.reLogin:
-                                _navigateLogin();
-                                ToastUtil.showError(
-                                  context,
-                                  text: LocaleKeys.texts_error_re_login.tr(),
-                                );
-                                break;
                               case AuthenticationStatus.unauthenticated:
                                 _navigateLogin();
                                 break;

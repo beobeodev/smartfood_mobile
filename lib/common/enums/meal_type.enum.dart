@@ -1,1 +1,5 @@
-enum MealType { breakfast, lunch, dinner }
+enum MealType {
+  breakfast,
+  lunch,
+  dinner,
+}

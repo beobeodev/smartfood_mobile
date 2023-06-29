@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/constants/constants.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
@@ -24,7 +25,7 @@ class _DiaryFabState extends State<DiaryFab> with TickerProviderStateMixin {
       backgroundColor: ColorStyles.yellowGreen,
       icon: Assets.icons.diary.meal.svg(
         width: 18,
-        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        colorFilter: colorSvg(Colors.white),
       ),
       route: AppRouter.addMealPlan,
       beginTime: 0,
@@ -34,7 +35,7 @@ class _DiaryFabState extends State<DiaryFab> with TickerProviderStateMixin {
       backgroundColor: ColorStyles.blue300,
       icon: Assets.icons.diary.workout.svg(
         width: 18,
-        colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        colorFilter: colorSvg(Colors.white),
       ),
       route: AppRouter.addMealPlan,
       beginTime: 100,

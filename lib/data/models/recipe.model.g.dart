@@ -8,6 +8,7 @@ part of 'recipe.model.dart';
 
 _$_RecipeModel _$$_RecipeModelFromJson(Map<String, dynamic> json) =>
     _$_RecipeModel(
+      mealType: json['mealType'] ?? MealType.breakfast,
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String?,
