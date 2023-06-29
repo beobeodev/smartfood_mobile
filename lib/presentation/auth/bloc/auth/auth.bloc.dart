@@ -15,6 +15,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthUserInfoCheck>(_onCheckUserInfo);
     on<AuthLogout>(_onLogout);
   }
+
   final UserRepository _userRepository;
 
   Future<void> _onCheckUserInfo(

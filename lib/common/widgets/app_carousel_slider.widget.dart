@@ -5,8 +5,13 @@ import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class AppCarouselSlider extends StatefulWidget {
   final List<Widget> items;
+  final bool showIndicator;
 
-  const AppCarouselSlider({super.key, required this.items});
+  const AppCarouselSlider({
+    super.key,
+    required this.items,
+    this.showIndicator = true,
+  });
 
   @override
   State<AppCarouselSlider> createState() => _AppCarouselSliderState();
@@ -32,41 +37,47 @@ class _AppCarouselSliderState extends State<AppCarouselSlider> {
                 currentPageIndex = index;
               });
             },
+            clipBehavior: Clip.none,
           ),
           carouselController: _carouselController,
           items: widget.items,
         ),
-        AppSize.h10,
-        SizedBox(
-          height: 9,
-          child: ListView.separated(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            physics: const NeverScrollableScrollPhysics(),
-            itemBuilder: (_, index) {
-              return LayoutBuilder(
-                builder: (context, constraints) {
-                  return Container(
-                    width: constraints.maxHeight,
-                    height: constraints.maxHeight,
-                    decoration: BoxDecoration(
-                      color: index == currentPageIndex
-                          ? ColorStyles.primary
-                          : ColorStyles.gray200,
-                      shape: BoxShape.circle,
-                    ),
-                  );
-                },
-              );
-            },
-            separatorBuilder: (_, index) {
-              return const SizedBox(
-                width: 8,
-              );
-            },
-            itemCount: widget.items.length,
-          ),
-        )
+        if (widget.showIndicator)
+          Column(
+            children: [
+              AppSize.h10,
+              SizedBox(
+                height: 9,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (_, index) {
+                    return LayoutBuilder(
+                      builder: (context, constraints) {
+                        return Container(
+                          width: constraints.maxHeight,
+                          height: constraints.maxHeight,
+                          decoration: BoxDecoration(
+                            color: index == currentPageIndex
+                                ? ColorStyles.primary
+                                : ColorStyles.gray200,
+                            shape: BoxShape.circle,
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  separatorBuilder: (_, index) {
+                    return const SizedBox(
+                      width: 8,
+                    );
+                  },
+                  itemCount: widget.items.length,
+                ),
+              )
+            ],
+          )
       ],
     );
   }

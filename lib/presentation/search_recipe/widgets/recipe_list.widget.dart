@@ -6,17 +6,12 @@ import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/dish_card.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_card.widget.dart';
 
 class RecipeList extends StatefulWidget {
-  final void Function(RecipeModel)? onAddDish;
-
   const RecipeList({
     super.key,
-    this.onAddDish,
   });
 
   @override
@@ -25,11 +20,9 @@ class RecipeList extends StatefulWidget {
 
 class _RecipeListState extends State<RecipeList> {
   final RefreshController _refreshController = RefreshController();
-  late final bool isDishCard;
 
   @override
   void initState() {
-    isDishCard = widget.onAddDish != null;
     super.initState();
   }
 
@@ -93,21 +86,15 @@ class _RecipeListState extends State<RecipeList> {
           enablePullUp: state.queryInfo.canLoadMore,
           onLoading: _onLoadRefresh,
           onRefresh: () => _onLoadRefresh(true),
-          enablePullDown: !isDishCard,
           child: ListView.separated(
             padding: const EdgeInsets.all(AppSize.horizontalSpacing),
             itemCount: state.recipes!.length,
             shrinkWrap: true,
-            separatorBuilder: (_, __) => isDishCard ? AppSize.h10 : AppSize.h20,
+            separatorBuilder: (_, __) => AppSize.h20,
             itemBuilder: (context, index) {
               final recipe = state.recipes![index];
 
-              return isDishCard
-                  ? DishCard(
-                      recipe: recipe,
-                      onAdd: widget.onAddDish,
-                    )
-                  : RecipeCard(recipe: recipe);
+              return RecipeCard(recipe: recipe);
             },
           ),
         );

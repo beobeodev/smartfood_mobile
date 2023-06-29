@@ -15,6 +15,8 @@ abstract class AppSize {
 
   static const double ingredientListItemHeight = 55;
 
+  static const double recipeCardHeight = 220;
+
   // Profile
   static const double profileImageSize = 55;
 

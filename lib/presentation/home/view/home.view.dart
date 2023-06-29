@@ -1,13 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/common_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_search_field.widget.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/home/bloc/home.bloc.dart';
-import 'package:smarthealthy/presentation/home/widgets/nutrition_info.widget.dart';
+import 'package:smarthealthy/presentation/home/widgets/recipe_today.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
 
 class HomePage extends StatelessWidget {
@@ -15,10 +13,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeBloc(),
-      child: const _HomeView(),
-    );
+    return const _HomeView();
   }
 }
 
@@ -57,12 +52,10 @@ class _HomeView extends StatelessWidget {
           ];
         },
         body: const SingleChildScrollView(
-          padding: EdgeInsets.all(AppSize.horizontalSpacing),
+          padding: EdgeInsets.only(top: AppSize.horizontalSpacing),
           physics: ClampingScrollPhysics(),
           child: Column(
-            children: [
-              NutritionInfo(),
-            ],
+            children: [RecipeToday()],
           ),
         ),
       ),

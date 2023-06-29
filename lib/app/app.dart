@@ -9,6 +9,8 @@ import 'package:smarthealthy/common/widgets/refresh_indicator.widget.dart';
 import 'package:smarthealthy/data/repositories/category.repository.dart';
 import 'package:smarthealthy/data/repositories/cuisine.repository.dart';
 import 'package:smarthealthy/data/repositories/level.repository.dart';
+import 'package:smarthealthy/data/repositories/recipe.repository.dart';
+import 'package:smarthealthy/presentation/home/home.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/router/app_router.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
@@ -61,6 +63,10 @@ class _AppState extends State<App> {
               levelRepository: getIt.get<LevelRepository>(),
             ),
           ),
+          BlocProvider(
+            create: (_) =>
+                HomeBloc(recipeRepository: getIt.get<RecipeRepository>()),
+          )
         ],
         child: GestureDetector(
           onTap: () {
@@ -94,6 +100,13 @@ class _AppState extends State<App> {
                               case AuthenticationStatus.unknown:
                                 break;
                               case AuthenticationStatus.authenticated:
+                                context
+                                    .read<RecipeFilterBloc>()
+                                    .add(const RecipeFilterEvent.started());
+                                context.read<HomeBloc>().add(
+                                      const HomeEvent.getRecommendedRecipes(),
+                                    );
+
                                 _navigator.pushNamedAndRemoveUntil(
                                   AppRouter.root,
                                   (route) => false,

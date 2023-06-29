@@ -3,7 +3,16 @@ import 'package:shimmer/shimmer.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 
 class CommonShimmerItem extends StatelessWidget {
-  const CommonShimmerItem({super.key});
+  final double? width;
+  final double? height;
+  final double borderRadius;
+
+  const CommonShimmerItem({
+    super.key,
+    this.width,
+    this.height,
+    this.borderRadius = 10,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +20,11 @@ class CommonShimmerItem extends StatelessWidget {
       baseColor: ColorStyles.antiFlashWhite,
       highlightColor: ColorStyles.gray100,
       child: Container(
+        width: width,
+        height: height,
         decoration: BoxDecoration(
           color: ColorStyles.antiFlashWhite,
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
     );

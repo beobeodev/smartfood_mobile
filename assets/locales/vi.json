@@ -107,5 +107,8 @@
   "profile": {
     "settings": "Cài đặt",
     "personal_data": "Thông tin cá nhân"
+  },
+  "home": {
+    "cook_today": "Nấu gì hôm nay"
   }
 }

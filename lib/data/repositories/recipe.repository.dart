@@ -21,4 +21,8 @@ class RecipeRepository {
   Future<RecipeModel> getRecipeDetail(String recipeId) {
     return _recipeDataSource.getRecipeDetail(recipeId);
   }
+
+  Future<List<RecipeModel>> getRecommendedRecipes() {
+    return _recipeDataSource.getRecommendedRecipes();
+  }
 }

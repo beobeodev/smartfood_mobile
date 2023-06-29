@@ -6,19 +6,20 @@ import 'package:smarthealthy/common/widgets/icon_tile.widget.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 import 'package:unicons/unicons.dart';
 
-class DifficultyTimeCalories extends StatelessWidget {
+class DifficultyCategoryCuisine extends StatelessWidget {
   final RecipeLevel level;
+  final String category;
+  final String cuisine;
 
-  const DifficultyTimeCalories({
+  const DifficultyCategoryCuisine({
     super.key,
     required this.level,
+    required this.category,
+    required this.cuisine,
   });
 
   Widget _getDifficultyIcon() {
-    const colorFilter = ColorFilter.mode(
-      ColorStyles.yellowGreen,
-      BlendMode.srcIn,
-    );
+    final colorFilter = colorSvg(ColorStyles.yellowGreen);
 
     switch (level) {
       case RecipeLevel.hard:
@@ -45,26 +46,24 @@ class DifficultyTimeCalories extends StatelessWidget {
     return Row(
       children: [
         Expanded(
+          flex: 2,
           child: IconTile(
             icon: _getDifficultyIcon(),
             title: level.value,
           ),
         ),
-        const Expanded(
+        Expanded(
+          flex: 5,
           child: IconTile(
-            icon: UniconsLine.clock,
-            title: '10 phút',
+            icon: Icons.category,
+            title: category,
           ),
         ),
         Expanded(
+          flex: 3,
           child: IconTile(
-            icon: Assets.icons.calo.svg(
-              width: 14,
-              colorFilter: colorSvg(
-                ColorStyles.yellowGreen,
-              ),
-            ),
-            title: '100 kcal',
+            icon: UniconsLine.map_marker_info,
+            title: cuisine,
           ),
         )
       ],

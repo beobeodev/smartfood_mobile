@@ -107,5 +107,8 @@
   "profile": {
     "settings": "Settings",
     "personal_data": "Personal data"
+  },
+  "home": {
+    "cook_today": "What to Cook Today"
   }
 }

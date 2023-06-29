@@ -97,5 +97,7 @@ abstract class  LocaleKeys {
   static const profile_settings = 'profile.settings';
   static const profile_personal_data = 'profile.personal_data';
   static const profile = 'profile';
+  static const home_cook_today = 'home.cook_today';
+  static const home = 'home';
 
 }

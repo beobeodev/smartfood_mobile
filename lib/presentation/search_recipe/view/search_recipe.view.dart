@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
-import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
@@ -11,6 +10,7 @@ import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
 import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_inherited.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_list.widget.dart';
+import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_list_loading.widget.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_search_bar.widget.dart';
 
 class SearchRecipePage extends StatelessWidget {
@@ -59,7 +59,7 @@ class _SearchRecipeView extends StatelessWidget {
       body: BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
         builder: (context, state) {
           return switch (state.queryInfo.status) {
-            QueryStatus.loading => const LoadingDot(),
+            QueryStatus.loading => const RecipeListLoading(),
             QueryStatus.success => const RecipeList(),
             QueryStatus.error => CommonError(
                 onRefresh: () => _refreshError(context),

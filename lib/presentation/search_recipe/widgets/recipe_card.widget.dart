@@ -20,7 +20,7 @@ class RecipeCard extends StatelessWidget {
       child: Hero(
         tag: recipe.id,
         child: Container(
-          height: 220.h,
+          height: AppSize.recipeCardHeight.h,
           decoration: BoxDecoration(
             boxShadow: AppTheme.primaryShadow,
             borderRadius: BorderRadius.circular(AppSize.cardRadius),
@@ -55,8 +55,10 @@ class RecipeCard extends StatelessWidget {
                   maxLines: 2,
                 ),
                 AppSize.h10,
-                DifficultyTimeCalories(
+                DifficultyCategoryCuisine(
                   level: recipe.level.name,
+                  category: recipe.category.name,
+                  cuisine: recipe.cuisine.name,
                 )
               ],
             ),

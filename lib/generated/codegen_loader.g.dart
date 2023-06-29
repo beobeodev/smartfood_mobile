@@ -123,6 +123,9 @@ class CodegenLoader extends AssetLoader{
   "profile": {
     "settings": "Settings",
     "personal_data": "Personal data"
+  },
+  "home": {
+    "cook_today": "What to Cook Today"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -234,6 +237,9 @@ static const Map<String,dynamic> vi = {
   "profile": {
     "settings": "Cài đặt",
     "personal_data": "Thông tin cá nhân"
+  },
+  "home": {
+    "cook_today": "Nấu gì hôm nay"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};
