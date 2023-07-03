@@ -93,11 +93,12 @@ abstract class  LocaleKeys {
   static const diary_mode_workout = 'diary_mode.workout';
   static const diary_mode = 'diary_mode';
   static const diary_not_found = 'diary.not_found';
+  static const diary_need_login = 'diary.need_login';
   static const diary = 'diary';
   static const profile_settings = 'profile.settings';
   static const profile_personal_data = 'profile.personal_data';
   static const profile = 'profile';
-  static const home_cook_today = 'home.cook_today';
+  static const home_new_recipes = 'home.new_recipes';
   static const home = 'home';
 
 }

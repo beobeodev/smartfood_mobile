@@ -2,9 +2,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/auth_error_type.enum.dart';
-import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
+import 'package:smarthealthy/common/widgets/common_back_button.widget.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
@@ -52,12 +52,6 @@ class _LoginView extends StatefulWidget {
 class _LoginViewState extends State<_LoginView> {
   @override
   void initState() {
-    if (context.read<AuthBloc>().state.status == AuthenticationStatus.reLogin) {
-      ToastUtil.showError(
-        context,
-        text: LocaleKeys.texts_error_re_login.tr(),
-      );
-    }
     super.initState();
   }
 
@@ -78,35 +72,63 @@ class _LoginViewState extends State<_LoginView> {
     }
   }
 
+  void _showReLoginError() {
+    if (context.read<AuthBloc>().state.status == AuthenticationStatus.reLogin) {
+      ToastUtil.showError(
+        context,
+        text: LocaleKeys.texts_error_re_login.tr(),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => _showReLoginError());
+
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.fromLTRB(
-          AppSize.horizontalSpacing,
-          context.paddingTop,
-          AppSize.horizontalSpacing,
-          0,
-        ),
-        child: SizedBox(
-          height: context.height - context.paddingTop,
-          child: Column(
-            children: [
-              const Spacer(),
-              const AuthIntroduction(),
-              LoginForm(
-                formKey: _formKey,
-                emailEditController: _emailEditController,
-                passwordEditController: _passwordEditController,
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                children: [
+                  if (Navigator.of(context).canPop())
+                    const Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: CommonBackButton(),
+                      ),
+                    ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: AppSize.horizontalSpacing,
+                      ),
+                      child: Column(
+                        children: [
+                          const Spacer(),
+                          const AuthIntroduction(),
+                          LoginForm(
+                            formKey: _formKey,
+                            emailEditController: _emailEditController,
+                            passwordEditController: _passwordEditController,
+                          ),
+                          LoginButton(
+                            action: () => _submitLogin(context),
+                          ),
+                          const SocialLogin(),
+                          const Spacer(),
+                          const AuthNavigationAction()
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
-              LoginButton(
-                action: () => _submitLogin(context),
-              ),
-              const SocialLogin(),
-              const Spacer(),
-              const AuthNavigationAction()
-            ],
-          ),
+            )
+          ],
         ),
       ),
       backgroundColor: Colors.white,

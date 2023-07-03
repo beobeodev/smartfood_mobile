@@ -7,7 +7,9 @@ import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/widgets/date_picker/diary_timeline.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/diary_backdrop.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/fab/diary_fab.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/need_login.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/nutrition_in_day.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/nutrition_not_found.widget.dart';
 
 class DiaryPage extends StatelessWidget {
   const DiaryPage({super.key});
@@ -30,11 +32,13 @@ class _DiaryView extends StatefulWidget {
 
 class _DiaryViewState extends State<_DiaryView> {
   final ValueNotifier<bool> _animatingNotifier = ValueNotifier(false);
-  late final bool hasNutrition;
+  late final bool? hasNutrition;
+  late final bool showFab;
 
   @override
   void initState() {
-    hasNutrition = context.read<AuthBloc>().state.user!.hasNutrition;
+    hasNutrition = context.read<AuthBloc>().state.user?.hasNutrition;
+    showFab = hasNutrition ?? false;
 
     super.initState();
   }
@@ -47,37 +51,32 @@ class _DiaryViewState extends State<_DiaryView> {
   }
 
   Widget _getBody() {
-    return Stack(
-      children: [
-        const Column(
-          children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
-        ),
-        DiaryBackdrop(animatingNotifier: _animatingNotifier)
-      ],
-    );
-
-    // if (hasNutrition) {
-    //   return Stack(
-    //     children: [
-    //       const Column(
-    //         children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
-    //       ),
-    //       DiaryBackdrop(animatingNotifier: _animatingNotifier)
-    //     ],
-    //   );
-    // } else {
-    //   return const NutritionNotFound();
-    // }
+    if (hasNutrition == null) {
+      return const NeedLoginError();
+    } else if (!hasNutrition!) {
+      return const NutritionNotFound();
+    } else {
+      return Stack(
+        children: [
+          const Column(
+            children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
+          ),
+          DiaryBackdrop(animatingNotifier: _animatingNotifier)
+        ],
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _getBody(),
-      floatingActionButton: DiaryFab(
-        animatingNotifier: _animatingNotifier,
-      ),
-      backgroundColor: ColorStyles.aliceBlue,
+      floatingActionButton: showFab
+          ? DiaryFab(
+              animatingNotifier: _animatingNotifier,
+            )
+          : null,
+      backgroundColor: showFab ? ColorStyles.aliceBlue : Colors.white,
     );
   }
 }

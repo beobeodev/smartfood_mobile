@@ -102,13 +102,14 @@
     "workout": "Workout"
   },
   "diary": {
-    "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!"
+    "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!",
+    "need_login": "You need to sign in to use this feature"
   },
   "profile": {
     "settings": "Settings",
     "personal_data": "Personal data"
   },
   "home": {
-    "cook_today": "What to Cook Today"
+    "new_recipes": "New recipes for you"
   }
 }

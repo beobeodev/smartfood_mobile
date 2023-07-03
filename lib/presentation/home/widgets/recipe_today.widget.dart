@@ -27,7 +27,7 @@ class RecipeToday extends StatelessWidget {
                   padding:
                       const EdgeInsets.only(left: AppSize.horizontalSpacing),
                   child: Text(
-                    LocaleKeys.home_cook_today.tr(),
+                    LocaleKeys.home_new_recipes.tr(),
                     style: TextStyles.mediumText.copyWith(fontSize: 20.sp),
                   ),
                 ),

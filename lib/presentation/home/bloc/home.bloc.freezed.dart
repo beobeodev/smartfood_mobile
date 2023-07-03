@@ -19,16 +19,19 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getRecommendedRecipes,
+    required TResult Function() getTenRecipes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getRecommendedRecipes,
+    TResult? Function()? getTenRecipes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getRecommendedRecipes,
+    TResult Function()? getTenRecipes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -36,16 +39,19 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetRecommendedRecipes value)
         getRecommendedRecipes,
+    required TResult Function(_GetTenRecipes value) getTenRecipes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult? Function(_GetTenRecipes value)? getTenRecipes,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult Function(_GetTenRecipes value)? getTenRecipes,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getRecommendedRecipes,
+    required TResult Function() getTenRecipes,
   }) {
     return getRecommendedRecipes();
   }
@@ -115,6 +122,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getRecommendedRecipes,
+    TResult? Function()? getTenRecipes,
   }) {
     return getRecommendedRecipes?.call();
   }
@@ -123,6 +131,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getRecommendedRecipes,
+    TResult Function()? getTenRecipes,
     required TResult orElse(),
   }) {
     if (getRecommendedRecipes != null) {
@@ -136,6 +145,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   TResult map<TResult extends Object?>({
     required TResult Function(_GetRecommendedRecipes value)
         getRecommendedRecipes,
+    required TResult Function(_GetTenRecipes value) getTenRecipes,
   }) {
     return getRecommendedRecipes(this);
   }
@@ -144,6 +154,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult? Function(_GetTenRecipes value)? getTenRecipes,
   }) {
     return getRecommendedRecipes?.call(this);
   }
@@ -152,6 +163,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult Function(_GetTenRecipes value)? getTenRecipes,
     required TResult orElse(),
   }) {
     if (getRecommendedRecipes != null) {
@@ -163,6 +175,109 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
 
 abstract class _GetRecommendedRecipes implements HomeEvent {
   const factory _GetRecommendedRecipes() = _$_GetRecommendedRecipes;
+}
+
+/// @nodoc
+abstract class _$$_GetTenRecipesCopyWith<$Res> {
+  factory _$$_GetTenRecipesCopyWith(
+          _$_GetTenRecipes value, $Res Function(_$_GetTenRecipes) then) =
+      __$$_GetTenRecipesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetTenRecipesCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_GetTenRecipes>
+    implements _$$_GetTenRecipesCopyWith<$Res> {
+  __$$_GetTenRecipesCopyWithImpl(
+      _$_GetTenRecipes _value, $Res Function(_$_GetTenRecipes) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetTenRecipes implements _GetTenRecipes {
+  const _$_GetTenRecipes();
+
+  @override
+  String toString() {
+    return 'HomeEvent.getTenRecipes()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetTenRecipes);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getRecommendedRecipes,
+    required TResult Function() getTenRecipes,
+  }) {
+    return getTenRecipes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getRecommendedRecipes,
+    TResult? Function()? getTenRecipes,
+  }) {
+    return getTenRecipes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getRecommendedRecipes,
+    TResult Function()? getTenRecipes,
+    required TResult orElse(),
+  }) {
+    if (getTenRecipes != null) {
+      return getTenRecipes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetRecommendedRecipes value)
+        getRecommendedRecipes,
+    required TResult Function(_GetTenRecipes value) getTenRecipes,
+  }) {
+    return getTenRecipes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult? Function(_GetTenRecipes value)? getTenRecipes,
+  }) {
+    return getTenRecipes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult Function(_GetTenRecipes value)? getTenRecipes,
+    required TResult orElse(),
+  }) {
+    if (getTenRecipes != null) {
+      return getTenRecipes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetTenRecipes implements HomeEvent {
+  const factory _GetTenRecipes() = _$_GetTenRecipes;
 }
 
 /// @nodoc

@@ -30,11 +30,33 @@ class _AppState extends State<App> {
   final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
   NavigatorState get _navigator => _navigatorKey.currentState!;
 
-  void _navigateLogin() {
+  void _getRecipes(BuildContext context, bool isRecommended) {
+    if (isRecommended) {
+      context.read<HomeBloc>().add(
+            const HomeEvent.getRecommendedRecipes(),
+          );
+    } else {
+      context.read<HomeBloc>().add(
+            const HomeEvent.getTenRecipes(),
+          );
+    }
+  }
+
+  void _getFilters(BuildContext context) {
+    context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.started());
+  }
+
+  void _navigateToRoot() {
     _navigator.pushNamedAndRemoveUntil(
-      AppRouter.login,
+      AppRouter.root,
       (route) => false,
     );
+  }
+
+  void _getData(BuildContext context, bool isRecommended) {
+    _getFilters(context);
+    _getRecipes(context, isRecommended);
+    _navigateToRoot();
   }
 
   @override
@@ -100,21 +122,16 @@ class _AppState extends State<App> {
                               case AuthenticationStatus.unknown:
                                 break;
                               case AuthenticationStatus.authenticated:
-                                context
-                                    .read<RecipeFilterBloc>()
-                                    .add(const RecipeFilterEvent.started());
-                                context.read<HomeBloc>().add(
-                                      const HomeEvent.getRecommendedRecipes(),
-                                    );
-
+                                _getData(context, true);
+                                break;
+                              case AuthenticationStatus.reLogin:
                                 _navigator.pushNamedAndRemoveUntil(
-                                  AppRouter.root,
+                                  AppRouter.login,
                                   (route) => false,
                                 );
                                 break;
-                              case AuthenticationStatus.reLogin:
                               case AuthenticationStatus.unauthenticated:
-                                _navigateLogin();
+                                _getData(context, false);
                                 break;
                             }
                           },

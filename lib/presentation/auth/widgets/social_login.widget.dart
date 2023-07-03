@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
@@ -39,9 +40,9 @@ class SocialLogin extends StatelessWidget {
           ],
         ),
         AppSize.h20,
-        LayoutBuilder(
-          builder: (context, constrains) {
-            final itemWith = (constrains.maxWidth - 40) / 2;
+        Builder(
+          builder: (context) {
+            final itemWith = (context.width - 80.w) / 2;
 
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

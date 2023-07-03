@@ -118,14 +118,15 @@ class CodegenLoader extends AssetLoader{
     "workout": "Workout"
   },
   "diary": {
-    "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!"
+    "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!",
+    "need_login": "You need to sign in to use this feature"
   },
   "profile": {
     "settings": "Settings",
     "personal_data": "Personal data"
   },
   "home": {
-    "cook_today": "What to Cook Today"
+    "new_recipes": "New recipes for you"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -232,14 +233,15 @@ static const Map<String,dynamic> vi = {
     "workout": "Tập luyện"
   },
   "diary": {
-    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng.\nHãy nhấn nút bắt đầu!"
+    "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng.\nHãy nhấn nút bắt đầu!",
+    "need_login": "Bạn cần phải đăng nhập để sử dụng tính năng này"
   },
   "profile": {
     "settings": "Cài đặt",
     "personal_data": "Thông tin cá nhân"
   },
   "home": {
-    "cook_today": "Nấu gì hôm nay"
+    "new_recipes": "Món mới dành cho bạn"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

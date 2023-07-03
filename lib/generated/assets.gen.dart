@@ -229,6 +229,10 @@ class $AssetsImagesDiaryGen {
   SvgGenImage get morning =>
       const SvgGenImage('assets/images/diary/morning.svg');
 
+  /// File path: assets/images/diary/need_login.svg
+  SvgGenImage get needLogin =>
+      const SvgGenImage('assets/images/diary/need_login.svg');
+
   /// File path: assets/images/diary/night.svg
   SvgGenImage get night => const SvgGenImage('assets/images/diary/night.svg');
 
@@ -240,7 +244,8 @@ class $AssetsImagesDiaryGen {
       const SvgGenImage('assets/images/diary/nutrition_not_found.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [morning, night, noon, nutritionNotFound];
+  List<SvgGenImage> get values =>
+      [morning, needLogin, night, noon, nutritionNotFound];
 }
 
 class $AssetsImagesLottieGen {
