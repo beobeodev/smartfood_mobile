@@ -17,6 +17,7 @@ import 'package:smarthealthy/common/helpers/dio.helper.dart' as _i8;
 import 'package:smarthealthy/common/helpers/ingredient_detector.dart' as _i6;
 import 'package:smarthealthy/data/datasources/category.datasource.dart' as _i16;
 import 'package:smarthealthy/data/datasources/cuisine.datasource.dart' as _i18;
+import 'package:smarthealthy/data/datasources/diary.datasource.dart' as _i20;
 import 'package:smarthealthy/data/datasources/ingredient.datasource.dart'
     as _i9;
 import 'package:smarthealthy/data/datasources/level.datasource.dart' as _i11;
@@ -26,17 +27,18 @@ import 'package:smarthealthy/data/datasources/user/local/user.datasource.dart'
 import 'package:smarthealthy/data/datasources/user/remote/user.datasource.dart'
     as _i15;
 import 'package:smarthealthy/data/datasources/user/user.datasource.dart'
-    as _i20;
+    as _i22;
 import 'package:smarthealthy/data/repositories/category.repository.dart'
     as _i17;
 import 'package:smarthealthy/data/repositories/cuisine.repository.dart' as _i19;
+import 'package:smarthealthy/data/repositories/diary.repository.dart' as _i21;
 import 'package:smarthealthy/data/repositories/ingredient.repository.dart'
     as _i10;
 import 'package:smarthealthy/data/repositories/level.repository.dart' as _i12;
 import 'package:smarthealthy/data/repositories/recipe.repository.dart' as _i14;
-import 'package:smarthealthy/data/repositories/user.repository.dart' as _i21;
-import 'package:smarthealthy/di/modules/local_module.dart' as _i22;
-import 'package:smarthealthy/di/modules/network_module.dart' as _i23;
+import 'package:smarthealthy/data/repositories/user.repository.dart' as _i23;
+import 'package:smarthealthy/di/modules/local_module.dart' as _i24;
+import 'package:smarthealthy/di/modules/network_module.dart' as _i25;
 import 'package:smarthealthy/di/providers/dio_provider.dart' as _i4;
 
 // ignore_for_file: unnecessary_lambdas
@@ -91,15 +93,19 @@ Future<_i1.GetIt> initGetIt(
       () => _i18.CuisineDataSource(gh<_i8.DioHelper>()));
   gh.lazySingleton<_i19.CuisineRepository>(
       () => _i19.CuisineRepository(gh<_i18.CuisineDataSource>()));
-  gh.lazySingleton<_i20.UserDataSource>(() => _i20.UserDataSource(
+  gh.lazySingleton<_i20.DiaryDataSource>(
+      () => _i20.DiaryDataSource(gh<_i8.DioHelper>()));
+  gh.lazySingleton<_i21.DiaryRepository>(
+      () => _i21.DiaryRepository(gh<_i20.DiaryDataSource>()));
+  gh.lazySingleton<_i22.UserDataSource>(() => _i22.UserDataSource(
         remoteDataSource: gh<_i15.UserRemoteDataSource>(),
         localDataSource: gh<_i7.UserLocalDataSource>(),
       ));
-  gh.lazySingleton<_i21.UserRepository>(
-      () => _i21.UserRepository(dataSource: gh<_i20.UserDataSource>()));
+  gh.lazySingleton<_i23.UserRepository>(
+      () => _i23.UserRepository(dataSource: gh<_i22.UserDataSource>()));
   return getIt;
 }
 
-class _$LocalModule extends _i22.LocalModule {}
+class _$LocalModule extends _i24.LocalModule {}
 
-class _$NetworkModule extends _i23.NetworkModule {}
+class _$NetworkModule extends _i25.NetworkModule {}

@@ -56,9 +56,9 @@ class RecipeCard extends StatelessWidget {
                 ),
                 AppSize.h10,
                 DifficultyCategoryCuisine(
-                  level: recipe.level.name,
-                  category: recipe.category.name,
-                  cuisine: recipe.cuisine.name,
+                  level: recipe.level!.name,
+                  category: recipe.category!.name,
+                  cuisine: recipe.cuisine!.name,
                 )
               ],
             ),

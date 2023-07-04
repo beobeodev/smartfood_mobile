@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/meal_plan_item.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/meal/meal_plan_item.widget.dart';
 
 class MealAndWorkoutPlan extends StatelessWidget {
   const MealAndWorkoutPlan({super.key});

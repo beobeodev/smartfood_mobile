@@ -2,7 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smarthealthy/common/enums/auth_error_type.enum.dart';
+import 'package:smarthealthy/common/helpers/jwt_decoder.helper.dart';
 import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
+import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 
@@ -38,7 +40,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
       await _userRepository.setUserAuth(response);
 
-      _authBloc.add(AuthUserInfoCheck());
+      final UserModel user = UserModel.fromJson(
+        JwtDecoderHelper.decode(response.accessToken)['user'],
+      );
+
+      _authBloc.add(AuthUserSet(user));
     } catch (err) {
       bool isUnauthorizedError =
           err is DioError && err.response?.statusCode == 401;

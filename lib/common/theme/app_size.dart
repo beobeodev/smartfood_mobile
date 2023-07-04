@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 abstract class AppSize {
   static const double horizontalSpacing = 20;
@@ -19,6 +20,10 @@ abstract class AppSize {
 
   // Profile
   static const double profileImageSize = 55;
+
+  // Dish
+  static final double dishCardVerticalPadding = 5.h;
+  static final double dishCardAvatarSize = 60.w;
 
   // Width
   static const SizedBox w5 = SizedBox(

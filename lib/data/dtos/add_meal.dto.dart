@@ -1,13 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
 
 part 'add_meal.dto.freezed.dart';
+part 'add_meal.dto.g.dart';
 
-@Freezed(fromJson: false)
+@Freezed(fromJson: false, toJson: true)
 class AddMealDTO with _$AddMealDTO {
   factory AddMealDTO({
-    required MealType type,
-    required List<RecipeModel> dishes,
+    required MealType typeOfMeal,
+    required List<String> recipeIds,
   }) = _AddMealDTO;
 }

@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/utils/dialog.util.dart';
+import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/data/dtos/add_meal.dto.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/repositories/diary.repository.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
@@ -24,7 +27,9 @@ class AddMealPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => AddMealBloc(),
+          create: (_) => AddMealBloc(
+            diaryRepository: getIt.get<DiaryRepository>(),
+          ),
         ),
         BlocProvider(
           create: (context) => SearchRecipeBloc(
@@ -36,12 +41,19 @@ class AddMealPage extends StatelessWidget {
       child: BlocListener<AddMealBloc, AddMealState>(
         listener: (context, state) {
           state.mapOrNull(
+            loading: (_) {
+              DialogUtil.showLoading(context);
+            },
             success: (success) {
               context
                   .read<DiaryBloc>()
-                  .add(DiaryEvent.addDish(success.mealDto));
-
+                  .add(DiaryEvent.addMeal(success.meal, success.type));
+              DialogUtil.hideLoading(context);
               Navigator.of(context).pop();
+            },
+            failure: (_) {
+              DialogUtil.hideLoading(context);
+              ToastUtil.showError(context);
             },
           );
         },
@@ -92,10 +104,8 @@ class _AddMealViewState extends State<_AddMealView> {
     context.read<AddMealBloc>().add(
           AddMealEvent.add(
             AddMealDTO(
-              type: selectedType,
-              dishes: _dishesNotifier.value
-                  .map((e) => e.copyWith(mealType: selectedType))
-                  .toList(),
+              typeOfMeal: selectedType,
+              recipeIds: _dishesNotifier.value.map((e) => e.id).toList(),
             ),
           ),
         );

@@ -99,6 +99,29 @@ class DioHelper {
     );
   }
 
+  Future<HttpRequestResponse> patch(
+    String url, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+  }) async {
+    final response = await _dio.patch(
+      url,
+      data: data,
+      queryParameters: queryParameters,
+      options: options,
+    );
+
+    return HttpRequestResponse(
+      data: response.data,
+      headers: response.headers,
+      request: response.requestOptions,
+      statusCode: response.statusCode,
+      statusMessage: response.statusMessage,
+      extra: response.extra,
+    );
+  }
+
   Future<HttpRequestResponse> delete(
     String url, {
     dynamic data,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/widgets/common_shimmer_item.widget.dart';
+import 'package:smarthealthy/common/widgets/common_shimmer.widget.dart';
 
 class ShimmerIngredientList extends StatelessWidget {
   const ShimmerIngredientList({super.key});
@@ -17,7 +17,7 @@ class ShimmerIngredientList extends StatelessWidget {
       itemBuilder: (context, index) {
         return const SizedBox(
           height: AppSize.ingredientListItemHeight,
-          child: CommonShimmerItem(),
+          child: CommonShimmer(),
         );
       },
     );

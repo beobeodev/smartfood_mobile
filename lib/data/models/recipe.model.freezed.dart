@@ -20,13 +20,12 @@ RecipeModel _$RecipeModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecipeModel {
-  dynamic get mealType => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  LevelModel get level => throw _privateConstructorUsedError;
-  CategoryModel get category => throw _privateConstructorUsedError;
-  CuisineModel get cuisine => throw _privateConstructorUsedError;
+  LevelModel? get level => throw _privateConstructorUsedError;
+  CategoryModel? get category => throw _privateConstructorUsedError;
+  CuisineModel? get cuisine => throw _privateConstructorUsedError;
   List<QuantificationModel>? get quantification =>
       throw _privateConstructorUsedError;
   List<RecipeStepModel>? get recipeStep => throw _privateConstructorUsedError;
@@ -44,20 +43,19 @@ abstract class $RecipeModelCopyWith<$Res> {
       _$RecipeModelCopyWithImpl<$Res, RecipeModel>;
   @useResult
   $Res call(
-      {dynamic mealType,
-      String id,
+      {String id,
       String name,
       String? description,
-      LevelModel level,
-      CategoryModel category,
-      CuisineModel cuisine,
+      LevelModel? level,
+      CategoryModel? category,
+      CuisineModel? cuisine,
       List<QuantificationModel>? quantification,
       List<RecipeStepModel>? recipeStep,
       List<MediaModel>? media});
 
-  $LevelModelCopyWith<$Res> get level;
-  $CategoryModelCopyWith<$Res> get category;
-  $CuisineModelCopyWith<$Res> get cuisine;
+  $LevelModelCopyWith<$Res>? get level;
+  $CategoryModelCopyWith<$Res>? get category;
+  $CuisineModelCopyWith<$Res>? get cuisine;
 }
 
 /// @nodoc
@@ -73,22 +71,17 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mealType = freezed,
     Object? id = null,
     Object? name = null,
     Object? description = freezed,
-    Object? level = null,
-    Object? category = null,
-    Object? cuisine = null,
+    Object? level = freezed,
+    Object? category = freezed,
+    Object? cuisine = freezed,
     Object? quantification = freezed,
     Object? recipeStep = freezed,
     Object? media = freezed,
   }) {
     return _then(_value.copyWith(
-      mealType: freezed == mealType
-          ? _value.mealType
-          : mealType // ignore: cast_nullable_to_non_nullable
-              as dynamic,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -101,18 +94,18 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: null == level
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as LevelModel,
-      category: null == category
+              as LevelModel?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as CategoryModel,
-      cuisine: null == cuisine
+              as CategoryModel?,
+      cuisine: freezed == cuisine
           ? _value.cuisine
           : cuisine // ignore: cast_nullable_to_non_nullable
-              as CuisineModel,
+              as CuisineModel?,
       quantification: freezed == quantification
           ? _value.quantification
           : quantification // ignore: cast_nullable_to_non_nullable
@@ -130,24 +123,36 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $LevelModelCopyWith<$Res> get level {
-    return $LevelModelCopyWith<$Res>(_value.level, (value) {
+  $LevelModelCopyWith<$Res>? get level {
+    if (_value.level == null) {
+      return null;
+    }
+
+    return $LevelModelCopyWith<$Res>(_value.level!, (value) {
       return _then(_value.copyWith(level: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CategoryModelCopyWith<$Res> get category {
-    return $CategoryModelCopyWith<$Res>(_value.category, (value) {
+  $CategoryModelCopyWith<$Res>? get category {
+    if (_value.category == null) {
+      return null;
+    }
+
+    return $CategoryModelCopyWith<$Res>(_value.category!, (value) {
       return _then(_value.copyWith(category: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CuisineModelCopyWith<$Res> get cuisine {
-    return $CuisineModelCopyWith<$Res>(_value.cuisine, (value) {
+  $CuisineModelCopyWith<$Res>? get cuisine {
+    if (_value.cuisine == null) {
+      return null;
+    }
+
+    return $CuisineModelCopyWith<$Res>(_value.cuisine!, (value) {
       return _then(_value.copyWith(cuisine: value) as $Val);
     });
   }
@@ -162,23 +167,22 @@ abstract class _$$_RecipeModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {dynamic mealType,
-      String id,
+      {String id,
       String name,
       String? description,
-      LevelModel level,
-      CategoryModel category,
-      CuisineModel cuisine,
+      LevelModel? level,
+      CategoryModel? category,
+      CuisineModel? cuisine,
       List<QuantificationModel>? quantification,
       List<RecipeStepModel>? recipeStep,
       List<MediaModel>? media});
 
   @override
-  $LevelModelCopyWith<$Res> get level;
+  $LevelModelCopyWith<$Res>? get level;
   @override
-  $CategoryModelCopyWith<$Res> get category;
+  $CategoryModelCopyWith<$Res>? get category;
   @override
-  $CuisineModelCopyWith<$Res> get cuisine;
+  $CuisineModelCopyWith<$Res>? get cuisine;
 }
 
 /// @nodoc
@@ -192,19 +196,17 @@ class __$$_RecipeModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? mealType = freezed,
     Object? id = null,
     Object? name = null,
     Object? description = freezed,
-    Object? level = null,
-    Object? category = null,
-    Object? cuisine = null,
+    Object? level = freezed,
+    Object? category = freezed,
+    Object? cuisine = freezed,
     Object? quantification = freezed,
     Object? recipeStep = freezed,
     Object? media = freezed,
   }) {
     return _then(_$_RecipeModel(
-      mealType: freezed == mealType ? _value.mealType! : mealType,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -217,18 +219,18 @@ class __$$_RecipeModelCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      level: null == level
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as LevelModel,
-      category: null == category
+              as LevelModel?,
+      category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as CategoryModel,
-      cuisine: null == cuisine
+              as CategoryModel?,
+      cuisine: freezed == cuisine
           ? _value.cuisine
           : cuisine // ignore: cast_nullable_to_non_nullable
-              as CuisineModel,
+              as CuisineModel?,
       quantification: freezed == quantification
           ? _value._quantification
           : quantification // ignore: cast_nullable_to_non_nullable
@@ -249,13 +251,12 @@ class __$$_RecipeModelCopyWithImpl<$Res>
 @JsonSerializable(createToJson: false)
 class _$_RecipeModel extends _RecipeModel {
   _$_RecipeModel(
-      {this.mealType = MealType.breakfast,
-      required this.id,
+      {required this.id,
       required this.name,
       this.description,
-      required this.level,
-      required this.category,
-      required this.cuisine,
+      this.level,
+      this.category,
+      this.cuisine,
       final List<QuantificationModel>? quantification,
       final List<RecipeStepModel>? recipeStep,
       final List<MediaModel>? media})
@@ -268,20 +269,17 @@ class _$_RecipeModel extends _RecipeModel {
       _$$_RecipeModelFromJson(json);
 
   @override
-  @JsonKey()
-  final dynamic mealType;
-  @override
   final String id;
   @override
   final String name;
   @override
   final String? description;
   @override
-  final LevelModel level;
+  final LevelModel? level;
   @override
-  final CategoryModel category;
+  final CategoryModel? category;
   @override
-  final CuisineModel cuisine;
+  final CuisineModel? cuisine;
   final List<QuantificationModel>? _quantification;
   @override
   List<QuantificationModel>? get quantification {
@@ -314,7 +312,7 @@ class _$_RecipeModel extends _RecipeModel {
 
   @override
   String toString() {
-    return 'RecipeModel(mealType: $mealType, id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media)';
+    return 'RecipeModel(id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media)';
   }
 
   @override
@@ -322,7 +320,6 @@ class _$_RecipeModel extends _RecipeModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RecipeModel &&
-            const DeepCollectionEquality().equals(other.mealType, mealType) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -342,7 +339,6 @@ class _$_RecipeModel extends _RecipeModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(mealType),
       id,
       name,
       description,
@@ -362,13 +358,12 @@ class _$_RecipeModel extends _RecipeModel {
 
 abstract class _RecipeModel extends RecipeModel {
   factory _RecipeModel(
-      {final dynamic mealType,
-      required final String id,
+      {required final String id,
       required final String name,
       final String? description,
-      required final LevelModel level,
-      required final CategoryModel category,
-      required final CuisineModel cuisine,
+      final LevelModel? level,
+      final CategoryModel? category,
+      final CuisineModel? cuisine,
       final List<QuantificationModel>? quantification,
       final List<RecipeStepModel>? recipeStep,
       final List<MediaModel>? media}) = _$_RecipeModel;
@@ -378,19 +373,17 @@ abstract class _RecipeModel extends RecipeModel {
       _$_RecipeModel.fromJson;
 
   @override
-  dynamic get mealType;
-  @override
   String get id;
   @override
   String get name;
   @override
   String? get description;
   @override
-  LevelModel get level;
+  LevelModel? get level;
   @override
-  CategoryModel get category;
+  CategoryModel? get category;
   @override
-  CuisineModel get cuisine;
+  CuisineModel? get cuisine;
   @override
   List<QuantificationModel>? get quantification;
   @override

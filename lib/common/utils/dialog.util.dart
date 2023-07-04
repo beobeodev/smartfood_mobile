@@ -63,13 +63,14 @@ abstract class DialogUtil {
         return AlertDialog(
           title: Text(
             title,
-            style: titleStyle,
+            style: titleStyle ?? TextStyles.s17BoldText,
             textAlign: TextAlign.center,
           ),
           content: child ??
               Text(
                 content ?? '',
-                style: contentStyle,
+                style: contentStyle ?? TextStyles.s14MediumText,
+                textAlign: TextAlign.center,
               ),
           actions: <Widget>[
             if (isConfirmDialog)
@@ -84,7 +85,7 @@ abstract class DialogUtil {
                 ),
                 borderSide: const BorderSide(color: ColorStyles.red400),
                 backgroundColor: Colors.transparent,
-                height: 45,
+                height: 40,
               ),
             AppSize.w15,
             AppRoundedButton(
@@ -93,11 +94,12 @@ abstract class DialogUtil {
                 Navigator.of(context).pop();
                 confirmAction?.call();
               },
+              backgroundColor: ColorStyles.yellowGreen,
               content: confirmButtonText ?? LocaleKeys.button_confirm.tr(),
               textStyle: TextStyles.s14BoldText.copyWith(
                 color: Colors.white,
               ),
-              height: 45,
+              height: 40,
             ),
           ],
           contentPadding:

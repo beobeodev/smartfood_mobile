@@ -31,7 +31,7 @@ class CodegenLoader extends AssetLoader{
     "register_success": "Register successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
-    "no_data": "No data"
+    "no_data_yet": "No data yet"
   },
   "button": {
     "cancel": "Cancel",
@@ -119,11 +119,14 @@ class CodegenLoader extends AssetLoader{
   },
   "diary": {
     "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!",
-    "need_login": "You need to sign in to use this feature"
+    "need_login": "You need to sign in to use this feature",
+    "update_nutrition": "Update nutrition information",
+    "nutri_info": "Nutrition information"
   },
   "profile": {
     "settings": "Settings",
-    "personal_data": "Personal data"
+    "personal_data": "Personal data",
+    "logout_confirm": "Are you sure you want to\nlog out?"
   },
   "home": {
     "new_recipes": "New recipes for you"
@@ -146,7 +149,7 @@ static const Map<String,dynamic> vi = {
     "register_success": "Đăng ký tài khoản thành công",
     "ingredient_list": "Danh sách nguyên liệu",
     "ingredient_detection": "Nhận diện nguyên liệu",
-    "no_data": "Không có dữ liệu"
+    "no_data_yet": "Chưa có dữ liệu"
   },
   "button": {
     "cancel": "Hủy",
@@ -234,11 +237,14 @@ static const Map<String,dynamic> vi = {
   },
   "diary": {
     "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng.\nHãy nhấn nút bắt đầu!",
-    "need_login": "Bạn cần phải đăng nhập để sử dụng tính năng này"
+    "need_login": "Bạn cần phải đăng nhập để sử dụng tính năng này",
+    "update_nutrition": "Cập nhật thông tin dinh dưỡng",
+    "nutri_info": "Thông tin dinh dưỡng"
   },
   "profile": {
     "settings": "Cài đặt",
-    "personal_data": "Thông tin cá nhân"
+    "personal_data": "Thông tin cá nhân",
+    "logout_confirm": "Bạn có chắc là muốn\nđăng xuất?"
   },
   "home": {
     "new_recipes": "Món mới dành cho bạn"

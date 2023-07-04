@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/enums/gender_type.enum.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/default_measure_container.widget.dart';
 
 class GenderSelection extends StatelessWidget {
   final double size;
-  final ValueNotifier<bool> genderNotifier;
+  final ValueNotifier<GenderType> genderNotifier;
 
   const GenderSelection({
     super.key,
@@ -12,8 +13,8 @@ class GenderSelection extends StatelessWidget {
     required this.genderNotifier,
   });
 
-  void _changeGender(bool value) {
-    genderNotifier.value = value;
+  void _changeGender(GenderType type) {
+    genderNotifier.value = type;
   }
 
   @override
@@ -25,20 +26,20 @@ class GenderSelection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             GestureDetector(
-              onTap: () => _changeGender(false),
+              onTap: () => _changeGender(GenderType.female),
               child: DefaultMeasureContainer(
                 size: size,
-                isSelected: !value,
+                isSelected: value == GenderType.female,
                 child: Assets.images.bmi.woman.svg(
                   height: size / 1.2,
                 ),
               ),
             ),
             GestureDetector(
-              onTap: () => _changeGender(true),
+              onTap: () => _changeGender(GenderType.male),
               child: DefaultMeasureContainer(
                 size: size,
-                isSelected: value,
+                isSelected: value == GenderType.male,
                 child: Assets.images.bmi.man.svg(
                   height: size / 1.2,
                 ),

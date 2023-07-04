@@ -16,20 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CalorieMeasureEvent {
-  BodyInfoWrapper get bodyInfo => throw _privateConstructorUsedError;
+  UpdateUserNutritionDTO get userNutrition =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BodyInfoWrapper bodyInfo) calculateNutrition,
+    required TResult Function(UpdateUserNutritionDTO userNutrition)
+        calculateNutrition,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BodyInfoWrapper bodyInfo)? calculateNutrition,
+    TResult? Function(UpdateUserNutritionDTO userNutrition)? calculateNutrition,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BodyInfoWrapper bodyInfo)? calculateNutrition,
+    TResult Function(UpdateUserNutritionDTO userNutrition)? calculateNutrition,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +63,9 @@ abstract class $CalorieMeasureEventCopyWith<$Res> {
           CalorieMeasureEvent value, $Res Function(CalorieMeasureEvent) then) =
       _$CalorieMeasureEventCopyWithImpl<$Res, CalorieMeasureEvent>;
   @useResult
-  $Res call({BodyInfoWrapper bodyInfo});
+  $Res call({UpdateUserNutritionDTO userNutrition});
+
+  $UpdateUserNutritionDTOCopyWith<$Res> get userNutrition;
 }
 
 /// @nodoc
@@ -77,14 +81,22 @@ class _$CalorieMeasureEventCopyWithImpl<$Res, $Val extends CalorieMeasureEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bodyInfo = null,
+    Object? userNutrition = null,
   }) {
     return _then(_value.copyWith(
-      bodyInfo: null == bodyInfo
-          ? _value.bodyInfo
-          : bodyInfo // ignore: cast_nullable_to_non_nullable
-              as BodyInfoWrapper,
+      userNutrition: null == userNutrition
+          ? _value.userNutrition
+          : userNutrition // ignore: cast_nullable_to_non_nullable
+              as UpdateUserNutritionDTO,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UpdateUserNutritionDTOCopyWith<$Res> get userNutrition {
+    return $UpdateUserNutritionDTOCopyWith<$Res>(_value.userNutrition, (value) {
+      return _then(_value.copyWith(userNutrition: value) as $Val);
+    });
   }
 }
 
@@ -96,7 +108,10 @@ abstract class _$$_CalculateNutritionCopyWith<$Res>
       __$$_CalculateNutritionCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({BodyInfoWrapper bodyInfo});
+  $Res call({UpdateUserNutritionDTO userNutrition});
+
+  @override
+  $UpdateUserNutritionDTOCopyWith<$Res> get userNutrition;
 }
 
 /// @nodoc
@@ -110,13 +125,13 @@ class __$$_CalculateNutritionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bodyInfo = null,
+    Object? userNutrition = null,
   }) {
     return _then(_$_CalculateNutrition(
-      null == bodyInfo
-          ? _value.bodyInfo
-          : bodyInfo // ignore: cast_nullable_to_non_nullable
-              as BodyInfoWrapper,
+      null == userNutrition
+          ? _value.userNutrition
+          : userNutrition // ignore: cast_nullable_to_non_nullable
+              as UpdateUserNutritionDTO,
     ));
   }
 }
@@ -124,14 +139,14 @@ class __$$_CalculateNutritionCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_CalculateNutrition implements _CalculateNutrition {
-  const _$_CalculateNutrition(this.bodyInfo);
+  const _$_CalculateNutrition(this.userNutrition);
 
   @override
-  final BodyInfoWrapper bodyInfo;
+  final UpdateUserNutritionDTO userNutrition;
 
   @override
   String toString() {
-    return 'CalorieMeasureEvent.calculateNutrition(bodyInfo: $bodyInfo)';
+    return 'CalorieMeasureEvent.calculateNutrition(userNutrition: $userNutrition)';
   }
 
   @override
@@ -139,12 +154,12 @@ class _$_CalculateNutrition implements _CalculateNutrition {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_CalculateNutrition &&
-            (identical(other.bodyInfo, bodyInfo) ||
-                other.bodyInfo == bodyInfo));
+            (identical(other.userNutrition, userNutrition) ||
+                other.userNutrition == userNutrition));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bodyInfo);
+  int get hashCode => Object.hash(runtimeType, userNutrition);
 
   @JsonKey(ignore: true)
   @override
@@ -156,27 +171,28 @@ class _$_CalculateNutrition implements _CalculateNutrition {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(BodyInfoWrapper bodyInfo) calculateNutrition,
+    required TResult Function(UpdateUserNutritionDTO userNutrition)
+        calculateNutrition,
   }) {
-    return calculateNutrition(bodyInfo);
+    return calculateNutrition(userNutrition);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(BodyInfoWrapper bodyInfo)? calculateNutrition,
+    TResult? Function(UpdateUserNutritionDTO userNutrition)? calculateNutrition,
   }) {
-    return calculateNutrition?.call(bodyInfo);
+    return calculateNutrition?.call(userNutrition);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(BodyInfoWrapper bodyInfo)? calculateNutrition,
+    TResult Function(UpdateUserNutritionDTO userNutrition)? calculateNutrition,
     required TResult orElse(),
   }) {
     if (calculateNutrition != null) {
-      return calculateNutrition(bodyInfo);
+      return calculateNutrition(userNutrition);
     }
     return orElse();
   }
@@ -211,11 +227,11 @@ class _$_CalculateNutrition implements _CalculateNutrition {
 }
 
 abstract class _CalculateNutrition implements CalorieMeasureEvent {
-  const factory _CalculateNutrition(final BodyInfoWrapper bodyInfo) =
-      _$_CalculateNutrition;
+  const factory _CalculateNutrition(
+      final UpdateUserNutritionDTO userNutrition) = _$_CalculateNutrition;
 
   @override
-  BodyInfoWrapper get bodyInfo;
+  UpdateUserNutritionDTO get userNutrition;
   @override
   @JsonKey(ignore: true)
   _$$_CalculateNutritionCopyWith<_$_CalculateNutrition> get copyWith =>
@@ -228,7 +244,7 @@ mixin _$CalorieMeasureState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(NutritionWrapper nutrition) success,
+    required TResult Function(UserModel newUser) success,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -236,7 +252,7 @@ mixin _$CalorieMeasureState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(NutritionWrapper nutrition)? success,
+    TResult? Function(UserModel newUser)? success,
     TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -244,7 +260,7 @@ mixin _$CalorieMeasureState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(NutritionWrapper nutrition)? success,
+    TResult Function(UserModel newUser)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -333,7 +349,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(NutritionWrapper nutrition) success,
+    required TResult Function(UserModel newUser) success,
     required TResult Function() failure,
   }) {
     return initial();
@@ -344,7 +360,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(NutritionWrapper nutrition)? success,
+    TResult? Function(UserModel newUser)? success,
     TResult? Function()? failure,
   }) {
     return initial?.call();
@@ -355,7 +371,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(NutritionWrapper nutrition)? success,
+    TResult Function(UserModel newUser)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -446,7 +462,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(NutritionWrapper nutrition) success,
+    required TResult Function(UserModel newUser) success,
     required TResult Function() failure,
   }) {
     return loading();
@@ -457,7 +473,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(NutritionWrapper nutrition)? success,
+    TResult? Function(UserModel newUser)? success,
     TResult? Function()? failure,
   }) {
     return loading?.call();
@@ -468,7 +484,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(NutritionWrapper nutrition)? success,
+    TResult Function(UserModel newUser)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -526,7 +542,9 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({NutritionWrapper nutrition});
+  $Res call({UserModel newUser});
+
+  $UserModelCopyWith<$Res> get newUser;
 }
 
 /// @nodoc
@@ -539,28 +557,36 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? nutrition = null,
+    Object? newUser = null,
   }) {
     return _then(_$_Success(
-      null == nutrition
-          ? _value.nutrition
-          : nutrition // ignore: cast_nullable_to_non_nullable
-              as NutritionWrapper,
+      null == newUser
+          ? _value.newUser
+          : newUser // ignore: cast_nullable_to_non_nullable
+              as UserModel,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get newUser {
+    return $UserModelCopyWith<$Res>(_value.newUser, (value) {
+      return _then(_value.copyWith(newUser: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.nutrition);
+  const _$_Success(this.newUser);
 
   @override
-  final NutritionWrapper nutrition;
+  final UserModel newUser;
 
   @override
   String toString() {
-    return 'CalorieMeasureState.success(nutrition: $nutrition)';
+    return 'CalorieMeasureState.success(newUser: $newUser)';
   }
 
   @override
@@ -568,12 +594,11 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.nutrition, nutrition) ||
-                other.nutrition == nutrition));
+            (identical(other.newUser, newUser) || other.newUser == newUser));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, nutrition);
+  int get hashCode => Object.hash(runtimeType, newUser);
 
   @JsonKey(ignore: true)
   @override
@@ -586,10 +611,10 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(NutritionWrapper nutrition) success,
+    required TResult Function(UserModel newUser) success,
     required TResult Function() failure,
   }) {
-    return success(nutrition);
+    return success(newUser);
   }
 
   @override
@@ -597,10 +622,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(NutritionWrapper nutrition)? success,
+    TResult? Function(UserModel newUser)? success,
     TResult? Function()? failure,
   }) {
-    return success?.call(nutrition);
+    return success?.call(newUser);
   }
 
   @override
@@ -608,12 +633,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(NutritionWrapper nutrition)? success,
+    TResult Function(UserModel newUser)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(nutrition);
+      return success(newUser);
     }
     return orElse();
   }
@@ -657,9 +682,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements CalorieMeasureState {
-  const factory _Success(final NutritionWrapper nutrition) = _$_Success;
+  const factory _Success(final UserModel newUser) = _$_Success;
 
-  NutritionWrapper get nutrition;
+  UserModel get newUser;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -704,7 +729,7 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(NutritionWrapper nutrition) success,
+    required TResult Function(UserModel newUser) success,
     required TResult Function() failure,
   }) {
     return failure();
@@ -715,7 +740,7 @@ class _$_Failure implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(NutritionWrapper nutrition)? success,
+    TResult? Function(UserModel newUser)? success,
     TResult? Function()? failure,
   }) {
     return failure?.call();
@@ -726,7 +751,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(NutritionWrapper nutrition)? success,
+    TResult Function(UserModel newUser)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {

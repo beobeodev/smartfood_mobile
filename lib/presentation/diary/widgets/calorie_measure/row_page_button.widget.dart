@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/filled_icon_button.widget.dart';
@@ -16,8 +17,11 @@ class RowPageButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSize.horizontalSpacing,
+      padding: EdgeInsets.fromLTRB(
+        AppSize.horizontalSpacing,
+        0,
+        AppSize.horizontalSpacing,
+        context.bottomSpacing,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,3 +1,4 @@
+import 'package:smarthealthy/common/enums/gender_type.enum.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/body_info_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
@@ -9,7 +10,7 @@ abstract class NutritionCalculator {
   static NutritionWrapper calculate(BodyInfoWrapper bodyInfo) {
     final double bmr;
 
-    if (bodyInfo.gender) {
+    if (bodyInfo.gender == GenderType.male) {
       bmr = (13.397 * bodyInfo.weight) +
           (4.799 * bodyInfo.height) -
           (5.677 * bodyInfo.age) +

@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/enums/meal_type.enum.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
 
 part 'diary.model.freezed.dart';
 part 'diary.model.g.dart';
@@ -11,23 +10,12 @@ class DiaryModel with _$DiaryModel {
 
   factory DiaryModel({
     required DateTime date,
-    int? totalCalorie,
-    List<RecipeModel>? dishes,
+    required int totalCalories,
+    @Default([]) List<MealModel> breakfast,
+    @Default([]) List<MealModel> lunch,
+    @Default([]) List<MealModel> dinner,
   }) = _DiaryModel;
 
   factory DiaryModel.fromJson(Map<String, dynamic> json) =>
       _$DiaryModelFromJson(json);
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  List<RecipeModel>? get breakfast => dishes
-      ?.where((element) => element.mealType == MealType.breakfast)
-      .toList();
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  List<RecipeModel>? get lunch =>
-      dishes?.where((element) => element.mealType == MealType.lunch).toList();
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  List<RecipeModel>? get dinner =>
-      dishes?.where((element) => element.mealType == MealType.dinner).toList();
 }

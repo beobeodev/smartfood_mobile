@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/data/repositories/diary.repository.dart';
+import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/widgets/date_picker/diary_timeline.widget.dart';
@@ -17,7 +21,9 @@ class DiaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => DiaryBloc(),
+      create: (_) => DiaryBloc(
+        diaryRepository: getIt.get<DiaryRepository>(),
+      ),
       child: const _DiaryView(),
     );
   }
@@ -37,6 +43,8 @@ class _DiaryViewState extends State<_DiaryView> {
 
   @override
   void initState() {
+    log(context.read<AuthBloc>().state.user.toString());
+
     hasNutrition = context.read<AuthBloc>().state.user?.hasNutrition;
     showFab = hasNutrition ?? false;
 

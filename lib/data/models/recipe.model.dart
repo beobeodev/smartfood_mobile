@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:smarthealthy/common/enums/meal_type.enum.dart';
 import 'package:smarthealthy/data/models/category.model.dart';
 import 'package:smarthealthy/data/models/cuisine.model.dart';
 import 'package:smarthealthy/data/models/level.model.dart';
@@ -15,13 +14,12 @@ class RecipeModel with _$RecipeModel {
   const RecipeModel._();
 
   factory RecipeModel({
-    @Default(MealType.breakfast) mealType,
     required String id,
     required String name,
     String? description,
-    required LevelModel level,
-    required CategoryModel category,
-    required CuisineModel cuisine,
+    LevelModel? level,
+    CategoryModel? category,
+    CuisineModel? cuisine,
     List<QuantificationModel>? quantification,
     List<RecipeStepModel>? recipeStep,
     List<MediaModel>? media,

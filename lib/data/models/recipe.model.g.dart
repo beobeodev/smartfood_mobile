@@ -8,14 +8,18 @@ part of 'recipe.model.dart';
 
 _$_RecipeModel _$$_RecipeModelFromJson(Map<String, dynamic> json) =>
     _$_RecipeModel(
-      mealType: json['mealType'] ?? MealType.breakfast,
       id: json['id'] as String,
       name: json['name'] as String,
       description: json['description'] as String?,
-      level: LevelModel.fromJson(json['level'] as Map<String, dynamic>),
-      category:
-          CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
-      cuisine: CuisineModel.fromJson(json['cuisine'] as Map<String, dynamic>),
+      level: json['level'] == null
+          ? null
+          : LevelModel.fromJson(json['level'] as Map<String, dynamic>),
+      category: json['category'] == null
+          ? null
+          : CategoryModel.fromJson(json['category'] as Map<String, dynamic>),
+      cuisine: json['cuisine'] == null
+          ? null
+          : CuisineModel.fromJson(json['cuisine'] as Map<String, dynamic>),
       quantification: (json['quantification'] as List<dynamic>?)
           ?.map((e) => QuantificationModel.fromJson(e as Map<String, dynamic>))
           .toList(),

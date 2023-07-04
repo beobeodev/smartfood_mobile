@@ -16,9 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddMealDTO {
-  MealType get type => throw _privateConstructorUsedError;
-  List<RecipeModel> get dishes => throw _privateConstructorUsedError;
+  MealType get typeOfMeal => throw _privateConstructorUsedError;
+  List<String> get recipeIds => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AddMealDTOCopyWith<AddMealDTO> get copyWith =>
       throw _privateConstructorUsedError;
@@ -30,7 +31,7 @@ abstract class $AddMealDTOCopyWith<$Res> {
           AddMealDTO value, $Res Function(AddMealDTO) then) =
       _$AddMealDTOCopyWithImpl<$Res, AddMealDTO>;
   @useResult
-  $Res call({MealType type, List<RecipeModel> dishes});
+  $Res call({MealType typeOfMeal, List<String> recipeIds});
 }
 
 /// @nodoc
@@ -46,18 +47,18 @@ class _$AddMealDTOCopyWithImpl<$Res, $Val extends AddMealDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? dishes = null,
+    Object? typeOfMeal = null,
+    Object? recipeIds = null,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      typeOfMeal: null == typeOfMeal
+          ? _value.typeOfMeal
+          : typeOfMeal // ignore: cast_nullable_to_non_nullable
               as MealType,
-      dishes: null == dishes
-          ? _value.dishes
-          : dishes // ignore: cast_nullable_to_non_nullable
-              as List<RecipeModel>,
+      recipeIds: null == recipeIds
+          ? _value.recipeIds
+          : recipeIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -70,7 +71,7 @@ abstract class _$$_AddMealDTOCopyWith<$Res>
       __$$_AddMealDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MealType type, List<RecipeModel> dishes});
+  $Res call({MealType typeOfMeal, List<String> recipeIds});
 }
 
 /// @nodoc
@@ -84,41 +85,42 @@ class __$$_AddMealDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? dishes = null,
+    Object? typeOfMeal = null,
+    Object? recipeIds = null,
   }) {
     return _then(_$_AddMealDTO(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
+      typeOfMeal: null == typeOfMeal
+          ? _value.typeOfMeal
+          : typeOfMeal // ignore: cast_nullable_to_non_nullable
               as MealType,
-      dishes: null == dishes
-          ? _value._dishes
-          : dishes // ignore: cast_nullable_to_non_nullable
-              as List<RecipeModel>,
+      recipeIds: null == recipeIds
+          ? _value._recipeIds
+          : recipeIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
 
 /// @nodoc
-
+@JsonSerializable(createFactory: false)
 class _$_AddMealDTO implements _AddMealDTO {
-  _$_AddMealDTO({required this.type, required final List<RecipeModel> dishes})
-      : _dishes = dishes;
+  _$_AddMealDTO(
+      {required this.typeOfMeal, required final List<String> recipeIds})
+      : _recipeIds = recipeIds;
 
   @override
-  final MealType type;
-  final List<RecipeModel> _dishes;
+  final MealType typeOfMeal;
+  final List<String> _recipeIds;
   @override
-  List<RecipeModel> get dishes {
-    if (_dishes is EqualUnmodifiableListView) return _dishes;
+  List<String> get recipeIds {
+    if (_recipeIds is EqualUnmodifiableListView) return _recipeIds;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_dishes);
+    return EqualUnmodifiableListView(_recipeIds);
   }
 
   @override
   String toString() {
-    return 'AddMealDTO(type: $type, dishes: $dishes)';
+    return 'AddMealDTO(typeOfMeal: $typeOfMeal, recipeIds: $recipeIds)';
   }
 
   @override
@@ -126,30 +128,40 @@ class _$_AddMealDTO implements _AddMealDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddMealDTO &&
-            (identical(other.type, type) || other.type == type) &&
-            const DeepCollectionEquality().equals(other._dishes, _dishes));
+            (identical(other.typeOfMeal, typeOfMeal) ||
+                other.typeOfMeal == typeOfMeal) &&
+            const DeepCollectionEquality()
+                .equals(other._recipeIds, _recipeIds));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(_dishes));
+      runtimeType, typeOfMeal, const DeepCollectionEquality().hash(_recipeIds));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_AddMealDTOCopyWith<_$_AddMealDTO> get copyWith =>
       __$$_AddMealDTOCopyWithImpl<_$_AddMealDTO>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AddMealDTOToJson(
+      this,
+    );
+  }
 }
 
 abstract class _AddMealDTO implements AddMealDTO {
   factory _AddMealDTO(
-      {required final MealType type,
-      required final List<RecipeModel> dishes}) = _$_AddMealDTO;
+      {required final MealType typeOfMeal,
+      required final List<String> recipeIds}) = _$_AddMealDTO;
 
   @override
-  MealType get type;
+  MealType get typeOfMeal;
   @override
-  List<RecipeModel> get dishes;
+  List<String> get recipeIds;
   @override
   @JsonKey(ignore: true)
   _$$_AddMealDTOCopyWith<_$_AddMealDTO> get copyWith =>

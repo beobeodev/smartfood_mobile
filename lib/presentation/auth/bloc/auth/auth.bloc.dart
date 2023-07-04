@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
@@ -31,16 +30,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final user = await _userRepository.getUserProfile();
         emit(AuthState.authenticated(user));
       }
-    } on DioError {
+    } catch (err) {
       _userRepository.clearAuthBox();
 
       emit(const AuthState.reLogin());
-    } catch (err) {
-      emit(const AuthState.unauthenticated());
     }
   }
 
-  void _onSetUser(AuthUserSet event, Emitter<AuthState> emit) {}
+  void _onSetUser(AuthUserSet event, Emitter<AuthState> emit) {
+    emit(AuthState.authenticated(event.user));
+  }
 
   void _onLogout(AuthLogout event, Emitter<AuthState> emit) async {
     await _userRepository.clearAuthBox();

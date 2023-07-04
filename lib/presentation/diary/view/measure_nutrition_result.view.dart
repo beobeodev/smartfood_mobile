@@ -8,6 +8,8 @@ import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/app_rounded_button.widget.dart';
 import 'package:smarthealthy/common/widgets/app_safe_area.widget.dart';
+import 'package:smarthealthy/data/repositories/user.repository.dart';
+import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/bloc/calorie_measure/calorie_measure.bloc.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
@@ -20,7 +22,9 @@ class MeasureNutritionResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => CalorieMeasureBloc(),
+      create: (_) => CalorieMeasureBloc(
+        userRepository: getIt.get<UserRepository>(),
+      ),
       child: _MeasureNutritionResultView(
         nutrition: nutrition,
       ),

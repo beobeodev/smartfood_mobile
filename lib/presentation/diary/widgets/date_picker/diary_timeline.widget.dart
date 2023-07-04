@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/date_picker_timeline/date_picker_timeline.widget.dart';
+import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/widgets/date_picker/date_selection.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/date_picker/sf_date_picker_dialog.widget.dart';
@@ -25,6 +26,7 @@ class _DiaryTimelineState extends State<DiaryTimeline> {
       builder: (context) {
         return SfDatePickerDialog(
           initialSelectedDate: _selectedDateNotifier.value,
+          minDate: context.read<AuthBloc>().state.user?.startNutritionDate,
         );
       },
     );
@@ -68,6 +70,8 @@ class _DiaryTimelineState extends State<DiaryTimeline> {
             builder: (context, value, child) {
               return DatePickerTimeline(
                 startDate: value,
+                minDate:
+                    context.read<AuthBloc>().state.user!.startNutritionDate!,
                 controller: _datePickerController,
                 onDateChange: _onDateChange,
               );

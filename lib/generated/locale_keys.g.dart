@@ -16,7 +16,7 @@ abstract class  LocaleKeys {
   static const texts_register_success = 'texts.register_success';
   static const texts_ingredient_list = 'texts.ingredient_list';
   static const texts_ingredient_detection = 'texts.ingredient_detection';
-  static const texts_no_data = 'texts.no_data';
+  static const texts_no_data_yet = 'texts.no_data_yet';
   static const texts = 'texts';
   static const button_cancel = 'button.cancel';
   static const button_confirm = 'button.confirm';
@@ -94,9 +94,12 @@ abstract class  LocaleKeys {
   static const diary_mode = 'diary_mode';
   static const diary_not_found = 'diary.not_found';
   static const diary_need_login = 'diary.need_login';
+  static const diary_update_nutrition = 'diary.update_nutrition';
+  static const diary_nutri_info = 'diary.nutri_info';
   static const diary = 'diary';
   static const profile_settings = 'profile.settings';
   static const profile_personal_data = 'profile.personal_data';
+  static const profile_logout_confirm = 'profile.logout_confirm';
   static const profile = 'profile';
   static const home_new_recipes = 'home.new_recipes';
   static const home = 'home';

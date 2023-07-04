@@ -23,26 +23,33 @@ class ProfileTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 36.w,
-          height: 36.w,
-          decoration: BoxDecoration(
-            color: const Color(0xFFF7F8FD),
-            borderRadius: BorderRadius.circular(5),
+    return GestureDetector(
+      onTap: () {
+        if (option.route != null) {
+          Navigator.of(context).pushNamed(option.route!);
+        }
+      },
+      child: Row(
+        children: [
+          Container(
+            width: 36.w,
+            height: 36.w,
+            decoration: BoxDecoration(
+              color: const Color(0xFFF7F8FD),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: const EdgeInsets.all(7),
+            child: _getIcon(),
           ),
-          padding: const EdgeInsets.all(7),
-          child: _getIcon(),
-        ),
-        AppSize.w10,
-        Text(
-          option.title,
-          style: TextStyles.s14BoldText,
-        ),
-        const Spacer(),
-        const Icon(Icons.chevron_right_rounded)
-      ],
+          AppSize.w10,
+          Text(
+            option.title,
+            style: TextStyles.s14BoldText,
+          ),
+          const Spacer(),
+          const Icon(Icons.chevron_right_rounded)
+        ],
+      ),
     );
   }
 }

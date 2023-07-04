@@ -7,8 +7,9 @@ import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class SfDatePickerDialog extends StatelessWidget {
   final DateTime? initialSelectedDate;
+  final DateTime? minDate;
 
-  const SfDatePickerDialog({super.key, this.initialSelectedDate});
+  const SfDatePickerDialog({super.key, this.initialSelectedDate, this.minDate});
 
   void _onSelectionChanged(
     DateRangePickerSelectionChangedArgs args,
@@ -35,6 +36,7 @@ class SfDatePickerDialog extends StatelessWidget {
           onSelectionChanged: (args) => _onSelectionChanged(args, context),
           initialDisplayDate: initialSelectedDate,
           initialSelectedDate: initialSelectedDate,
+          minDate: minDate,
           headerStyle: DateRangePickerHeaderStyle(
             textAlign: TextAlign.center,
             textStyle: TextStyles.s17BoldText,

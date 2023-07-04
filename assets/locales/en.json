@@ -15,7 +15,7 @@
     "register_success": "Register successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
-    "no_data": "No data"
+    "no_data_yet": "No data yet"
   },
   "button": {
     "cancel": "Cancel",
@@ -103,11 +103,14 @@
   },
   "diary": {
     "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!",
-    "need_login": "You need to sign in to use this feature"
+    "need_login": "You need to sign in to use this feature",
+    "update_nutrition": "Update nutrition information",
+    "nutri_info": "Nutrition information"
   },
   "profile": {
     "settings": "Settings",
-    "personal_data": "Personal data"
+    "personal_data": "Personal data",
+    "logout_confirm": "Are you sure you want to\nlog out?"
   },
   "home": {
     "new_recipes": "New recipes for you"

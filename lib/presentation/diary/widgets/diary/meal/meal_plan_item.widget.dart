@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
-import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/dish_card.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/meal/meal_list.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/meal/meal_loading_list.widget.dart';
 
 class MealPlanItem extends StatelessWidget {
   final MealType mealType;
@@ -24,7 +25,7 @@ class MealPlanItem extends StatelessWidget {
     };
   }
 
-  List<RecipeModel>? _getDishes(DiaryState state) {
+  List<MealModel>? _getDishes(DiaryState state) {
     return switch (mealType) {
       MealType.breakfast => state.currentDiary?.breakfast,
       MealType.lunch => state.currentDiary?.lunch,
@@ -45,31 +46,25 @@ class MealPlanItem extends StatelessWidget {
         // const DishList()
         BlocBuilder<DiaryBloc, DiaryState>(
           builder: (context, state) {
-            final dishes = _getDishes(state);
+            switch (state.status) {
+              case QueryStatus.success:
+                final dishes = _getDishes(state);
 
-            if (dishes == null || dishes.isEmpty) {
-              return Align(
-                child: Text(
-                  LocaleKeys.texts_no_data.tr(),
-                  style: TextStyles.s14MediumText,
-                ),
-              );
+                if (dishes == null || dishes.isEmpty) {
+                  return Align(
+                    child: Text(
+                      LocaleKeys.texts_no_data_yet.tr(),
+                      style: TextStyles.s14MediumText,
+                    ),
+                  );
+                }
+
+                return MealList(dishes: dishes);
+              case QueryStatus.loading:
+                return const MealLoadingList();
+              case QueryStatus.error:
+                return const SizedBox.shrink();
             }
-
-            return ListView.separated(
-              itemCount: dishes.length,
-              shrinkWrap: true,
-              padding: const EdgeInsets.only(top: 10),
-              physics: const NeverScrollableScrollPhysics(),
-              separatorBuilder: (_, __) => AppSize.h10,
-              itemBuilder: (context, index) {
-                final recipe = dishes[index];
-
-                return DishCard(
-                  recipe: recipe,
-                );
-              },
-            );
           },
         )
       ],

@@ -7,16 +7,6 @@ part of 'meal.model.dart';
 // **************************************************************************
 
 _$_MealModel _$$_MealModelFromJson(Map<String, dynamic> json) => _$_MealModel(
-      type: $enumDecode(_$MealTypeEnumMap, json['type']),
-      name: json['name'] as String,
-      calorie: json['calorie'] as int,
-      carbs: json['carbs'] as int,
-      protein: json['protein'] as int,
-      fat: json['fat'] as int,
+      id: json['id'] as String,
+      recipe: RecipeModel.fromJson(json['recipe'] as Map<String, dynamic>),
     );
-
-const _$MealTypeEnumMap = {
-  MealType.breakfast: 'breakfast',
-  MealType.lunch: 'lunch',
-  MealType.dinner: 'dinner',
-};

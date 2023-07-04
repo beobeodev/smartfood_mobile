@@ -1,5 +1,7 @@
+import 'package:smarthealthy/common/enums/gender_type.enum.dart';
+
 class BodyInfoWrapper {
-  final bool gender;
+  final GenderType gender;
   final int weight;
   final double height;
   final int age;

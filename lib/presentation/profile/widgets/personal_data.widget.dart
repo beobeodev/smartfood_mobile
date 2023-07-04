@@ -9,6 +9,7 @@ import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/profile/ui_models/profile_option.model.dart';
 import 'package:smarthealthy/presentation/profile/widgets/profile_divider.widget.dart';
 import 'package:smarthealthy/presentation/profile/widgets/profile_list_view.widget.dart';
+import 'package:smarthealthy/router/app_router.dart';
 
 class PersonalData extends StatefulWidget {
   const PersonalData({super.key});
@@ -22,6 +23,13 @@ class _PersonalDataState extends State<PersonalData> {
     ProfileOptionUIModel(
       title: LocaleKeys.profile_personal_data.tr(),
       icon: Icons.person,
+    ),
+    ProfileOptionUIModel(
+      title: LocaleKeys.diary_nutri_info.tr(),
+      icon: Assets.icons.calo.svg(
+        colorFilter: colorSvg(ColorStyles.zodiacBlue),
+      ),
+      route: AppRouter.calorieMeasure,
     ),
     ProfileOptionUIModel(
       title: 'Premium',

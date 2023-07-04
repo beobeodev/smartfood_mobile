@@ -6,7 +6,7 @@ import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/app_carousel_slider.widget.dart';
-import 'package:smarthealthy/common/widgets/common_shimmer_item.widget.dart';
+import 'package:smarthealthy/common/widgets/common_shimmer.widget.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/home/home.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/recipe_card.widget.dart';
@@ -58,7 +58,7 @@ class RecipeTodayLoading extends StatelessWidget {
       children: [
         const Padding(
           padding: EdgeInsets.only(left: AppSize.horizontalSpacing),
-          child: CommonShimmerItem(
+          child: CommonShimmer(
             width: 200,
             height: 20,
           ),
@@ -68,7 +68,7 @@ class RecipeTodayLoading extends StatelessWidget {
           showIndicator: false,
           items: List.generate(
             10,
-            (index) => const CommonShimmerItem(
+            (index) => const CommonShimmer(
               borderRadius: AppSize.cardRadius,
             ),
           ),

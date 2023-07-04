@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/widgets/common_shimmer_item.widget.dart';
+import 'package:smarthealthy/common/widgets/common_shimmer.widget.dart';
 
 class RecipeListLoading extends StatelessWidget {
   const RecipeListLoading({super.key});
@@ -14,7 +14,7 @@ class RecipeListLoading extends StatelessWidget {
       shrinkWrap: true,
       separatorBuilder: (_, __) => AppSize.h20,
       itemBuilder: (context, index) {
-        return CommonShimmerItem(
+        return CommonShimmer(
           height: AppSize.recipeCardHeight.h,
         );
       },

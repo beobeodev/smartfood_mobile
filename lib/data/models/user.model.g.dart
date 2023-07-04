@@ -15,5 +15,28 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       height: (json['height'] as num?)?.toDouble(),
       weight: (json['weight'] as num?)?.toDouble(),
       age: json['age'] as int?,
-      gender: json['gender'] as bool?,
+      gender: $enumDecodeNullable(_$GenderTypeEnumMap, json['gender']),
+      startNutritionDate: _$JsonConverterFromJson<String, DateTime>(
+          json['startNutritionDate'], const JsonTimeConverter().fromJson),
+      practiceIndex:
+          $enumDecodeNullable(_$PracticeIndexEnumMap, json['practiceIndex']),
     );
+
+const _$GenderTypeEnumMap = {
+  GenderType.male: 'male',
+  GenderType.female: 'female',
+};
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+const _$PracticeIndexEnumMap = {
+  PracticeIndex.rare: 'rare',
+  PracticeIndex.light: 'light',
+  PracticeIndex.medium: 'medium',
+  PracticeIndex.heavy: 'heavy',
+  PracticeIndex.veryHeavy: 'veryHeavy',
+};

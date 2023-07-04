@@ -7,6 +7,8 @@ class DatePickerTimeline extends StatefulWidget {
   /// If not provided calendar will start from the initialSelectedDate
   final DateTime startDate;
 
+  final DateTime minDate;
+
   /// Width of the selector
   final double width;
 
@@ -22,6 +24,7 @@ class DatePickerTimeline extends StatefulWidget {
   const DatePickerTimeline({
     super.key,
     required this.startDate,
+    required this.minDate,
     this.width = 60,
     this.height = 70,
     this.controller,
@@ -67,10 +70,15 @@ class _DatePickerTimelineState extends State<DatePickerTimeline> {
         controller: _controller,
         itemBuilder: (context, index) {
           final bool isSelected = _currentDate.day == index + 1;
+          final date = widget.startDate.copyWith(day: index + 1);
+
+          if (date.isBefore(widget.minDate)) {
+            return const SizedBox.shrink();
+          }
 
           // Return the Date Widget
           return DateWidget(
-            date: widget.startDate.copyWith(day: index + 1),
+            date: date,
             width: widget.width,
             onDateSelected: (selectedDate) {
               widget.onDateChange?.call(selectedDate);

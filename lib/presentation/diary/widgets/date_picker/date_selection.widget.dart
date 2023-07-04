@@ -41,7 +41,7 @@ class DateSelection extends StatelessWidget {
               valueListenable: selectedDateNotifier,
               builder: (context, value, child) {
                 return Text(
-                  value.formatMonthYear(context),
+                  value.formatMonthYear(),
                   style: TextStyles.s17MediumText.copyWith(
                     color: ColorStyles.primary,
                   ),

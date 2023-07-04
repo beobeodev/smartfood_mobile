@@ -25,22 +25,25 @@ class DishCard extends StatelessWidget {
       valueKey: Key(recipe.id),
       hasDismiss: onDismissed != null,
       onDismissed: () => onDismissed?.call(recipe),
-      radius: 15,
+      radius: AppSize.cardRadius,
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(AppSize.cardRadius),
           border: Border.all(color: ColorStyles.gray100),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: EdgeInsets.symmetric(
+          horizontal: 10.w,
+          vertical: AppSize.dishCardVerticalPadding,
+        ),
         child: Row(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(AppSize.cardRadius),
               child: Image.network(
                 recipe.avatar,
-                width: 60.w,
-                height: 60.w,
+                width: AppSize.dishCardAvatarSize,
+                height: AppSize.dishCardAvatarSize,
                 fit: BoxFit.cover,
               ),
             ),

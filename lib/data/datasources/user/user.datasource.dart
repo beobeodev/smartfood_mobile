@@ -4,6 +4,7 @@ import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/register_request.dto.dart';
 import 'package:injectable/injectable.dart';
+import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/data/models/user.model.dart';
 
 @lazySingleton
@@ -31,6 +32,10 @@ class UserDataSource {
 
   Future<UserModel> getUserProfile() {
     return _remoteDataSource.getUserProfile();
+  }
+
+  Future<UserModel> updateNutrition(UpdateUserNutritionDTO userNutrition) {
+    return _remoteDataSource.updateNutrition(userNutrition);
   }
 
   String? getAccessToken() {

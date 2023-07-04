@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/calorie_radial_gauge.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/left_consumed_total_calorie.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/radial_gauge/calorie_radial_gauge.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/calorie_statistic/left_consumed_total_calorie.widget.dart';
 
 class CalorieInDay extends StatelessWidget {
   const CalorieInDay({super.key});

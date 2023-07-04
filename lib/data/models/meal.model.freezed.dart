@@ -20,12 +20,8 @@ MealModel _$MealModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MealModel {
-  MealType get type => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  int get calorie => throw _privateConstructorUsedError;
-  int get carbs => throw _privateConstructorUsedError;
-  int get protein => throw _privateConstructorUsedError;
-  int get fat => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  RecipeModel get recipe => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MealModelCopyWith<MealModel> get copyWith =>
@@ -37,13 +33,9 @@ abstract class $MealModelCopyWith<$Res> {
   factory $MealModelCopyWith(MealModel value, $Res Function(MealModel) then) =
       _$MealModelCopyWithImpl<$Res, MealModel>;
   @useResult
-  $Res call(
-      {MealType type,
-      String name,
-      int calorie,
-      int carbs,
-      int protein,
-      int fat});
+  $Res call({String id, RecipeModel recipe});
+
+  $RecipeModelCopyWith<$Res> get recipe;
 }
 
 /// @nodoc
@@ -59,39 +51,27 @@ class _$MealModelCopyWithImpl<$Res, $Val extends MealModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? name = null,
-    Object? calorie = null,
-    Object? carbs = null,
-    Object? protein = null,
-    Object? fat = null,
+    Object? id = null,
+    Object? recipe = null,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MealType,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      calorie: null == calorie
-          ? _value.calorie
-          : calorie // ignore: cast_nullable_to_non_nullable
-              as int,
-      carbs: null == carbs
-          ? _value.carbs
-          : carbs // ignore: cast_nullable_to_non_nullable
-              as int,
-      protein: null == protein
-          ? _value.protein
-          : protein // ignore: cast_nullable_to_non_nullable
-              as int,
-      fat: null == fat
-          ? _value.fat
-          : fat // ignore: cast_nullable_to_non_nullable
-              as int,
+      recipe: null == recipe
+          ? _value.recipe
+          : recipe // ignore: cast_nullable_to_non_nullable
+              as RecipeModel,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RecipeModelCopyWith<$Res> get recipe {
+    return $RecipeModelCopyWith<$Res>(_value.recipe, (value) {
+      return _then(_value.copyWith(recipe: value) as $Val);
+    });
   }
 }
 
@@ -102,13 +82,10 @@ abstract class _$$_MealModelCopyWith<$Res> implements $MealModelCopyWith<$Res> {
       __$$_MealModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {MealType type,
-      String name,
-      int calorie,
-      int carbs,
-      int protein,
-      int fat});
+  $Res call({String id, RecipeModel recipe});
+
+  @override
+  $RecipeModelCopyWith<$Res> get recipe;
 }
 
 /// @nodoc
@@ -122,38 +99,18 @@ class __$$_MealModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? name = null,
-    Object? calorie = null,
-    Object? carbs = null,
-    Object? protein = null,
-    Object? fat = null,
+    Object? id = null,
+    Object? recipe = null,
   }) {
     return _then(_$_MealModel(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MealType,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
-      calorie: null == calorie
-          ? _value.calorie
-          : calorie // ignore: cast_nullable_to_non_nullable
-              as int,
-      carbs: null == carbs
-          ? _value.carbs
-          : carbs // ignore: cast_nullable_to_non_nullable
-              as int,
-      protein: null == protein
-          ? _value.protein
-          : protein // ignore: cast_nullable_to_non_nullable
-              as int,
-      fat: null == fat
-          ? _value.fat
-          : fat // ignore: cast_nullable_to_non_nullable
-              as int,
+      recipe: null == recipe
+          ? _value.recipe
+          : recipe // ignore: cast_nullable_to_non_nullable
+              as RecipeModel,
     ));
   }
 }
@@ -161,33 +118,19 @@ class __$$_MealModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable(createToJson: false)
 class _$_MealModel implements _MealModel {
-  _$_MealModel(
-      {required this.type,
-      required this.name,
-      required this.calorie,
-      required this.carbs,
-      required this.protein,
-      required this.fat});
+  _$_MealModel({required this.id, required this.recipe});
 
   factory _$_MealModel.fromJson(Map<String, dynamic> json) =>
       _$$_MealModelFromJson(json);
 
   @override
-  final MealType type;
+  final String id;
   @override
-  final String name;
-  @override
-  final int calorie;
-  @override
-  final int carbs;
-  @override
-  final int protein;
-  @override
-  final int fat;
+  final RecipeModel recipe;
 
   @override
   String toString() {
-    return 'MealModel(type: $type, name: $name, calorie: $calorie, carbs: $carbs, protein: $protein, fat: $fat)';
+    return 'MealModel(id: $id, recipe: $recipe)';
   }
 
   @override
@@ -195,18 +138,13 @@ class _$_MealModel implements _MealModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MealModel &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.calorie, calorie) || other.calorie == calorie) &&
-            (identical(other.carbs, carbs) || other.carbs == carbs) &&
-            (identical(other.protein, protein) || other.protein == protein) &&
-            (identical(other.fat, fat) || other.fat == fat));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.recipe, recipe) || other.recipe == recipe));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, name, calorie, carbs, protein, fat);
+  int get hashCode => Object.hash(runtimeType, id, recipe);
 
   @JsonKey(ignore: true)
   @override
@@ -217,28 +155,16 @@ class _$_MealModel implements _MealModel {
 
 abstract class _MealModel implements MealModel {
   factory _MealModel(
-      {required final MealType type,
-      required final String name,
-      required final int calorie,
-      required final int carbs,
-      required final int protein,
-      required final int fat}) = _$_MealModel;
+      {required final String id,
+      required final RecipeModel recipe}) = _$_MealModel;
 
   factory _MealModel.fromJson(Map<String, dynamic> json) =
       _$_MealModel.fromJson;
 
   @override
-  MealType get type;
+  String get id;
   @override
-  String get name;
-  @override
-  int get calorie;
-  @override
-  int get carbs;
-  @override
-  int get protein;
-  @override
-  int get fat;
+  RecipeModel get recipe;
   @override
   @JsonKey(ignore: true)
   _$$_MealModelCopyWith<_$_MealModel> get copyWith =>

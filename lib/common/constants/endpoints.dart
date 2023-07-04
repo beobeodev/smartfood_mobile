@@ -10,6 +10,7 @@ abstract class Endpoints {
 
   // User
   static final String profile = '$apiUrl/users/profile';
+  static final String updateNutrition = '$apiUrl/users/stat';
 
   // Ingredient
   static final String ingredient = '$apiUrl/ingredients';
@@ -27,4 +28,7 @@ abstract class Endpoints {
 
   // Category
   static final String category = '$apiUrl/categories';
+
+  // Diary
+  static final String diary = '$apiUrl/diaries';
 }
