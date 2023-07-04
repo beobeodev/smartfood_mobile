@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddMealDTO {
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  DateTime get date => throw _privateConstructorUsedError;
   MealType get typeOfMeal => throw _privateConstructorUsedError;
   List<String> get recipeIds => throw _privateConstructorUsedError;
 
@@ -31,7 +33,10 @@ abstract class $AddMealDTOCopyWith<$Res> {
           AddMealDTO value, $Res Function(AddMealDTO) then) =
       _$AddMealDTOCopyWithImpl<$Res, AddMealDTO>;
   @useResult
-  $Res call({MealType typeOfMeal, List<String> recipeIds});
+  $Res call(
+      {@JsonKey(includeFromJson: false, includeToJson: false) DateTime date,
+      MealType typeOfMeal,
+      List<String> recipeIds});
 }
 
 /// @nodoc
@@ -47,10 +52,15 @@ class _$AddMealDTOCopyWithImpl<$Res, $Val extends AddMealDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? date = null,
     Object? typeOfMeal = null,
     Object? recipeIds = null,
   }) {
     return _then(_value.copyWith(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       typeOfMeal: null == typeOfMeal
           ? _value.typeOfMeal
           : typeOfMeal // ignore: cast_nullable_to_non_nullable
@@ -71,7 +81,10 @@ abstract class _$$_AddMealDTOCopyWith<$Res>
       __$$_AddMealDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MealType typeOfMeal, List<String> recipeIds});
+  $Res call(
+      {@JsonKey(includeFromJson: false, includeToJson: false) DateTime date,
+      MealType typeOfMeal,
+      List<String> recipeIds});
 }
 
 /// @nodoc
@@ -85,10 +98,15 @@ class __$$_AddMealDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? date = null,
     Object? typeOfMeal = null,
     Object? recipeIds = null,
   }) {
     return _then(_$_AddMealDTO(
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       typeOfMeal: null == typeOfMeal
           ? _value.typeOfMeal
           : typeOfMeal // ignore: cast_nullable_to_non_nullable
@@ -105,9 +123,15 @@ class __$$_AddMealDTOCopyWithImpl<$Res>
 @JsonSerializable(createFactory: false)
 class _$_AddMealDTO implements _AddMealDTO {
   _$_AddMealDTO(
-      {required this.typeOfMeal, required final List<String> recipeIds})
+      {@JsonKey(includeFromJson: false, includeToJson: false)
+          required this.date,
+      required this.typeOfMeal,
+      required final List<String> recipeIds})
       : _recipeIds = recipeIds;
 
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final DateTime date;
   @override
   final MealType typeOfMeal;
   final List<String> _recipeIds;
@@ -120,7 +144,7 @@ class _$_AddMealDTO implements _AddMealDTO {
 
   @override
   String toString() {
-    return 'AddMealDTO(typeOfMeal: $typeOfMeal, recipeIds: $recipeIds)';
+    return 'AddMealDTO(date: $date, typeOfMeal: $typeOfMeal, recipeIds: $recipeIds)';
   }
 
   @override
@@ -128,6 +152,7 @@ class _$_AddMealDTO implements _AddMealDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddMealDTO &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.typeOfMeal, typeOfMeal) ||
                 other.typeOfMeal == typeOfMeal) &&
             const DeepCollectionEquality()
@@ -136,8 +161,8 @@ class _$_AddMealDTO implements _AddMealDTO {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, typeOfMeal, const DeepCollectionEquality().hash(_recipeIds));
+  int get hashCode => Object.hash(runtimeType, date, typeOfMeal,
+      const DeepCollectionEquality().hash(_recipeIds));
 
   @JsonKey(ignore: true)
   @override
@@ -155,9 +180,14 @@ class _$_AddMealDTO implements _AddMealDTO {
 
 abstract class _AddMealDTO implements AddMealDTO {
   factory _AddMealDTO(
-      {required final MealType typeOfMeal,
+      {@JsonKey(includeFromJson: false, includeToJson: false)
+          required final DateTime date,
+      required final MealType typeOfMeal,
       required final List<String> recipeIds}) = _$_AddMealDTO;
 
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  DateTime get date;
   @override
   MealType get typeOfMeal;
   @override

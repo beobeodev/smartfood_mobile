@@ -29,6 +29,7 @@ class ProfileTile extends StatelessWidget {
           Navigator.of(context).pushNamed(option.route!);
         }
       },
+      behavior: HitTestBehavior.opaque,
       child: Row(
         children: [
           Container(

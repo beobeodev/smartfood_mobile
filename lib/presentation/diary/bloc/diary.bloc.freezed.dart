@@ -19,38 +19,38 @@ mixin _$DiaryEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) getByDay,
-    required TResult Function(MealModel meal, MealType type) addMeal,
+    required TResult Function(List<MealModel> meals, MealType type) addMeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? getByDay,
-    TResult? Function(MealModel meal, MealType type)? addMeal,
+    TResult? Function(List<MealModel> meals, MealType type)? addMeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? getByDay,
-    TResult Function(MealModel meal, MealType type)? addMeal,
+    TResult Function(List<MealModel> meals, MealType type)? addMeals,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetByDay value) getByDay,
-    required TResult Function(_AddMeal value) addMeal,
+    required TResult Function(_AddMeals value) addMeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetByDay value)? getByDay,
-    TResult? Function(_AddMeal value)? addMeal,
+    TResult? Function(_AddMeals value)? addMeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetByDay value)? getByDay,
-    TResult Function(_AddMeal value)? addMeal,
+    TResult Function(_AddMeals value)? addMeals,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,7 +139,7 @@ class _$_GetByDay implements _GetByDay {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) getByDay,
-    required TResult Function(MealModel meal, MealType type) addMeal,
+    required TResult Function(List<MealModel> meals, MealType type) addMeals,
   }) {
     return getByDay(date);
   }
@@ -148,7 +148,7 @@ class _$_GetByDay implements _GetByDay {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? getByDay,
-    TResult? Function(MealModel meal, MealType type)? addMeal,
+    TResult? Function(List<MealModel> meals, MealType type)? addMeals,
   }) {
     return getByDay?.call(date);
   }
@@ -157,7 +157,7 @@ class _$_GetByDay implements _GetByDay {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? getByDay,
-    TResult Function(MealModel meal, MealType type)? addMeal,
+    TResult Function(List<MealModel> meals, MealType type)? addMeals,
     required TResult orElse(),
   }) {
     if (getByDay != null) {
@@ -170,7 +170,7 @@ class _$_GetByDay implements _GetByDay {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetByDay value) getByDay,
-    required TResult Function(_AddMeal value) addMeal,
+    required TResult Function(_AddMeals value) addMeals,
   }) {
     return getByDay(this);
   }
@@ -179,7 +179,7 @@ class _$_GetByDay implements _GetByDay {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetByDay value)? getByDay,
-    TResult? Function(_AddMeal value)? addMeal,
+    TResult? Function(_AddMeals value)? addMeals,
   }) {
     return getByDay?.call(this);
   }
@@ -188,7 +188,7 @@ class _$_GetByDay implements _GetByDay {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetByDay value)? getByDay,
-    TResult Function(_AddMeal value)? addMeal,
+    TResult Function(_AddMeals value)? addMeals,
     required TResult orElse(),
   }) {
     if (getByDay != null) {
@@ -208,110 +208,108 @@ abstract class _GetByDay implements DiaryEvent {
 }
 
 /// @nodoc
-abstract class _$$_AddMealCopyWith<$Res> {
-  factory _$$_AddMealCopyWith(
-          _$_AddMeal value, $Res Function(_$_AddMeal) then) =
-      __$$_AddMealCopyWithImpl<$Res>;
+abstract class _$$_AddMealsCopyWith<$Res> {
+  factory _$$_AddMealsCopyWith(
+          _$_AddMeals value, $Res Function(_$_AddMeals) then) =
+      __$$_AddMealsCopyWithImpl<$Res>;
   @useResult
-  $Res call({MealModel meal, MealType type});
-
-  $MealModelCopyWith<$Res> get meal;
+  $Res call({List<MealModel> meals, MealType type});
 }
 
 /// @nodoc
-class __$$_AddMealCopyWithImpl<$Res>
-    extends _$DiaryEventCopyWithImpl<$Res, _$_AddMeal>
-    implements _$$_AddMealCopyWith<$Res> {
-  __$$_AddMealCopyWithImpl(_$_AddMeal _value, $Res Function(_$_AddMeal) _then)
+class __$$_AddMealsCopyWithImpl<$Res>
+    extends _$DiaryEventCopyWithImpl<$Res, _$_AddMeals>
+    implements _$$_AddMealsCopyWith<$Res> {
+  __$$_AddMealsCopyWithImpl(
+      _$_AddMeals _value, $Res Function(_$_AddMeals) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? meal = null,
+    Object? meals = null,
     Object? type = null,
   }) {
-    return _then(_$_AddMeal(
-      null == meal
-          ? _value.meal
-          : meal // ignore: cast_nullable_to_non_nullable
-              as MealModel,
+    return _then(_$_AddMeals(
+      null == meals
+          ? _value._meals
+          : meals // ignore: cast_nullable_to_non_nullable
+              as List<MealModel>,
       null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as MealType,
     ));
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MealModelCopyWith<$Res> get meal {
-    return $MealModelCopyWith<$Res>(_value.meal, (value) {
-      return _then(_value.copyWith(meal: value));
-    });
-  }
 }
 
 /// @nodoc
 
-class _$_AddMeal implements _AddMeal {
-  const _$_AddMeal(this.meal, this.type);
+class _$_AddMeals implements _AddMeals {
+  const _$_AddMeals(final List<MealModel> meals, this.type) : _meals = meals;
 
+  final List<MealModel> _meals;
   @override
-  final MealModel meal;
+  List<MealModel> get meals {
+    if (_meals is EqualUnmodifiableListView) return _meals;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_meals);
+  }
+
   @override
   final MealType type;
 
   @override
   String toString() {
-    return 'DiaryEvent.addMeal(meal: $meal, type: $type)';
+    return 'DiaryEvent.addMeals(meals: $meals, type: $type)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddMeal &&
-            (identical(other.meal, meal) || other.meal == meal) &&
+            other is _$_AddMeals &&
+            const DeepCollectionEquality().equals(other._meals, _meals) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, meal, type);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_meals), type);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddMealCopyWith<_$_AddMeal> get copyWith =>
-      __$$_AddMealCopyWithImpl<_$_AddMeal>(this, _$identity);
+  _$$_AddMealsCopyWith<_$_AddMeals> get copyWith =>
+      __$$_AddMealsCopyWithImpl<_$_AddMeals>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(DateTime date) getByDay,
-    required TResult Function(MealModel meal, MealType type) addMeal,
+    required TResult Function(List<MealModel> meals, MealType type) addMeals,
   }) {
-    return addMeal(meal, type);
+    return addMeals(meals, type);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(DateTime date)? getByDay,
-    TResult? Function(MealModel meal, MealType type)? addMeal,
+    TResult? Function(List<MealModel> meals, MealType type)? addMeals,
   }) {
-    return addMeal?.call(meal, type);
+    return addMeals?.call(meals, type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(DateTime date)? getByDay,
-    TResult Function(MealModel meal, MealType type)? addMeal,
+    TResult Function(List<MealModel> meals, MealType type)? addMeals,
     required TResult orElse(),
   }) {
-    if (addMeal != null) {
-      return addMeal(meal, type);
+    if (addMeals != null) {
+      return addMeals(meals, type);
     }
     return orElse();
   }
@@ -320,42 +318,42 @@ class _$_AddMeal implements _AddMeal {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetByDay value) getByDay,
-    required TResult Function(_AddMeal value) addMeal,
+    required TResult Function(_AddMeals value) addMeals,
   }) {
-    return addMeal(this);
+    return addMeals(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetByDay value)? getByDay,
-    TResult? Function(_AddMeal value)? addMeal,
+    TResult? Function(_AddMeals value)? addMeals,
   }) {
-    return addMeal?.call(this);
+    return addMeals?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetByDay value)? getByDay,
-    TResult Function(_AddMeal value)? addMeal,
+    TResult Function(_AddMeals value)? addMeals,
     required TResult orElse(),
   }) {
-    if (addMeal != null) {
-      return addMeal(this);
+    if (addMeals != null) {
+      return addMeals(this);
     }
     return orElse();
   }
 }
 
-abstract class _AddMeal implements DiaryEvent {
-  const factory _AddMeal(final MealModel meal, final MealType type) =
-      _$_AddMeal;
+abstract class _AddMeals implements DiaryEvent {
+  const factory _AddMeals(final List<MealModel> meals, final MealType type) =
+      _$_AddMeals;
 
-  MealModel get meal;
+  List<MealModel> get meals;
   MealType get type;
   @JsonKey(ignore: true)
-  _$$_AddMealCopyWith<_$_AddMeal> get copyWith =>
+  _$$_AddMealsCopyWith<_$_AddMeals> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -447,7 +445,7 @@ class __$$_DiaryStateCopyWithImpl<$Res>
           : status // ignore: cast_nullable_to_non_nullable
               as QueryStatus,
       diaries: null == diaries
-          ? _value._diaries
+          ? _value.diaries
           : diaries // ignore: cast_nullable_to_non_nullable
               as List<DiaryModel>,
       currentDate: null == currentDate
@@ -463,23 +461,16 @@ class __$$_DiaryStateCopyWithImpl<$Res>
 class _$_DiaryState extends _DiaryState {
   const _$_DiaryState(
       {this.status = QueryStatus.loading,
-      final List<DiaryModel> diaries = const [],
+      this.diaries = const [],
       required this.currentDate})
-      : _diaries = diaries,
-        super._();
+      : super._();
 
   @override
   @JsonKey()
   final QueryStatus status;
-  final List<DiaryModel> _diaries;
   @override
   @JsonKey()
-  List<DiaryModel> get diaries {
-    if (_diaries is EqualUnmodifiableListView) return _diaries;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_diaries);
-  }
-
+  final List<DiaryModel> diaries;
   @override
   final DateTime currentDate;
 
@@ -494,14 +485,14 @@ class _$_DiaryState extends _DiaryState {
         (other.runtimeType == runtimeType &&
             other is _$_DiaryState &&
             (identical(other.status, status) || other.status == status) &&
-            const DeepCollectionEquality().equals(other._diaries, _diaries) &&
+            const DeepCollectionEquality().equals(other.diaries, diaries) &&
             (identical(other.currentDate, currentDate) ||
                 other.currentDate == currentDate));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, status,
-      const DeepCollectionEquality().hash(_diaries), currentDate);
+      const DeepCollectionEquality().hash(diaries), currentDate);
 
   @JsonKey(ignore: true)
   @override

@@ -4,7 +4,12 @@ import 'package:smarthealthy/data/models/meal.model.dart';
 part 'diary.model.freezed.dart';
 part 'diary.model.g.dart';
 
-@Freezed(toJson: false)
+@Freezed(
+  toJson: false,
+  makeCollectionsUnmodifiable: false,
+  addImplicitFinal: false,
+  equal: false,
+)
 class DiaryModel with _$DiaryModel {
   const DiaryModel._();
 

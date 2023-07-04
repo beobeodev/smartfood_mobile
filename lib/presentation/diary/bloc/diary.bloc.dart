@@ -21,7 +21,7 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
     on<DiaryEvent>((event, emit) async {
       await event.map(
         getByDay: (getByDay) => _onGetByDay(getByDay, emit),
-        addMeal: (addMeal) => _onAddMeal(addMeal, emit),
+        addMeals: (addMeals) => _onAddMeal(addMeals, emit),
       );
     });
 
@@ -49,22 +49,24 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
     }
   }
 
-  Future<void> _onAddMeal(_AddMeal event, Emitter<DiaryState> emit) async {
-    final currentDiaries = List.of(state.diaries);
+  Future<void> _onAddMeal(_AddMeals event, Emitter<DiaryState> emit) async {
+    final currentDiaries = state.diaries.map((e) => e.copyWith()).toList();
 
-    final currentDiary = currentDiaries.firstWhere(
+    final currentDiaryIndex = currentDiaries.indexWhere(
       (element) => element.date.isSameDateWith(state.currentDate),
     );
 
+    final currentDiary = currentDiaries[currentDiaryIndex];
+
     switch (event.type) {
       case MealType.breakfast:
-        currentDiary.breakfast.add(event.meal);
+        currentDiary.breakfast.addAll(event.meals);
         break;
       case MealType.lunch:
-        currentDiary.lunch.add(event.meal);
+        currentDiary.lunch.addAll(event.meals);
         break;
       case MealType.dinner:
-        currentDiary.dinner.add(event.meal);
+        currentDiary.dinner.addAll(event.meals);
         break;
     }
 

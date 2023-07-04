@@ -26,32 +26,36 @@ class SignOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Visibility(
-      visible: context.read<AuthBloc>().state.user != null,
-      child: Column(
-        children: [
-          const ProfileDivider(),
-          GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: () => _logout(context),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(
-                  UniconsLine.sign_out_alt,
-                  color: ColorStyles.red400,
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        return Visibility(
+          visible: state.user != null,
+          child: Column(
+            children: [
+              const ProfileDivider(),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => _logout(context),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(
+                      UniconsLine.sign_out_alt,
+                      color: ColorStyles.red400,
+                    ),
+                    AppSize.w10,
+                    Text(
+                      LocaleKeys.auth_logout.tr(),
+                      style: TextStyles.s14BoldText
+                          .copyWith(color: ColorStyles.red400),
+                    )
+                  ],
                 ),
-                AppSize.w10,
-                Text(
-                  LocaleKeys.auth_logout.tr(),
-                  style: TextStyles.s14BoldText
-                      .copyWith(color: ColorStyles.red400),
-                )
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

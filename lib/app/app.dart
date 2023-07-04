@@ -47,6 +47,12 @@ class _AppState extends State<App> {
   }
 
   void _navigateToRoot() {
+    if (_navigator.canPop()) {
+      return _navigator.pop();
+    }
+
+    _getFilters(context);
+
     _navigator.pushNamedAndRemoveUntil(
       AppRouter.root,
       (route) => false,
@@ -54,7 +60,6 @@ class _AppState extends State<App> {
   }
 
   void _getData(BuildContext context, bool isRecommended) {
-    _getFilters(context);
     _getRecipes(context, isRecommended);
     _navigateToRoot();
   }
@@ -117,6 +122,8 @@ class _AppState extends State<App> {
                       debugShowCheckedModeBanner: false,
                       builder: (_, child) {
                         return BlocListener<AuthBloc, AuthState>(
+                          listenWhen: (previous, current) =>
+                              previous.status != current.status,
                           listener: (_, state) {
                             switch (state.status) {
                               case AuthenticationStatus.unknown:

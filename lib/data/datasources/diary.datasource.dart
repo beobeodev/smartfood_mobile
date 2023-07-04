@@ -21,10 +21,15 @@ class DiaryDataSource {
     return DiaryModel.fromJson(response.data['data']);
   }
 
-  Future<MealModel> addMeal(AddMealDTO addMealDTO) async {
-    final response =
-        await _dioHelper.post(Endpoints.diary, data: addMealDTO.toJson());
+  Future<List<MealModel>> addMeal(AddMealDTO addMealDTO) async {
+    final response = await _dioHelper.post(
+      Endpoints.diary,
+      data: addMealDTO.toJson(),
+      queryParameters: {'date': addMealDTO.date.formatYearMonthDay()},
+    );
 
-    return MealModel.fromJson(response.data['data']);
+    return List.from(response.data['data'])
+        .map((e) => MealModel.fromJson(e))
+        .toList();
   }
 }

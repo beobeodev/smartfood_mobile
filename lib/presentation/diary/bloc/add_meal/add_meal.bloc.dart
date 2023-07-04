@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
@@ -15,8 +17,8 @@ class AddMealBloc extends Bloc<AddMealEvent, AddMealState> {
   AddMealBloc({required DiaryRepository diaryRepository})
       : _diaryRepository = diaryRepository,
         super(const AddMealState.initial()) {
-    on<AddMealEvent>((event, emit) {
-      event.map(add: (add) => _onAdd(add, emit));
+    on<AddMealEvent>((event, emit) async {
+      await event.map(add: (add) => _onAdd(add, emit));
     });
   }
 
@@ -24,10 +26,12 @@ class AddMealBloc extends Bloc<AddMealEvent, AddMealState> {
     emit(const AddMealState.loading());
 
     try {
-      final newMeal = await _diaryRepository.addMeal(event.addMealDTO);
+      final newMeals = await _diaryRepository.addMeal(event.addMealDTO);
 
-      emit(AddMealState.success(newMeal, event.addMealDTO.typeOfMeal));
+      emit(AddMealState.success(newMeals, event.addMealDTO.typeOfMeal));
     } catch (err) {
+      log(err.toString());
+
       emit(const AddMealState.failure());
     }
   }

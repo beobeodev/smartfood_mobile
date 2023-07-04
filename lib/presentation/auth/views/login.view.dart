@@ -50,16 +50,17 @@ class _LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<_LoginView> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-
   final TextEditingController _emailEditController = TextEditingController();
-
   final TextEditingController _passwordEditController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailEditController.dispose();
+    _passwordEditController.dispose();
+
+    super.dispose();
+  }
 
   void _submitLogin(BuildContext context) {
     if (_formKey.currentState!.validate()) {
@@ -73,7 +74,10 @@ class _LoginViewState extends State<_LoginView> {
   }
 
   void _showReLoginError() {
-    if (context.read<AuthBloc>().state.status == AuthenticationStatus.reLogin) {
+    final authBloc = context.read<AuthBloc>();
+
+    if (authBloc.state.status == AuthenticationStatus.reLogin) {
+      authBloc.add(AuthUnknownSet());
       ToastUtil.showError(
         context,
         text: LocaleKeys.texts_error_re_login.tr(),

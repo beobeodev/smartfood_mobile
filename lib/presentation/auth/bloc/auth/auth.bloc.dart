@@ -13,6 +13,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<AuthUserSet>(_onSetUser);
     on<AuthUserInfoCheck>(_onCheckUserInfo);
     on<AuthLogout>(_onLogout);
+    on<AuthUnknownSet>(_onSetUnknown);
   }
 
   final UserRepository _userRepository;
@@ -38,12 +39,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   void _onSetUser(AuthUserSet event, Emitter<AuthState> emit) {
-    emit(AuthState.authenticated(event.user));
+    if (state.status == AuthenticationStatus.authenticated) {
+      emit(state.copyWith(user: event.user));
+    } else {
+      emit(AuthState.authenticated(event.user));
+    }
   }
 
   void _onLogout(AuthLogout event, Emitter<AuthState> emit) async {
     await _userRepository.clearAuthBox();
 
     emit(const AuthState.unauthenticated());
+  }
+
+  void _onSetUnknown(AuthUnknownSet event, Emitter<AuthState> emit) {
+    emit(const AuthState.unknown());
   }
 }

@@ -1,5 +1,5 @@
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
-import 'package:smarthealthy/presentation/diary/ui_models/body_info_wrapper.dart';
+import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
 abstract class NutritionCalculator {
@@ -7,7 +7,7 @@ abstract class NutritionCalculator {
   static const double _caloriePerCarbs = 1 / 4;
   static const double _caloriePerFat = 1 / 9;
 
-  static NutritionWrapper calculate(BodyInfoWrapper bodyInfo) {
+  static NutritionWrapper calculate(UpdateUserNutritionDTO bodyInfo) {
     final double bmr;
 
     if (bodyInfo.gender == GenderType.male) {
@@ -22,7 +22,7 @@ abstract class NutritionCalculator {
           447.593;
     }
 
-    final int calorie = (bmr * bodyInfo.practiceIndex).round();
+    final int calorie = (bmr * bodyInfo.practiceIndex.value).round();
 
     return NutritionWrapper(
       calorie: calorie,

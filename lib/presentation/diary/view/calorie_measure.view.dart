@@ -10,6 +10,7 @@ import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/diary/bloc/calorie_measure/calorie_measure.bloc.dart';
 import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/calorie_measure_body.widget.dart';
+import 'package:smarthealthy/router/app_router.dart';
 
 class CalorieMeasurePage extends StatelessWidget {
   const CalorieMeasurePage({super.key});
@@ -37,10 +38,13 @@ class CalorieMeasurePage extends StatelessWidget {
       success: (success) {
         context.read<AuthBloc>().add(AuthUserSet(success.newUser));
 
-        // Navigator.of(context).pushNamedAndRemoveUntil(
-        //   AppRouter.measureResult,
-        //   ModalRoute.withName(AppRouter.root),
-        // );
+        DialogUtil.hideLoading(context);
+
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          AppRouter.measureResult,
+          ModalRoute.withName(AppRouter.root),
+          arguments: success.nutrition,
+        );
       },
       orElse: () => DialogUtil.hideLoading(context),
     );

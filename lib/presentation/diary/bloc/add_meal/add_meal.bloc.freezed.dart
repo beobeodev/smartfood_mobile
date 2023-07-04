@@ -235,7 +235,7 @@ mixin _$AddMealState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MealModel meal, MealType type) success,
+    required TResult Function(List<MealModel> meals, MealType type) success,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -243,7 +243,7 @@ mixin _$AddMealState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MealModel meal, MealType type)? success,
+    TResult? Function(List<MealModel> meals, MealType type)? success,
     TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -251,7 +251,7 @@ mixin _$AddMealState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MealModel meal, MealType type)? success,
+    TResult Function(List<MealModel> meals, MealType type)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -340,7 +340,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MealModel meal, MealType type) success,
+    required TResult Function(List<MealModel> meals, MealType type) success,
     required TResult Function() failure,
   }) {
     return initial();
@@ -351,7 +351,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MealModel meal, MealType type)? success,
+    TResult? Function(List<MealModel> meals, MealType type)? success,
     TResult? Function()? failure,
   }) {
     return initial?.call();
@@ -362,7 +362,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MealModel meal, MealType type)? success,
+    TResult Function(List<MealModel> meals, MealType type)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -453,7 +453,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MealModel meal, MealType type) success,
+    required TResult Function(List<MealModel> meals, MealType type) success,
     required TResult Function() failure,
   }) {
     return loading();
@@ -464,7 +464,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MealModel meal, MealType type)? success,
+    TResult? Function(List<MealModel> meals, MealType type)? success,
     TResult? Function()? failure,
   }) {
     return loading?.call();
@@ -475,7 +475,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MealModel meal, MealType type)? success,
+    TResult Function(List<MealModel> meals, MealType type)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -533,9 +533,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({MealModel meal, MealType type});
-
-  $MealModelCopyWith<$Res> get meal;
+  $Res call({List<MealModel> meals, MealType type});
 }
 
 /// @nodoc
@@ -548,43 +546,41 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? meal = null,
+    Object? meals = null,
     Object? type = null,
   }) {
     return _then(_$_Success(
-      null == meal
-          ? _value.meal
-          : meal // ignore: cast_nullable_to_non_nullable
-              as MealModel,
+      null == meals
+          ? _value._meals
+          : meals // ignore: cast_nullable_to_non_nullable
+              as List<MealModel>,
       null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as MealType,
     ));
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MealModelCopyWith<$Res> get meal {
-    return $MealModelCopyWith<$Res>(_value.meal, (value) {
-      return _then(_value.copyWith(meal: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.meal, this.type);
+  const _$_Success(final List<MealModel> meals, this.type) : _meals = meals;
 
+  final List<MealModel> _meals;
   @override
-  final MealModel meal;
+  List<MealModel> get meals {
+    if (_meals is EqualUnmodifiableListView) return _meals;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_meals);
+  }
+
   @override
   final MealType type;
 
   @override
   String toString() {
-    return 'AddMealState.success(meal: $meal, type: $type)';
+    return 'AddMealState.success(meals: $meals, type: $type)';
   }
 
   @override
@@ -592,12 +588,13 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.meal, meal) || other.meal == meal) &&
+            const DeepCollectionEquality().equals(other._meals, _meals) &&
             (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, meal, type);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_meals), type);
 
   @JsonKey(ignore: true)
   @override
@@ -610,10 +607,10 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MealModel meal, MealType type) success,
+    required TResult Function(List<MealModel> meals, MealType type) success,
     required TResult Function() failure,
   }) {
-    return success(meal, type);
+    return success(meals, type);
   }
 
   @override
@@ -621,10 +618,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MealModel meal, MealType type)? success,
+    TResult? Function(List<MealModel> meals, MealType type)? success,
     TResult? Function()? failure,
   }) {
-    return success?.call(meal, type);
+    return success?.call(meals, type);
   }
 
   @override
@@ -632,12 +629,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MealModel meal, MealType type)? success,
+    TResult Function(List<MealModel> meals, MealType type)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(meal, type);
+      return success(meals, type);
     }
     return orElse();
   }
@@ -681,10 +678,10 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements AddMealState {
-  const factory _Success(final MealModel meal, final MealType type) =
+  const factory _Success(final List<MealModel> meals, final MealType type) =
       _$_Success;
 
-  MealModel get meal;
+  List<MealModel> get meals;
   MealType get type;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
@@ -730,7 +727,7 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(MealModel meal, MealType type) success,
+    required TResult Function(List<MealModel> meals, MealType type) success,
     required TResult Function() failure,
   }) {
     return failure();
@@ -741,7 +738,7 @@ class _$_Failure implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(MealModel meal, MealType type)? success,
+    TResult? Function(List<MealModel> meals, MealType type)? success,
     TResult? Function()? failure,
   }) {
     return failure?.call();
@@ -752,7 +749,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(MealModel meal, MealType type)? success,
+    TResult Function(List<MealModel> meals, MealType type)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {

@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:smarthealthy/common/helpers/nutrition_calculator.dart';
 import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
+import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
 part 'calorie_measure.event.dart';
 part 'calorie_measure.state.dart';
@@ -36,6 +38,7 @@ class CalorieMeasureBloc
       emit(
         CalorieMeasureState.success(
           newUser,
+          NutritionCalculator.calculate(event.userNutrition),
         ),
       );
     } catch (e) {

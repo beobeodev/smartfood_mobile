@@ -1,6 +1,6 @@
 part of 'diary.bloc.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class DiaryState with _$DiaryState {
   const DiaryState._();
 

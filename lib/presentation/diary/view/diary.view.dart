@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
@@ -38,18 +36,6 @@ class _DiaryView extends StatefulWidget {
 
 class _DiaryViewState extends State<_DiaryView> {
   final ValueNotifier<bool> _animatingNotifier = ValueNotifier(false);
-  late final bool? hasNutrition;
-  late final bool showFab;
-
-  @override
-  void initState() {
-    log(context.read<AuthBloc>().state.user.toString());
-
-    hasNutrition = context.read<AuthBloc>().state.user?.hasNutrition;
-    showFab = hasNutrition ?? false;
-
-    super.initState();
-  }
 
   @override
   void dispose() {
@@ -58,10 +44,10 @@ class _DiaryViewState extends State<_DiaryView> {
     super.dispose();
   }
 
-  Widget _getBody() {
+  Widget _getBody(bool? hasNutrition) {
     if (hasNutrition == null) {
       return const NeedLoginError();
-    } else if (!hasNutrition!) {
+    } else if (!hasNutrition) {
       return const NutritionNotFound();
     } else {
       return Stack(
@@ -77,14 +63,21 @@ class _DiaryViewState extends State<_DiaryView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _getBody(),
-      floatingActionButton: showFab
-          ? DiaryFab(
-              animatingNotifier: _animatingNotifier,
-            )
-          : null,
-      backgroundColor: showFab ? ColorStyles.aliceBlue : Colors.white,
+    return BlocBuilder<AuthBloc, AuthState>(
+      builder: (context, state) {
+        final hasNutrition = state.user?.hasNutrition;
+        final showFab = hasNutrition ?? false;
+
+        return Scaffold(
+          body: _getBody(hasNutrition),
+          floatingActionButton: showFab
+              ? DiaryFab(
+                  animatingNotifier: _animatingNotifier,
+                )
+              : null,
+          backgroundColor: showFab ? ColorStyles.aliceBlue : Colors.white,
+        );
+      },
     );
   }
 }

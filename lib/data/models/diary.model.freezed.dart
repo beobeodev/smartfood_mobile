@@ -21,10 +21,15 @@ DiaryModel _$DiaryModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DiaryModel {
   DateTime get date => throw _privateConstructorUsedError;
+  set date(DateTime value) => throw _privateConstructorUsedError;
   int get totalCalories => throw _privateConstructorUsedError;
+  set totalCalories(int value) => throw _privateConstructorUsedError;
   List<MealModel> get breakfast => throw _privateConstructorUsedError;
+  set breakfast(List<MealModel> value) => throw _privateConstructorUsedError;
   List<MealModel> get lunch => throw _privateConstructorUsedError;
+  set lunch(List<MealModel> value) => throw _privateConstructorUsedError;
   List<MealModel> get dinner => throw _privateConstructorUsedError;
+  set dinner(List<MealModel> value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DiaryModelCopyWith<DiaryModel> get copyWith =>
@@ -132,15 +137,15 @@ class __$$_DiaryModelCopyWithImpl<$Res>
           : totalCalories // ignore: cast_nullable_to_non_nullable
               as int,
       breakfast: null == breakfast
-          ? _value._breakfast
+          ? _value.breakfast
           : breakfast // ignore: cast_nullable_to_non_nullable
               as List<MealModel>,
       lunch: null == lunch
-          ? _value._lunch
+          ? _value.lunch
           : lunch // ignore: cast_nullable_to_non_nullable
               as List<MealModel>,
       dinner: null == dinner
-          ? _value._dinner
+          ? _value.dinner
           : dinner // ignore: cast_nullable_to_non_nullable
               as List<MealModel>,
     ));
@@ -153,76 +158,32 @@ class _$_DiaryModel extends _DiaryModel {
   _$_DiaryModel(
       {required this.date,
       required this.totalCalories,
-      final List<MealModel> breakfast = const [],
-      final List<MealModel> lunch = const [],
-      final List<MealModel> dinner = const []})
-      : _breakfast = breakfast,
-        _lunch = lunch,
-        _dinner = dinner,
-        super._();
+      this.breakfast = const [],
+      this.lunch = const [],
+      this.dinner = const []})
+      : super._();
 
   factory _$_DiaryModel.fromJson(Map<String, dynamic> json) =>
       _$$_DiaryModelFromJson(json);
 
   @override
-  final DateTime date;
+  DateTime date;
   @override
-  final int totalCalories;
-  final List<MealModel> _breakfast;
-  @override
-  @JsonKey()
-  List<MealModel> get breakfast {
-    if (_breakfast is EqualUnmodifiableListView) return _breakfast;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_breakfast);
-  }
-
-  final List<MealModel> _lunch;
+  int totalCalories;
   @override
   @JsonKey()
-  List<MealModel> get lunch {
-    if (_lunch is EqualUnmodifiableListView) return _lunch;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_lunch);
-  }
-
-  final List<MealModel> _dinner;
+  List<MealModel> breakfast;
   @override
   @JsonKey()
-  List<MealModel> get dinner {
-    if (_dinner is EqualUnmodifiableListView) return _dinner;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_dinner);
-  }
+  List<MealModel> lunch;
+  @override
+  @JsonKey()
+  List<MealModel> dinner;
 
   @override
   String toString() {
     return 'DiaryModel(date: $date, totalCalories: $totalCalories, breakfast: $breakfast, lunch: $lunch, dinner: $dinner)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_DiaryModel &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.totalCalories, totalCalories) ||
-                other.totalCalories == totalCalories) &&
-            const DeepCollectionEquality()
-                .equals(other._breakfast, _breakfast) &&
-            const DeepCollectionEquality().equals(other._lunch, _lunch) &&
-            const DeepCollectionEquality().equals(other._dinner, _dinner));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      date,
-      totalCalories,
-      const DeepCollectionEquality().hash(_breakfast),
-      const DeepCollectionEquality().hash(_lunch),
-      const DeepCollectionEquality().hash(_dinner));
 
   @JsonKey(ignore: true)
   @override
@@ -233,11 +194,11 @@ class _$_DiaryModel extends _DiaryModel {
 
 abstract class _DiaryModel extends DiaryModel {
   factory _DiaryModel(
-      {required final DateTime date,
-      required final int totalCalories,
-      final List<MealModel> breakfast,
-      final List<MealModel> lunch,
-      final List<MealModel> dinner}) = _$_DiaryModel;
+      {required DateTime date,
+      required int totalCalories,
+      List<MealModel> breakfast,
+      List<MealModel> lunch,
+      List<MealModel> dinner}) = _$_DiaryModel;
   _DiaryModel._() : super._();
 
   factory _DiaryModel.fromJson(Map<String, dynamic> json) =
@@ -245,14 +206,19 @@ abstract class _DiaryModel extends DiaryModel {
 
   @override
   DateTime get date;
+  set date(DateTime value);
   @override
   int get totalCalories;
+  set totalCalories(int value);
   @override
   List<MealModel> get breakfast;
+  set breakfast(List<MealModel> value);
   @override
   List<MealModel> get lunch;
+  set lunch(List<MealModel> value);
   @override
   List<MealModel> get dinner;
+  set dinner(List<MealModel> value);
   @override
   @JsonKey(ignore: true)
   _$$_DiaryModelCopyWith<_$_DiaryModel> get copyWith =>

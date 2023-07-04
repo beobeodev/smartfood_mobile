@@ -244,7 +244,8 @@ mixin _$CalorieMeasureState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserModel newUser) success,
+    required TResult Function(UserModel newUser, NutritionWrapper nutrition)
+        success,
     required TResult Function() failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -252,7 +253,7 @@ mixin _$CalorieMeasureState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserModel newUser)? success,
+    TResult? Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult? Function()? failure,
   }) =>
       throw _privateConstructorUsedError;
@@ -260,7 +261,7 @@ mixin _$CalorieMeasureState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserModel newUser)? success,
+    TResult Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) =>
@@ -349,7 +350,8 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserModel newUser) success,
+    required TResult Function(UserModel newUser, NutritionWrapper nutrition)
+        success,
     required TResult Function() failure,
   }) {
     return initial();
@@ -360,7 +362,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserModel newUser)? success,
+    TResult? Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult? Function()? failure,
   }) {
     return initial?.call();
@@ -371,7 +373,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserModel newUser)? success,
+    TResult Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -462,7 +464,8 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserModel newUser) success,
+    required TResult Function(UserModel newUser, NutritionWrapper nutrition)
+        success,
     required TResult Function() failure,
   }) {
     return loading();
@@ -473,7 +476,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserModel newUser)? success,
+    TResult? Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult? Function()? failure,
   }) {
     return loading?.call();
@@ -484,7 +487,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserModel newUser)? success,
+    TResult Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
@@ -542,7 +545,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({UserModel newUser});
+  $Res call({UserModel newUser, NutritionWrapper nutrition});
 
   $UserModelCopyWith<$Res> get newUser;
 }
@@ -558,12 +561,17 @@ class __$$_SuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? newUser = null,
+    Object? nutrition = null,
   }) {
     return _then(_$_Success(
       null == newUser
           ? _value.newUser
           : newUser // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      null == nutrition
+          ? _value.nutrition
+          : nutrition // ignore: cast_nullable_to_non_nullable
+              as NutritionWrapper,
     ));
   }
 
@@ -579,14 +587,16 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success(this.newUser);
+  const _$_Success(this.newUser, this.nutrition);
 
   @override
   final UserModel newUser;
+  @override
+  final NutritionWrapper nutrition;
 
   @override
   String toString() {
-    return 'CalorieMeasureState.success(newUser: $newUser)';
+    return 'CalorieMeasureState.success(newUser: $newUser, nutrition: $nutrition)';
   }
 
   @override
@@ -594,11 +604,13 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.newUser, newUser) || other.newUser == newUser));
+            (identical(other.newUser, newUser) || other.newUser == newUser) &&
+            (identical(other.nutrition, nutrition) ||
+                other.nutrition == nutrition));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, newUser);
+  int get hashCode => Object.hash(runtimeType, newUser, nutrition);
 
   @JsonKey(ignore: true)
   @override
@@ -611,10 +623,11 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserModel newUser) success,
+    required TResult Function(UserModel newUser, NutritionWrapper nutrition)
+        success,
     required TResult Function() failure,
   }) {
-    return success(newUser);
+    return success(newUser, nutrition);
   }
 
   @override
@@ -622,10 +635,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserModel newUser)? success,
+    TResult? Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult? Function()? failure,
   }) {
-    return success?.call(newUser);
+    return success?.call(newUser, nutrition);
   }
 
   @override
@@ -633,12 +646,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserModel newUser)? success,
+    TResult Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(newUser);
+      return success(newUser, nutrition);
     }
     return orElse();
   }
@@ -682,9 +695,11 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements CalorieMeasureState {
-  const factory _Success(final UserModel newUser) = _$_Success;
+  const factory _Success(
+      final UserModel newUser, final NutritionWrapper nutrition) = _$_Success;
 
   UserModel get newUser;
+  NutritionWrapper get nutrition;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -729,7 +744,8 @@ class _$_Failure implements _Failure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(UserModel newUser) success,
+    required TResult Function(UserModel newUser, NutritionWrapper nutrition)
+        success,
     required TResult Function() failure,
   }) {
     return failure();
@@ -740,7 +756,7 @@ class _$_Failure implements _Failure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(UserModel newUser)? success,
+    TResult? Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult? Function()? failure,
   }) {
     return failure?.call();
@@ -751,7 +767,7 @@ class _$_Failure implements _Failure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(UserModel newUser)? success,
+    TResult Function(UserModel newUser, NutritionWrapper nutrition)? success,
     TResult Function()? failure,
     required TResult orElse(),
   }) {

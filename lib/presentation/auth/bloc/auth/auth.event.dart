@@ -19,3 +19,5 @@ class AuthUserSet extends AuthEvent {
 }
 
 class AuthLogout extends AuthEvent {}
+
+class AuthUnknownSet extends AuthEvent {}

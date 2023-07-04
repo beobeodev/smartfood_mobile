@@ -47,7 +47,7 @@ class AddMealPage extends StatelessWidget {
             success: (success) {
               context
                   .read<DiaryBloc>()
-                  .add(DiaryEvent.addMeal(success.meal, success.type));
+                  .add(DiaryEvent.addMeals(success.meals, success.type));
               DialogUtil.hideLoading(context);
               Navigator.of(context).pop();
             },
@@ -104,6 +104,7 @@ class _AddMealViewState extends State<_AddMealView> {
     context.read<AddMealBloc>().add(
           AddMealEvent.add(
             AddMealDTO(
+              date: context.read<DiaryBloc>().state.currentDate,
               typeOfMeal: selectedType,
               recipeIds: _dishesNotifier.value.map((e) => e.id).toList(),
             ),

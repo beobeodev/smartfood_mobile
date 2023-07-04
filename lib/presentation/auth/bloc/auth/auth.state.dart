@@ -19,7 +19,7 @@ class AuthState extends Equatable {
   final UserModel? user;
 
   @override
-  List<Object?> get props => [status];
+  List<Object?> get props => [status, user];
 
   AuthState copyWith({
     AuthenticationStatus? status,

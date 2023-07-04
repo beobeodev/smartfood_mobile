@@ -7,6 +7,8 @@ part 'add_meal.dto.g.dart';
 @Freezed(fromJson: false, toJson: true)
 class AddMealDTO with _$AddMealDTO {
   factory AddMealDTO({
+    @JsonKey(includeFromJson: false, includeToJson: false)
+        required DateTime date,
     required MealType typeOfMeal,
     required List<String> recipeIds,
   }) = _AddMealDTO;

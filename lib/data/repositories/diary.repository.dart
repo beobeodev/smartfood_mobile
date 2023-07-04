@@ -14,7 +14,7 @@ class DiaryRepository {
     return _dataSource.getDiary(time);
   }
 
-  Future<MealModel> addMeal(AddMealDTO addMealDTO) {
+  Future<List<MealModel>> addMeal(AddMealDTO addMealDTO) {
     return _dataSource.addMeal(addMealDTO);
   }
 }
