@@ -121,7 +121,10 @@ class CodegenLoader extends AssetLoader{
     "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!",
     "need_login": "You need to sign in to use this feature",
     "update_nutrition": "Update nutrition information",
-    "nutri_info": "Nutrition information"
+    "nutri_info": "Nutrition information",
+    "loaded": "loaded",
+    "need_to_load": "need to load",
+    "consume": "consume"
   },
   "profile": {
     "settings": "Settings",
@@ -239,7 +242,10 @@ static const Map<String,dynamic> vi = {
     "not_found": "Bạn chưa cập nhật thông tin dinh dưỡng.\nHãy nhấn nút bắt đầu!",
     "need_login": "Bạn cần phải đăng nhập để sử dụng tính năng này",
     "update_nutrition": "Cập nhật thông tin dinh dưỡng",
-    "nutri_info": "Thông tin dinh dưỡng"
+    "nutri_info": "Thông tin dinh dưỡng",
+    "loaded": "đã nạp",
+    "need_to_load": "cần nạp",
+    "consume": "tiêu hao"
   },
   "profile": {
     "settings": "Cài đặt",

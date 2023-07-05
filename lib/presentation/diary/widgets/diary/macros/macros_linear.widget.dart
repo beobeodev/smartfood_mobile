@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/enums/macros_type.enum.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class MacrosLinear extends StatelessWidget {
-  final MacrosType type;
-  final double value;
+  final Color color;
+  final int value;
 
-  const MacrosLinear({super.key, required this.type, this.value = 0});
-
-  Color _getColor() {
-    return switch (type) {
-      MacrosType.protein => ColorStyles.mediumAquamarine,
-      MacrosType.fat => ColorStyles.brilliantLavender,
-      MacrosType.carbs => ColorStyles.lightSkyBlue,
-    };
-  }
+  const MacrosLinear({super.key, required this.color, this.value = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +19,9 @@ class MacrosLinear extends StatelessWidget {
       ),
       barPointers: [
         LinearBarPointer(
-          value: value,
+          value: value.toDouble(),
           thickness: 10,
-          color: _getColor(),
+          color: color,
           edgeStyle: LinearEdgeStyle.bothCurve,
         )
       ],

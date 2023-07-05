@@ -10,4 +10,9 @@ class NutritionWrapper {
     required this.protein,
     required this.carbs,
   });
+
+  @override
+  String toString() {
+    return 'NutritionWrapper(calorie: $calorie, fat: $fat, protein: $protein, carbs: $carbs)';
+  }
 }

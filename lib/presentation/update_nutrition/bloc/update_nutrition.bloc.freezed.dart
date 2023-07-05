@@ -53,15 +53,15 @@ mixin _$UpdateNutritionEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CalorieMeasureEventCopyWith<UpdateNutritionEvent> get copyWith =>
+  $UpdateNutritionEventCopyWith<UpdateNutritionEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CalorieMeasureEventCopyWith<$Res> {
-  factory $CalorieMeasureEventCopyWith(UpdateNutritionEvent value,
+abstract class $UpdateNutritionEventCopyWith<$Res> {
+  factory $UpdateNutritionEventCopyWith(UpdateNutritionEvent value,
           $Res Function(UpdateNutritionEvent) then) =
-      _$CalorieMeasureEventCopyWithImpl<$Res, UpdateNutritionEvent>;
+      _$UpdateNutritionEventCopyWithImpl<$Res, UpdateNutritionEvent>;
   @useResult
   $Res call({UpdateUserNutritionDTO userNutrition});
 
@@ -69,9 +69,10 @@ abstract class $CalorieMeasureEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CalorieMeasureEventCopyWithImpl<$Res, $Val extends UpdateNutritionEvent>
-    implements $CalorieMeasureEventCopyWith<$Res> {
-  _$CalorieMeasureEventCopyWithImpl(this._value, this._then);
+class _$UpdateNutritionEventCopyWithImpl<$Res,
+        $Val extends UpdateNutritionEvent>
+    implements $UpdateNutritionEventCopyWith<$Res> {
+  _$UpdateNutritionEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -102,7 +103,7 @@ class _$CalorieMeasureEventCopyWithImpl<$Res, $Val extends UpdateNutritionEvent>
 
 /// @nodoc
 abstract class _$$_CalculateNutritionCopyWith<$Res>
-    implements $CalorieMeasureEventCopyWith<$Res> {
+    implements $UpdateNutritionEventCopyWith<$Res> {
   factory _$$_CalculateNutritionCopyWith(_$_CalculateNutrition value,
           $Res Function(_$_CalculateNutrition) then) =
       __$$_CalculateNutritionCopyWithImpl<$Res>;
@@ -116,7 +117,7 @@ abstract class _$$_CalculateNutritionCopyWith<$Res>
 
 /// @nodoc
 class __$$_CalculateNutritionCopyWithImpl<$Res>
-    extends _$CalorieMeasureEventCopyWithImpl<$Res, _$_CalculateNutrition>
+    extends _$UpdateNutritionEventCopyWithImpl<$Res, _$_CalculateNutrition>
     implements _$$_CalculateNutritionCopyWith<$Res> {
   __$$_CalculateNutritionCopyWithImpl(
       _$_CalculateNutrition _value, $Res Function(_$_CalculateNutrition) _then)
@@ -146,7 +147,7 @@ class _$_CalculateNutrition implements _CalculateNutrition {
 
   @override
   String toString() {
-    return 'CalorieMeasureEvent.calculateNutrition(userNutrition: $userNutrition)';
+    return 'UpdateNutritionEvent.calculateNutrition(userNutrition: $userNutrition)';
   }
 
   @override
@@ -294,16 +295,17 @@ mixin _$UpdateNutritionState {
 }
 
 /// @nodoc
-abstract class $CalorieMeasureStateCopyWith<$Res> {
-  factory $CalorieMeasureStateCopyWith(UpdateNutritionState value,
+abstract class $UpdateNutritionStateCopyWith<$Res> {
+  factory $UpdateNutritionStateCopyWith(UpdateNutritionState value,
           $Res Function(UpdateNutritionState) then) =
-      _$CalorieMeasureStateCopyWithImpl<$Res, UpdateNutritionState>;
+      _$UpdateNutritionStateCopyWithImpl<$Res, UpdateNutritionState>;
 }
 
 /// @nodoc
-class _$CalorieMeasureStateCopyWithImpl<$Res, $Val extends UpdateNutritionState>
-    implements $CalorieMeasureStateCopyWith<$Res> {
-  _$CalorieMeasureStateCopyWithImpl(this._value, this._then);
+class _$UpdateNutritionStateCopyWithImpl<$Res,
+        $Val extends UpdateNutritionState>
+    implements $UpdateNutritionStateCopyWith<$Res> {
+  _$UpdateNutritionStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -320,7 +322,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$CalorieMeasureStateCopyWithImpl<$Res, _$_Initial>
+    extends _$UpdateNutritionStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -333,7 +335,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'CalorieMeasureState.initial()';
+    return 'UpdateNutritionState.initial()';
   }
 
   @override
@@ -434,7 +436,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$CalorieMeasureStateCopyWithImpl<$Res, _$_Loading>
+    extends _$UpdateNutritionStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -447,7 +449,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'CalorieMeasureState.loading()';
+    return 'UpdateNutritionState.loading()';
   }
 
   @override
@@ -552,7 +554,7 @@ abstract class _$$_SuccessCopyWith<$Res> {
 
 /// @nodoc
 class __$$_SuccessCopyWithImpl<$Res>
-    extends _$CalorieMeasureStateCopyWithImpl<$Res, _$_Success>
+    extends _$UpdateNutritionStateCopyWithImpl<$Res, _$_Success>
     implements _$$_SuccessCopyWith<$Res> {
   __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
       : super(_value, _then);
@@ -596,7 +598,7 @@ class _$_Success implements _Success {
 
   @override
   String toString() {
-    return 'CalorieMeasureState.success(newUser: $newUser, nutrition: $nutrition)';
+    return 'UpdateNutritionState.success(newUser: $newUser, nutrition: $nutrition)';
   }
 
   @override
@@ -714,7 +716,7 @@ abstract class _$$_FailureCopyWith<$Res> {
 
 /// @nodoc
 class __$$_FailureCopyWithImpl<$Res>
-    extends _$CalorieMeasureStateCopyWithImpl<$Res, _$_Failure>
+    extends _$UpdateNutritionStateCopyWithImpl<$Res, _$_Failure>
     implements _$$_FailureCopyWith<$Res> {
   __$$_FailureCopyWithImpl(_$_Failure _value, $Res Function(_$_Failure) _then)
       : super(_value, _then);
@@ -727,7 +729,7 @@ class _$_Failure implements _Failure {
 
   @override
   String toString() {
-    return 'CalorieMeasureState.failure()';
+    return 'UpdateNutritionState.failure()';
   }
 
   @override

@@ -29,11 +29,17 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
   }
 
   Future<void> _onGetByDay(_GetByDay event, Emitter<DiaryState> emit) async {
-    emit(state.copyWith(currentDate: event.date, status: QueryStatus.loading));
+    emit(state.copyWith(status: QueryStatus.loading, currentDate: event.date));
 
     try {
-      if (state.currentDiary != null) {
-        return emit(state.copyWith(status: QueryStatus.success));
+      final currentDiary = state.diaries.firstWhereOrNull(
+        (element) => element.date.isSameDateWith(event.date),
+      );
+
+      if (currentDiary != null) {
+        return emit(
+          state.copyWith(status: QueryStatus.success),
+        );
       }
 
       final newDiary = await _diaryRepository.getDiary(state.currentDate);

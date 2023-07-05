@@ -1,7 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
 import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
+import 'package:smarthealthy/common/helpers/nutrition_calculator.dart';
 import 'package:smarthealthy/common/utils/json_time_converter.util.dart';
+import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
+import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
 part 'user.model.freezed.dart';
 part 'user.model.g.dart';
@@ -32,4 +35,26 @@ class UserModel with _$UserModel {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   String get fullName => '$firstName $lastName';
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  NutritionWrapper get nutrition => NutritionCalculator.calculate(
+        UpdateUserNutritionDTO(
+          age: age!,
+          gender: gender!,
+          height: height!,
+          weight: weight!,
+          practiceIndex: PracticeIndex.rare,
+        ),
+      );
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  int get totalCalories => NutritionCalculator.calculateCalorie(
+        UpdateUserNutritionDTO(
+          age: age!,
+          gender: gender!,
+          height: height!,
+          weight: weight!,
+          practiceIndex: PracticeIndex.rare,
+        ),
+      );
 }

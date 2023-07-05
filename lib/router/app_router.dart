@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/page_transition_type.enum.dart';
 import 'package:smarthealthy/common/widgets/page_transition/transition_page_route.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
+import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
 import 'package:smarthealthy/presentation/auth/views/register.view.dart';
@@ -11,7 +12,8 @@ import 'package:smarthealthy/presentation/core/views/root.view.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/view/add_meal.view.dart';
-import 'package:smarthealthy/presentation/update_nutrition/view/calorie_measure.view.dart';
+import 'package:smarthealthy/presentation/diary/view/dish_detail.view.dart';
+import 'package:smarthealthy/presentation/update_nutrition/view/update_nutrition.view.dart';
 import 'package:smarthealthy/presentation/update_nutrition/view/measure_nutrition_result.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/recipe_detail/recipe.dart';
@@ -47,6 +49,7 @@ abstract class AppRouter {
   static const String updateNutrition = '/update_nutrition';
   static const String measureResult = '/measure_result';
   static const String addMealPlan = '/add_meal_plan';
+  static const String dishDetail = '/meal_detail';
 
   static Route? onGenerateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
@@ -179,6 +182,14 @@ abstract class AppRouter {
               value: arguments as DiaryBloc,
               child: const AddMealPage(),
             );
+          },
+          type: PageTransitionType.rightToLeft,
+        );
+      case dishDetail:
+        return TransitionPageRoute(
+          settings: settings,
+          builder: (_) {
+            return DishDetailPage(recipe: arguments as RecipeModel);
           },
           type: PageTransitionType.rightToLeft,
         );

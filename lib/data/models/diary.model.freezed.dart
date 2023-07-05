@@ -22,8 +22,8 @@ DiaryModel _$DiaryModelFromJson(Map<String, dynamic> json) {
 mixin _$DiaryModel {
   DateTime get date => throw _privateConstructorUsedError;
   set date(DateTime value) => throw _privateConstructorUsedError;
-  int get totalCalories => throw _privateConstructorUsedError;
-  set totalCalories(int value) => throw _privateConstructorUsedError;
+  int? get totalCalories => throw _privateConstructorUsedError;
+  set totalCalories(int? value) => throw _privateConstructorUsedError;
   List<MealModel> get breakfast => throw _privateConstructorUsedError;
   set breakfast(List<MealModel> value) => throw _privateConstructorUsedError;
   List<MealModel> get lunch => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $DiaryModelCopyWith<$Res> {
   @useResult
   $Res call(
       {DateTime date,
-      int totalCalories,
+      int? totalCalories,
       List<MealModel> breakfast,
       List<MealModel> lunch,
       List<MealModel> dinner});
@@ -64,7 +64,7 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
   @override
   $Res call({
     Object? date = null,
-    Object? totalCalories = null,
+    Object? totalCalories = freezed,
     Object? breakfast = null,
     Object? lunch = null,
     Object? dinner = null,
@@ -74,10 +74,10 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      totalCalories: null == totalCalories
+      totalCalories: freezed == totalCalories
           ? _value.totalCalories
           : totalCalories // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       breakfast: null == breakfast
           ? _value.breakfast
           : breakfast // ignore: cast_nullable_to_non_nullable
@@ -104,7 +104,7 @@ abstract class _$$_DiaryModelCopyWith<$Res>
   @useResult
   $Res call(
       {DateTime date,
-      int totalCalories,
+      int? totalCalories,
       List<MealModel> breakfast,
       List<MealModel> lunch,
       List<MealModel> dinner});
@@ -122,7 +122,7 @@ class __$$_DiaryModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? date = null,
-    Object? totalCalories = null,
+    Object? totalCalories = freezed,
     Object? breakfast = null,
     Object? lunch = null,
     Object? dinner = null,
@@ -132,10 +132,10 @@ class __$$_DiaryModelCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      totalCalories: null == totalCalories
+      totalCalories: freezed == totalCalories
           ? _value.totalCalories
           : totalCalories // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       breakfast: null == breakfast
           ? _value.breakfast
           : breakfast // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ class __$$_DiaryModelCopyWithImpl<$Res>
 class _$_DiaryModel extends _DiaryModel {
   _$_DiaryModel(
       {required this.date,
-      required this.totalCalories,
+      this.totalCalories,
       this.breakfast = const [],
       this.lunch = const [],
       this.dinner = const []})
@@ -169,7 +169,7 @@ class _$_DiaryModel extends _DiaryModel {
   @override
   DateTime date;
   @override
-  int totalCalories;
+  int? totalCalories;
   @override
   @JsonKey()
   List<MealModel> breakfast;
@@ -195,7 +195,7 @@ class _$_DiaryModel extends _DiaryModel {
 abstract class _DiaryModel extends DiaryModel {
   factory _DiaryModel(
       {required DateTime date,
-      required int totalCalories,
+      int? totalCalories,
       List<MealModel> breakfast,
       List<MealModel> lunch,
       List<MealModel> dinner}) = _$_DiaryModel;
@@ -208,8 +208,8 @@ abstract class _DiaryModel extends DiaryModel {
   DateTime get date;
   set date(DateTime value);
   @override
-  int get totalCalories;
-  set totalCalories(int value);
+  int? get totalCalories;
+  set totalCalories(int? value);
   @override
   List<MealModel> get breakfast;
   set breakfast(List<MealModel> value);

@@ -27,9 +27,9 @@ class MealPlanItem extends StatelessWidget {
 
   List<MealModel>? _getDishes(DiaryState state) {
     return switch (mealType) {
-      MealType.breakfast => state.currentDiary?.breakfast,
-      MealType.lunch => state.currentDiary?.lunch,
-      MealType.dinner => state.currentDiary?.dinner
+      MealType.breakfast => state.currentDiary.breakfast,
+      MealType.lunch => state.currentDiary.lunch,
+      MealType.dinner => state.currentDiary.dinner
     };
   }
 

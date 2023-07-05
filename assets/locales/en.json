@@ -105,7 +105,10 @@
     "not_found": "You haven't updated your nutrition information.\nLet's hit the start button!",
     "need_login": "You need to sign in to use this feature",
     "update_nutrition": "Update nutrition information",
-    "nutri_info": "Nutrition information"
+    "nutri_info": "Nutrition information",
+    "loaded": "loaded",
+    "need_to_load": "need to load",
+    "consume": "consume"
   },
   "profile": {
     "settings": "Settings",

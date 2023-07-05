@@ -67,8 +67,9 @@ dependencies:
   flutter_screenutil: ^5.8.2
   im_stepper:
     path: ./packages/im_stepper
-  syncfusion_flutter_datepicker: ^21.2.8
-  syncfusion_flutter_gauges: ^21.2.9
+  syncfusion_flutter_datepicker: ^22.1.37
+  syncfusion_flutter_gauges: ^22.1.37
+  syncfusion_flutter_charts: ^22.1.37
 
 dev_dependencies:
   flutter_test:

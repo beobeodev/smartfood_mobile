@@ -96,6 +96,9 @@ abstract class  LocaleKeys {
   static const diary_need_login = 'diary.need_login';
   static const diary_update_nutrition = 'diary.update_nutrition';
   static const diary_nutri_info = 'diary.nutri_info';
+  static const diary_loaded = 'diary.loaded';
+  static const diary_need_to_load = 'diary.need_to_load';
+  static const diary_consume = 'diary.consume';
   static const diary = 'diary';
   static const profile_settings = 'profile.settings';
   static const profile_personal_data = 'profile.personal_data';

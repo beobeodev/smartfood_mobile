@@ -10,6 +10,6 @@ class DiaryState with _$DiaryState {
     required DateTime currentDate,
   }) = _DiaryState;
 
-  DiaryModel? get currentDiary => diaries
-      .firstWhereOrNull((element) => element.date.isSameDateWith(currentDate));
+  DiaryModel get currentDiary =>
+      diaries.firstWhere((element) => element.date.isSameDateWith(currentDate));
 }

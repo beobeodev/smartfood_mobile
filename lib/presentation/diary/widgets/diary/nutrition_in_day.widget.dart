@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/calorie_in_day.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/macros/macro_statistic.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/macros/macro_statistic_body.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/meal/meal_and_workout_plan.widget.dart';
 
 class NutritionInDay extends StatelessWidget {
@@ -34,7 +34,7 @@ class NutritionInDay extends StatelessWidget {
             children: [
               CalorieInDay(),
               AppSize.h20,
-              MacroStatistic(),
+              MacroStatisticBody(),
               SizedBox(
                 height: 30,
               ),

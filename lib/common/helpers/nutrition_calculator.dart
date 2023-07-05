@@ -7,7 +7,7 @@ abstract class NutritionCalculator {
   static const double _caloriePerCarbs = 1 / 4;
   static const double _caloriePerFat = 1 / 9;
 
-  static NutritionWrapper calculate(UpdateUserNutritionDTO bodyInfo) {
+  static int calculateCalorie(UpdateUserNutritionDTO bodyInfo) {
     final double bmr;
 
     if (bodyInfo.gender == GenderType.male) {
@@ -22,25 +22,29 @@ abstract class NutritionCalculator {
           447.593;
     }
 
-    final int calorie = (bmr * bodyInfo.practiceIndex.value).round();
+    return (bmr * bodyInfo.practiceIndex.value).round();
+  }
+
+  static NutritionWrapper calculate(UpdateUserNutritionDTO bodyInfo) {
+    final calorie = calculateCalorie(bodyInfo);
 
     return NutritionWrapper(
       calorie: calorie,
-      carbs: _calculateCarbs(calorie),
-      fat: _calculateFat(calorie),
-      protein: _calculateProtein(calorie),
+      carbs: calculateCarbs(calorie),
+      fat: calculateFat(calorie),
+      protein: calculateProtein(calorie),
     );
   }
 
-  static int _calculateCarbs(int calorie) {
+  static int calculateCarbs(int calorie) {
     return (0.35 * calorie * _caloriePerCarbs).round();
   }
 
-  static int _calculateProtein(int calorie) {
+  static int calculateProtein(int calorie) {
     return (0.3 * calorie * _caloriePerProtein).round();
   }
 
-  static int _calculateFat(int calorie) {
+  static int calculateFat(int calorie) {
     return (0.35 * calorie * _caloriePerFat).round();
   }
 }
