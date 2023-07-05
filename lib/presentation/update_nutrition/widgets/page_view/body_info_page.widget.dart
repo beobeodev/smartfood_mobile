@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/height_slider.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/gender_selection.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/weight_age_selection.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/gender_selection.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/weight_age_selection.widget.dart';
 
 class BodyInfoPage extends StatelessWidget {
   final ValueNotifier<GenderType> genderNotifier;

@@ -35,7 +35,7 @@ class NutritionNotFound extends StatelessWidget {
                 AppSize.h10,
                 AppRoundedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(AppRouter.calorieMeasure);
+                    Navigator.of(context).pushNamed(AppRouter.updateNutrition);
                   },
                   content: LocaleKeys.button_start.tr(),
                   backgroundColor: Colors.white,

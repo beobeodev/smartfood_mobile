@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/default_measure_container.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/default_measure_container.widget.dart';
 
 class GenderSelection extends StatelessWidget {
   final double size;

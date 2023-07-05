@@ -4,10 +4,10 @@ import 'package:smarthealthy/common/enums/gender_type.enum.dart';
 import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
 import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
-import 'package:smarthealthy/presentation/diary/bloc/calorie_measure/calorie_measure.bloc.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/page_view/body_info_page.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/page_view/practice_frequency_page.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/row_page_button.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/bloc/update_nutrition.bloc.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/page_view/body_info_page.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/page_view/practice_frequency_page.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/row_page_button.widget.dart';
 
 class CalorieMeasureBody extends StatefulWidget {
   const CalorieMeasureBody({super.key});
@@ -47,8 +47,8 @@ class _CalorieMeasureBodyState extends State<CalorieMeasureBody> {
   }
 
   void _calculateCalorie() {
-    context.read<CalorieMeasureBloc>().add(
-          CalorieMeasureEvent.calculateNutrition(
+    context.read<UpdateNutritionBloc>().add(
+          UpdateNutritionEvent.calculateNutrition(
             UpdateUserNutritionDTO(
               gender: _genderNotifier.value,
               weight: _weightNotifier.value.toDouble(),

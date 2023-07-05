@@ -11,8 +11,8 @@ import 'package:smarthealthy/common/widgets/app_safe_area.widget.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/diary/bloc/calorie_measure/calorie_measure.bloc.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
+import 'package:smarthealthy/presentation/update_nutrition/bloc/update_nutrition.bloc.dart';
 
 class MeasureNutritionResultPage extends StatelessWidget {
   final NutritionWrapper nutrition;
@@ -22,7 +22,7 @@ class MeasureNutritionResultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => CalorieMeasureBloc(
+      create: (_) => UpdateNutritionBloc(
         userRepository: getIt.get<UserRepository>(),
       ),
       child: _MeasureNutritionResultView(

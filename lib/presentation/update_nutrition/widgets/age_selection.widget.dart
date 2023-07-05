@@ -7,7 +7,7 @@ import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/common_icon_button.widget.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/default_measure_container.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/default_measure_container.widget.dart';
 
 class AgeSelection extends StatelessWidget {
   final double size;

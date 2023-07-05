@@ -6,18 +6,18 @@ import 'package:smarthealthy/data/models/user.model.dart';
 import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
-part 'calorie_measure.event.dart';
-part 'calorie_measure.state.dart';
-part 'calorie_measure.bloc.freezed.dart';
+part 'update_nutrition.event.dart';
+part 'update_nutrition.state.dart';
+part 'update_nutrition.bloc.freezed.dart';
 
-class CalorieMeasureBloc
-    extends Bloc<CalorieMeasureEvent, CalorieMeasureState> {
+class UpdateNutritionBloc
+    extends Bloc<UpdateNutritionEvent, UpdateNutritionState> {
   final UserRepository _userRepository;
 
-  CalorieMeasureBloc({required UserRepository userRepository})
+  UpdateNutritionBloc({required UserRepository userRepository})
       : _userRepository = userRepository,
-        super(const CalorieMeasureState.initial()) {
-    on<CalorieMeasureEvent>((event, emit) async {
+        super(const UpdateNutritionState.initial()) {
+    on<UpdateNutritionEvent>((event, emit) async {
       await event.map(
         calculateNutrition: (calculateNutrition) =>
             _onCalculateNutrition(event, emit),
@@ -26,23 +26,23 @@ class CalorieMeasureBloc
   }
 
   Future<void> _onCalculateNutrition(
-    CalorieMeasureEvent event,
-    Emitter<CalorieMeasureState> emit,
+    UpdateNutritionEvent event,
+    Emitter<UpdateNutritionState> emit,
   ) async {
-    emit(const CalorieMeasureState.loading());
+    emit(const UpdateNutritionState.loading());
 
     try {
       final newUser =
           await _userRepository.updateNutrition(event.userNutrition);
 
       emit(
-        CalorieMeasureState.success(
+        UpdateNutritionState.success(
           newUser,
           NutritionCalculator.calculate(event.userNutrition),
         ),
       );
     } catch (e) {
-      emit(const CalorieMeasureState.failure());
+      emit(const UpdateNutritionState.failure());
     }
   }
 }

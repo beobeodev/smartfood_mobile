@@ -8,27 +8,27 @@ import 'package:smarthealthy/data/repositories/user.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
-import 'package:smarthealthy/presentation/diary/bloc/calorie_measure/calorie_measure.bloc.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/calorie_measure_body.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/bloc/update_nutrition.bloc.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/calorie_measure_body.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
 
-class CalorieMeasurePage extends StatelessWidget {
-  const CalorieMeasurePage({super.key});
+class UpdateNutritionPage extends StatelessWidget {
+  const UpdateNutritionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => CalorieMeasureBloc(
+      create: (_) => UpdateNutritionBloc(
         userRepository: getIt.get<UserRepository>(),
       ),
-      child: BlocListener<CalorieMeasureBloc, CalorieMeasureState>(
+      child: BlocListener<UpdateNutritionBloc, UpdateNutritionState>(
         listener: _listenBlocChanged,
-        child: const _CalorieMeasureView(),
+        child: const _UpdateNutritionView(),
       ),
     );
   }
 
-  void _listenBlocChanged(BuildContext context, CalorieMeasureState state) {
+  void _listenBlocChanged(BuildContext context, UpdateNutritionState state) {
     state.maybeMap(
       loading: (_) => DialogUtil.showLoading(context),
       failure: (_) {
@@ -51,8 +51,8 @@ class CalorieMeasurePage extends StatelessWidget {
   }
 }
 
-class _CalorieMeasureView extends StatelessWidget {
-  const _CalorieMeasureView();
+class _UpdateNutritionView extends StatelessWidget {
+  const _UpdateNutritionView();
 
   @override
   Widget build(BuildContext context) {

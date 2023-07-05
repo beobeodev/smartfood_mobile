@@ -11,8 +11,8 @@ import 'package:smarthealthy/presentation/core/views/root.view.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/view/add_meal.view.dart';
-import 'package:smarthealthy/presentation/diary/view/calorie_measure.view.dart';
-import 'package:smarthealthy/presentation/diary/view/measure_nutrition_result.view.dart';
+import 'package:smarthealthy/presentation/update_nutrition/view/calorie_measure.view.dart';
+import 'package:smarthealthy/presentation/update_nutrition/view/measure_nutrition_result.view.dart';
 import 'package:smarthealthy/presentation/ingredient_list/ingredient_list.dart';
 import 'package:smarthealthy/presentation/recipe_detail/recipe.dart';
 import 'package:smarthealthy/presentation/recipe_filter/recipe_filter.dart';
@@ -44,7 +44,7 @@ abstract class AppRouter {
   static const String imagePicker = '/image_picker';
 
   // Nutrition
-  static const String calorieMeasure = '/calorie_measure';
+  static const String updateNutrition = '/update_nutrition';
   static const String measureResult = '/measure_result';
   static const String addMealPlan = '/add_meal_plan';
 
@@ -155,11 +155,11 @@ abstract class AppRouter {
             );
           },
         );
-      case calorieMeasure:
+      case updateNutrition:
         return MaterialPageRoute(
           settings: settings,
           builder: (_) {
-            return const CalorieMeasurePage();
+            return const UpdateNutritionPage();
           },
         );
       case measureResult:

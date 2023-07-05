@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/widgets/weight_slider/weight_slider.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/age_selection.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/calorie_measure/default_measure_container.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/age_selection.widget.dart';
+import 'package:smarthealthy/presentation/update_nutrition/widgets/default_measure_container.widget.dart';
 
 class WeightAgeSelection extends StatelessWidget {
   final double size;

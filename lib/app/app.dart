@@ -46,7 +46,7 @@ class _AppState extends State<App> {
     context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.started());
   }
 
-  void _navigateToRoot() {
+  void _navigateToRoot(BuildContext context) {
     if (_navigator.canPop()) {
       return _navigator.pop();
     }
@@ -61,7 +61,7 @@ class _AppState extends State<App> {
 
   void _getData(BuildContext context, bool isRecommended) {
     _getRecipes(context, isRecommended);
-    _navigateToRoot();
+    _navigateToRoot(context);
   }
 
   @override

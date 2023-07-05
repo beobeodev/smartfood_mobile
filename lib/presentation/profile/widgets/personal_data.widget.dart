@@ -33,7 +33,7 @@ class _PersonalDataState extends State<PersonalData> {
       icon: Assets.icons.calo.svg(
         colorFilter: colorSvg(ColorStyles.zodiacBlue),
       ),
-      route: AppRouter.calorieMeasure,
+      route: AppRouter.updateNutrition,
     ),
     ProfileOptionUIModel(
       title: 'Premium',

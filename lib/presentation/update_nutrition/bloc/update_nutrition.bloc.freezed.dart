@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'calorie_measure.bloc.dart';
+part of 'update_nutrition.bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$CalorieMeasureEvent {
+mixin _$UpdateNutritionEvent {
   UpdateUserNutritionDTO get userNutrition =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,15 +53,15 @@ mixin _$CalorieMeasureEvent {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $CalorieMeasureEventCopyWith<CalorieMeasureEvent> get copyWith =>
+  $CalorieMeasureEventCopyWith<UpdateNutritionEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $CalorieMeasureEventCopyWith<$Res> {
-  factory $CalorieMeasureEventCopyWith(
-          CalorieMeasureEvent value, $Res Function(CalorieMeasureEvent) then) =
-      _$CalorieMeasureEventCopyWithImpl<$Res, CalorieMeasureEvent>;
+  factory $CalorieMeasureEventCopyWith(UpdateNutritionEvent value,
+          $Res Function(UpdateNutritionEvent) then) =
+      _$CalorieMeasureEventCopyWithImpl<$Res, UpdateNutritionEvent>;
   @useResult
   $Res call({UpdateUserNutritionDTO userNutrition});
 
@@ -69,7 +69,7 @@ abstract class $CalorieMeasureEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CalorieMeasureEventCopyWithImpl<$Res, $Val extends CalorieMeasureEvent>
+class _$CalorieMeasureEventCopyWithImpl<$Res, $Val extends UpdateNutritionEvent>
     implements $CalorieMeasureEventCopyWith<$Res> {
   _$CalorieMeasureEventCopyWithImpl(this._value, this._then);
 
@@ -226,7 +226,7 @@ class _$_CalculateNutrition implements _CalculateNutrition {
   }
 }
 
-abstract class _CalculateNutrition implements CalorieMeasureEvent {
+abstract class _CalculateNutrition implements UpdateNutritionEvent {
   const factory _CalculateNutrition(
       final UpdateUserNutritionDTO userNutrition) = _$_CalculateNutrition;
 
@@ -239,7 +239,7 @@ abstract class _CalculateNutrition implements CalorieMeasureEvent {
 }
 
 /// @nodoc
-mixin _$CalorieMeasureState {
+mixin _$UpdateNutritionState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
@@ -295,13 +295,13 @@ mixin _$CalorieMeasureState {
 
 /// @nodoc
 abstract class $CalorieMeasureStateCopyWith<$Res> {
-  factory $CalorieMeasureStateCopyWith(
-          CalorieMeasureState value, $Res Function(CalorieMeasureState) then) =
-      _$CalorieMeasureStateCopyWithImpl<$Res, CalorieMeasureState>;
+  factory $CalorieMeasureStateCopyWith(UpdateNutritionState value,
+          $Res Function(UpdateNutritionState) then) =
+      _$CalorieMeasureStateCopyWithImpl<$Res, UpdateNutritionState>;
 }
 
 /// @nodoc
-class _$CalorieMeasureStateCopyWithImpl<$Res, $Val extends CalorieMeasureState>
+class _$CalorieMeasureStateCopyWithImpl<$Res, $Val extends UpdateNutritionState>
     implements $CalorieMeasureStateCopyWith<$Res> {
   _$CalorieMeasureStateCopyWithImpl(this._value, this._then);
 
@@ -421,7 +421,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements CalorieMeasureState {
+abstract class _Initial implements UpdateNutritionState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -535,7 +535,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements CalorieMeasureState {
+abstract class _Loading implements UpdateNutritionState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -694,7 +694,7 @@ class _$_Success implements _Success {
   }
 }
 
-abstract class _Success implements CalorieMeasureState {
+abstract class _Success implements UpdateNutritionState {
   const factory _Success(
       final UserModel newUser, final NutritionWrapper nutrition) = _$_Success;
 
@@ -815,6 +815,6 @@ class _$_Failure implements _Failure {
   }
 }
 
-abstract class _Failure implements CalorieMeasureState {
+abstract class _Failure implements UpdateNutritionState {
   const factory _Failure() = _$_Failure;
 }
