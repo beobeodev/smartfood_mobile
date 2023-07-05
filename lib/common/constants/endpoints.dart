@@ -19,6 +19,7 @@ abstract class Endpoints {
   static final String recipes = '$apiUrl/recipes';
   static final String recommendedRecipes = '$apiUrl/recipes/recommend';
   static final String getRecipesByIngredients = '$apiUrl/recipes/ingredients';
+  static final String recipeRating = '$apiUrl/recipe-ratings';
 
   // Level
   static final String level = '$apiUrl/levels';

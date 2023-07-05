@@ -117,5 +117,8 @@
   },
   "home": {
     "new_recipes": "Món mới dành cho bạn"
+  },
+  "recipe_detail": {
+    "reviews": "Đánh giá"
   }
 }

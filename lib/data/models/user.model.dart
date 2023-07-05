@@ -24,7 +24,7 @@ class UserModel with _$UserModel {
     int? age,
     GenderType? gender,
     @JsonTimeConverter() DateTime? startNutritionDate,
-    PracticeIndex? practiceIndex,
+    PracticeIndex? practiceMode,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

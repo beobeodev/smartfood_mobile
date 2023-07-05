@@ -31,7 +31,7 @@ mixin _$UserModel {
   GenderType? get gender => throw _privateConstructorUsedError;
   @JsonTimeConverter()
   DateTime? get startNutritionDate => throw _privateConstructorUsedError;
-  PracticeIndex? get practiceIndex => throw _privateConstructorUsedError;
+  PracticeIndex? get practiceMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserModelCopyWith<UserModel> get copyWith =>
@@ -54,7 +54,7 @@ abstract class $UserModelCopyWith<$Res> {
       int? age,
       GenderType? gender,
       @JsonTimeConverter() DateTime? startNutritionDate,
-      PracticeIndex? practiceIndex});
+      PracticeIndex? practiceMode});
 }
 
 /// @nodoc
@@ -80,7 +80,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? age = freezed,
     Object? gender = freezed,
     Object? startNutritionDate = freezed,
-    Object? practiceIndex = freezed,
+    Object? practiceMode = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -123,9 +123,9 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.startNutritionDate
           : startNutritionDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      practiceIndex: freezed == practiceIndex
-          ? _value.practiceIndex
-          : practiceIndex // ignore: cast_nullable_to_non_nullable
+      practiceMode: freezed == practiceMode
+          ? _value.practiceMode
+          : practiceMode // ignore: cast_nullable_to_non_nullable
               as PracticeIndex?,
     ) as $Val);
   }
@@ -149,7 +149,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       int? age,
       GenderType? gender,
       @JsonTimeConverter() DateTime? startNutritionDate,
-      PracticeIndex? practiceIndex});
+      PracticeIndex? practiceMode});
 }
 
 /// @nodoc
@@ -173,7 +173,7 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? age = freezed,
     Object? gender = freezed,
     Object? startNutritionDate = freezed,
-    Object? practiceIndex = freezed,
+    Object? practiceMode = freezed,
   }) {
     return _then(_$_UserModel(
       id: null == id
@@ -216,9 +216,9 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.startNutritionDate
           : startNutritionDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      practiceIndex: freezed == practiceIndex
-          ? _value.practiceIndex
-          : practiceIndex // ignore: cast_nullable_to_non_nullable
+      practiceMode: freezed == practiceMode
+          ? _value.practiceMode
+          : practiceMode // ignore: cast_nullable_to_non_nullable
               as PracticeIndex?,
     ));
   }
@@ -238,7 +238,7 @@ class _$_UserModel extends _UserModel {
       this.age,
       this.gender,
       @JsonTimeConverter() this.startNutritionDate,
-      this.practiceIndex})
+      this.practiceMode})
       : super._();
 
   factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
@@ -266,11 +266,11 @@ class _$_UserModel extends _UserModel {
   @JsonTimeConverter()
   final DateTime? startNutritionDate;
   @override
-  final PracticeIndex? practiceIndex;
+  final PracticeIndex? practiceMode;
 
   @override
   String toString() {
-    return 'UserModel(id: $id, firstName: $firstName, lastName: $lastName, email: $email, avatar: $avatar, height: $height, weight: $weight, age: $age, gender: $gender, startNutritionDate: $startNutritionDate, practiceIndex: $practiceIndex)';
+    return 'UserModel(id: $id, firstName: $firstName, lastName: $lastName, email: $email, avatar: $avatar, height: $height, weight: $weight, age: $age, gender: $gender, startNutritionDate: $startNutritionDate, practiceMode: $practiceMode)';
   }
 
   @override
@@ -291,14 +291,14 @@ class _$_UserModel extends _UserModel {
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.startNutritionDate, startNutritionDate) ||
                 other.startNutritionDate == startNutritionDate) &&
-            (identical(other.practiceIndex, practiceIndex) ||
-                other.practiceIndex == practiceIndex));
+            (identical(other.practiceMode, practiceMode) ||
+                other.practiceMode == practiceMode));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, firstName, lastName, email,
-      avatar, height, weight, age, gender, startNutritionDate, practiceIndex);
+      avatar, height, weight, age, gender, startNutritionDate, practiceMode);
 
   @JsonKey(ignore: true)
   @override
@@ -319,7 +319,7 @@ abstract class _UserModel extends UserModel {
       final int? age,
       final GenderType? gender,
       @JsonTimeConverter() final DateTime? startNutritionDate,
-      final PracticeIndex? practiceIndex}) = _$_UserModel;
+      final PracticeIndex? practiceMode}) = _$_UserModel;
   const _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -347,7 +347,7 @@ abstract class _UserModel extends UserModel {
   @JsonTimeConverter()
   DateTime? get startNutritionDate;
   @override
-  PracticeIndex? get practiceIndex;
+  PracticeIndex? get practiceMode;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

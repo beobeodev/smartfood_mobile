@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/data/models/quantification.model.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 
 class ListQuantification extends StatelessWidget {
   final List<QuantificationModel> quantification;
@@ -16,7 +18,7 @@ class ListQuantification extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Ingredients',
+          LocaleKeys.filter_ingredient.tr(),
           style: TextStyles.boldText.copyWith(fontSize: 18.sp),
         ),
         ListView.separated(

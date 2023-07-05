@@ -18,8 +18,8 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       gender: $enumDecodeNullable(_$GenderTypeEnumMap, json['gender']),
       startNutritionDate: _$JsonConverterFromJson<String, DateTime>(
           json['startNutritionDate'], const JsonTimeConverter().fromJson),
-      practiceIndex:
-          $enumDecodeNullable(_$PracticeIndexEnumMap, json['practiceIndex']),
+      practiceMode:
+          $enumDecodeNullable(_$PracticeIndexEnumMap, json['practiceMode']),
     );
 
 const _$GenderTypeEnumMap = {

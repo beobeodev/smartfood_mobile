@@ -30,6 +30,7 @@ mixin _$RecipeModel {
       throw _privateConstructorUsedError;
   List<RecipeStepModel>? get recipeStep => throw _privateConstructorUsedError;
   List<MediaModel>? get media => throw _privateConstructorUsedError;
+  double? get rating => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RecipeModelCopyWith<RecipeModel> get copyWith =>
@@ -51,7 +52,8 @@ abstract class $RecipeModelCopyWith<$Res> {
       CuisineModel? cuisine,
       List<QuantificationModel>? quantification,
       List<RecipeStepModel>? recipeStep,
-      List<MediaModel>? media});
+      List<MediaModel>? media,
+      double? rating});
 
   $LevelModelCopyWith<$Res>? get level;
   $CategoryModelCopyWith<$Res>? get category;
@@ -80,6 +82,7 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
     Object? quantification = freezed,
     Object? recipeStep = freezed,
     Object? media = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -118,6 +121,10 @@ class _$RecipeModelCopyWithImpl<$Res, $Val extends RecipeModel>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as List<MediaModel>?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 
@@ -175,7 +182,8 @@ abstract class _$$_RecipeModelCopyWith<$Res>
       CuisineModel? cuisine,
       List<QuantificationModel>? quantification,
       List<RecipeStepModel>? recipeStep,
-      List<MediaModel>? media});
+      List<MediaModel>? media,
+      double? rating});
 
   @override
   $LevelModelCopyWith<$Res>? get level;
@@ -205,6 +213,7 @@ class __$$_RecipeModelCopyWithImpl<$Res>
     Object? quantification = freezed,
     Object? recipeStep = freezed,
     Object? media = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_$_RecipeModel(
       id: null == id
@@ -243,6 +252,10 @@ class __$$_RecipeModelCopyWithImpl<$Res>
           ? _value._media
           : media // ignore: cast_nullable_to_non_nullable
               as List<MediaModel>?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -259,7 +272,8 @@ class _$_RecipeModel extends _RecipeModel {
       this.cuisine,
       final List<QuantificationModel>? quantification,
       final List<RecipeStepModel>? recipeStep,
-      final List<MediaModel>? media})
+      final List<MediaModel>? media,
+      this.rating})
       : _quantification = quantification,
         _recipeStep = recipeStep,
         _media = media,
@@ -311,8 +325,11 @@ class _$_RecipeModel extends _RecipeModel {
   }
 
   @override
+  final double? rating;
+
+  @override
   String toString() {
-    return 'RecipeModel(id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media)';
+    return 'RecipeModel(id: $id, name: $name, description: $description, level: $level, category: $category, cuisine: $cuisine, quantification: $quantification, recipeStep: $recipeStep, media: $media, rating: $rating)';
   }
 
   @override
@@ -332,7 +349,8 @@ class _$_RecipeModel extends _RecipeModel {
                 .equals(other._quantification, _quantification) &&
             const DeepCollectionEquality()
                 .equals(other._recipeStep, _recipeStep) &&
-            const DeepCollectionEquality().equals(other._media, _media));
+            const DeepCollectionEquality().equals(other._media, _media) &&
+            (identical(other.rating, rating) || other.rating == rating));
   }
 
   @JsonKey(ignore: true)
@@ -347,7 +365,8 @@ class _$_RecipeModel extends _RecipeModel {
       cuisine,
       const DeepCollectionEquality().hash(_quantification),
       const DeepCollectionEquality().hash(_recipeStep),
-      const DeepCollectionEquality().hash(_media));
+      const DeepCollectionEquality().hash(_media),
+      rating);
 
   @JsonKey(ignore: true)
   @override
@@ -366,7 +385,8 @@ abstract class _RecipeModel extends RecipeModel {
       final CuisineModel? cuisine,
       final List<QuantificationModel>? quantification,
       final List<RecipeStepModel>? recipeStep,
-      final List<MediaModel>? media}) = _$_RecipeModel;
+      final List<MediaModel>? media,
+      final double? rating}) = _$_RecipeModel;
   _RecipeModel._() : super._();
 
   factory _RecipeModel.fromJson(Map<String, dynamic> json) =
@@ -390,6 +410,8 @@ abstract class _RecipeModel extends RecipeModel {
   List<RecipeStepModel>? get recipeStep;
   @override
   List<MediaModel>? get media;
+  @override
+  double? get rating;
   @override
   @JsonKey(ignore: true)
   _$$_RecipeModelCopyWith<_$_RecipeModel> get copyWith =>

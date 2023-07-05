@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
@@ -31,7 +32,7 @@ class RecipeDetailAppBar extends StatelessWidget {
         ],
       ),
       bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(100),
         child: Container(
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -42,11 +43,12 @@ class RecipeDetailAppBar extends StatelessWidget {
           ),
           alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
-          width: double.infinity,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Expanded(
+              Align(
+                alignment: Alignment.centerLeft,
                 child: Text(
                   recipe.name,
                   style: TextStyles.boldText.copyWith(
@@ -56,16 +58,16 @@ class RecipeDetailAppBar extends StatelessWidget {
                   maxLines: 2,
                 ),
               ),
-              AppSize.w10,
-              Row(
-                children: List.generate(
-                  3,
-                  (index) => const Icon(
+              AppSize.h5,
+              if (recipe.rating != null)
+                RatingBarIndicator(
+                  rating: recipe.rating!,
+                  itemBuilder: (context, index) => Icon(
                     UniconsSolid.star,
-                    color: Colors.yellow,
+                    color: Colors.yellow[600],
                   ),
+                  itemSize: 24.sp,
                 ),
-              )
             ],
           ),
         ),

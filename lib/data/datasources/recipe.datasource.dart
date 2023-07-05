@@ -5,6 +5,7 @@ import 'package:smarthealthy/common/constants/endpoints.dart';
 import 'package:smarthealthy/common/helpers/dio.helper.dart';
 import 'package:smarthealthy/data/dtos/get_recipes_result.dto.dart';
 import 'package:smarthealthy/data/dtos/query_recipes.dto.dart';
+import 'package:smarthealthy/data/dtos/submit_recipe_rating.dto.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 
 @lazySingleton
@@ -49,5 +50,12 @@ class RecipeDataSource {
     return (response.data['data'] as List)
         .map((e) => RecipeModel.fromJson(e))
         .toList();
+  }
+
+  Future<void> sendRating(SubmitRecipeRatingDTO dto) async {
+    await _dioHelper.post(
+      '${Endpoints.recipeRating}/${dto.id}',
+      data: dto.toJson(),
+    );
   }
 }

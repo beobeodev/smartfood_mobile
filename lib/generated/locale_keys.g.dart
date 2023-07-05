@@ -106,5 +106,7 @@ abstract class  LocaleKeys {
   static const profile = 'profile';
   static const home_new_recipes = 'home.new_recipes';
   static const home = 'home';
+  static const recipe_detail_reviews = 'recipe_detail.reviews';
+  static const recipe_detail = 'recipe_detail';
 
 }

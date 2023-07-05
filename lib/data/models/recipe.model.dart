@@ -23,6 +23,7 @@ class RecipeModel with _$RecipeModel {
     List<QuantificationModel>? quantification,
     List<RecipeStepModel>? recipeStep,
     List<MediaModel>? media,
+    double? rating,
   }) = _RecipeModel;
 
   @JsonKey(includeFromJson: false, includeToJson: false)

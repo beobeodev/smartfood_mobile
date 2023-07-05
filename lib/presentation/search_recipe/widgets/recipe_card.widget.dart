@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/app_theme.dart';
@@ -6,6 +7,7 @@ import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/presentation/search_recipe/widgets/difficulty_time_level.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
+import 'package:unicons/unicons.dart';
 
 class RecipeCard extends StatelessWidget {
   final RecipeModel recipe;
@@ -54,7 +56,17 @@ class RecipeCard extends StatelessWidget {
                       .copyWith(overflow: TextOverflow.ellipsis),
                   maxLines: 2,
                 ),
-                AppSize.h10,
+                AppSize.h5,
+                if (recipe.rating != null)
+                  RatingBarIndicator(
+                    rating: recipe.rating!,
+                    itemBuilder: (context, index) => Icon(
+                      UniconsSolid.star,
+                      color: Colors.yellow[700],
+                    ),
+                    itemSize: 24.sp,
+                  ),
+                AppSize.h5,
                 DifficultyCategoryCuisine(
                   level: recipe.level!.name,
                   category: recipe.category!.name,

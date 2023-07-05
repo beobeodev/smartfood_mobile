@@ -35,7 +35,7 @@ class _CalorieMeasureBodyState extends State<CalorieMeasureBody> {
     _ageNotifier = ValueNotifier(user?.age ?? 22);
 
     _height = user?.height ?? 170;
-    _practiceIndex = user?.practiceIndex ?? PracticeIndex.rare;
+    _practiceIndex = user?.practiceMode ?? PracticeIndex.rare;
 
     super.initState();
   }

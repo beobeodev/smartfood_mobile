@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/list_quantification.widget.dart';
+import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/rating_bar.widget.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_description.widget.dart';
 
 class RecipeDetailBody extends StatelessWidget {
@@ -30,7 +31,10 @@ class RecipeDetailBody extends StatelessWidget {
               ListQuantification(
                 quantification: recipe.quantification!,
               ),
-            AppSize.h5,
+            AppSize.h10,
+            RatingBar(
+              recipe: recipe,
+            )
           ],
         ),
       ),

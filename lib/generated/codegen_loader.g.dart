@@ -133,6 +133,9 @@ class CodegenLoader extends AssetLoader{
   },
   "home": {
     "new_recipes": "New recipes for you"
+  },
+  "recipe_detail": {
+    "reviews": "Reviews"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -254,6 +257,9 @@ static const Map<String,dynamic> vi = {
   },
   "home": {
     "new_recipes": "Món mới dành cho bạn"
+  },
+  "recipe_detail": {
+    "reviews": "Đánh giá"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

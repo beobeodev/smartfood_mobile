@@ -29,4 +29,5 @@ _$_RecipeModel _$$_RecipeModelFromJson(Map<String, dynamic> json) =>
       media: (json['media'] as List<dynamic>?)
           ?.map((e) => MediaModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      rating: (json['rating'] as num?)?.toDouble(),
     );
