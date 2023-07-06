@@ -46,7 +46,7 @@ class AddMealAppBar extends StatelessWidget implements PreferredSizeWidget {
             return Visibility(visible: value.isNotEmpty, child: child!);
           },
           child: Padding(
-            padding: const EdgeInsets.only(right: 6),
+            padding: const EdgeInsets.only(right: AppSize.actionSpacing),
             child: IconButton(
               onPressed: addDishes,
               icon: const Icon(

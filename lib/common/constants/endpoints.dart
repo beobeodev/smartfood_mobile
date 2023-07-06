@@ -11,6 +11,7 @@ abstract class Endpoints {
   // User
   static final String profile = '$apiUrl/users/profile';
   static final String updateNutrition = '$apiUrl/users/stat';
+  static final String updateProfile = '$apiUrl/users/info';
 
   // Ingredient
   static final String ingredient = '$apiUrl/ingredients';

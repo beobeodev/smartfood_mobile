@@ -13,6 +13,7 @@
     "first_name": "Tên",
     "last_name": "Họ",
     "register_success": "Đăng ký tài khoản thành công",
+    "update_profile_success": "Cập nhật thông tin cá nhân thành công",
     "ingredient_list": "Danh sách nguyên liệu",
     "ingredient_detection": "Nhận diện nguyên liệu",
     "no_data_yet": "Chưa có dữ liệu"

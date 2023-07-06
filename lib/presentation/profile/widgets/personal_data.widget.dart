@@ -27,6 +27,7 @@ class _PersonalDataState extends State<PersonalData> {
     ProfileOptionUIModel(
       title: LocaleKeys.profile_personal_data.tr(),
       icon: Icons.person,
+      route: AppRouter.updateProfile,
     ),
     ProfileOptionUIModel(
       title: LocaleKeys.diary_nutri_info.tr(),

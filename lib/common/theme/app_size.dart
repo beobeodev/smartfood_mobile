@@ -8,6 +8,7 @@ abstract class AppSize {
   // App bar
   static const double appBarHeight = 60;
   static const double titleSpacing = 20;
+  static const double actionSpacing = 12;
 
   static const double choiceChipHeight = 48;
 

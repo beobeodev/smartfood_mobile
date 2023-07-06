@@ -3,6 +3,7 @@ import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/register_request.dto.dart';
 import 'package:injectable/injectable.dart';
+import 'package:smarthealthy/data/dtos/update_profile.dto.dart';
 import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/data/models/user.model.dart';
 
@@ -24,6 +25,10 @@ class UserRepository {
 
   Future<UserModel> getUserProfile() {
     return _dataSource.getUserProfile();
+  }
+
+  Future<UserModel> updateProfile(UpdateProfileDTO dto) {
+    return _dataSource.updateProfile(dto);
   }
 
   Future<UserModel> updateNutrition(UpdateUserNutritionDTO userNutrition) {

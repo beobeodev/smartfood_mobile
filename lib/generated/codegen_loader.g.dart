@@ -29,6 +29,7 @@ class CodegenLoader extends AssetLoader{
     "first_name": "First name",
     "last_name": "Last name",
     "register_success": "Register successfully",
+    "update_profile_success": "Update profile successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
     "no_data_yet": "No data yet"
@@ -153,6 +154,7 @@ static const Map<String,dynamic> vi = {
     "first_name": "Tên",
     "last_name": "Họ",
     "register_success": "Đăng ký tài khoản thành công",
+    "update_profile_success": "Cập nhật thông tin cá nhân thành công",
     "ingredient_list": "Danh sách nguyên liệu",
     "ingredient_detection": "Nhận diện nguyên liệu",
     "no_data_yet": "Chưa có dữ liệu"

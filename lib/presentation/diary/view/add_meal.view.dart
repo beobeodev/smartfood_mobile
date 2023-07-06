@@ -39,26 +39,28 @@ class AddMealPage extends StatelessWidget {
         ),
       ],
       child: BlocListener<AddMealBloc, AddMealState>(
-        listener: (context, state) {
-          state.mapOrNull(
-            loading: (_) {
-              DialogUtil.showLoading(context);
-            },
-            success: (success) {
-              context
-                  .read<DiaryBloc>()
-                  .add(DiaryEvent.addMeals(success.meals, success.type));
-              DialogUtil.hideLoading(context);
-              Navigator.of(context).pop();
-            },
-            failure: (_) {
-              DialogUtil.hideLoading(context);
-              ToastUtil.showError(context);
-            },
-          );
-        },
+        listener: _listenAddMealChanged,
         child: const _AddMealView(),
       ),
+    );
+  }
+
+  void _listenAddMealChanged(BuildContext context, AddMealState state) {
+    state.mapOrNull(
+      loading: (_) {
+        DialogUtil.showLoading(context);
+      },
+      success: (success) {
+        context
+            .read<DiaryBloc>()
+            .add(DiaryEvent.addMeals(success.meals, success.type));
+        DialogUtil.hideLoading(context);
+        Navigator.of(context).pop();
+      },
+      failure: (_) {
+        DialogUtil.hideLoading(context);
+        ToastUtil.showError(context);
+      },
     );
   }
 }

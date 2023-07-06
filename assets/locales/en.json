@@ -13,6 +13,7 @@
     "first_name": "First name",
     "last_name": "Last name",
     "register_success": "Register successfully",
+    "update_profile_success": "Update profile successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
     "no_data_yet": "No data yet"

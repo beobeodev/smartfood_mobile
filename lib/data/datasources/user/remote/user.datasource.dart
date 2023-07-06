@@ -4,6 +4,7 @@ import 'package:smarthealthy/data/dtos/auth/login_by_email_request.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/login_response.dto.dart';
 import 'package:smarthealthy/data/dtos/auth/register_request.dto.dart';
 import 'package:injectable/injectable.dart';
+import 'package:smarthealthy/data/dtos/update_profile.dto.dart';
 import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/data/models/user.model.dart';
 
@@ -37,10 +38,20 @@ class UserRemoteDataSource {
   }
 
   Future<UserModel> updateNutrition(
-      UpdateUserNutritionDTO userNutrition) async {
+    UpdateUserNutritionDTO userNutrition,
+  ) async {
     final response = await _dioHelper.patch(
       Endpoints.updateNutrition,
       data: userNutrition.toJson(),
+    );
+
+    return UserModel.fromJson(response.data['data']);
+  }
+
+  Future<UserModel> updateProfile(UpdateProfileDTO dto) async {
+    final response = await _dioHelper.patch(
+      Endpoints.updateProfile,
+      data: dto.toJson(),
     );
 
     return UserModel.fromJson(response.data['data']);
