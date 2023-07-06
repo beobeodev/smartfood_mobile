@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-enum PracticeIndex {
+enum PracticeMode {
   @JsonValue('rare')
   rare(1.2),
 
@@ -17,5 +17,5 @@ enum PracticeIndex {
   veryHeavy(1.9);
 
   final double value;
-  const PracticeIndex(this.value);
+  const PracticeMode(this.value);
 }

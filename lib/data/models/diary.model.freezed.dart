@@ -22,8 +22,8 @@ DiaryModel _$DiaryModelFromJson(Map<String, dynamic> json) {
 mixin _$DiaryModel {
   DateTime get date => throw _privateConstructorUsedError;
   set date(DateTime value) => throw _privateConstructorUsedError;
-  int? get totalCalories => throw _privateConstructorUsedError;
-  set totalCalories(int? value) => throw _privateConstructorUsedError;
+  double? get totalCalories => throw _privateConstructorUsedError;
+  set totalCalories(double? value) => throw _privateConstructorUsedError;
   List<MealModel> get breakfast => throw _privateConstructorUsedError;
   set breakfast(List<MealModel> value) => throw _privateConstructorUsedError;
   List<MealModel> get lunch => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $DiaryModelCopyWith<$Res> {
   @useResult
   $Res call(
       {DateTime date,
-      int? totalCalories,
+      double? totalCalories,
       List<MealModel> breakfast,
       List<MealModel> lunch,
       List<MealModel> dinner});
@@ -77,7 +77,7 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
       totalCalories: freezed == totalCalories
           ? _value.totalCalories
           : totalCalories // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       breakfast: null == breakfast
           ? _value.breakfast
           : breakfast // ignore: cast_nullable_to_non_nullable
@@ -104,7 +104,7 @@ abstract class _$$_DiaryModelCopyWith<$Res>
   @useResult
   $Res call(
       {DateTime date,
-      int? totalCalories,
+      double? totalCalories,
       List<MealModel> breakfast,
       List<MealModel> lunch,
       List<MealModel> dinner});
@@ -135,7 +135,7 @@ class __$$_DiaryModelCopyWithImpl<$Res>
       totalCalories: freezed == totalCalories
           ? _value.totalCalories
           : totalCalories // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       breakfast: null == breakfast
           ? _value.breakfast
           : breakfast // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ class _$_DiaryModel extends _DiaryModel {
   @override
   DateTime date;
   @override
-  int? totalCalories;
+  double? totalCalories;
   @override
   @JsonKey()
   List<MealModel> breakfast;
@@ -195,7 +195,7 @@ class _$_DiaryModel extends _DiaryModel {
 abstract class _DiaryModel extends DiaryModel {
   factory _DiaryModel(
       {required DateTime date,
-      int? totalCalories,
+      double? totalCalories,
       List<MealModel> breakfast,
       List<MealModel> lunch,
       List<MealModel> dinner}) = _$_DiaryModel;
@@ -208,8 +208,8 @@ abstract class _DiaryModel extends DiaryModel {
   DateTime get date;
   set date(DateTime value);
   @override
-  int? get totalCalories;
-  set totalCalories(int? value);
+  double? get totalCalories;
+  set totalCalories(double? value);
   @override
   List<MealModel> get breakfast;
   set breakfast(List<MealModel> value);

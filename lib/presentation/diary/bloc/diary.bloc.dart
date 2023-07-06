@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -50,7 +52,9 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
           status: QueryStatus.success,
         ),
       );
-    } catch (err) {
+    } catch (err, stack) {
+      log(stack.toString());
+
       emit(state.copyWith(status: QueryStatus.error));
     }
   }

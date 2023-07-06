@@ -1,8 +1,8 @@
-import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
+import 'package:smarthealthy/common/enums/pratice_mode.enum.dart';
 
 class PracticeFrequencyUIModel {
   final String title;
-  final PracticeIndex index;
+  final PracticeMode index;
   bool isSelected;
 
   PracticeFrequencyUIModel({
@@ -13,7 +13,7 @@ class PracticeFrequencyUIModel {
 
   PracticeFrequencyUIModel copyWith({
     String? title,
-    PracticeIndex? index,
+    PracticeMode? index,
     bool? isSelected,
   }) {
     return PracticeFrequencyUIModel(

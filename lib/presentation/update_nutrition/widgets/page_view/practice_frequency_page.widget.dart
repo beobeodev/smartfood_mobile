@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
+import 'package:smarthealthy/common/enums/pratice_mode.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
@@ -9,8 +9,8 @@ import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/practice_frequency.model.dart';
 
 class PracticeFrequencyPage extends StatefulWidget {
-  final void Function(PracticeIndex) setPracticeIndex;
-  final PracticeIndex initIndex;
+  final void Function(PracticeMode) setPracticeIndex;
+  final PracticeMode initIndex;
 
   const PracticeFrequencyPage({
     super.key,
@@ -30,28 +30,28 @@ class _PracticeFrequencyPageState extends State<PracticeFrequencyPage> {
     _itemsNotifier = ValueNotifier([
       PracticeFrequencyUIModel(
         title: LocaleKeys.measure_sedentary.tr(),
-        index: PracticeIndex.rare,
-        isSelected: PracticeIndex.rare == widget.initIndex,
+        index: PracticeMode.rare,
+        isSelected: PracticeMode.rare == widget.initIndex,
       ),
       PracticeFrequencyUIModel(
         title: LocaleKeys.measure_light.tr(),
-        index: PracticeIndex.light,
-        isSelected: PracticeIndex.light == widget.initIndex,
+        index: PracticeMode.light,
+        isSelected: PracticeMode.light == widget.initIndex,
       ),
       PracticeFrequencyUIModel(
         title: LocaleKeys.measure_moderate.tr(),
-        index: PracticeIndex.medium,
-        isSelected: PracticeIndex.medium == widget.initIndex,
+        index: PracticeMode.medium,
+        isSelected: PracticeMode.medium == widget.initIndex,
       ),
       PracticeFrequencyUIModel(
         title: LocaleKeys.measure_heavy.tr(),
-        index: PracticeIndex.heavy,
-        isSelected: PracticeIndex.heavy == widget.initIndex,
+        index: PracticeMode.heavy,
+        isSelected: PracticeMode.heavy == widget.initIndex,
       ),
       PracticeFrequencyUIModel(
         title: LocaleKeys.measure_very_heavy.tr(),
-        index: PracticeIndex.veryHeavy,
-        isSelected: PracticeIndex.veryHeavy == widget.initIndex,
+        index: PracticeMode.veryHeavy,
+        isSelected: PracticeMode.veryHeavy == widget.initIndex,
       )
     ]);
 

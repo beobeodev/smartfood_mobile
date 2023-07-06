@@ -17,7 +17,7 @@ class DiaryModel with _$DiaryModel {
 
   factory DiaryModel({
     required DateTime date,
-    int? totalCalories,
+    double? totalCalories,
     @Default([]) List<MealModel> breakfast,
     @Default([]) List<MealModel> lunch,
     @Default([]) List<MealModel> dinner,
@@ -31,9 +31,10 @@ class DiaryModel with _$DiaryModel {
       (totalCalories == null || totalCalories == 0)
           ? null
           : NutritionWrapper(
-              calorie: totalCalories!,
-              fat: NutritionCalculator.calculateFat(totalCalories!),
-              protein: NutritionCalculator.calculateProtein(totalCalories!),
-              carbs: NutritionCalculator.calculateCarbs(totalCalories!),
+              calorie: totalCalories!.round(),
+              fat: NutritionCalculator.calculateFat(totalCalories!.round()),
+              protein:
+                  NutritionCalculator.calculateProtein(totalCalories!.round()),
+              carbs: NutritionCalculator.calculateCarbs(totalCalories!.round()),
             );
 }

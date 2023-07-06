@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
-import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
+import 'package:smarthealthy/common/enums/pratice_mode.enum.dart';
 import 'package:smarthealthy/common/helpers/nutrition_calculator.dart';
 import 'package:smarthealthy/common/utils/json_time_converter.util.dart';
 import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
@@ -24,7 +24,7 @@ class UserModel with _$UserModel {
     int? age,
     GenderType? gender,
     @JsonTimeConverter() DateTime? startNutritionDate,
-    PracticeIndex? practiceMode,
+    PracticeMode? practiceMode,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
@@ -43,7 +43,7 @@ class UserModel with _$UserModel {
           gender: gender!,
           height: height!,
           weight: weight!,
-          practiceIndex: PracticeIndex.rare,
+          practiceMode: PracticeMode.rare,
         ),
       );
 
@@ -54,7 +54,7 @@ class UserModel with _$UserModel {
           gender: gender!,
           height: height!,
           weight: weight!,
-          practiceIndex: PracticeIndex.rare,
+          practiceMode: PracticeMode.rare,
         ),
       );
 }

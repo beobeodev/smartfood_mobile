@@ -22,7 +22,7 @@ abstract class NutritionCalculator {
           447.593;
     }
 
-    return (bmr * bodyInfo.practiceIndex.value).round();
+    return (bmr * bodyInfo.practiceMode.value).round();
   }
 
   static NutritionWrapper calculate(UpdateUserNutritionDTO bodyInfo) {

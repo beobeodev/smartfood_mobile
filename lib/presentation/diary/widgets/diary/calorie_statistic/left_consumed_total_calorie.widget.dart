@@ -34,15 +34,15 @@ class LeftConsumedTotalCalorie extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     CalorieStatisticItem(
-                      value: totalCalories,
+                      value: totalCalories.round(),
                       title: LocaleKeys.diary_need_to_load.tr(),
                     ),
                     CalorieStatisticItem(
-                      value: totalCalories,
+                      value: totalCalories.round(),
                       title: LocaleKeys.diary_loaded.tr(),
                     ),
                     CalorieStatisticItem(
-                      value: totalCalories,
+                      value: totalCalories.round(),
                       title: LocaleKeys.diary_consume.tr(),
                     )
                   ],

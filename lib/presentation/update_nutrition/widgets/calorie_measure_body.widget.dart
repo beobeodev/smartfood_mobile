@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
-import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
+import 'package:smarthealthy/common/enums/pratice_mode.enum.dart';
 import 'package:smarthealthy/data/dtos/user_nutrition.dto.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/update_nutrition/bloc/update_nutrition.bloc.dart';
@@ -17,11 +17,11 @@ class CalorieMeasureBody extends StatefulWidget {
 }
 
 class _CalorieMeasureBodyState extends State<CalorieMeasureBody> {
-  late final ValueNotifier<int> _weightNotifier;
-  late final ValueNotifier<GenderType> _genderNotifier;
-  late final ValueNotifier<int> _ageNotifier;
-  late final double _height;
-  late final PracticeIndex _practiceIndex;
+  late ValueNotifier<int> _weightNotifier;
+  late ValueNotifier<GenderType> _genderNotifier;
+  late ValueNotifier<int> _ageNotifier;
+  late double _height;
+  late PracticeMode _practiceIndex;
 
   final ValueNotifier<int> _pageNotifier = ValueNotifier(0);
   final PageController _pageController = PageController();
@@ -35,7 +35,7 @@ class _CalorieMeasureBodyState extends State<CalorieMeasureBody> {
     _ageNotifier = ValueNotifier(user?.age ?? 22);
 
     _height = user?.height ?? 170;
-    _practiceIndex = user?.practiceMode ?? PracticeIndex.rare;
+    _practiceIndex = user?.practiceMode ?? PracticeMode.rare;
 
     super.initState();
   }
@@ -54,13 +54,13 @@ class _CalorieMeasureBodyState extends State<CalorieMeasureBody> {
               weight: _weightNotifier.value.toDouble(),
               height: _height,
               age: _ageNotifier.value,
-              practiceIndex: _practiceIndex,
+              practiceMode: _practiceIndex,
             ),
           ),
         );
   }
 
-  void _setPracticeIndex(PracticeIndex value) {
+  void _setPracticeIndex(PracticeMode value) {
     _practiceIndex = value;
   }
 

@@ -19,7 +19,7 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       startNutritionDate: _$JsonConverterFromJson<String, DateTime>(
           json['startNutritionDate'], const JsonTimeConverter().fromJson),
       practiceMode:
-          $enumDecodeNullable(_$PracticeIndexEnumMap, json['practiceMode']),
+          $enumDecodeNullable(_$PracticeModeEnumMap, json['practiceMode']),
     );
 
 const _$GenderTypeEnumMap = {
@@ -33,10 +33,10 @@ Value? _$JsonConverterFromJson<Json, Value>(
 ) =>
     json == null ? null : fromJson(json as Json);
 
-const _$PracticeIndexEnumMap = {
-  PracticeIndex.rare: 'rare',
-  PracticeIndex.light: 'light',
-  PracticeIndex.medium: 'medium',
-  PracticeIndex.heavy: 'heavy',
-  PracticeIndex.veryHeavy: 'veryHeavy',
+const _$PracticeModeEnumMap = {
+  PracticeMode.rare: 'rare',
+  PracticeMode.light: 'light',
+  PracticeMode.medium: 'medium',
+  PracticeMode.heavy: 'heavy',
+  PracticeMode.veryHeavy: 'veryHeavy',
 };

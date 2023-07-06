@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/enums/gender_type.enum.dart';
-import 'package:smarthealthy/common/enums/pratice_index.enum.dart';
+import 'package:smarthealthy/common/enums/pratice_mode.enum.dart';
 
 part 'user_nutrition.dto.freezed.dart';
 part 'user_nutrition.dto.g.dart';
@@ -12,6 +12,6 @@ class UpdateUserNutritionDTO with _$UpdateUserNutritionDTO {
     required GenderType gender,
     required double height,
     required double weight,
-    required PracticeIndex practiceIndex,
+    required PracticeMode practiceMode,
   }) = _UpdateUserNutritionDTO;
 }

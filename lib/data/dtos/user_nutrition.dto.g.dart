@@ -13,7 +13,7 @@ Map<String, dynamic> _$$_UpdateUserNutritionDTOToJson(
       'gender': _$GenderTypeEnumMap[instance.gender]!,
       'height': instance.height,
       'weight': instance.weight,
-      'practiceIndex': _$PracticeIndexEnumMap[instance.practiceIndex]!,
+      'practiceMode': _$PracticeModeEnumMap[instance.practiceMode]!,
     };
 
 const _$GenderTypeEnumMap = {
@@ -21,10 +21,10 @@ const _$GenderTypeEnumMap = {
   GenderType.female: 'female',
 };
 
-const _$PracticeIndexEnumMap = {
-  PracticeIndex.rare: 'rare',
-  PracticeIndex.light: 'light',
-  PracticeIndex.medium: 'medium',
-  PracticeIndex.heavy: 'heavy',
-  PracticeIndex.veryHeavy: 'veryHeavy',
+const _$PracticeModeEnumMap = {
+  PracticeMode.rare: 'rare',
+  PracticeMode.light: 'light',
+  PracticeMode.medium: 'medium',
+  PracticeMode.heavy: 'heavy',
+  PracticeMode.veryHeavy: 'veryHeavy',
 };

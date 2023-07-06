@@ -31,7 +31,7 @@ mixin _$UserModel {
   GenderType? get gender => throw _privateConstructorUsedError;
   @JsonTimeConverter()
   DateTime? get startNutritionDate => throw _privateConstructorUsedError;
-  PracticeIndex? get practiceMode => throw _privateConstructorUsedError;
+  PracticeMode? get practiceMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UserModelCopyWith<UserModel> get copyWith =>
@@ -54,7 +54,7 @@ abstract class $UserModelCopyWith<$Res> {
       int? age,
       GenderType? gender,
       @JsonTimeConverter() DateTime? startNutritionDate,
-      PracticeIndex? practiceMode});
+      PracticeMode? practiceMode});
 }
 
 /// @nodoc
@@ -126,7 +126,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       practiceMode: freezed == practiceMode
           ? _value.practiceMode
           : practiceMode // ignore: cast_nullable_to_non_nullable
-              as PracticeIndex?,
+              as PracticeMode?,
     ) as $Val);
   }
 }
@@ -149,7 +149,7 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       int? age,
       GenderType? gender,
       @JsonTimeConverter() DateTime? startNutritionDate,
-      PracticeIndex? practiceMode});
+      PracticeMode? practiceMode});
 }
 
 /// @nodoc
@@ -219,7 +219,7 @@ class __$$_UserModelCopyWithImpl<$Res>
       practiceMode: freezed == practiceMode
           ? _value.practiceMode
           : practiceMode // ignore: cast_nullable_to_non_nullable
-              as PracticeIndex?,
+              as PracticeMode?,
     ));
   }
 }
@@ -266,7 +266,7 @@ class _$_UserModel extends _UserModel {
   @JsonTimeConverter()
   final DateTime? startNutritionDate;
   @override
-  final PracticeIndex? practiceMode;
+  final PracticeMode? practiceMode;
 
   @override
   String toString() {
@@ -319,7 +319,7 @@ abstract class _UserModel extends UserModel {
       final int? age,
       final GenderType? gender,
       @JsonTimeConverter() final DateTime? startNutritionDate,
-      final PracticeIndex? practiceMode}) = _$_UserModel;
+      final PracticeMode? practiceMode}) = _$_UserModel;
   const _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -347,7 +347,7 @@ abstract class _UserModel extends UserModel {
   @JsonTimeConverter()
   DateTime? get startNutritionDate;
   @override
-  PracticeIndex? get practiceMode;
+  PracticeMode? get practiceMode;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

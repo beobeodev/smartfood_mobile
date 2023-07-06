@@ -20,7 +20,7 @@ mixin _$UpdateUserNutritionDTO {
   GenderType get gender => throw _privateConstructorUsedError;
   double get height => throw _privateConstructorUsedError;
   double get weight => throw _privateConstructorUsedError;
-  PracticeIndex get practiceIndex => throw _privateConstructorUsedError;
+  PracticeMode get practiceMode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $UpdateUserNutritionDTOCopyWith<$Res> {
       GenderType gender,
       double height,
       double weight,
-      PracticeIndex practiceIndex});
+      PracticeMode practiceMode});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$UpdateUserNutritionDTOCopyWithImpl<$Res,
     Object? gender = null,
     Object? height = null,
     Object? weight = null,
-    Object? practiceIndex = null,
+    Object? practiceMode = null,
   }) {
     return _then(_value.copyWith(
       age: null == age
@@ -79,10 +79,10 @@ class _$UpdateUserNutritionDTOCopyWithImpl<$Res,
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
-      practiceIndex: null == practiceIndex
-          ? _value.practiceIndex
-          : practiceIndex // ignore: cast_nullable_to_non_nullable
-              as PracticeIndex,
+      practiceMode: null == practiceMode
+          ? _value.practiceMode
+          : practiceMode // ignore: cast_nullable_to_non_nullable
+              as PracticeMode,
     ) as $Val);
   }
 }
@@ -100,7 +100,7 @@ abstract class _$$_UpdateUserNutritionDTOCopyWith<$Res>
       GenderType gender,
       double height,
       double weight,
-      PracticeIndex practiceIndex});
+      PracticeMode practiceMode});
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class __$$_UpdateUserNutritionDTOCopyWithImpl<$Res>
     Object? gender = null,
     Object? height = null,
     Object? weight = null,
-    Object? practiceIndex = null,
+    Object? practiceMode = null,
   }) {
     return _then(_$_UpdateUserNutritionDTO(
       age: null == age
@@ -138,10 +138,10 @@ class __$$_UpdateUserNutritionDTOCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as double,
-      practiceIndex: null == practiceIndex
-          ? _value.practiceIndex
-          : practiceIndex // ignore: cast_nullable_to_non_nullable
-              as PracticeIndex,
+      practiceMode: null == practiceMode
+          ? _value.practiceMode
+          : practiceMode // ignore: cast_nullable_to_non_nullable
+              as PracticeMode,
     ));
   }
 }
@@ -154,7 +154,7 @@ class _$_UpdateUserNutritionDTO implements _UpdateUserNutritionDTO {
       required this.gender,
       required this.height,
       required this.weight,
-      required this.practiceIndex});
+      required this.practiceMode});
 
   @override
   final int age;
@@ -165,11 +165,11 @@ class _$_UpdateUserNutritionDTO implements _UpdateUserNutritionDTO {
   @override
   final double weight;
   @override
-  final PracticeIndex practiceIndex;
+  final PracticeMode practiceMode;
 
   @override
   String toString() {
-    return 'UpdateUserNutritionDTO(age: $age, gender: $gender, height: $height, weight: $weight, practiceIndex: $practiceIndex)';
+    return 'UpdateUserNutritionDTO(age: $age, gender: $gender, height: $height, weight: $weight, practiceMode: $practiceMode)';
   }
 
   @override
@@ -181,14 +181,14 @@ class _$_UpdateUserNutritionDTO implements _UpdateUserNutritionDTO {
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.practiceIndex, practiceIndex) ||
-                other.practiceIndex == practiceIndex));
+            (identical(other.practiceMode, practiceMode) ||
+                other.practiceMode == practiceMode));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, age, gender, height, weight, practiceIndex);
+      Object.hash(runtimeType, age, gender, height, weight, practiceMode);
 
   @JsonKey(ignore: true)
   @override
@@ -211,7 +211,7 @@ abstract class _UpdateUserNutritionDTO implements UpdateUserNutritionDTO {
       required final GenderType gender,
       required final double height,
       required final double weight,
-      required final PracticeIndex practiceIndex}) = _$_UpdateUserNutritionDTO;
+      required final PracticeMode practiceMode}) = _$_UpdateUserNutritionDTO;
 
   @override
   int get age;
@@ -222,7 +222,7 @@ abstract class _UpdateUserNutritionDTO implements UpdateUserNutritionDTO {
   @override
   double get weight;
   @override
-  PracticeIndex get practiceIndex;
+  PracticeMode get practiceMode;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateUserNutritionDTOCopyWith<_$_UpdateUserNutritionDTO> get copyWith =>
