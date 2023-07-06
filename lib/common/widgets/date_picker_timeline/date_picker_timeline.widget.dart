@@ -81,6 +81,8 @@ class _DatePickerTimelineState extends State<DatePickerTimeline> {
             date: date,
             width: widget.width,
             onDateSelected: (selectedDate) {
+              if (selectedDate == _currentDate) return;
+
               widget.onDateChange?.call(selectedDate);
 
               setState(() {

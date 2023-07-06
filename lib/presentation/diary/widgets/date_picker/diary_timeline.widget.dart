@@ -37,7 +37,7 @@ class _DiaryTimelineState extends State<DiaryTimeline> {
   }
 
   void _onDateChange(DateTime date) {
-    context.read<DiaryBloc>().add(DiaryEvent.getByDay(date));
+    context.read<DiaryBloc>().add(DiaryEvent.getByDay(date: date));
   }
 
   @override

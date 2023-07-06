@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:injectable/injectable.dart';
 import 'package:smarthealthy/common/constants/endpoints.dart';
 import 'package:smarthealthy/common/helpers/dio.helper.dart';
@@ -28,8 +26,6 @@ class RecipeDataSource {
   Future<GetRecipeResultDTO> getRecipes(
     QueryRecipesDTO queryDto,
   ) async {
-    log(queryDto.toJson().toString());
-
     final response = await _dioHelper.get(
       Endpoints.recipes,
       queryParameters: queryDto.pagination.toJson(),

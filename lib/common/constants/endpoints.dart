@@ -32,4 +32,5 @@ abstract class Endpoints {
 
   // Diary
   static final String diary = '$apiUrl/diaries';
+  static final String deleteMeal = '$apiUrl/diaries/meals';
 }

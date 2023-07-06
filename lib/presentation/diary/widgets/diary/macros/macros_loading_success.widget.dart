@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
@@ -27,8 +25,6 @@ class _MacrosLoadingSuccessState extends State<MacrosLoadingSuccess> {
 
   @override
   void initState() {
-    log(widget.nutrition.toString());
-
     _items = [
       MacrosUIModel(
         title: LocaleKeys.macros_protein.tr(),

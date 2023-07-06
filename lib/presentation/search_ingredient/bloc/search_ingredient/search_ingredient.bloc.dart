@@ -68,7 +68,6 @@ class SearchIngredientBloc
             ),
       );
     } catch (err, stack) {
-      log(err.toString());
       log(stack.toString());
 
       emit(

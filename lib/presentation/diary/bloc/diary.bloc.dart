@@ -24,18 +24,23 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
       await event.map(
         getByDay: (getByDay) => _onGetByDay(getByDay, emit),
         addMeals: (addMeals) => _onAddMeal(addMeals, emit),
+        deleteMeal: (deleteMeal) async => _onDeleteMeal(deleteMeal, emit),
+        refresh: (refresh) async => _onRefresh(refresh, emit),
       );
     });
-
-    add(_GetByDay(state.currentDate));
   }
 
   Future<void> _onGetByDay(_GetByDay event, Emitter<DiaryState> emit) async {
-    emit(state.copyWith(status: QueryStatus.loading, currentDate: event.date));
+    emit(
+      state.copyWith(
+        status: QueryStatus.loading,
+        currentDate: event.date ?? state.currentDate,
+      ),
+    );
 
     try {
       final currentDiary = state.diaries.firstWhereOrNull(
-        (element) => element.date.isSameDateWith(event.date),
+        (element) => element.date.isSameDateWith(state.currentDate),
       );
 
       if (currentDiary != null) {
@@ -81,5 +86,35 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
     }
 
     emit(state.copyWith(diaries: currentDiaries));
+  }
+
+  void _onDeleteMeal(_DeleteMeal event, Emitter<DiaryState> emit) {
+    final currentDiaries = state.diaries.map((e) => e.copyWith()).toList();
+
+    final currentDiaryIndex = currentDiaries.indexWhere(
+      (element) => element.date.isSameDateWith(state.currentDate),
+    );
+
+    final currentDiary = currentDiaries[currentDiaryIndex];
+
+    switch (event.type) {
+      case MealType.breakfast:
+        currentDiary.breakfast.removeWhere((item) => item.id == event.mealId);
+        break;
+      case MealType.lunch:
+        currentDiary.lunch.removeWhere((item) => item.id == event.mealId);
+        break;
+      case MealType.dinner:
+        currentDiary.dinner.removeWhere((item) => item.id == event.mealId);
+        break;
+    }
+
+    emit(state.copyWith(diaries: currentDiaries));
+  }
+
+  void _onRefresh(_Refresh event, Emitter<DiaryState> emit) {
+    emit(state.copyWith(diaries: []));
+
+    add(const _GetByDay());
   }
 }

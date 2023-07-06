@@ -4,6 +4,8 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/dismissible/common_dismissible.widget.dart';
+import 'package:smarthealthy/common/widgets/focused_menu/focus_menu_holder.dart';
+import 'package:smarthealthy/common/widgets/focused_menu/focused_menu_item.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/common/widgets/filled_icon_button.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
@@ -12,18 +14,30 @@ class DishCard extends StatelessWidget {
   final RecipeModel recipe;
   final void Function(RecipeModel)? onAdd;
   final void Function(RecipeModel)? onDismissed;
+  final void Function()? onDelete;
+  final bool enabled;
 
   const DishCard({
     super.key,
     required this.recipe,
     this.onAdd,
     this.onDismissed,
+    this.onDelete,
+    this.enabled = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
+    return FocusedMenuHolder(
+      menuOffset: 10,
+      enabled: enabled,
+      menuItems: [
+        FocusedMenuItem(
+          title: const Text('Xoá'),
+          onPressed: () => onDelete?.call(),
+        )
+      ],
+      onPressed: () {
         Navigator.of(context)
             .pushNamed(AppRouter.dishDetail, arguments: recipe);
       },
@@ -57,6 +71,7 @@ class DishCard extends StatelessWidget {
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       recipe.name,
@@ -64,7 +79,7 @@ class DishCard extends StatelessWidget {
                           .copyWith(overflow: TextOverflow.ellipsis),
                       maxLines: 2,
                     ),
-                    AppSize.h5,
+                    // AppSize.h5,
                     // const Row(
                     //   children: [
                     //     IconTile(
@@ -86,12 +101,6 @@ class DishCard extends StatelessWidget {
                     //     // )
                     //   ],
                     // ),
-                    // AppSize.h5,
-                    // Text(
-                    //   '${LocaleKeys.macros_protein.tr()}: 20g',
-                    //   style: TextStyles.s14RegularText
-                    //       .copyWith(color: ColorStyles.gray500),
-                    // )
                   ],
                 ),
               ),

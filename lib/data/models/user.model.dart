@@ -9,7 +9,7 @@ import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart
 part 'user.model.freezed.dart';
 part 'user.model.g.dart';
 
-@Freezed(toJson: false)
+@Freezed(toJson: false, equal: true)
 class UserModel with _$UserModel {
   const UserModel._();
 
@@ -54,7 +54,7 @@ class UserModel with _$UserModel {
           gender: gender!,
           height: height!,
           weight: weight!,
-          practiceMode: PracticeMode.rare,
+          practiceMode: practiceMode!,
         ),
       );
 }

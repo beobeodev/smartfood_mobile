@@ -7,7 +7,7 @@ import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/data/dtos/add_meal.dto.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
-import 'package:smarthealthy/data/repositories/diary.repository.dart';
+import 'package:smarthealthy/data/repositories/meal.repository.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
@@ -28,7 +28,7 @@ class AddMealPage extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => AddMealBloc(
-            diaryRepository: getIt.get<DiaryRepository>(),
+            mealRepository: getIt.get<MealRepository>(),
           ),
         ),
         BlocProvider(

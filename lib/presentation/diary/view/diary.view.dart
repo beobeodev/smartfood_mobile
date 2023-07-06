@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/utils/dialog.util.dart';
+import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/data/repositories/diary.repository.dart';
+import 'package:smarthealthy/data/repositories/meal.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
+import 'package:smarthealthy/presentation/diary/bloc/delete_meal/delete_meal.bloc.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
-import 'package:smarthealthy/presentation/diary/widgets/date_picker/diary_timeline.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/diary_backdrop.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/diary_body.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/fab/diary_fab.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/need_login.widget.dart';
-import 'package:smarthealthy/presentation/diary/widgets/diary/nutrition_in_day.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/nutrition_not_found.widget.dart';
 
 class DiaryPage extends StatelessWidget {
@@ -18,12 +20,50 @@ class DiaryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => DiaryBloc(
-        diaryRepository: getIt.get<DiaryRepository>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => DiaryBloc(
+            diaryRepository: getIt.get<DiaryRepository>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) =>
+              DeleteMealBloc(mealRepository: getIt.get<MealRepository>()),
+        ),
+      ],
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<DeleteMealBloc, DeleteMealState>(
+            listener: _listenDeleteMealChanged,
+          ),
+          BlocListener<AuthBloc, AuthState>(
+            listener: _listenAuthChanged,
+            listenWhen: (previous, current) =>
+                previous.user != current.user &&
+                (previous.user?.hasNutrition ?? false) &&
+                (current.user?.hasNutrition ?? false),
+          ),
+        ],
+        child: const _DiaryView(),
       ),
-      child: const _DiaryView(),
     );
+  }
+
+  void _listenDeleteMealChanged(BuildContext context, DeleteMealState state) {
+    DialogUtil.hideLoading(context);
+
+    state.mapOrNull(
+      loading: (_) => DialogUtil.showLoading(context),
+      success: (success) => context
+          .read<DiaryBloc>()
+          .add(DiaryEvent.deleteMeal(success.mealId, success.type)),
+      error: (_) => ToastUtil.showError(context),
+    );
+  }
+
+  void _listenAuthChanged(BuildContext context, AuthState state) {
+    context.read<DiaryBloc>().add(const DiaryEvent.refresh());
   }
 }
 
@@ -50,13 +90,8 @@ class _DiaryViewState extends State<_DiaryView> {
     } else if (!hasNutrition) {
       return const NutritionNotFound();
     } else {
-      return Stack(
-        children: [
-          const Column(
-            children: [DiaryTimeline(), AppSize.h20, NutritionInDay()],
-          ),
-          DiaryBackdrop(animatingNotifier: _animatingNotifier)
-        ],
+      return DiaryBody(
+        animatingNotifier: _animatingNotifier,
       );
     }
   }
@@ -70,11 +105,16 @@ class _DiaryViewState extends State<_DiaryView> {
 
         return Scaffold(
           body: _getBody(hasNutrition),
-          floatingActionButton: showFab
-              ? DiaryFab(
+          floatingActionButton: BlocBuilder<DiaryBloc, DiaryState>(
+            builder: (context, state) {
+              return Visibility(
+                visible: state.status == QueryStatus.success && showFab,
+                child: DiaryFab(
                   animatingNotifier: _animatingNotifier,
-                )
-              : null,
+                ),
+              );
+            },
+          ),
           backgroundColor: showFab ? ColorStyles.aliceBlue : Colors.white,
         );
       },

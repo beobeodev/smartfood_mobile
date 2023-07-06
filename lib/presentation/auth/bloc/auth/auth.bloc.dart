@@ -40,9 +40,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   void _onSetUser(AuthUserSet event, Emitter<AuthState> emit) {
     if (state.status == AuthenticationStatus.authenticated) {
-      emit(state.copyWith(user: event.user));
+      emit(state.copyWith(user: event.user.copyWith()));
     } else {
-      emit(AuthState.authenticated(event.user));
+      emit(AuthState.authenticated(event.user.copyWith()));
     }
   }
 
