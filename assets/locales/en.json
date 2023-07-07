@@ -14,6 +14,7 @@
     "last_name": "Last name",
     "register_success": "Register successfully",
     "update_profile_success": "Update profile successfully",
+    "change_password_success": "Change password successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
     "no_data_yet": "No data yet"
@@ -50,6 +51,7 @@
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
+    "current_password_required": "Please enter your current password",
     "invalid_email": "Invalid email address",
     "first_name_required": "Please enter your first name",
     "last_name_required": "Please enter your last name",
@@ -114,7 +116,11 @@
   "profile": {
     "settings": "Settings",
     "personal_data": "Personal data",
-    "logout_confirm": "Are you sure you want to\nlog out?"
+    "change_password": "Change password",
+    "logout_confirm": "Are you sure you want to\nlog out?",
+    "current_password": "Current password",
+    "new_password": "New password",
+    "current_password_not_correct": "Current password is not correct"
   },
   "home": {
     "new_recipes": "New recipes for you"

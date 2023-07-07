@@ -39,9 +39,10 @@ class DiaryPage extends StatelessWidget {
           ),
           BlocListener<AuthBloc, AuthState>(
             listener: _listenAuthChanged,
-            listenWhen: (previous, current) =>
-                previous.user?.nutrition.calorie !=
-                current.user?.nutrition.calorie,
+            listenWhen: (previous, current) {
+              return previous.user?.totalCalories !=
+                  current.user?.totalCalories;
+            },
           ),
         ],
         child: const _DiaryView(),

@@ -2,10 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/widgets/check_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:unicons/unicons.dart';
 
 class AddMealAppBar extends StatelessWidget implements PreferredSizeWidget {
   final ValueNotifier<List<RecipeModel>> dishesNotifier;
@@ -45,17 +45,7 @@ class AddMealAppBar extends StatelessWidget implements PreferredSizeWidget {
           builder: (context, value, child) {
             return Visibility(visible: value.isNotEmpty, child: child!);
           },
-          child: Padding(
-            padding: const EdgeInsets.only(right: AppSize.actionSpacing),
-            child: IconButton(
-              onPressed: addDishes,
-              icon: const Icon(
-                UniconsLine.check,
-                size: 32,
-                color: ColorStyles.primary,
-              ),
-            ),
-          ),
+          child: CheckIconButton(onPressed: addDishes),
         )
       ],
     );

@@ -12,6 +12,7 @@ import 'package:smarthealthy/presentation/profile/ui_models/profile_option.model
 import 'package:smarthealthy/presentation/profile/widgets/profile_divider.widget.dart';
 import 'package:smarthealthy/presentation/profile/widgets/profile_list_view.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
+import 'package:unicons/unicons.dart';
 
 class PersonalData extends StatefulWidget {
   final UserModel user;
@@ -26,14 +27,17 @@ class _PersonalDataState extends State<PersonalData> {
   final List<ProfileOptionUIModel> _options = [
     ProfileOptionUIModel(
       title: LocaleKeys.profile_personal_data.tr(),
-      icon: Icons.person,
+      icon: UniconsLine.user,
       route: AppRouter.updateProfile,
     ),
     ProfileOptionUIModel(
+      title: LocaleKeys.profile_change_password.tr(),
+      icon: UniconsLine.lock,
+      route: AppRouter.changePassword,
+    ),
+    ProfileOptionUIModel(
       title: LocaleKeys.diary_nutri_info.tr(),
-      icon: Assets.icons.calo.svg(
-        colorFilter: colorSvg(ColorStyles.zodiacBlue),
-      ),
+      icon: UniconsLine.fire,
       route: AppRouter.updateNutrition,
     ),
     ProfileOptionUIModel(

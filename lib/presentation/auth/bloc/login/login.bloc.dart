@@ -56,7 +56,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           ),
         );
       } else {
-        emit(const LoginFailure(error: AuthErrorType.unknown));
+        emit(
+          const LoginFailure(
+            error: AuthErrorType.unknown,
+          ),
+        );
       }
     }
   }

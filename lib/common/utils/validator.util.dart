@@ -19,6 +19,8 @@ abstract class ValidatorUtil {
     if (value != null) {
       if (value.isEmpty) {
         return LocaleKeys.validator_password_required.tr();
+      } else if (value.length < 6) {
+        return LocaleKeys.validator_invalid_login_password.tr();
       }
       // else {
       //   RegExp regex = RegExp(
@@ -29,6 +31,16 @@ abstract class ValidatorUtil {
       //     return LocaleKeys.validator_invalid_password.tr();
       //   }
       // }
+    }
+
+    return null;
+  }
+
+  static String? validateCurrentPassword(String? value) {
+    if (value != null) {
+      if (value.isEmpty) {
+        return LocaleKeys.validator_current_password_required.tr();
+      }
     }
 
     return null;

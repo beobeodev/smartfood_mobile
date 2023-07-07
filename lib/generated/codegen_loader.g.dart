@@ -30,6 +30,7 @@ class CodegenLoader extends AssetLoader{
     "last_name": "Last name",
     "register_success": "Register successfully",
     "update_profile_success": "Update profile successfully",
+    "change_password_success": "Change password successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
     "no_data_yet": "No data yet"
@@ -66,6 +67,7 @@ class CodegenLoader extends AssetLoader{
   "validator": {
     "email_required": "Please enter your email",
     "password_required": "Please enter your password",
+    "current_password_required": "Please enter your current password",
     "invalid_email": "Invalid email address",
     "first_name_required": "Please enter your first name",
     "last_name_required": "Please enter your last name",
@@ -130,7 +132,11 @@ class CodegenLoader extends AssetLoader{
   "profile": {
     "settings": "Settings",
     "personal_data": "Personal data",
-    "logout_confirm": "Are you sure you want to\nlog out?"
+    "change_password": "Change password",
+    "logout_confirm": "Are you sure you want to\nlog out?",
+    "current_password": "Current password",
+    "new_password": "New password",
+    "current_password_not_correct": "Current password is not correct"
   },
   "home": {
     "new_recipes": "New recipes for you"
@@ -155,6 +161,7 @@ static const Map<String,dynamic> vi = {
     "last_name": "Họ",
     "register_success": "Đăng ký tài khoản thành công",
     "update_profile_success": "Cập nhật thông tin cá nhân thành công",
+    "change_password_success": "Đổi mật khẩu thành công",
     "ingredient_list": "Danh sách nguyên liệu",
     "ingredient_detection": "Nhận diện nguyên liệu",
     "no_data_yet": "Chưa có dữ liệu"
@@ -191,6 +198,7 @@ static const Map<String,dynamic> vi = {
   "validator": {
     "email_required": "Vui lòng nhập email của bạn",
     "password_required": "Vui lòng nhập mật khẩu",
+    "current_password_required": "Vui lòng nhập mật khẩu hiện tại",
     "first_name_required": "Vui lòng nhập tên của bạn",
     "last_name_required": "Vui lòng nhập họ của bạn",
     "confirm_password_required": "Vui lòng xác nhận lại mật khẩu",
@@ -255,7 +263,12 @@ static const Map<String,dynamic> vi = {
   "profile": {
     "settings": "Cài đặt",
     "personal_data": "Thông tin cá nhân",
-    "logout_confirm": "Bạn có chắc là muốn\nđăng xuất?"
+    "change_password": "Đổi mật khẩu",
+    "logout_confirm": "Bạn có chắc là muốn\nđăng xuất?",
+    "current_password": "Mật khẩu hiện tại",
+    "new_password": "Mật khẩu mới",
+    "confirm_new_password": "Xác nhận mật khẩu mới",
+    "current_password_not_correct": "Mật khẩu hiện tại không đúng"
   },
   "home": {
     "new_recipes": "Món mới dành cho bạn"

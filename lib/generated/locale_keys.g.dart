@@ -15,6 +15,7 @@ abstract class  LocaleKeys {
   static const texts_last_name = 'texts.last_name';
   static const texts_register_success = 'texts.register_success';
   static const texts_update_profile_success = 'texts.update_profile_success';
+  static const texts_change_password_success = 'texts.change_password_success';
   static const texts_ingredient_list = 'texts.ingredient_list';
   static const texts_ingredient_detection = 'texts.ingredient_detection';
   static const texts_no_data_yet = 'texts.no_data_yet';
@@ -47,6 +48,7 @@ abstract class  LocaleKeys {
   static const auth = 'auth';
   static const validator_email_required = 'validator.email_required';
   static const validator_password_required = 'validator.password_required';
+  static const validator_current_password_required = 'validator.current_password_required';
   static const validator_invalid_email = 'validator.invalid_email';
   static const validator_first_name_required = 'validator.first_name_required';
   static const validator_last_name_required = 'validator.last_name_required';
@@ -103,7 +105,11 @@ abstract class  LocaleKeys {
   static const diary = 'diary';
   static const profile_settings = 'profile.settings';
   static const profile_personal_data = 'profile.personal_data';
+  static const profile_change_password = 'profile.change_password';
   static const profile_logout_confirm = 'profile.logout_confirm';
+  static const profile_current_password = 'profile.current_password';
+  static const profile_new_password = 'profile.new_password';
+  static const profile_current_password_not_correct = 'profile.current_password_not_correct';
   static const profile = 'profile';
   static const home_new_recipes = 'home.new_recipes';
   static const home = 'home';

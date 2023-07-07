@@ -13,6 +13,7 @@ import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 import 'package:smarthealthy/presentation/diary/view/add_meal.view.dart';
 import 'package:smarthealthy/presentation/diary/view/dish_detail.view.dart';
+import 'package:smarthealthy/presentation/profile/view/change_password.view.dart';
 import 'package:smarthealthy/presentation/profile/view/update_profile.view.dart';
 import 'package:smarthealthy/presentation/update_nutrition/view/update_nutrition.view.dart';
 import 'package:smarthealthy/presentation/update_nutrition/view/measure_nutrition_result.view.dart';
@@ -54,6 +55,7 @@ abstract class AppRouter {
 
   // Profile
   static const String updateProfile = '/update_profile';
+  static const String changePassword = '/change_password';
 
   static Route? onGenerateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
@@ -202,6 +204,14 @@ abstract class AppRouter {
           settings: settings,
           builder: (_) {
             return const UpdateProfilePage();
+          },
+          type: PageTransitionType.rightToLeft,
+        );
+      case changePassword:
+        return TransitionPageRoute(
+          settings: settings,
+          builder: (_) {
+            return const ChangePasswordPage();
           },
           type: PageTransitionType.rightToLeft,
         );

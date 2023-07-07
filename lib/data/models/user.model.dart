@@ -43,7 +43,7 @@ class UserModel with _$UserModel {
           gender: gender!,
           height: height!,
           weight: weight!,
-          practiceMode: PracticeMode.rare,
+          practiceMode: practiceMode!,
         ),
       );
 

@@ -1,10 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
+import 'package:smarthealthy/common/widgets/check_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/data/dtos/update_profile.dto.dart';
 import 'package:smarthealthy/data/models/user.model.dart';
@@ -14,7 +13,6 @@ import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/profile/bloc/update_profile/update_profile.bloc.dart';
 import 'package:smarthealthy/presentation/profile/widgets/update_profile/update_profile_body.widget.dart';
-import 'package:unicons/unicons.dart';
 
 class UpdateProfilePage extends StatelessWidget {
   const UpdateProfilePage({super.key});
@@ -75,16 +73,20 @@ class _UpdateProfileViewState extends State<_UpdateProfileView> {
   }
 
   void _submit() {
-    final user = _userNotifier.value;
+    FocusManager.instance.primaryFocus?.unfocus();
 
-    context.read<UpdateProfileBloc>().add(
-          UpdateProfileEvent.submit(
-            UpdateProfileDTO(
-              firstName: user.firstName,
-              lastName: user.lastName,
+    if (_formKey.currentState!.validate()) {
+      final user = _userNotifier.value;
+
+      context.read<UpdateProfileBloc>().add(
+            UpdateProfileEvent.submit(
+              UpdateProfileDTO(
+                firstName: user.firstName,
+                lastName: user.lastName,
+              ),
             ),
-          ),
-        );
+          );
+    }
   }
 
   @override
@@ -106,20 +108,10 @@ class _UpdateProfileViewState extends State<_UpdateProfileView> {
                   builder: (context, value2, child) {
                     return Visibility(
                       visible: value1 != value2,
-                      child: Padding(
-                        padding:
-                            const EdgeInsets.only(right: AppSize.actionSpacing),
-                        child: IconButton(
-                          onPressed: _submit,
-                          icon: const Icon(
-                            UniconsLine.check,
-                            size: 32,
-                            color: ColorStyles.primary,
-                          ),
-                        ),
-                      ),
+                      child: child!,
                     );
                   },
+                  child: CheckIconButton(onPressed: _submit),
                 );
               },
             )
