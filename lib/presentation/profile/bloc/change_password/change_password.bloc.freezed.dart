@@ -62,6 +62,8 @@ abstract class $ChangePasswordEventCopyWith<$Res> {
       _$ChangePasswordEventCopyWithImpl<$Res, ChangePasswordEvent>;
   @useResult
   $Res call({ChangePasswordDTO dto});
+
+  $ChangePasswordDTOCopyWith<$Res> get dto;
 }
 
 /// @nodoc
@@ -77,14 +79,22 @@ class _$ChangePasswordEventCopyWithImpl<$Res, $Val extends ChangePasswordEvent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dto = freezed,
+    Object? dto = null,
   }) {
     return _then(_value.copyWith(
-      dto: freezed == dto
+      dto: null == dto
           ? _value.dto
           : dto // ignore: cast_nullable_to_non_nullable
               as ChangePasswordDTO,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ChangePasswordDTOCopyWith<$Res> get dto {
+    return $ChangePasswordDTOCopyWith<$Res>(_value.dto, (value) {
+      return _then(_value.copyWith(dto: value) as $Val);
+    });
   }
 }
 
@@ -96,6 +106,9 @@ abstract class _$$_SubmitCopyWith<$Res>
   @override
   @useResult
   $Res call({ChangePasswordDTO dto});
+
+  @override
+  $ChangePasswordDTOCopyWith<$Res> get dto;
 }
 
 /// @nodoc
@@ -108,10 +121,10 @@ class __$$_SubmitCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dto = freezed,
+    Object? dto = null,
   }) {
     return _then(_$_Submit(
-      freezed == dto
+      null == dto
           ? _value.dto
           : dto // ignore: cast_nullable_to_non_nullable
               as ChangePasswordDTO,
@@ -137,12 +150,11 @@ class _$_Submit implements _Submit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Submit &&
-            const DeepCollectionEquality().equals(other.dto, dto));
+            (identical(other.dto, dto) || other.dto == dto));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(dto));
+  int get hashCode => Object.hash(runtimeType, dto);
 
   @JsonKey(ignore: true)
   @override

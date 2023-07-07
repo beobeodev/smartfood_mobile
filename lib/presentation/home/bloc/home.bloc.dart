@@ -1,7 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:smarthealthy/common/enums/query_error_type.enum.dart';
 import 'package:smarthealthy/common/enums/query_status.enum.dart';
+import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/data/dtos/pagination/pagination_query.dto.dart';
+import 'package:smarthealthy/data/dtos/query_data_info.dto.dart';
 import 'package:smarthealthy/data/dtos/query_recipes.dto.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
@@ -15,12 +18,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc({required RecipeRepository recipeRepository})
       : _recipeRepository = recipeRepository,
-        super(const HomeState()) {
+        super(
+          const HomeState(
+            queryInfo: QueryDataInfo(status: QueryStatus.loading),
+          ),
+        ) {
     on<HomeEvent>((event, emit) async {
       await event.map(
         getRecommendedRecipes: (getRecommendedEvent) =>
             _onGetRecommendedRecipes(getRecommendedEvent, emit),
         getTenRecipes: (getTenRecipes) => _onGetTenRecipes(getTenRecipes, emit),
+        refresh: (refresh) => _onRefresh(refresh, emit),
       );
     });
   }
@@ -29,18 +37,27 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _GetRecommendedRecipes event,
     Emitter<HomeState> emit,
   ) async {
-    emit(state.copyWith(status: QueryStatus.loading));
-    try {
-      final recommendedRecipes =
-          await _recipeRepository.getRecommendedRecipes();
-      emit(
-        state.copyWith(
-          recommendedRecipes: recommendedRecipes,
-          status: QueryStatus.success,
+    emit(
+      const _HomeState(
+        queryInfo: QueryDataInfo(
+          status: QueryStatus.loading,
         ),
+        recipeType: RecipeType.recommended,
+      ),
+    );
+
+    try {
+      emit(
+        state.copyWith
+            .queryInfo(
+              status: QueryStatus.success,
+            )
+            .copyWith(
+              recipes: await _getRecipes(),
+            ),
       );
     } catch (err) {
-      emit(state.copyWith(status: QueryStatus.error));
+      emit(state.copyWith.queryInfo(status: QueryStatus.error));
     }
   }
 
@@ -48,19 +65,60 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _GetTenRecipes event,
     Emitter<HomeState> emit,
   ) async {
-    emit(state.copyWith(status: QueryStatus.loading));
-    try {
-      final tenRecipes = await _recipeRepository.getRecipes(
-        const QueryRecipesDTO(pagination: PaginationQueryDTO(limit: 10)),
-      );
-      emit(
-        state.copyWith(
-          recommendedRecipes: tenRecipes.data,
-          status: QueryStatus.success,
+    emit(
+      const _HomeState(
+        queryInfo: QueryDataInfo(
+          status: QueryStatus.loading,
         ),
+      ),
+    );
+
+    try {
+      emit(
+        state.copyWith
+            .queryInfo(
+              status: QueryStatus.success,
+            )
+            .copyWith(
+              recipes: await _getRecipes(),
+            ),
       );
     } catch (err) {
-      emit(state.copyWith(status: QueryStatus.error));
+      emit(state.copyWith.queryInfo(status: QueryStatus.error));
     }
+  }
+
+  Future<void> _onRefresh(_Refresh event, Emitter<HomeState> emit) async {
+    emit(
+      state.copyWith
+          .queryInfo(status: QueryStatus.loading, type: QueryType.refresh),
+    );
+
+    try {
+      emit(
+        state.copyWith
+            .queryInfo(status: QueryStatus.success)
+            .copyWith(recipes: await _getRecipes()),
+      );
+    } catch (err) {
+      emit(
+        state.copyWith.queryInfo(
+          status: QueryStatus.error,
+          errorType: QueryErrorType.refresh,
+        ),
+      );
+    }
+  }
+
+  Future<List<RecipeModel>> _getRecipes() async {
+    if (state.recipeType == RecipeType.normal) {
+      final dto = await _recipeRepository.getRecipes(
+        const QueryRecipesDTO(pagination: PaginationQueryDTO(limit: 10)),
+      );
+
+      return dto.data;
+    }
+
+    return await _recipeRepository.getRecommendedRecipes();
   }
 }

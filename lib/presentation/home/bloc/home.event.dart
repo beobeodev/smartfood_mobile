@@ -4,4 +4,5 @@ part of 'home.bloc.dart';
 class HomeEvent with _$HomeEvent {
   const factory HomeEvent.getRecommendedRecipes() = _GetRecommendedRecipes;
   const factory HomeEvent.getTenRecipes() = _GetTenRecipes;
+  const factory HomeEvent.refresh() = _Refresh;
 }

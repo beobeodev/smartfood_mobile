@@ -20,18 +20,21 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getRecommendedRecipes,
     required TResult Function() getTenRecipes,
+    required TResult Function() refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getRecommendedRecipes,
     TResult? Function()? getTenRecipes,
+    TResult? Function()? refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getRecommendedRecipes,
     TResult Function()? getTenRecipes,
+    TResult Function()? refresh,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$HomeEvent {
     required TResult Function(_GetRecommendedRecipes value)
         getRecommendedRecipes,
     required TResult Function(_GetTenRecipes value) getTenRecipes,
+    required TResult Function(_Refresh value) refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
     TResult? Function(_GetTenRecipes value)? getTenRecipes,
+    TResult? Function(_Refresh value)? refresh,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
     TResult Function(_GetTenRecipes value)? getTenRecipes,
+    TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -114,6 +120,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   TResult when<TResult extends Object?>({
     required TResult Function() getRecommendedRecipes,
     required TResult Function() getTenRecipes,
+    required TResult Function() refresh,
   }) {
     return getRecommendedRecipes();
   }
@@ -123,6 +130,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getRecommendedRecipes,
     TResult? Function()? getTenRecipes,
+    TResult? Function()? refresh,
   }) {
     return getRecommendedRecipes?.call();
   }
@@ -132,6 +140,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getRecommendedRecipes,
     TResult Function()? getTenRecipes,
+    TResult Function()? refresh,
     required TResult orElse(),
   }) {
     if (getRecommendedRecipes != null) {
@@ -146,6 +155,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
     required TResult Function(_GetRecommendedRecipes value)
         getRecommendedRecipes,
     required TResult Function(_GetTenRecipes value) getTenRecipes,
+    required TResult Function(_Refresh value) refresh,
   }) {
     return getRecommendedRecipes(this);
   }
@@ -155,6 +165,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
     TResult? Function(_GetTenRecipes value)? getTenRecipes,
+    TResult? Function(_Refresh value)? refresh,
   }) {
     return getRecommendedRecipes?.call(this);
   }
@@ -164,6 +175,7 @@ class _$_GetRecommendedRecipes implements _GetRecommendedRecipes {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
     TResult Function(_GetTenRecipes value)? getTenRecipes,
+    TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {
     if (getRecommendedRecipes != null) {
@@ -217,6 +229,7 @@ class _$_GetTenRecipes implements _GetTenRecipes {
   TResult when<TResult extends Object?>({
     required TResult Function() getRecommendedRecipes,
     required TResult Function() getTenRecipes,
+    required TResult Function() refresh,
   }) {
     return getTenRecipes();
   }
@@ -226,6 +239,7 @@ class _$_GetTenRecipes implements _GetTenRecipes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getRecommendedRecipes,
     TResult? Function()? getTenRecipes,
+    TResult? Function()? refresh,
   }) {
     return getTenRecipes?.call();
   }
@@ -235,6 +249,7 @@ class _$_GetTenRecipes implements _GetTenRecipes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getRecommendedRecipes,
     TResult Function()? getTenRecipes,
+    TResult Function()? refresh,
     required TResult orElse(),
   }) {
     if (getTenRecipes != null) {
@@ -249,6 +264,7 @@ class _$_GetTenRecipes implements _GetTenRecipes {
     required TResult Function(_GetRecommendedRecipes value)
         getRecommendedRecipes,
     required TResult Function(_GetTenRecipes value) getTenRecipes,
+    required TResult Function(_Refresh value) refresh,
   }) {
     return getTenRecipes(this);
   }
@@ -258,6 +274,7 @@ class _$_GetTenRecipes implements _GetTenRecipes {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
     TResult? Function(_GetTenRecipes value)? getTenRecipes,
+    TResult? Function(_Refresh value)? refresh,
   }) {
     return getTenRecipes?.call(this);
   }
@@ -267,6 +284,7 @@ class _$_GetTenRecipes implements _GetTenRecipes {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
     TResult Function(_GetTenRecipes value)? getTenRecipes,
+    TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {
     if (getTenRecipes != null) {
@@ -281,10 +299,118 @@ abstract class _GetTenRecipes implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$_RefreshCopyWith<$Res> {
+  factory _$$_RefreshCopyWith(
+          _$_Refresh value, $Res Function(_$_Refresh) then) =
+      __$$_RefreshCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_RefreshCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_Refresh>
+    implements _$$_RefreshCopyWith<$Res> {
+  __$$_RefreshCopyWithImpl(_$_Refresh _value, $Res Function(_$_Refresh) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Refresh implements _Refresh {
+  const _$_Refresh();
+
+  @override
+  String toString() {
+    return 'HomeEvent.refresh()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Refresh);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getRecommendedRecipes,
+    required TResult Function() getTenRecipes,
+    required TResult Function() refresh,
+  }) {
+    return refresh();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getRecommendedRecipes,
+    TResult? Function()? getTenRecipes,
+    TResult? Function()? refresh,
+  }) {
+    return refresh?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getRecommendedRecipes,
+    TResult Function()? getTenRecipes,
+    TResult Function()? refresh,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetRecommendedRecipes value)
+        getRecommendedRecipes,
+    required TResult Function(_GetTenRecipes value) getTenRecipes,
+    required TResult Function(_Refresh value) refresh,
+  }) {
+    return refresh(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult? Function(_GetTenRecipes value)? getTenRecipes,
+    TResult? Function(_Refresh value)? refresh,
+  }) {
+    return refresh?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetRecommendedRecipes value)? getRecommendedRecipes,
+    TResult Function(_GetTenRecipes value)? getTenRecipes,
+    TResult Function(_Refresh value)? refresh,
+    required TResult orElse(),
+  }) {
+    if (refresh != null) {
+      return refresh(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Refresh implements HomeEvent {
+  const factory _Refresh() = _$_Refresh;
+}
+
+/// @nodoc
 mixin _$HomeState {
-  List<RecipeModel>? get recommendedRecipes =>
-      throw _privateConstructorUsedError;
-  QueryStatus get status => throw _privateConstructorUsedError;
+  QueryDataInfo get queryInfo => throw _privateConstructorUsedError;
+  RecipeType get recipeType => throw _privateConstructorUsedError;
+  List<RecipeModel>? get recipes => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -296,7 +422,12 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({List<RecipeModel>? recommendedRecipes, QueryStatus status});
+  $Res call(
+      {QueryDataInfo queryInfo,
+      RecipeType recipeType,
+      List<RecipeModel>? recipes});
+
+  $QueryDataInfoCopyWith<$Res> get queryInfo;
 }
 
 /// @nodoc
@@ -312,19 +443,32 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recommendedRecipes = freezed,
-    Object? status = null,
+    Object? queryInfo = null,
+    Object? recipeType = null,
+    Object? recipes = freezed,
   }) {
     return _then(_value.copyWith(
-      recommendedRecipes: freezed == recommendedRecipes
-          ? _value.recommendedRecipes
-          : recommendedRecipes // ignore: cast_nullable_to_non_nullable
+      queryInfo: null == queryInfo
+          ? _value.queryInfo
+          : queryInfo // ignore: cast_nullable_to_non_nullable
+              as QueryDataInfo,
+      recipeType: null == recipeType
+          ? _value.recipeType
+          : recipeType // ignore: cast_nullable_to_non_nullable
+              as RecipeType,
+      recipes: freezed == recipes
+          ? _value.recipes
+          : recipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeModel>?,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as QueryStatus,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $QueryDataInfoCopyWith<$Res> get queryInfo {
+    return $QueryDataInfoCopyWith<$Res>(_value.queryInfo, (value) {
+      return _then(_value.copyWith(queryInfo: value) as $Val);
+    });
   }
 }
 
@@ -335,7 +479,13 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<RecipeModel>? recommendedRecipes, QueryStatus status});
+  $Res call(
+      {QueryDataInfo queryInfo,
+      RecipeType recipeType,
+      List<RecipeModel>? recipes});
+
+  @override
+  $QueryDataInfoCopyWith<$Res> get queryInfo;
 }
 
 /// @nodoc
@@ -349,18 +499,23 @@ class __$$_HomeStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? recommendedRecipes = freezed,
-    Object? status = null,
+    Object? queryInfo = null,
+    Object? recipeType = null,
+    Object? recipes = freezed,
   }) {
     return _then(_$_HomeState(
-      recommendedRecipes: freezed == recommendedRecipes
-          ? _value._recommendedRecipes
-          : recommendedRecipes // ignore: cast_nullable_to_non_nullable
+      queryInfo: null == queryInfo
+          ? _value.queryInfo
+          : queryInfo // ignore: cast_nullable_to_non_nullable
+              as QueryDataInfo,
+      recipeType: null == recipeType
+          ? _value.recipeType
+          : recipeType // ignore: cast_nullable_to_non_nullable
+              as RecipeType,
+      recipes: freezed == recipes
+          ? _value._recipes
+          : recipes // ignore: cast_nullable_to_non_nullable
               as List<RecipeModel>?,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as QueryStatus,
     ));
   }
 }
@@ -369,28 +524,29 @@ class __$$_HomeStateCopyWithImpl<$Res>
 
 class _$_HomeState implements _HomeState {
   const _$_HomeState(
-      {final List<RecipeModel>? recommendedRecipes,
-      this.status = QueryStatus.loading})
-      : _recommendedRecipes = recommendedRecipes;
+      {required this.queryInfo,
+      this.recipeType = RecipeType.normal,
+      final List<RecipeModel>? recipes})
+      : _recipes = recipes;
 
-  final List<RecipeModel>? _recommendedRecipes;
   @override
-  List<RecipeModel>? get recommendedRecipes {
-    final value = _recommendedRecipes;
+  final QueryDataInfo queryInfo;
+  @override
+  @JsonKey()
+  final RecipeType recipeType;
+  final List<RecipeModel>? _recipes;
+  @override
+  List<RecipeModel>? get recipes {
+    final value = _recipes;
     if (value == null) return null;
-    if (_recommendedRecipes is EqualUnmodifiableListView)
-      return _recommendedRecipes;
+    if (_recipes is EqualUnmodifiableListView) return _recipes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
   @override
-  @JsonKey()
-  final QueryStatus status;
-
-  @override
   String toString() {
-    return 'HomeState(recommendedRecipes: $recommendedRecipes, status: $status)';
+    return 'HomeState(queryInfo: $queryInfo, recipeType: $recipeType, recipes: $recipes)';
   }
 
   @override
@@ -398,14 +554,16 @@ class _$_HomeState implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_HomeState &&
-            const DeepCollectionEquality()
-                .equals(other._recommendedRecipes, _recommendedRecipes) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.queryInfo, queryInfo) ||
+                other.queryInfo == queryInfo) &&
+            (identical(other.recipeType, recipeType) ||
+                other.recipeType == recipeType) &&
+            const DeepCollectionEquality().equals(other._recipes, _recipes));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_recommendedRecipes), status);
+  int get hashCode => Object.hash(runtimeType, queryInfo, recipeType,
+      const DeepCollectionEquality().hash(_recipes));
 
   @JsonKey(ignore: true)
   @override
@@ -416,13 +574,16 @@ class _$_HomeState implements _HomeState {
 
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
-      {final List<RecipeModel>? recommendedRecipes,
-      final QueryStatus status}) = _$_HomeState;
+      {required final QueryDataInfo queryInfo,
+      final RecipeType recipeType,
+      final List<RecipeModel>? recipes}) = _$_HomeState;
 
   @override
-  List<RecipeModel>? get recommendedRecipes;
+  QueryDataInfo get queryInfo;
   @override
-  QueryStatus get status;
+  RecipeType get recipeType;
+  @override
+  List<RecipeModel>? get recipes;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

@@ -1,9 +1,12 @@
 part of 'home.bloc.dart';
 
+enum RecipeType { normal, recommended }
+
 @freezed
 class HomeState with _$HomeState {
   const factory HomeState({
-    List<RecipeModel>? recommendedRecipes,
-    @Default(QueryStatus.loading) QueryStatus status,
+    required QueryDataInfo queryInfo,
+    @Default(RecipeType.normal) RecipeType recipeType,
+    List<RecipeModel>? recipes,
   }) = _HomeState;
 }

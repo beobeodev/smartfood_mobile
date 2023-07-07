@@ -41,7 +41,9 @@ class DiaryPage extends StatelessWidget {
             listener: _listenAuthChanged,
             listenWhen: (previous, current) {
               return previous.user?.totalCalories !=
-                  current.user?.totalCalories;
+                      current.user?.totalCalories &&
+                  previous.user?.hasNutrition == true &&
+                  current.user?.hasNutrition == true;
             },
           ),
         ],
