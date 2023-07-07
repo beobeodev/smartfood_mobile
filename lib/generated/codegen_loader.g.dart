@@ -136,7 +136,8 @@ class CodegenLoader extends AssetLoader{
     "logout_confirm": "Are you sure you want to\nlog out?",
     "current_password": "Current password",
     "new_password": "New password",
-    "current_password_not_correct": "Current password is not correct"
+    "current_password_not_correct": "Current password is not correct",
+    "sign_out_warning": "When you sign out, your personal data is temporarily hidden. To see that information again, just sign in again"
   },
   "home": {
     "new_recipes": "New recipes for you"
@@ -267,8 +268,8 @@ static const Map<String,dynamic> vi = {
     "logout_confirm": "Bạn có chắc là muốn\nđăng xuất?",
     "current_password": "Mật khẩu hiện tại",
     "new_password": "Mật khẩu mới",
-    "confirm_new_password": "Xác nhận mật khẩu mới",
-    "current_password_not_correct": "Mật khẩu hiện tại không đúng"
+    "current_password_not_correct": "Mật khẩu hiện tại không đúng",
+    "sign_out_warning": "Khi đăng xuất, các dữ liệu cá nhân của bạn sẽ tạm thời ẩn đi. Để thấy lại các thông tin đó, bạn chỉ cần đăng nhập lại"
   },
   "home": {
     "new_recipes": "Món mới dành cho bạn"

@@ -120,7 +120,8 @@
     "logout_confirm": "Are you sure you want to\nlog out?",
     "current_password": "Current password",
     "new_password": "New password",
-    "current_password_not_correct": "Current password is not correct"
+    "current_password_not_correct": "Current password is not correct",
+    "sign_out_warning": "When you sign out, your personal data is temporarily hidden. To see that information again, just sign in again"
   },
   "home": {
     "new_recipes": "New recipes for you"

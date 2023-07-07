@@ -55,7 +55,11 @@ class IngredientFilterSection extends StatelessWidget {
               children: state.queryDto.ingredients?.map((e) {
                     return IngredientChip(
                       name: e.name,
-                      onDeleted: () {},
+                      onDeleted: () {
+                        context
+                            .read<SearchRecipeBloc>()
+                            .add(SearchRecipeEvent.removeIngredient(e));
+                      },
                     );
                   }).toList() ??
                   [],

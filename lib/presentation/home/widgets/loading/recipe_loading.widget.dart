@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/app_carousel_slider.widget.dart';
 import 'package:smarthealthy/common/widgets/common_shimmer.widget.dart';
@@ -11,11 +12,14 @@ class RecipeTodayLoading extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(left: AppSize.horizontalSpacing),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: AppSize.horizontalSpacing,
+            top: AppSize.horizontalSpacing,
+          ),
           child: CommonShimmer(
             width: 200,
-            height: 20,
+            height: 20.sp,
           ),
         ),
         AppSize.h10,

@@ -42,6 +42,7 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
         loadMore: (event) => _onLoadMore(event, emit),
         addIngredient: (event) async => _onAddIngredient(event, emit),
         applyFilters: (event) => _onApplyFilters(event, emit),
+        removeIngredient: (event) async => _onRemoveIngredient(event, emit),
       );
     });
   }
@@ -233,6 +234,19 @@ class SearchRecipeBloc extends Bloc<SearchRecipeEvent, SearchRecipeState> {
             ...state.queryDto.ingredients!,
           event.ingredient
         ],
+      ),
+    );
+  }
+
+  void _onRemoveIngredient(
+    _RemoveIngredient event,
+    Emitter<SearchRecipeState> emit,
+  ) {
+    emit(
+      state.copyWith.queryDto(
+        ingredients: state.queryDto.ingredients
+            ?.where((element) => element.id != event.ingredient.id)
+            .toList(),
       ),
     );
   }

@@ -17,8 +17,7 @@ class SignOut extends StatelessWidget {
     DialogUtil.showCustomDialog(
       context,
       title: LocaleKeys.profile_logout_confirm.tr(),
-      content:
-          'Khi đăng xuất, các dữ liệu cá nhân của bạn sẽ tạm thời ẩn đi. Để thấy lại các thông tin đó, bạn chỉ cần đăng nhập lại',
+      content: LocaleKeys.profile_sign_out_warning.tr(),
       isConfirmDialog: true,
       confirmAction: () => context.read<AuthBloc>().add(AuthLogout()),
     );

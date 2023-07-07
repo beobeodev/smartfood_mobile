@@ -17,10 +17,12 @@ class QueryRecipesDTO with _$QueryRecipesDTO {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> result = pagination.toJson();
 
-    result.writeNotNull(
-      'filter.quantification.ingredient.slug',
-      _ingredientSlugToJson(ingredients?.map((e) => e.slug).toList()),
-    );
+    if (ingredients != null && ingredients!.isNotEmpty) {
+      result.writeNotNull(
+        'filter.quantification.ingredient.slug',
+        _ingredientSlugToJson(ingredients?.map((e) => e.slug).toList()),
+      );
+    }
 
     return result;
   }

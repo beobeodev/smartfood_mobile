@@ -110,6 +110,7 @@ abstract class  LocaleKeys {
   static const profile_current_password = 'profile.current_password';
   static const profile_new_password = 'profile.new_password';
   static const profile_current_password_not_correct = 'profile.current_password_not_correct';
+  static const profile_sign_out_warning = 'profile.sign_out_warning';
   static const profile = 'profile';
   static const home_new_recipes = 'home.new_recipes';
   static const home = 'home';

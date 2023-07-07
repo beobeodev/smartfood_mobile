@@ -61,7 +61,7 @@ class _IngredientGridViewState extends State<IngredientGridView> {
   void _onFail(QueryErrorType? failure) {
     if (failure == QueryErrorType.refresh) {
       _refreshController.refreshFailed();
-    } else {
+    } else if (failure == QueryErrorType.loadMore) {
       _refreshController.loadFailed();
     }
 

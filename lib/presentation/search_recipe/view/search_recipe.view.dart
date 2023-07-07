@@ -28,25 +28,28 @@ class SearchRecipePage extends StatelessWidget {
               ? const SearchRecipeEvent.getAll()
               : SearchRecipeEvent.getByIngredients(ingredients!),
         ),
-      child: BlocListener<SearchRecipeBloc, SearchRecipeState>(
-        listener: (context, state) => _listenBlocChanged(context, state),
-        child: RecipeListProvider(
-          autoFocus: ingredients == null,
-          child: const _SearchRecipeView(),
-        ),
+      child: RecipeListProvider(
+        autoFocus: ingredients == null,
+        child: const _SearchRecipeView(),
       ),
     );
   }
-
-  void _listenBlocChanged(BuildContext context, SearchRecipeState state) {
-    if (state.queryInfo.type == QueryType.initial) {
-      context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.reset());
-    }
-  }
 }
 
-class _SearchRecipeView extends StatelessWidget {
+class _SearchRecipeView extends StatefulWidget {
   const _SearchRecipeView();
+
+  @override
+  State<_SearchRecipeView> createState() => _SearchRecipeViewState();
+}
+
+class _SearchRecipeViewState extends State<_SearchRecipeView> {
+  @override
+  void initState() {
+    context.read<RecipeFilterBloc>().add(const RecipeFilterEvent.reset());
+
+    super.initState();
+  }
 
   void _refreshError(BuildContext context) {
     context.read<SearchRecipeBloc>().add(const SearchRecipeEvent.getAll());
