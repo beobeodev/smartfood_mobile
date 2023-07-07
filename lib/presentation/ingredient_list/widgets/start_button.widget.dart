@@ -20,14 +20,21 @@ class StartButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      bottom: context.bottomSpacing,
-      left: AppSize.horizontalSpacing,
-      right: AppSize.horizontalSpacing,
-      child: AppRoundedButton(
-        onPressed: () => _startToRecipes(context),
-        content: LocaleKeys.button_start.tr(),
-      ),
+    return BlocBuilder<IngredientListBloc, IngredientListState>(
+      builder: (context, state) {
+        return Visibility(
+          visible: state.ingredients.isNotEmpty,
+          child: Positioned(
+            bottom: context.bottomSpacing,
+            left: AppSize.horizontalSpacing,
+            right: AppSize.horizontalSpacing,
+            child: AppRoundedButton(
+              onPressed: () => _startToRecipes(context),
+              content: LocaleKeys.button_start.tr(),
+            ),
+          ),
+        );
+      },
     );
   }
 }
