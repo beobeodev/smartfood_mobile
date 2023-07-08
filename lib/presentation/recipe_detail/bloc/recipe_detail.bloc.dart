@@ -14,7 +14,10 @@ class RecipeDetailBloc extends Bloc<RecipeDetailEvent, RecipeDetailState> {
       : _recipeRepository = recipeRepository,
         super(const RecipeDetailState.loading()) {
     on<RecipeDetailEvent>((events, emit) async {
-      await events.map(started: (started) => _onStarted(started, emit));
+      await events.map(
+        started: (started) => _onStarted(started, emit),
+        sendCook: (sendCook) => _onSendCook(sendCook, emit),
+      );
     });
   }
 
@@ -31,5 +34,12 @@ class RecipeDetailBloc extends Bloc<RecipeDetailEvent, RecipeDetailState> {
     } catch (err) {
       emit(const _Failure());
     }
+  }
+
+  Future<void> _onSendCook(
+    _SendCook event,
+    Emitter<RecipeDetailState> emit,
+  ) async {
+    await _recipeRepository.sendCook(event.id);
   }
 }

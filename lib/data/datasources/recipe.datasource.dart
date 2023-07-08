@@ -54,4 +54,8 @@ class RecipeDataSource {
       data: dto.toJson(),
     );
   }
+
+  Future<void> sendCook(String recipeId) async {
+    await _dioHelper.post('${Endpoints.cook}/$recipeId');
+  }
 }

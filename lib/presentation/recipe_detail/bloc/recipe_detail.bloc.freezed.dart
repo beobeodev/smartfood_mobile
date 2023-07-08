@@ -20,32 +20,38 @@ mixin _$RecipeDetailEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) started,
+    required TResult Function(String id) sendCook,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? started,
+    TResult? Function(String id)? sendCook,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? started,
+    TResult Function(String id)? sendCook,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_SendCook value) sendCook,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_SendCook value)? sendCook,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SendCook value)? sendCook,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id) started,
+    required TResult Function(String id) sendCook,
   }) {
     return started(id);
   }
@@ -162,6 +169,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? started,
+    TResult? Function(String id)? sendCook,
   }) {
     return started?.call(id);
   }
@@ -170,6 +178,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? started,
+    TResult Function(String id)? sendCook,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -182,6 +191,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
+    required TResult Function(_SendCook value) sendCook,
   }) {
     return started(this);
   }
@@ -190,6 +200,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
+    TResult? Function(_SendCook value)? sendCook,
   }) {
     return started?.call(this);
   }
@@ -198,6 +209,7 @@ class _$_Started implements _Started {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
+    TResult Function(_SendCook value)? sendCook,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -215,6 +227,143 @@ abstract class _Started implements RecipeDetailEvent {
   @override
   @JsonKey(ignore: true)
   _$$_StartedCopyWith<_$_Started> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SendCookCopyWith<$Res>
+    implements $RecipeDetailEventCopyWith<$Res> {
+  factory _$$_SendCookCopyWith(
+          _$_SendCook value, $Res Function(_$_SendCook) then) =
+      __$$_SendCookCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_SendCookCopyWithImpl<$Res>
+    extends _$RecipeDetailEventCopyWithImpl<$Res, _$_SendCook>
+    implements _$$_SendCookCopyWith<$Res> {
+  __$$_SendCookCopyWithImpl(
+      _$_SendCook _value, $Res Function(_$_SendCook) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_SendCook(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SendCook implements _SendCook {
+  const _$_SendCook({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'RecipeDetailEvent.sendCook(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SendCook &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SendCookCopyWith<_$_SendCook> get copyWith =>
+      __$$_SendCookCopyWithImpl<_$_SendCook>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) started,
+    required TResult Function(String id) sendCook,
+  }) {
+    return sendCook(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? started,
+    TResult? Function(String id)? sendCook,
+  }) {
+    return sendCook?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? started,
+    TResult Function(String id)? sendCook,
+    required TResult orElse(),
+  }) {
+    if (sendCook != null) {
+      return sendCook(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(_SendCook value) sendCook,
+  }) {
+    return sendCook(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(_SendCook value)? sendCook,
+  }) {
+    return sendCook?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(_SendCook value)? sendCook,
+    required TResult orElse(),
+  }) {
+    if (sendCook != null) {
+      return sendCook(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendCook implements RecipeDetailEvent {
+  const factory _SendCook({required final String id}) = _$_SendCook;
+
+  @override
+  String get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SendCookCopyWith<_$_SendCook> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

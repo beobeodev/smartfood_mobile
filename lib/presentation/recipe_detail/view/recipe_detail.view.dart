@@ -8,6 +8,7 @@ import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
+import 'package:smarthealthy/presentation/auth/auth.dart';
 import 'package:smarthealthy/presentation/recipe_detail/bloc/rating/recipe_rating.bloc.dart';
 import 'package:smarthealthy/presentation/recipe_detail/bloc/recipe_detail.bloc.dart';
 import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail.widget.dart';
@@ -31,23 +32,44 @@ class RecipeDetailPage extends StatelessWidget {
               RecipeRatingBloc(recipeRepository: getIt.get<RecipeRepository>()),
         ),
       ],
-      child: BlocListener<RecipeRatingBloc, RecipeRatingState>(
-        listener: (context, state) {
-          DialogUtil.hideLoading(context);
-
-          switch (state.status) {
-            case QueryStatus.error:
-              ToastUtil.showError(context);
-              break;
-            case QueryStatus.loading:
-              DialogUtil.showLoading(context);
-              break;
-            default:
-              break;
-          }
-        },
+      child: MultiBlocListener(
+        listeners: [
+          BlocListener<RecipeRatingBloc, RecipeRatingState>(
+            listener: _listenRatingChanged,
+          ),
+          BlocListener<RecipeDetailBloc, RecipeDetailState>(
+            listener: _listenDetailChanged,
+          ),
+        ],
         child: const _RecipeDetailView(),
       ),
+    );
+  }
+
+  void _listenRatingChanged(BuildContext context, RecipeRatingState state) {
+    DialogUtil.hideLoading(context);
+
+    switch (state.status) {
+      case QueryStatus.error:
+        ToastUtil.showError(context);
+        break;
+      case QueryStatus.loading:
+        DialogUtil.showLoading(context);
+        break;
+      default:
+        break;
+    }
+  }
+
+  void _listenDetailChanged(BuildContext context, RecipeDetailState state) {
+    state.mapOrNull(
+      success: (_) {
+        if (context.read<AuthBloc>().state.user != null) {
+          context
+              .read<RecipeDetailBloc>()
+              .add(RecipeDetailEvent.sendCook(id: recipeId));
+        }
+      },
     );
   }
 }
