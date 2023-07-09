@@ -128,5 +128,9 @@
   },
   "recipe_detail": {
     "reviews": "Reviews"
+  },
+  "workout": {
+    "find": "Enter the name of the activity to find",
+    "add_success": "Add the workout to diary successfully"
   }
 }

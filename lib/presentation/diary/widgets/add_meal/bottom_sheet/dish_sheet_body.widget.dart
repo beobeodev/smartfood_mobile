@@ -15,21 +15,19 @@ class DishSheetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
-        builder: (context, state) {
-          return switch (state.queryInfo.status) {
-            QueryStatus.loading => const LoadingDot(),
-            QueryStatus.success => DishList(
-                onAddDish: onAddDish,
-              ),
-            QueryStatus.error => const CommonError()
-          };
-        },
-        buildWhen: (previous, current) =>
-            previous.queryInfo != current.queryInfo &&
-            current.queryInfo.type == QueryType.initial,
-      ),
+    return BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
+      builder: (context, state) {
+        return switch (state.queryInfo.status) {
+          QueryStatus.loading => const LoadingDot(),
+          QueryStatus.success => DishList(
+              onAddDish: onAddDish,
+            ),
+          QueryStatus.error => const CommonError()
+        };
+      },
+      buildWhen: (previous, current) =>
+          previous.queryInfo != current.queryInfo &&
+          current.queryInfo.type == QueryType.initial,
     );
   }
 }

@@ -144,6 +144,10 @@ class CodegenLoader extends AssetLoader{
   },
   "recipe_detail": {
     "reviews": "Reviews"
+  },
+  "workout": {
+    "find": "Enter the name of the activity to find",
+    "add_success": "Add the workout to diary successfully"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -276,6 +280,10 @@ static const Map<String,dynamic> vi = {
   },
   "recipe_detail": {
     "reviews": "Đánh giá"
+  },
+  "workout": {
+    "find": "Nhập tên hoạt động cần tìm",
+    "add_success": "Thêm tập luyện vào nhật ký thành công"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

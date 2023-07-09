@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/common/utils/sheet.util.dart';
 import 'package:smarthealthy/common/widgets/title_add_button.widget.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/recipe_filter/widgets/bottom_sheet/add_ingredient_sheet.widget.dart';
@@ -13,18 +14,12 @@ class IngredientFilterSection extends StatelessWidget {
   const IngredientFilterSection({super.key});
 
   Future<void> _showBottomSheet(BuildContext context) async {
-    final ingredient = await showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    final ingredient = await SheetUtil.show(
+      context,
+      BlocProvider.value(
+        value: context.read<SearchIngredientBloc>(),
+        child: const AddIngredientSheet(),
       ),
-      builder: (_) {
-        return BlocProvider.value(
-          value: context.read<SearchIngredientBloc>(),
-          child: const AddIngredientSheet(),
-        );
-      },
     );
 
     if (context.mounted) {

@@ -16,7 +16,7 @@ class SheetHeader extends StatelessWidget {
           alignment: Alignment.center,
           child: Text(
             title,
-            style: TextStyles.s17MediumText,
+            style: TextStyles.boldText.copyWith(fontSize: 20.sp),
           ),
         ),
         const Divider(

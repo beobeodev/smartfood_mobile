@@ -42,14 +42,16 @@ class _MealAndWorkoutPlanState extends State<MealAndWorkoutPlan> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: _items.mapIndexed((index, e) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: index == _items.length - 1 ? 0 : 20,
-          ),
-          child: MealPlanItem(mealPlan: _items[index]),
-        );
-      }).toList(),
+      children: [
+        ..._items.mapIndexed((index, e) {
+          return Padding(
+            padding: EdgeInsets.only(
+              bottom: index == _items.length - 1 ? 0 : 20,
+            ),
+            child: MealPlanItem(mealPlan: _items[index]),
+          );
+        }).toList()
+      ],
     );
   }
 }

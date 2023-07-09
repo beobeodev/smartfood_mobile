@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/theme/app_theme.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/dismissible/common_dismissible.widget.dart';
@@ -39,18 +40,18 @@ class DishCard extends StatelessWidget {
       ],
       onPressed: () {
         Navigator.of(context)
-            .pushNamed(AppRouter.dishDetail, arguments: recipe);
+            .pushNamed(AppRouter.mealDetail, arguments: recipe);
       },
       child: CommonDismissible(
         valueKey: Key(recipe.id),
         hasDismiss: onDismissed != null,
         onDismissed: () => onDismissed?.call(recipe),
-        radius: AppSize.cardRadius,
+        radius: AppSize.diaryCardRadius,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(AppSize.cardRadius),
-            border: Border.all(color: ColorStyles.gray100),
+            borderRadius: BorderRadius.circular(AppSize.diaryCardRadius),
+            boxShadow: AppTheme.primaryShadow,
           ),
           padding: EdgeInsets.symmetric(
             horizontal: 10.w,
@@ -59,7 +60,7 @@ class DishCard extends StatelessWidget {
           child: Row(
             children: [
               ClipRRect(
-                borderRadius: BorderRadius.circular(AppSize.cardRadius),
+                borderRadius: BorderRadius.circular(1000),
                 child: Image.network(
                   recipe.avatar,
                   width: AppSize.dishCardAvatarSize,
@@ -109,7 +110,7 @@ class DishCard extends StatelessWidget {
                 FilledIconButton(
                   onTap: () => onAdd!(recipe),
                   backgroundColor: ColorStyles.yellowGreen,
-                  padding: 8,
+                  padding: 6,
                 )
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 abstract class AppSize {
   static const double horizontalSpacing = 20;
   static const double cardRadius = 15;
+  static const double diaryCardRadius = 12;
 
   // App bar
   static const double appBarHeight = 60;

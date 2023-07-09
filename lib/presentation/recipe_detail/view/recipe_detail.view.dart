@@ -3,20 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
-import 'package:smarthealthy/common/widgets/common_error.widget.dart';
-import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
-import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
+import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/presentation/auth/auth.dart';
 import 'package:smarthealthy/presentation/recipe_detail/bloc/rating/recipe_rating.bloc.dart';
 import 'package:smarthealthy/presentation/recipe_detail/bloc/recipe_detail.bloc.dart';
-import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail.widget.dart';
+import 'package:smarthealthy/presentation/recipe_detail/widgets/recipe_detail/recipe_detail_body.widget.dart';
 
 class RecipeDetailPage extends StatelessWidget {
-  final String recipeId;
+  final RecipeModel recipe;
 
-  const RecipeDetailPage({super.key, required this.recipeId});
+  const RecipeDetailPage({super.key, required this.recipe});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class RecipeDetailPage extends StatelessWidget {
         BlocProvider(
           create: (_) => RecipeDetailBloc(
             recipeRepository: getIt.get<RecipeRepository>(),
-          )..add(RecipeDetailEvent.started(id: recipeId)),
+          )..add(RecipeDetailEvent.started(id: recipe.id)),
         ),
         BlocProvider(
           create: (context) =>
@@ -41,7 +39,7 @@ class RecipeDetailPage extends StatelessWidget {
             listener: _listenDetailChanged,
           ),
         ],
-        child: const _RecipeDetailView(),
+        child: _RecipeDetailView(recipe),
       ),
     );
   }
@@ -67,7 +65,7 @@ class RecipeDetailPage extends StatelessWidget {
         if (context.read<AuthBloc>().state.user != null) {
           context
               .read<RecipeDetailBloc>()
-              .add(RecipeDetailEvent.sendCook(id: recipeId));
+              .add(RecipeDetailEvent.sendCook(id: recipe.id));
         }
       },
     );
@@ -75,28 +73,17 @@ class RecipeDetailPage extends StatelessWidget {
 }
 
 class _RecipeDetailView extends StatelessWidget {
-  const _RecipeDetailView();
+  final RecipeModel recipe;
+
+  const _RecipeDetailView(this.recipe);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RecipeDetailBloc, RecipeDetailState>(
-      builder: (context, state) {
-        return Scaffold(
-          appBar: state.mapOrNull(
-            loading: (_) => const CommonAppBar(),
-            failure: (_) => const CommonAppBar(),
-          ),
-          body: state.map(
-            loading: (_) => const Center(
-              child: LoadingDot(),
-            ),
-            success: (successState) =>
-                RecipeDetail(recipe: successState.recipe),
-            failure: (_) => const CommonError(),
-          ),
-          backgroundColor: Colors.white,
-        );
-      },
+    return Scaffold(
+      body: RecipeDetailBody(
+        recipe: recipe,
+      ),
+      backgroundColor: Colors.white,
     );
   }
 }

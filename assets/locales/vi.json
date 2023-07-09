@@ -128,5 +128,9 @@
   },
   "recipe_detail": {
     "reviews": "Đánh giá"
+  },
+  "workout": {
+    "find": "Nhập tên hoạt động cần tìm",
+    "add_success": "Thêm tập luyện vào nhật ký thành công"
   }
 }

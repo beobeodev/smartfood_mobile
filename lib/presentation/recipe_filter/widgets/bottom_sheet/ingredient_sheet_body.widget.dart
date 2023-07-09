@@ -12,19 +12,17 @@ class IngredientSheetBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: BlocBuilder<SearchIngredientBloc, SearchIngredientState>(
-        builder: (context, state) {
-          return switch (state.queryInfo.status) {
-            QueryStatus.loading => const ShimmerIngredientList(),
-            QueryStatus.success => const SearchedIngredientList(),
-            QueryStatus.error => const CommonError(),
-          };
-        },
-        buildWhen: (previous, current) =>
-            previous.queryInfo != current.queryInfo &&
-            current.queryInfo.type == QueryType.initial,
-      ),
+    return BlocBuilder<SearchIngredientBloc, SearchIngredientState>(
+      builder: (context, state) {
+        return switch (state.queryInfo.status) {
+          QueryStatus.loading => const ShimmerIngredientList(),
+          QueryStatus.success => const SearchedIngredientList(),
+          QueryStatus.error => const CommonError(),
+        };
+      },
+      buildWhen: (previous, current) =>
+          previous.queryInfo != current.queryInfo &&
+          current.queryInfo.type == QueryType.initial,
     );
   }
 }

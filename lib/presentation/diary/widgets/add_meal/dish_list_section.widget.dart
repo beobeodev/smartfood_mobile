@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smarthealthy/common/utils/sheet.util.dart';
 import 'package:smarthealthy/common/widgets/title_add_button.widget.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
@@ -19,21 +20,14 @@ class DishListSection extends StatelessWidget {
   }
 
   void _showAddDishBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (_) {
-        return BlocProvider.value(
-          value: context.read<SearchRecipeBloc>(),
-          child: AddDishBottomSheet(
-            onAddDish: (recipe) => _onAddDish(recipe, context),
-          ),
-        );
-      },
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+    SheetUtil.show(
+      context,
+      BlocProvider.value(
+        value: context.read<SearchRecipeBloc>(),
+        child: AddDishBottomSheet(
+          onAddDish: (recipe) => _onAddDish(recipe, context),
+        ),
       ),
-      backgroundColor: Colors.white,
-      isScrollControlled: true,
     );
   }
 

@@ -116,5 +116,8 @@ abstract class  LocaleKeys {
   static const home = 'home';
   static const recipe_detail_reviews = 'recipe_detail.reviews';
   static const recipe_detail = 'recipe_detail';
+  static const workout_find = 'workout.find';
+  static const workout_add_success = 'workout.add_success';
+  static const workout = 'workout';
 
 }
