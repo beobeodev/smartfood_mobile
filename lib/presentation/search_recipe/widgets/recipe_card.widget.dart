@@ -19,63 +19,71 @@ class RecipeCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => Navigator.of(context)
           .pushNamed(AppRouter.recipeDetail, arguments: recipe),
-      child: Hero(
-        tag: recipe.id,
-        child: Container(
-          height: AppSize.recipeCardHeight.h,
-          decoration: BoxDecoration(
-            boxShadow: AppTheme.primaryShadow,
-            borderRadius: BorderRadius.circular(AppSize.cardRadius),
-            image: DecorationImage(
-              image: NetworkImage(
-                recipe.avatar,
-              ),
-              fit: BoxFit.cover,
-            ),
-          ),
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            width: double.infinity,
-            margin: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.9),
-              borderRadius: BorderRadius.circular(AppSize.cardRadius),
-            ),
-            padding: EdgeInsets.symmetric(
-              horizontal: AppSize.horizontalSpacing,
-              vertical: 10.h,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  recipe.name,
-                  style: TextStyles.s17MediumText
-                      .copyWith(overflow: TextOverflow.ellipsis),
-                  maxLines: 2,
-                ),
-                AppSize.h5,
-                if (recipe.rating != null)
-                  RatingBarIndicator(
-                    rating: recipe.rating!,
-                    itemBuilder: (context, index) => Icon(
-                      UniconsSolid.star,
-                      color: Colors.yellow[700],
-                    ),
-                    itemSize: 24.sp,
+      child: Stack(
+        children: [
+          Hero(
+            tag: recipe.id,
+            child: Container(
+              height: AppSize.recipeCardHeight.h,
+              decoration: BoxDecoration(
+                boxShadow: AppTheme.primaryShadow,
+                borderRadius: BorderRadius.circular(AppSize.cardRadius),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    recipe.avatar,
                   ),
-                AppSize.h5,
-                DifficultyCategoryCuisine(
-                  level: recipe.level!.name,
-                  category: recipe.category!.name,
-                  cuisine: recipe.cuisine!.name,
-                )
-              ],
+                  fit: BoxFit.cover,
+                ),
+              ),
+              alignment: Alignment.bottomCenter,
             ),
           ),
-        ),
+          Positioned(
+            left: 8,
+            right: 8,
+            bottom: 8,
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.9),
+                borderRadius: BorderRadius.circular(AppSize.cardRadius),
+              ),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSize.horizontalSpacing,
+                vertical: 10.h,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    recipe.name,
+                    style: TextStyles.s17MediumText
+                        .copyWith(overflow: TextOverflow.ellipsis),
+                    maxLines: 2,
+                  ),
+                  AppSize.h5,
+                  if (recipe.rating != null)
+                    RatingBarIndicator(
+                      rating: recipe.rating!,
+                      itemBuilder: (context, index) => Icon(
+                        UniconsSolid.star,
+                        color: Colors.yellow[700],
+                      ),
+                      itemSize: 24.sp,
+                    ),
+                  AppSize.h5,
+                  DifficultyCategoryCuisine(
+                    level: recipe.level!.name,
+                    category: recipe.category!.name,
+                    cuisine: recipe.cuisine!.name,
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

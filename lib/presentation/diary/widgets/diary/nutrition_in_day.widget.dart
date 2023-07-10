@@ -22,6 +22,7 @@ class NutritionInDay extends StatelessWidget {
       breakfast: currentDiary.breakfast,
       lunch: currentDiary.lunch,
       dinner: currentDiary.dinner,
+      practices: currentDiary.exercises,
     );
   }
 

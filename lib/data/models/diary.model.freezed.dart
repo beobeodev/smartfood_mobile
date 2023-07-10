@@ -24,12 +24,21 @@ mixin _$DiaryModel {
   set date(DateTime value) => throw _privateConstructorUsedError;
   double? get totalCalories => throw _privateConstructorUsedError;
   set totalCalories(double? value) => throw _privateConstructorUsedError;
+  double? get fat => throw _privateConstructorUsedError;
+  set fat(double? value) => throw _privateConstructorUsedError;
+  double? get carbs => throw _privateConstructorUsedError;
+  set carbs(double? value) => throw _privateConstructorUsedError;
+  double? get protein => throw _privateConstructorUsedError;
+  set protein(double? value) => throw _privateConstructorUsedError;
   List<MealModel> get breakfast => throw _privateConstructorUsedError;
   set breakfast(List<MealModel> value) => throw _privateConstructorUsedError;
   List<MealModel> get lunch => throw _privateConstructorUsedError;
   set lunch(List<MealModel> value) => throw _privateConstructorUsedError;
   List<MealModel> get dinner => throw _privateConstructorUsedError;
   set dinner(List<MealModel> value) => throw _privateConstructorUsedError;
+  List<PracticeModel> get exercises => throw _privateConstructorUsedError;
+  set exercises(List<PracticeModel> value) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DiaryModelCopyWith<DiaryModel> get copyWith =>
@@ -45,9 +54,13 @@ abstract class $DiaryModelCopyWith<$Res> {
   $Res call(
       {DateTime date,
       double? totalCalories,
+      double? fat,
+      double? carbs,
+      double? protein,
       List<MealModel> breakfast,
       List<MealModel> lunch,
-      List<MealModel> dinner});
+      List<MealModel> dinner,
+      List<PracticeModel> exercises});
 }
 
 /// @nodoc
@@ -65,9 +78,13 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
   $Res call({
     Object? date = null,
     Object? totalCalories = freezed,
+    Object? fat = freezed,
+    Object? carbs = freezed,
+    Object? protein = freezed,
     Object? breakfast = null,
     Object? lunch = null,
     Object? dinner = null,
+    Object? exercises = null,
   }) {
     return _then(_value.copyWith(
       date: null == date
@@ -77,6 +94,18 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
       totalCalories: freezed == totalCalories
           ? _value.totalCalories
           : totalCalories // ignore: cast_nullable_to_non_nullable
+              as double?,
+      fat: freezed == fat
+          ? _value.fat
+          : fat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      carbs: freezed == carbs
+          ? _value.carbs
+          : carbs // ignore: cast_nullable_to_non_nullable
+              as double?,
+      protein: freezed == protein
+          ? _value.protein
+          : protein // ignore: cast_nullable_to_non_nullable
               as double?,
       breakfast: null == breakfast
           ? _value.breakfast
@@ -90,6 +119,10 @@ class _$DiaryModelCopyWithImpl<$Res, $Val extends DiaryModel>
           ? _value.dinner
           : dinner // ignore: cast_nullable_to_non_nullable
               as List<MealModel>,
+      exercises: null == exercises
+          ? _value.exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<PracticeModel>,
     ) as $Val);
   }
 }
@@ -105,9 +138,13 @@ abstract class _$$_DiaryModelCopyWith<$Res>
   $Res call(
       {DateTime date,
       double? totalCalories,
+      double? fat,
+      double? carbs,
+      double? protein,
       List<MealModel> breakfast,
       List<MealModel> lunch,
-      List<MealModel> dinner});
+      List<MealModel> dinner,
+      List<PracticeModel> exercises});
 }
 
 /// @nodoc
@@ -123,9 +160,13 @@ class __$$_DiaryModelCopyWithImpl<$Res>
   $Res call({
     Object? date = null,
     Object? totalCalories = freezed,
+    Object? fat = freezed,
+    Object? carbs = freezed,
+    Object? protein = freezed,
     Object? breakfast = null,
     Object? lunch = null,
     Object? dinner = null,
+    Object? exercises = null,
   }) {
     return _then(_$_DiaryModel(
       date: null == date
@@ -135,6 +176,18 @@ class __$$_DiaryModelCopyWithImpl<$Res>
       totalCalories: freezed == totalCalories
           ? _value.totalCalories
           : totalCalories // ignore: cast_nullable_to_non_nullable
+              as double?,
+      fat: freezed == fat
+          ? _value.fat
+          : fat // ignore: cast_nullable_to_non_nullable
+              as double?,
+      carbs: freezed == carbs
+          ? _value.carbs
+          : carbs // ignore: cast_nullable_to_non_nullable
+              as double?,
+      protein: freezed == protein
+          ? _value.protein
+          : protein // ignore: cast_nullable_to_non_nullable
               as double?,
       breakfast: null == breakfast
           ? _value.breakfast
@@ -148,6 +201,10 @@ class __$$_DiaryModelCopyWithImpl<$Res>
           ? _value.dinner
           : dinner // ignore: cast_nullable_to_non_nullable
               as List<MealModel>,
+      exercises: null == exercises
+          ? _value.exercises
+          : exercises // ignore: cast_nullable_to_non_nullable
+              as List<PracticeModel>,
     ));
   }
 }
@@ -158,9 +215,13 @@ class _$_DiaryModel extends _DiaryModel {
   _$_DiaryModel(
       {required this.date,
       this.totalCalories,
+      this.fat,
+      this.carbs,
+      this.protein,
       this.breakfast = const [],
       this.lunch = const [],
-      this.dinner = const []})
+      this.dinner = const [],
+      this.exercises = const []})
       : super._();
 
   factory _$_DiaryModel.fromJson(Map<String, dynamic> json) =>
@@ -171,6 +232,12 @@ class _$_DiaryModel extends _DiaryModel {
   @override
   double? totalCalories;
   @override
+  double? fat;
+  @override
+  double? carbs;
+  @override
+  double? protein;
+  @override
   @JsonKey()
   List<MealModel> breakfast;
   @override
@@ -179,10 +246,13 @@ class _$_DiaryModel extends _DiaryModel {
   @override
   @JsonKey()
   List<MealModel> dinner;
+  @override
+  @JsonKey()
+  List<PracticeModel> exercises;
 
   @override
   String toString() {
-    return 'DiaryModel(date: $date, totalCalories: $totalCalories, breakfast: $breakfast, lunch: $lunch, dinner: $dinner)';
+    return 'DiaryModel(date: $date, totalCalories: $totalCalories, fat: $fat, carbs: $carbs, protein: $protein, breakfast: $breakfast, lunch: $lunch, dinner: $dinner, exercises: $exercises)';
   }
 
   @JsonKey(ignore: true)
@@ -196,9 +266,13 @@ abstract class _DiaryModel extends DiaryModel {
   factory _DiaryModel(
       {required DateTime date,
       double? totalCalories,
+      double? fat,
+      double? carbs,
+      double? protein,
       List<MealModel> breakfast,
       List<MealModel> lunch,
-      List<MealModel> dinner}) = _$_DiaryModel;
+      List<MealModel> dinner,
+      List<PracticeModel> exercises}) = _$_DiaryModel;
   _DiaryModel._() : super._();
 
   factory _DiaryModel.fromJson(Map<String, dynamic> json) =
@@ -211,6 +285,15 @@ abstract class _DiaryModel extends DiaryModel {
   double? get totalCalories;
   set totalCalories(double? value);
   @override
+  double? get fat;
+  set fat(double? value);
+  @override
+  double? get carbs;
+  set carbs(double? value);
+  @override
+  double? get protein;
+  set protein(double? value);
+  @override
   List<MealModel> get breakfast;
   set breakfast(List<MealModel> value);
   @override
@@ -219,6 +302,9 @@ abstract class _DiaryModel extends DiaryModel {
   @override
   List<MealModel> get dinner;
   set dinner(List<MealModel> value);
+  @override
+  List<PracticeModel> get exercises;
+  set exercises(List<PracticeModel> value);
   @override
   @JsonKey(ignore: true)
   _$$_DiaryModelCopyWith<_$_DiaryModel> get copyWith =>

@@ -1,11 +1,17 @@
 import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/enums/meal_type.enum.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
+import 'package:smarthealthy/common/theme/text_styles.dart';
+import 'package:smarthealthy/data/models/practice.model.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/meal_plan.model.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/diary_inherited.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/meal/meal_plan_item.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/practice/practice_card.widget.dart';
 
 class MealAndWorkoutPlan extends StatefulWidget {
   const MealAndWorkoutPlan({super.key});
@@ -24,11 +30,14 @@ class _MealAndWorkoutPlanState extends State<MealAndWorkoutPlan> {
     MealPlanUIModel(title: LocaleKeys.meal_dinner.tr(), type: MealType.dinner)
   ];
 
+  List<PracticeModel>? _practices;
+
   void _setData() {
     final diaryInfo = DiaryInherited.of(context)?.diaryInfo;
 
     if (diaryInfo != null) {
       _items = diaryInfo.mealPlans;
+      _practices = diaryInfo.practices;
     }
   }
 
@@ -50,7 +59,18 @@ class _MealAndWorkoutPlanState extends State<MealAndWorkoutPlan> {
             ),
             child: MealPlanItem(mealPlan: _items[index]),
           );
-        }).toList()
+        }).toList(),
+        AppSize.h20,
+        Text(
+          LocaleKeys.diary_mode_workout.tr(),
+          style: TextStyles.mediumText
+              .copyWith(fontSize: 19.sp, color: ColorStyles.yellowGreen),
+        ),
+        AppSize.h10,
+        ..._practices?.map((e) {
+              return PracticeCard(practice: e);
+            }).toList() ??
+            []
       ],
     );
   }

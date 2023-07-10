@@ -4,20 +4,20 @@ import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/common/widgets/loading_dot.widget.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
+import 'package:smarthealthy/presentation/diary/cubit/search_meal/search_meal_cubit.dart';
 import 'package:smarthealthy/presentation/diary/widgets/add_meal/dish_list.widget.dart';
-import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 
 class DishSheetBody extends StatelessWidget {
-  final void Function(RecipeModel) onAddDish;
+  final void Function(MealModel) onAddDish;
 
   const DishSheetBody({super.key, required this.onAddDish});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SearchRecipeBloc, SearchRecipeState>(
+    return BlocBuilder<SearchMealCubit, SearchMealState>(
       builder: (context, state) {
-        return switch (state.queryInfo.status) {
+        return switch (state.info.status) {
           QueryStatus.loading => const LoadingDot(),
           QueryStatus.success => DishList(
               onAddDish: onAddDish,
@@ -26,8 +26,8 @@ class DishSheetBody extends StatelessWidget {
         };
       },
       buildWhen: (previous, current) =>
-          previous.queryInfo != current.queryInfo &&
-          current.queryInfo.type == QueryType.initial,
+          previous.info != current.info &&
+          current.info.type == QueryType.initial,
     );
   }
 }

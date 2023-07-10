@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/common/helpers/nutrition_calculator.dart';
 import 'package:smarthealthy/data/models/meal.model.dart';
+import 'package:smarthealthy/data/models/practice.model.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/nutrition_wrapper.dart';
 
 part 'diary.model.freezed.dart';
@@ -18,9 +19,13 @@ class DiaryModel with _$DiaryModel {
   factory DiaryModel({
     required DateTime date,
     double? totalCalories,
+    double? fat,
+    double? carbs,
+    double? protein,
     @Default([]) List<MealModel> breakfast,
     @Default([]) List<MealModel> lunch,
     @Default([]) List<MealModel> dinner,
+    @Default([]) List<PracticeModel> exercises,
   }) = _DiaryModel;
 
   factory DiaryModel.fromJson(Map<String, dynamic> json) =>

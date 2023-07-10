@@ -12,6 +12,7 @@ class QueryRecipesDTO with _$QueryRecipesDTO {
   const factory QueryRecipesDTO({
     List<IngredientModel>? ingredients,
     required final PaginationQueryDTO pagination,
+    @Default(false) bool getNutrition,
   }) = _QueryRecipesDTO;
 
   Map<String, dynamic> toJson() {
@@ -23,6 +24,11 @@ class QueryRecipesDTO with _$QueryRecipesDTO {
         _ingredientSlugToJson(ingredients?.map((e) => e.slug).toList()),
       );
     }
+
+    result.writeNotNull(
+      'getNutrition',
+      getNutrition,
+    );
 
     return result;
   }

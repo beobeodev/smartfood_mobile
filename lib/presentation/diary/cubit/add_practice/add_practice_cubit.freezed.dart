@@ -20,7 +20,7 @@ mixin _$AddPracticeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PracticeModel practice) success,
+    required TResult Function(DiaryModel diary) success,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$AddPracticeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PracticeModel practice)? success,
+    TResult? Function(DiaryModel diary)? success,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$AddPracticeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PracticeModel practice)? success,
+    TResult Function(DiaryModel diary)? success,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -125,7 +125,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PracticeModel practice) success,
+    required TResult Function(DiaryModel diary) success,
     required TResult Function() error,
   }) {
     return initial();
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PracticeModel practice)? success,
+    TResult? Function(DiaryModel diary)? success,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PracticeModel practice)? success,
+    TResult Function(DiaryModel diary)? success,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -238,7 +238,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PracticeModel practice) success,
+    required TResult Function(DiaryModel diary) success,
     required TResult Function() error,
   }) {
     return loading();
@@ -249,7 +249,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PracticeModel practice)? success,
+    TResult? Function(DiaryModel diary)? success,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -260,7 +260,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PracticeModel practice)? success,
+    TResult Function(DiaryModel diary)? success,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -318,9 +318,9 @@ abstract class _$$_SuccessCopyWith<$Res> {
           _$_Success value, $Res Function(_$_Success) then) =
       __$$_SuccessCopyWithImpl<$Res>;
   @useResult
-  $Res call({PracticeModel practice});
+  $Res call({DiaryModel diary});
 
-  $PracticeModelCopyWith<$Res> get practice;
+  $DiaryModelCopyWith<$Res> get diary;
 }
 
 /// @nodoc
@@ -333,21 +333,21 @@ class __$$_SuccessCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? practice = null,
+    Object? diary = null,
   }) {
     return _then(_$_Success(
-      practice: null == practice
-          ? _value.practice
-          : practice // ignore: cast_nullable_to_non_nullable
-              as PracticeModel,
+      diary: null == diary
+          ? _value.diary
+          : diary // ignore: cast_nullable_to_non_nullable
+              as DiaryModel,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PracticeModelCopyWith<$Res> get practice {
-    return $PracticeModelCopyWith<$Res>(_value.practice, (value) {
-      return _then(_value.copyWith(practice: value));
+  $DiaryModelCopyWith<$Res> get diary {
+    return $DiaryModelCopyWith<$Res>(_value.diary, (value) {
+      return _then(_value.copyWith(diary: value));
     });
   }
 }
@@ -355,14 +355,14 @@ class __$$_SuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Success implements _Success {
-  const _$_Success({required this.practice});
+  const _$_Success({required this.diary});
 
   @override
-  final PracticeModel practice;
+  final DiaryModel diary;
 
   @override
   String toString() {
-    return 'AddPracticeState.success(practice: $practice)';
+    return 'AddPracticeState.success(diary: $diary)';
   }
 
   @override
@@ -370,12 +370,11 @@ class _$_Success implements _Success {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Success &&
-            (identical(other.practice, practice) ||
-                other.practice == practice));
+            (identical(other.diary, diary) || other.diary == diary));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, practice);
+  int get hashCode => Object.hash(runtimeType, diary);
 
   @JsonKey(ignore: true)
   @override
@@ -388,10 +387,10 @@ class _$_Success implements _Success {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PracticeModel practice) success,
+    required TResult Function(DiaryModel diary) success,
     required TResult Function() error,
   }) {
-    return success(practice);
+    return success(diary);
   }
 
   @override
@@ -399,10 +398,10 @@ class _$_Success implements _Success {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PracticeModel practice)? success,
+    TResult? Function(DiaryModel diary)? success,
     TResult? Function()? error,
   }) {
-    return success?.call(practice);
+    return success?.call(diary);
   }
 
   @override
@@ -410,12 +409,12 @@ class _$_Success implements _Success {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PracticeModel practice)? success,
+    TResult Function(DiaryModel diary)? success,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(practice);
+      return success(diary);
     }
     return orElse();
   }
@@ -459,9 +458,9 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements AddPracticeState {
-  const factory _Success({required final PracticeModel practice}) = _$_Success;
+  const factory _Success({required final DiaryModel diary}) = _$_Success;
 
-  PracticeModel get practice;
+  DiaryModel get diary;
   @JsonKey(ignore: true)
   _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
@@ -505,7 +504,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(PracticeModel practice) success,
+    required TResult Function(DiaryModel diary) success,
     required TResult Function() error,
   }) {
     return error();
@@ -516,7 +515,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(PracticeModel practice)? success,
+    TResult? Function(DiaryModel diary)? success,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -527,7 +526,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(PracticeModel practice)? success,
+    TResult Function(DiaryModel diary)? success,
     TResult Function()? error,
     required TResult orElse(),
   }) {

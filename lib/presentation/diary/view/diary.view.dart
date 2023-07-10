@@ -6,11 +6,13 @@ import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/data/repositories/diary.repository.dart';
 import 'package:smarthealthy/data/repositories/meal.repository.dart';
+import 'package:smarthealthy/data/repositories/practice.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/diary/bloc/delete_meal/delete_meal.bloc.dart';
-import 'package:smarthealthy/presentation/diary/cubit/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/cubit/add_practice/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/cubit/search_practice/search_practice_cubit.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/diary_body.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/fab/diary_fab.widget.dart';
@@ -33,7 +35,17 @@ class DiaryPage extends StatelessWidget {
           create: (context) =>
               DeleteMealBloc(mealRepository: getIt.get<MealRepository>()),
         ),
-        BlocProvider(create: (context) => AddPracticeCubit())
+        BlocProvider(
+          create: (context) => AddPracticeCubit(
+            practiceRepository: getIt.get<PracticeRepository>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SearchPracticeCubit(
+            practiceRepository: getIt.get<PracticeRepository>(),
+          )..getAll(),
+          lazy: false,
+        ),
       ],
       child: MultiBlocListener(
         listeners: [
@@ -78,10 +90,14 @@ class DiaryPage extends StatelessWidget {
     DialogUtil.hideLoading(context);
     state.mapOrNull(
       loading: (_) => DialogUtil.showLoading(context),
-      success: (_) => ToastUtil.showSuccess(
-        context,
-        text: LocaleKeys.workout_add_success.tr(),
-      ),
+      success: (success) {
+        context.read<DiaryBloc>().add(DiaryEvent.addPractice(success.diary));
+
+        ToastUtil.showSuccess(
+          context,
+          text: LocaleKeys.workout_add_success.tr(),
+        );
+      },
       error: (_) => ToastUtil.showError(context),
     );
   }

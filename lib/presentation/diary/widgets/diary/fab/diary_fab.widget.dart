@@ -9,7 +9,8 @@ import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/utils/sheet.util.dart';
 import 'package:smarthealthy/generated/assets.gen.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/diary/cubit/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/cubit/add_practice/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/cubit/search_practice/search_practice_cubit.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/diary_mode.model.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/fab/diary_mode_item.widget.dart';
@@ -112,8 +113,18 @@ class _DiaryFabState extends State<DiaryFab> with TickerProviderStateMixin {
     if (mode == DiaryMode.workout) {
       SheetUtil.show(
         context,
-        BlocProvider.value(
-          value: context.read<AddPracticeCubit>(),
+        MultiBlocProvider(
+          providers: [
+            BlocProvider.value(
+              value: context.read<AddPracticeCubit>(),
+            ),
+            BlocProvider.value(
+              value: context.read<SearchPracticeCubit>(),
+            ),
+            BlocProvider.value(
+              value: context.read<DiaryBloc>(),
+            ),
+          ],
           child: const AddPracticeBottomSheet(),
         ),
       );

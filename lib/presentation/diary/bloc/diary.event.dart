@@ -7,5 +7,6 @@ class DiaryEvent with _$DiaryEvent {
       _AddMeals;
   const factory DiaryEvent.deleteMeal(String mealId, MealType type) =
       _DeleteMeal;
+  const factory DiaryEvent.addPractice(DiaryModel newDiary) = _AddPractice;
   const factory DiaryEvent.refresh() = _Refresh;
 }

@@ -5,7 +5,9 @@ class SearchRecipeEvent with _$SearchRecipeEvent {
   const factory SearchRecipeEvent.getByIngredients(
     List<IngredientModel> ingredients,
   ) = _GetByIngredients;
-  const factory SearchRecipeEvent.getAll({String? searchKey}) = _GetAll;
+  const factory SearchRecipeEvent.getAll({
+    String? searchKey,
+  }) = _GetAll;
   const factory SearchRecipeEvent.refresh() = _Refresh;
   const factory SearchRecipeEvent.loadMore() = _LoadMore;
   const factory SearchRecipeEvent.addIngredient(IngredientModel ingredient) =

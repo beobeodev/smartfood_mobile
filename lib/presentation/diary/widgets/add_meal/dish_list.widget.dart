@@ -6,12 +6,12 @@ import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/enums/query_type.enum.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
+import 'package:smarthealthy/presentation/diary/cubit/search_meal/search_meal_cubit.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/dish_card.widget.dart';
-import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 
 class DishList extends StatefulWidget {
-  final void Function(RecipeModel) onAddDish;
+  final void Function(MealModel) onAddDish;
 
   const DishList({
     super.key,
@@ -26,28 +26,17 @@ class _DishListState extends State<DishList> {
   final RefreshController _refreshController = RefreshController();
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   void dispose() {
     _refreshController.dispose();
     super.dispose();
   }
 
-  void _onLoadRefresh([bool isRefresh = false]) {
-    final searchIngredientBloc = context.read<SearchRecipeBloc>();
-
-    searchIngredientBloc.add(
-      isRefresh
-          ? const SearchRecipeEvent.refresh()
-          : const SearchRecipeEvent.loadMore(),
-    );
+  void _onLoadMore() {
+    context.read<SearchMealCubit>().loadMore();
   }
 
-  void _listenGetChanged(BuildContext context, SearchRecipeState state) {
-    final queryStatus = state.queryInfo;
+  void _listenGetChanged(BuildContext context, SearchMealState state) {
+    final queryStatus = state.info;
 
     switch (queryStatus.status) {
       case QueryStatus.error:
@@ -61,17 +50,13 @@ class _DishListState extends State<DishList> {
   }
 
   void _onSuccess(QueryType type) {
-    if (type == QueryType.refresh) {
-      _refreshController.refreshCompleted();
-    } else if (type == QueryType.loadMore) {
+    if (type == QueryType.loadMore) {
       _refreshController.loadComplete();
     }
   }
 
   void _onFail(QueryErrorType? failure) {
-    if (failure == QueryErrorType.refresh) {
-      _refreshController.refreshFailed();
-    } else {
+    if (failure == QueryErrorType.loadMore) {
       _refreshController.loadFailed();
     }
 
@@ -82,25 +67,24 @@ class _DishListState extends State<DishList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SearchRecipeBloc, SearchRecipeState>(
+    return BlocConsumer<SearchMealCubit, SearchMealState>(
       listener: _listenGetChanged,
       builder: (context, state) {
         return SmartRefresher(
           controller: _refreshController,
-          enablePullUp: state.queryInfo.canLoadMore,
-          onLoading: _onLoadRefresh,
-          onRefresh: () => _onLoadRefresh(true),
+          enablePullUp: state.info.canLoadMore,
+          onLoading: _onLoadMore,
           enablePullDown: false,
           child: ListView.separated(
             padding: const EdgeInsets.all(AppSize.horizontalSpacing),
-            itemCount: state.recipes!.length,
+            itemCount: state.meals.length,
             shrinkWrap: true,
             separatorBuilder: (_, __) => AppSize.h10,
             itemBuilder: (context, index) {
-              final recipe = state.recipes![index];
+              final meal = state.meals[index];
 
               return DishCard(
-                recipe: recipe,
+                meal: meal,
                 onAdd: widget.onAddDish,
               );
             },

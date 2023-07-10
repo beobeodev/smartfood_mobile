@@ -8,5 +8,9 @@ part of 'practice.model.dart';
 
 _$_PracticeModel _$$_PracticeModelFromJson(Map<String, dynamic> json) =>
     _$_PracticeModel(
+      id: json['id'] as String,
       name: json['name'] as String,
+      calo: (json['calo'] as num).toDouble(),
+      minute: json['minute'] as int,
+      practiceDuration: (json['practiceDuration'] as num?)?.toDouble(),
     );

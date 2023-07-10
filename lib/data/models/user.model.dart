@@ -48,13 +48,15 @@ class UserModel with _$UserModel {
       );
 
   @JsonKey(includeFromJson: false, includeToJson: false)
-  int get totalCalories => NutritionCalculator.calculateCalorie(
-        UpdateUserNutritionDTO(
-          age: age!,
-          gender: gender!,
-          height: height!,
-          weight: weight!,
-          practiceMode: practiceMode!,
-        ),
-      );
+  int? get totalCalories => hasNutrition
+      ? NutritionCalculator.calculateCalorie(
+          UpdateUserNutritionDTO(
+            age: age!,
+            gender: gender!,
+            height: height!,
+            weight: weight!,
+            practiceMode: practiceMode!,
+          ),
+        )
+      : null;
 }

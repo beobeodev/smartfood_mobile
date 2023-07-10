@@ -6,18 +6,17 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/toast.util.dart';
 import 'package:smarthealthy/data/dtos/add_meal.dto.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
 import 'package:smarthealthy/data/repositories/meal.repository.dart';
 import 'package:smarthealthy/data/repositories/recipe.repository.dart';
 import 'package:smarthealthy/di/di.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
-import 'package:smarthealthy/presentation/diary/bloc/add_meal/add_meal.bloc.dart';
+import 'package:smarthealthy/presentation/diary/cubit/search_meal/search_meal_cubit.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/ui_models/meal_type.model.dart';
 import 'package:smarthealthy/presentation/diary/widgets/add_meal/add_meal_appbar.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/add_meal/dish_list_section.widget.dart';
 import 'package:smarthealthy/presentation/diary/widgets/add_meal/meal_selection.widget.dart';
-import 'package:smarthealthy/presentation/search_recipe/search_recipe.dart';
 
 class AddMealPage extends StatelessWidget {
   const AddMealPage({super.key});
@@ -32,9 +31,9 @@ class AddMealPage extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (context) => SearchRecipeBloc(
+          create: (context) => SearchMealCubit(
             recipeRepository: getIt.get<RecipeRepository>(),
-          )..add(const SearchRecipeEvent.getAll()),
+          )..getAll(),
           lazy: false,
         ),
       ],
@@ -73,7 +72,7 @@ class _AddMealView extends StatefulWidget {
 }
 
 class _AddMealViewState extends State<_AddMealView> {
-  final ValueNotifier<List<RecipeModel>> _dishesNotifier = ValueNotifier([]);
+  final ValueNotifier<List<MealModel>> _dishesNotifier = ValueNotifier([]);
 
   final ValueNotifier<List<MealTypeUIModel>> _mealTypeNotifier = ValueNotifier([
     MealTypeUIModel(
@@ -108,7 +107,7 @@ class _AddMealViewState extends State<_AddMealView> {
             AddMealDTO(
               date: context.read<DiaryBloc>().state.currentDate,
               typeOfMeal: selectedType,
-              recipeIds: _dishesNotifier.value.map((e) => e.id).toList(),
+              recipeIds: _dishesNotifier.value.map((e) => e.recipe.id).toList(),
             ),
           ),
         );

@@ -11,5 +11,7 @@ class AddMealDTO with _$AddMealDTO {
         required DateTime date,
     required MealType typeOfMeal,
     required List<String> recipeIds,
+    @Default(0)
+        int totalPeople,
   }) = _AddMealDTO;
 }

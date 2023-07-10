@@ -4,11 +4,11 @@ import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/widgets/check_icon_button.widget.dart';
 import 'package:smarthealthy/common/widgets/common_app_bar.widget.dart';
-import 'package:smarthealthy/data/models/recipe.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
 import 'package:smarthealthy/generated/locale_keys.g.dart';
 
 class AddMealAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final ValueNotifier<List<RecipeModel>> dishesNotifier;
+  final ValueNotifier<List<MealModel>> dishesNotifier;
   final VoidCallback addDishes;
 
   const AddMealAppBar({

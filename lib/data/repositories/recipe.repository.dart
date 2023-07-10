@@ -1,6 +1,8 @@
 import 'package:injectable/injectable.dart';
 import 'package:smarthealthy/data/datasources/recipe.datasource.dart';
+import 'package:smarthealthy/data/dtos/get_meals.dto.dart';
 import 'package:smarthealthy/data/dtos/get_recipes_result.dto.dart';
+import 'package:smarthealthy/data/dtos/query_meals.dto.dart';
 import 'package:smarthealthy/data/dtos/query_recipes.dto.dart';
 import 'package:smarthealthy/data/dtos/submit_recipe_rating.dto.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
@@ -17,6 +19,10 @@ class RecipeRepository {
     }
 
     return _dataSource.getRecipes(queryDto);
+  }
+
+  Future<GetMealsDTO> getMeals(QueryMealsDTO dto) {
+    return _dataSource.getMeals(dto);
   }
 
   Future<RecipeModel> getRecipeDetail(String recipeId) {

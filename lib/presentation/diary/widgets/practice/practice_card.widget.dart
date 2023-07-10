@@ -3,32 +3,39 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/app_theme.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/widgets/app_text_form_field.widget.dart';
 import 'package:smarthealthy/common/widgets/dismissible/common_dismissible.widget.dart';
-import 'package:smarthealthy/presentation/diary/cubit/add_practice_cubit.dart';
+import 'package:smarthealthy/data/dtos/add_practice.dto.dart';
+import 'package:smarthealthy/data/models/practice.model.dart';
+import 'package:smarthealthy/presentation/diary/cubit/add_practice/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/diary.dart';
 
 class PracticeCard extends StatelessWidget {
-  final int index;
+  final PracticeModel practice;
 
-  const PracticeCard({super.key, required this.index});
+  const PracticeCard({super.key, required this.practice});
 
   void _showAddDialog(BuildContext context) {
+    final TextEditingController textController = TextEditingController();
+
     DialogUtil.showCustomDialog(
       context,
-      title: 'Leo cầu thang',
+      title: practice.name,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Expanded(
+              Expanded(
                 child: AppTextFormField(
                   keyboardType: TextInputType.number,
-                  hintText: '30',
+                  hintText: practice.minute.toString(),
                   isCenterText: true,
+                  textController: textController,
                 ),
               ),
               AppSize.w15,
@@ -41,7 +48,17 @@ class PracticeCard extends StatelessWidget {
         ],
       ),
       confirmAction: () {
-        context.read<AddPracticeCubit>().add();
+        final value = textController.text;
+
+        context.read<AddPracticeCubit>().add(
+              AddPracticeDTO(
+                date: context.read<DiaryBloc>().state.currentDate,
+                exerciseId: practice.id,
+                practiceDuration:
+                    value.isNotEmpty ? int.parse(value) : practice.minute,
+              ),
+            );
+
         Navigator.of(context).pop();
       },
       isConfirmDialog: true,
@@ -53,7 +70,7 @@ class PracticeCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => _showAddDialog(context),
       child: CommonDismissible(
-        valueKey: ValueKey(index),
+        valueKey: ValueKey(practice.id),
         hasDismiss: false,
         radius: AppSize.diaryCardRadius,
         child: Container(
@@ -71,13 +88,14 @@ class PracticeCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Chạy bộ',
-                style: TextStyles.s17BoldText,
+                practice.name,
+                style: TextStyles.s17MediumText,
               ),
               AppSize.h10,
               Text(
-                '1150kcal - 30 phút',
-                style: TextStyles.s14MediumText,
+                '${practice.calo} kcal - ${practice.minute} phút',
+                style: TextStyles.s14MediumText
+                    .copyWith(color: ColorStyles.red400),
               )
             ],
           ),

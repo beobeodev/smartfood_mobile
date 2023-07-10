@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
@@ -7,20 +8,23 @@ import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/widgets/dismissible/common_dismissible.widget.dart';
 import 'package:smarthealthy/common/widgets/focused_menu/focus_menu_holder.dart';
 import 'package:smarthealthy/common/widgets/focused_menu/focused_menu_item.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/common/widgets/filled_icon_button.widget.dart';
 import 'package:smarthealthy/router/app_router.dart';
 
 class DishCard extends StatelessWidget {
-  final RecipeModel recipe;
-  final void Function(RecipeModel)? onAdd;
+  final MealModel meal;
+  final void Function(MealModel)? onAdd;
   final void Function(RecipeModel)? onDismissed;
   final void Function()? onDelete;
   final bool enabled;
 
+  RecipeModel get recipe => meal.recipe;
+
   const DishCard({
     super.key,
-    required this.recipe,
+    required this.meal,
     this.onAdd,
     this.onDismissed,
     this.onDelete,
@@ -39,8 +43,7 @@ class DishCard extends StatelessWidget {
         )
       ],
       onPressed: () {
-        Navigator.of(context)
-            .pushNamed(AppRouter.mealDetail, arguments: recipe);
+        Navigator.of(context).pushNamed(AppRouter.mealDetail, arguments: meal);
       },
       child: CommonDismissible(
         valueKey: Key(recipe.id),
@@ -76,39 +79,29 @@ class DishCard extends StatelessWidget {
                   children: [
                     Text(
                       recipe.name,
-                      style: TextStyles.s17RegularText
+                      style: TextStyles.s17MediumText
                           .copyWith(overflow: TextOverflow.ellipsis),
                       maxLines: 2,
                     ),
-                    // AppSize.h5,
-                    // const Row(
-                    //   children: [
-                    //     IconTile(
-                    //       icon: UniconsLine.fire,
-                    //       title: '220 kcal',
-                    //       color: ColorStyles.red400,
-                    //       isCenter: false,
-                    //     ),
-                    //     AppSize.w20,
-                    //     // IconTile(
-                    //     //   icon: Assets.icons.weight.svg(
-                    //     //     width: 18,
-                    //     //     colorFilter: colorSvg(
-                    //     //       ColorStyles.yellowGreen,
-                    //     //     ),
-                    //     //   ),
-                    //     //   title: '220 g',
-                    //     //   isCenter: false,
-                    //     // )
-                    //   ],
-                    // ),
+                    AppSize.h10,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        NutritionColumn(
+                          values: [meal.kcalString, meal.carbsString],
+                        ),
+                        NutritionColumn(
+                          values: [meal.fatString, meal.proteinString],
+                        )
+                      ],
+                    )
                   ],
                 ),
               ),
               AppSize.w10,
               if (onAdd != null)
                 FilledIconButton(
-                  onTap: () => onAdd!(recipe),
+                  onTap: () => onAdd!(meal),
                   backgroundColor: ColorStyles.yellowGreen,
                   padding: 6,
                 )
@@ -116,6 +109,30 @@ class DishCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class NutritionColumn extends StatelessWidget {
+  final List<String> values;
+
+  const NutritionColumn({super.key, required this.values});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: values.mapIndexed((index, element) {
+        return Padding(
+          padding: EdgeInsets.only(bottom: index == 0 ? 3 : 0),
+          child: Text(
+            element,
+            style: TextStyles.s14RegularText.copyWith(
+              color: ColorStyles.red400,
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 }

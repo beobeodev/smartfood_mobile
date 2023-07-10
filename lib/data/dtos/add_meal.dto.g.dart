@@ -10,6 +10,7 @@ Map<String, dynamic> _$$_AddMealDTOToJson(_$_AddMealDTO instance) =>
     <String, dynamic>{
       'typeOfMeal': _$MealTypeEnumMap[instance.typeOfMeal]!,
       'recipeIds': instance.recipeIds,
+      'totalPeople': instance.totalPeople,
     };
 
 const _$MealTypeEnumMap = {

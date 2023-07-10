@@ -25,6 +25,7 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
         getByDay: (getByDay) => _onGetByDay(getByDay, emit),
         addMeals: (addMeals) => _onAddMeal(addMeals, emit),
         deleteMeal: (deleteMeal) async => _onDeleteMeal(deleteMeal, emit),
+        addPractice: (addPractice) async => _onAddPractice(addPractice, emit),
         refresh: (refresh) async => _onRefresh(refresh, emit),
       );
     });
@@ -108,6 +109,18 @@ class DiaryBloc extends Bloc<DiaryEvent, DiaryState> {
         currentDiary.dinner.removeWhere((item) => item.id == event.mealId);
         break;
     }
+
+    emit(state.copyWith(diaries: currentDiaries));
+  }
+
+  void _onAddPractice(_AddPractice event, Emitter<DiaryState> emit) {
+    final currentDiaries = state.diaries.map((e) => e.copyWith()).toList();
+
+    final currentDiaryIndex = currentDiaries.indexWhere(
+      (element) => element.date.isSameDateWith(state.currentDate),
+    );
+
+    currentDiaries[currentDiaryIndex] = event.newDiary;
 
     emit(state.copyWith(diaries: currentDiaries));
   }

@@ -30,8 +30,8 @@ class MealList extends StatelessWidget {
 
               return DishCard(
                 enabled: true,
-                recipe: meal.recipe,
-                onDelete: () => onDelete(meal.id),
+                meal: meal,
+                onDelete: () => onDelete(meal.id!),
               );
             },
           );

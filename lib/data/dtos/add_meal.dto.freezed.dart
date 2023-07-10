@@ -20,6 +20,7 @@ mixin _$AddMealDTO {
   DateTime get date => throw _privateConstructorUsedError;
   MealType get typeOfMeal => throw _privateConstructorUsedError;
   List<String> get recipeIds => throw _privateConstructorUsedError;
+  int get totalPeople => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $AddMealDTOCopyWith<$Res> {
   $Res call(
       {@JsonKey(includeFromJson: false, includeToJson: false) DateTime date,
       MealType typeOfMeal,
-      List<String> recipeIds});
+      List<String> recipeIds,
+      int totalPeople});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$AddMealDTOCopyWithImpl<$Res, $Val extends AddMealDTO>
     Object? date = null,
     Object? typeOfMeal = null,
     Object? recipeIds = null,
+    Object? totalPeople = null,
   }) {
     return _then(_value.copyWith(
       date: null == date
@@ -69,6 +72,10 @@ class _$AddMealDTOCopyWithImpl<$Res, $Val extends AddMealDTO>
           ? _value.recipeIds
           : recipeIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      totalPeople: null == totalPeople
+          ? _value.totalPeople
+          : totalPeople // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -84,7 +91,8 @@ abstract class _$$_AddMealDTOCopyWith<$Res>
   $Res call(
       {@JsonKey(includeFromJson: false, includeToJson: false) DateTime date,
       MealType typeOfMeal,
-      List<String> recipeIds});
+      List<String> recipeIds,
+      int totalPeople});
 }
 
 /// @nodoc
@@ -101,6 +109,7 @@ class __$$_AddMealDTOCopyWithImpl<$Res>
     Object? date = null,
     Object? typeOfMeal = null,
     Object? recipeIds = null,
+    Object? totalPeople = null,
   }) {
     return _then(_$_AddMealDTO(
       date: null == date
@@ -115,6 +124,10 @@ class __$$_AddMealDTOCopyWithImpl<$Res>
           ? _value._recipeIds
           : recipeIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      totalPeople: null == totalPeople
+          ? _value.totalPeople
+          : totalPeople // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -126,7 +139,8 @@ class _$_AddMealDTO implements _AddMealDTO {
       {@JsonKey(includeFromJson: false, includeToJson: false)
           required this.date,
       required this.typeOfMeal,
-      required final List<String> recipeIds})
+      required final List<String> recipeIds,
+      this.totalPeople = 0})
       : _recipeIds = recipeIds;
 
   @override
@@ -143,8 +157,12 @@ class _$_AddMealDTO implements _AddMealDTO {
   }
 
   @override
+  @JsonKey()
+  final int totalPeople;
+
+  @override
   String toString() {
-    return 'AddMealDTO(date: $date, typeOfMeal: $typeOfMeal, recipeIds: $recipeIds)';
+    return 'AddMealDTO(date: $date, typeOfMeal: $typeOfMeal, recipeIds: $recipeIds, totalPeople: $totalPeople)';
   }
 
   @override
@@ -156,13 +174,15 @@ class _$_AddMealDTO implements _AddMealDTO {
             (identical(other.typeOfMeal, typeOfMeal) ||
                 other.typeOfMeal == typeOfMeal) &&
             const DeepCollectionEquality()
-                .equals(other._recipeIds, _recipeIds));
+                .equals(other._recipeIds, _recipeIds) &&
+            (identical(other.totalPeople, totalPeople) ||
+                other.totalPeople == totalPeople));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, date, typeOfMeal,
-      const DeepCollectionEquality().hash(_recipeIds));
+      const DeepCollectionEquality().hash(_recipeIds), totalPeople);
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +203,8 @@ abstract class _AddMealDTO implements AddMealDTO {
       {@JsonKey(includeFromJson: false, includeToJson: false)
           required final DateTime date,
       required final MealType typeOfMeal,
-      required final List<String> recipeIds}) = _$_AddMealDTO;
+      required final List<String> recipeIds,
+      final int totalPeople}) = _$_AddMealDTO;
 
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -192,6 +213,8 @@ abstract class _AddMealDTO implements AddMealDTO {
   MealType get typeOfMeal;
   @override
   List<String> get recipeIds;
+  @override
+  int get totalPeople;
   @override
   @JsonKey(ignore: true)
   _$$_AddMealDTOCopyWith<_$_AddMealDTO> get copyWith =>
