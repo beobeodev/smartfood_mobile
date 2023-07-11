@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/page_transition_type.enum.dart';
 import 'package:smarthealthy/common/widgets/page_transition/transition_page_route.dart';
 import 'package:smarthealthy/data/models/ingredient.model.dart';
+import 'package:smarthealthy/data/models/meal.model.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/data/models/recipe_step.model.dart';
 import 'package:smarthealthy/presentation/auth/views/login.view.dart';
@@ -193,7 +194,7 @@ abstract class AppRouter {
         return TransitionPageRoute(
           settings: settings,
           builder: (_) {
-            return MealDetailPage(recipe: arguments as RecipeModel);
+            return MealDetailPage(meal: arguments as MealModel);
           },
           type: PageTransitionType.rightToLeft,
         );

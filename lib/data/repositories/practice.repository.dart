@@ -18,4 +18,8 @@ class PracticeRepository {
   Future<DiaryModel> add(AddPracticeDTO dto) {
     return _dataSource.add(dto);
   }
+
+  Future<void> delete(String practiceId) {
+    return _dataSource.delete(practiceId);
+  }
 }

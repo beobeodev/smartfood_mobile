@@ -19,6 +19,7 @@ abstract class  LocaleKeys {
   static const texts_ingredient_list = 'texts.ingredient_list';
   static const texts_ingredient_detection = 'texts.ingredient_detection';
   static const texts_no_data_yet = 'texts.no_data_yet';
+  static const texts_delete = 'texts.delete';
   static const texts = 'texts';
   static const button_cancel = 'button.cancel';
   static const button_confirm = 'button.confirm';
@@ -118,6 +119,7 @@ abstract class  LocaleKeys {
   static const recipe_detail = 'recipe_detail';
   static const workout_find = 'workout.find';
   static const workout_add_success = 'workout.add_success';
+  static const workout_delete_success = 'workout.delete_success';
   static const workout = 'workout';
 
 }

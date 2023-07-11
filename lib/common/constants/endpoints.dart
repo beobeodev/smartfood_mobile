@@ -38,7 +38,7 @@ abstract class Endpoints {
   // Diary
   static final String diary = '$apiUrl/diaries';
   static final String deleteMeal = '$diary/meals';
-  static final String addPractice = '$diary/exercises';
+  static final String diaryPractice = '$diary/exercises';
 
   // Exercise
   static final String getExercise = '$apiUrl/exercises';

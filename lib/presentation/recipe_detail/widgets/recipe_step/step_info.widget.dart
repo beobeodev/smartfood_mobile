@@ -38,12 +38,7 @@ class _StepInfoState extends State<StepInfo>
           ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(
-              AppSize.horizontalSpacing,
-              10,
-              AppSize.horizontalSpacing,
-              0,
-            ),
+            padding: AppSize.mealPadding,
             child: Text(
               widget.currentStep.content,
               style: TextStyles.s14MediumText,

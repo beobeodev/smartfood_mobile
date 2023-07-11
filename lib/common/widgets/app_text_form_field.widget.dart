@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
@@ -41,6 +42,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusNode,
     this.maxLines = 1,
     this.contentPadding = const EdgeInsets.symmetric(horizontal: 20),
+    this.inputFormatters,
   }) : super(key: key);
 
   final TextEditingController? textController;
@@ -91,6 +93,8 @@ class AppTextFormField extends StatelessWidget {
 
   final EdgeInsetsGeometry contentPadding;
 
+  final List<TextInputFormatter>? inputFormatters;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -124,6 +128,7 @@ class AppTextFormField extends StatelessWidget {
             enabled: enabled,
             keyboardType: keyboardType,
             initialValue: initialValue,
+            inputFormatters: inputFormatters,
             style: TextStyles.s14RegularText
                 .copyWith(color: ColorStyles.zodiacBlue),
             textAlign: isCenterText ? TextAlign.center : TextAlign.start,

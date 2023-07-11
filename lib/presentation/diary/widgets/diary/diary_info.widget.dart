@@ -15,9 +15,16 @@ class DiaryInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CalorieInDay(),
-          AppSize.h20,
-          MacroStatisticBody(),
+          Padding(
+            padding: AppSize.mealPadding,
+            child: Column(
+              children: [
+                CalorieInDay(),
+                AppSize.h20,
+                MacroStatisticBody(),
+              ],
+            ),
+          ),
           SizedBox(
             height: 30,
           ),

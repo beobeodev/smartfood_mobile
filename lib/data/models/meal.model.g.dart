@@ -13,4 +13,5 @@ _$_MealModel _$$_MealModelFromJson(Map<String, dynamic> json) => _$_MealModel(
       fat: (json['fat'] as num).toDouble(),
       carbs: (json['carbs'] as num).toDouble(),
       protein: (json['protein'] as num).toDouble(),
+      totalPeople: json['totalPeople'] as int? ?? 1,
     );

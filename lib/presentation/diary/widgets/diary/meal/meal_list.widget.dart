@@ -1,10 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/data/models/meal.model.dart';
-import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/dish_card.widget.dart';
+import 'package:smarthealthy/presentation/diary/widgets/diary/empty_text.widget.dart';
 
 class MealList extends StatelessWidget {
   final List<MealModel>? dishes;
@@ -15,14 +13,11 @@ class MealList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return (dishes == null || dishes!.isEmpty)
-        ? Text(
-            LocaleKeys.texts_no_data_yet.tr(),
-            style: TextStyles.s14MediumText,
-          )
+        ? const EmptyText()
         : ListView.separated(
             itemCount: dishes!.length,
             shrinkWrap: true,
-            padding: const EdgeInsets.only(top: 10),
+            padding: AppSize.mealPadding,
             physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (_, __) => AppSize.h10,
             itemBuilder: (context, index) {

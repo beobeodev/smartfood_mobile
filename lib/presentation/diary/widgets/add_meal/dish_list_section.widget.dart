@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
+import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/utils/sheet.util.dart';
@@ -29,13 +29,21 @@ class _DishListSectionState extends State<DishListSection> {
     final recipe = meal.recipe;
 
     final TextEditingController personTextController = TextEditingController();
+    final ValueNotifier<int> calorieNotifier = ValueNotifier(meal.kcal.round());
 
     DialogUtil.showCustomDialog(
       context,
       title: recipe.name,
       child: Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          AppSize.h20,
+          Text(
+            'Số người ăn:',
+            style: TextStyles.s17MediumText,
+          ),
+          AppSize.h10,
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -45,6 +53,18 @@ class _DishListSectionState extends State<DishListSection> {
                   hintText: '1',
                   isCenterText: true,
                   textController: personTextController,
+                  onChanged: (value) {
+                    if (value.isNotEmpty) {
+                      calorieNotifier.value =
+                          (meal.kcal / int.parse(value)).round();
+                    }
+                  },
+                  inputFormatters: [
+                    FilteringTextInputFormatter.deny(
+                      RegExp(r'^0{1}'),
+                      replacementString: '1',
+                    )
+                  ],
                 ),
               ),
               AppSize.w15,
@@ -53,13 +73,25 @@ class _DishListSectionState extends State<DishListSection> {
                 style: TextStyles.s17MediumText,
               )
             ],
-          )
+          ),
+          AppSize.h20,
+          ValueListenableBuilder(
+            valueListenable: calorieNotifier,
+            builder: (context, value, child) {
+              return Text(
+                'Lượng kcal đã nạp vào: $value kcal',
+                style: TextStyles.s17MediumText
+                    .copyWith(color: ColorStyles.primary),
+              );
+            },
+          ),
         ],
       ),
       confirmAction: () {
-        log(personTextController.text);
-
-        widget.dishesNotifier.value = [...widget.dishesNotifier.value, meal];
+        widget.dishesNotifier.value = [
+          ...widget.dishesNotifier.value,
+          meal.copyWith(totalPeople: int.parse(personTextController.text))
+        ];
         Navigator.of(context).pop();
       },
       isConfirmDialog: true,

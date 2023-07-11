@@ -33,7 +33,8 @@ class CodegenLoader extends AssetLoader{
     "change_password_success": "Change password successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
-    "no_data_yet": "No data yet"
+    "no_data_yet": "No data yet",
+    "delete": "Delete"
   },
   "button": {
     "cancel": "Cancel",
@@ -147,7 +148,8 @@ class CodegenLoader extends AssetLoader{
   },
   "workout": {
     "find": "Enter the name of the activity to find",
-    "add_success": "Add the workout to diary successfully"
+    "add_success": "Add the workout to diary successfully",
+    "delete_success": "Remove the workout from diary successfully"
   }
 };
 static const Map<String,dynamic> vi = {
@@ -169,7 +171,8 @@ static const Map<String,dynamic> vi = {
     "change_password_success": "Đổi mật khẩu thành công",
     "ingredient_list": "Danh sách nguyên liệu",
     "ingredient_detection": "Nhận diện nguyên liệu",
-    "no_data_yet": "Chưa có dữ liệu"
+    "no_data_yet": "Chưa có dữ liệu",
+    "delete": "Xoá"
   },
   "button": {
     "cancel": "Hủy",
@@ -283,7 +286,8 @@ static const Map<String,dynamic> vi = {
   },
   "workout": {
     "find": "Nhập tên hoạt động cần tìm",
-    "add_success": "Thêm tập luyện vào nhật ký thành công"
+    "add_success": "Thêm tập luyện vào nhật ký thành công",
+    "delete_success": "Xoá tập luyện khỏi nhật ký thành công"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": en, "vi": vi};

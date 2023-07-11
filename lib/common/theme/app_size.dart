@@ -54,4 +54,11 @@ abstract class AppSize {
   static const SizedBox h20 = SizedBox(
     height: 20,
   );
+
+  static const mealPadding = EdgeInsets.fromLTRB(
+    horizontalSpacing,
+    10,
+    horizontalSpacing,
+    0,
+  );
 }

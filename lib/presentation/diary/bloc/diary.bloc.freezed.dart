@@ -22,6 +22,7 @@ mixin _$DiaryEvent {
     required TResult Function(List<MealModel> meals, MealType type) addMeals,
     required TResult Function(String mealId, MealType type) deleteMeal,
     required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
     required TResult Function() refresh,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,6 +32,7 @@ mixin _$DiaryEvent {
     TResult? Function(List<MealModel> meals, MealType type)? addMeals,
     TResult? Function(String mealId, MealType type)? deleteMeal,
     TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
     TResult? Function()? refresh,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,6 +42,7 @@ mixin _$DiaryEvent {
     TResult Function(List<MealModel> meals, MealType type)? addMeals,
     TResult Function(String mealId, MealType type)? deleteMeal,
     TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
     TResult Function()? refresh,
     required TResult orElse(),
   }) =>
@@ -50,6 +53,7 @@ mixin _$DiaryEvent {
     required TResult Function(_AddMeals value) addMeals,
     required TResult Function(_DeleteMeal value) deleteMeal,
     required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
     required TResult Function(_Refresh value) refresh,
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +63,7 @@ mixin _$DiaryEvent {
     TResult? Function(_AddMeals value)? addMeals,
     TResult? Function(_DeleteMeal value)? deleteMeal,
     TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
     TResult? Function(_Refresh value)? refresh,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +73,7 @@ mixin _$DiaryEvent {
     TResult Function(_AddMeals value)? addMeals,
     TResult Function(_DeleteMeal value)? deleteMeal,
     TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
     TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) =>
@@ -160,6 +166,7 @@ class _$_GetByDay implements _GetByDay {
     required TResult Function(List<MealModel> meals, MealType type) addMeals,
     required TResult Function(String mealId, MealType type) deleteMeal,
     required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
     required TResult Function() refresh,
   }) {
     return getByDay(date);
@@ -172,6 +179,7 @@ class _$_GetByDay implements _GetByDay {
     TResult? Function(List<MealModel> meals, MealType type)? addMeals,
     TResult? Function(String mealId, MealType type)? deleteMeal,
     TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
     TResult? Function()? refresh,
   }) {
     return getByDay?.call(date);
@@ -184,6 +192,7 @@ class _$_GetByDay implements _GetByDay {
     TResult Function(List<MealModel> meals, MealType type)? addMeals,
     TResult Function(String mealId, MealType type)? deleteMeal,
     TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
     TResult Function()? refresh,
     required TResult orElse(),
   }) {
@@ -200,6 +209,7 @@ class _$_GetByDay implements _GetByDay {
     required TResult Function(_AddMeals value) addMeals,
     required TResult Function(_DeleteMeal value) deleteMeal,
     required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
     required TResult Function(_Refresh value) refresh,
   }) {
     return getByDay(this);
@@ -212,6 +222,7 @@ class _$_GetByDay implements _GetByDay {
     TResult? Function(_AddMeals value)? addMeals,
     TResult? Function(_DeleteMeal value)? deleteMeal,
     TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
     TResult? Function(_Refresh value)? refresh,
   }) {
     return getByDay?.call(this);
@@ -224,6 +235,7 @@ class _$_GetByDay implements _GetByDay {
     TResult Function(_AddMeals value)? addMeals,
     TResult Function(_DeleteMeal value)? deleteMeal,
     TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
     TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {
@@ -326,6 +338,7 @@ class _$_AddMeals implements _AddMeals {
     required TResult Function(List<MealModel> meals, MealType type) addMeals,
     required TResult Function(String mealId, MealType type) deleteMeal,
     required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
     required TResult Function() refresh,
   }) {
     return addMeals(meals, type);
@@ -338,6 +351,7 @@ class _$_AddMeals implements _AddMeals {
     TResult? Function(List<MealModel> meals, MealType type)? addMeals,
     TResult? Function(String mealId, MealType type)? deleteMeal,
     TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
     TResult? Function()? refresh,
   }) {
     return addMeals?.call(meals, type);
@@ -350,6 +364,7 @@ class _$_AddMeals implements _AddMeals {
     TResult Function(List<MealModel> meals, MealType type)? addMeals,
     TResult Function(String mealId, MealType type)? deleteMeal,
     TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
     TResult Function()? refresh,
     required TResult orElse(),
   }) {
@@ -366,6 +381,7 @@ class _$_AddMeals implements _AddMeals {
     required TResult Function(_AddMeals value) addMeals,
     required TResult Function(_DeleteMeal value) deleteMeal,
     required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
     required TResult Function(_Refresh value) refresh,
   }) {
     return addMeals(this);
@@ -378,6 +394,7 @@ class _$_AddMeals implements _AddMeals {
     TResult? Function(_AddMeals value)? addMeals,
     TResult? Function(_DeleteMeal value)? deleteMeal,
     TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
     TResult? Function(_Refresh value)? refresh,
   }) {
     return addMeals?.call(this);
@@ -390,6 +407,7 @@ class _$_AddMeals implements _AddMeals {
     TResult Function(_AddMeals value)? addMeals,
     TResult Function(_DeleteMeal value)? deleteMeal,
     TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
     TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {
@@ -487,6 +505,7 @@ class _$_DeleteMeal implements _DeleteMeal {
     required TResult Function(List<MealModel> meals, MealType type) addMeals,
     required TResult Function(String mealId, MealType type) deleteMeal,
     required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
     required TResult Function() refresh,
   }) {
     return deleteMeal(mealId, type);
@@ -499,6 +518,7 @@ class _$_DeleteMeal implements _DeleteMeal {
     TResult? Function(List<MealModel> meals, MealType type)? addMeals,
     TResult? Function(String mealId, MealType type)? deleteMeal,
     TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
     TResult? Function()? refresh,
   }) {
     return deleteMeal?.call(mealId, type);
@@ -511,6 +531,7 @@ class _$_DeleteMeal implements _DeleteMeal {
     TResult Function(List<MealModel> meals, MealType type)? addMeals,
     TResult Function(String mealId, MealType type)? deleteMeal,
     TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
     TResult Function()? refresh,
     required TResult orElse(),
   }) {
@@ -527,6 +548,7 @@ class _$_DeleteMeal implements _DeleteMeal {
     required TResult Function(_AddMeals value) addMeals,
     required TResult Function(_DeleteMeal value) deleteMeal,
     required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
     required TResult Function(_Refresh value) refresh,
   }) {
     return deleteMeal(this);
@@ -539,6 +561,7 @@ class _$_DeleteMeal implements _DeleteMeal {
     TResult? Function(_AddMeals value)? addMeals,
     TResult? Function(_DeleteMeal value)? deleteMeal,
     TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
     TResult? Function(_Refresh value)? refresh,
   }) {
     return deleteMeal?.call(this);
@@ -551,6 +574,7 @@ class _$_DeleteMeal implements _DeleteMeal {
     TResult Function(_AddMeals value)? addMeals,
     TResult Function(_DeleteMeal value)? deleteMeal,
     TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
     TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {
@@ -651,6 +675,7 @@ class _$_AddPractice implements _AddPractice {
     required TResult Function(List<MealModel> meals, MealType type) addMeals,
     required TResult Function(String mealId, MealType type) deleteMeal,
     required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
     required TResult Function() refresh,
   }) {
     return addPractice(newDiary);
@@ -663,6 +688,7 @@ class _$_AddPractice implements _AddPractice {
     TResult? Function(List<MealModel> meals, MealType type)? addMeals,
     TResult? Function(String mealId, MealType type)? deleteMeal,
     TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
     TResult? Function()? refresh,
   }) {
     return addPractice?.call(newDiary);
@@ -675,6 +701,7 @@ class _$_AddPractice implements _AddPractice {
     TResult Function(List<MealModel> meals, MealType type)? addMeals,
     TResult Function(String mealId, MealType type)? deleteMeal,
     TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
     TResult Function()? refresh,
     required TResult orElse(),
   }) {
@@ -691,6 +718,7 @@ class _$_AddPractice implements _AddPractice {
     required TResult Function(_AddMeals value) addMeals,
     required TResult Function(_DeleteMeal value) deleteMeal,
     required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
     required TResult Function(_Refresh value) refresh,
   }) {
     return addPractice(this);
@@ -703,6 +731,7 @@ class _$_AddPractice implements _AddPractice {
     TResult? Function(_AddMeals value)? addMeals,
     TResult? Function(_DeleteMeal value)? deleteMeal,
     TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
     TResult? Function(_Refresh value)? refresh,
   }) {
     return addPractice?.call(this);
@@ -715,6 +744,7 @@ class _$_AddPractice implements _AddPractice {
     TResult Function(_AddMeals value)? addMeals,
     TResult Function(_DeleteMeal value)? deleteMeal,
     TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
     TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {
@@ -731,6 +761,164 @@ abstract class _AddPractice implements DiaryEvent {
   DiaryModel get newDiary;
   @JsonKey(ignore: true)
   _$$_AddPracticeCopyWith<_$_AddPractice> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DeletePracticeCopyWith<$Res> {
+  factory _$$_DeletePracticeCopyWith(
+          _$_DeletePractice value, $Res Function(_$_DeletePractice) then) =
+      __$$_DeletePracticeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String practiceId});
+}
+
+/// @nodoc
+class __$$_DeletePracticeCopyWithImpl<$Res>
+    extends _$DiaryEventCopyWithImpl<$Res, _$_DeletePractice>
+    implements _$$_DeletePracticeCopyWith<$Res> {
+  __$$_DeletePracticeCopyWithImpl(
+      _$_DeletePractice _value, $Res Function(_$_DeletePractice) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? practiceId = null,
+  }) {
+    return _then(_$_DeletePractice(
+      null == practiceId
+          ? _value.practiceId
+          : practiceId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeletePractice implements _DeletePractice {
+  const _$_DeletePractice(this.practiceId);
+
+  @override
+  final String practiceId;
+
+  @override
+  String toString() {
+    return 'DiaryEvent.deletePractice(practiceId: $practiceId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeletePractice &&
+            (identical(other.practiceId, practiceId) ||
+                other.practiceId == practiceId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, practiceId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_DeletePracticeCopyWith<_$_DeletePractice> get copyWith =>
+      __$$_DeletePracticeCopyWithImpl<_$_DeletePractice>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(DateTime? date) getByDay,
+    required TResult Function(List<MealModel> meals, MealType type) addMeals,
+    required TResult Function(String mealId, MealType type) deleteMeal,
+    required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
+    required TResult Function() refresh,
+  }) {
+    return deletePractice(practiceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(DateTime? date)? getByDay,
+    TResult? Function(List<MealModel> meals, MealType type)? addMeals,
+    TResult? Function(String mealId, MealType type)? deleteMeal,
+    TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
+    TResult? Function()? refresh,
+  }) {
+    return deletePractice?.call(practiceId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(DateTime? date)? getByDay,
+    TResult Function(List<MealModel> meals, MealType type)? addMeals,
+    TResult Function(String mealId, MealType type)? deleteMeal,
+    TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
+    TResult Function()? refresh,
+    required TResult orElse(),
+  }) {
+    if (deletePractice != null) {
+      return deletePractice(practiceId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetByDay value) getByDay,
+    required TResult Function(_AddMeals value) addMeals,
+    required TResult Function(_DeleteMeal value) deleteMeal,
+    required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
+    required TResult Function(_Refresh value) refresh,
+  }) {
+    return deletePractice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetByDay value)? getByDay,
+    TResult? Function(_AddMeals value)? addMeals,
+    TResult? Function(_DeleteMeal value)? deleteMeal,
+    TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
+    TResult? Function(_Refresh value)? refresh,
+  }) {
+    return deletePractice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetByDay value)? getByDay,
+    TResult Function(_AddMeals value)? addMeals,
+    TResult Function(_DeleteMeal value)? deleteMeal,
+    TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
+    TResult Function(_Refresh value)? refresh,
+    required TResult orElse(),
+  }) {
+    if (deletePractice != null) {
+      return deletePractice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletePractice implements DiaryEvent {
+  const factory _DeletePractice(final String practiceId) = _$_DeletePractice;
+
+  String get practiceId;
+  @JsonKey(ignore: true)
+  _$$_DeletePracticeCopyWith<_$_DeletePractice> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -775,6 +963,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function(List<MealModel> meals, MealType type) addMeals,
     required TResult Function(String mealId, MealType type) deleteMeal,
     required TResult Function(DiaryModel newDiary) addPractice,
+    required TResult Function(String practiceId) deletePractice,
     required TResult Function() refresh,
   }) {
     return refresh();
@@ -787,6 +976,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function(List<MealModel> meals, MealType type)? addMeals,
     TResult? Function(String mealId, MealType type)? deleteMeal,
     TResult? Function(DiaryModel newDiary)? addPractice,
+    TResult? Function(String practiceId)? deletePractice,
     TResult? Function()? refresh,
   }) {
     return refresh?.call();
@@ -799,6 +989,7 @@ class _$_Refresh implements _Refresh {
     TResult Function(List<MealModel> meals, MealType type)? addMeals,
     TResult Function(String mealId, MealType type)? deleteMeal,
     TResult Function(DiaryModel newDiary)? addPractice,
+    TResult Function(String practiceId)? deletePractice,
     TResult Function()? refresh,
     required TResult orElse(),
   }) {
@@ -815,6 +1006,7 @@ class _$_Refresh implements _Refresh {
     required TResult Function(_AddMeals value) addMeals,
     required TResult Function(_DeleteMeal value) deleteMeal,
     required TResult Function(_AddPractice value) addPractice,
+    required TResult Function(_DeletePractice value) deletePractice,
     required TResult Function(_Refresh value) refresh,
   }) {
     return refresh(this);
@@ -827,6 +1019,7 @@ class _$_Refresh implements _Refresh {
     TResult? Function(_AddMeals value)? addMeals,
     TResult? Function(_DeleteMeal value)? deleteMeal,
     TResult? Function(_AddPractice value)? addPractice,
+    TResult? Function(_DeletePractice value)? deletePractice,
     TResult? Function(_Refresh value)? refresh,
   }) {
     return refresh?.call(this);
@@ -839,6 +1032,7 @@ class _$_Refresh implements _Refresh {
     TResult Function(_AddMeals value)? addMeals,
     TResult Function(_DeleteMeal value)? deleteMeal,
     TResult Function(_AddPractice value)? addPractice,
+    TResult Function(_DeletePractice value)? deletePractice,
     TResult Function(_Refresh value)? refresh,
     required TResult orElse(),
   }) {

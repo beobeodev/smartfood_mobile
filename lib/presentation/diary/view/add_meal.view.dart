@@ -45,6 +45,8 @@ class AddMealPage extends StatelessWidget {
   }
 
   void _listenAddMealChanged(BuildContext context, AddMealState state) {
+    DialogUtil.hideLoading(context);
+
     state.mapOrNull(
       loading: (_) {
         DialogUtil.showLoading(context);
@@ -53,11 +55,10 @@ class AddMealPage extends StatelessWidget {
         context
             .read<DiaryBloc>()
             .add(DiaryEvent.addMeals(success.meals, success.type));
-        DialogUtil.hideLoading(context);
+
         Navigator.of(context).pop();
       },
       failure: (_) {
-        DialogUtil.hideLoading(context);
         ToastUtil.showError(context);
       },
     );
@@ -107,7 +108,7 @@ class _AddMealViewState extends State<_AddMealView> {
             AddMealDTO(
               date: context.read<DiaryBloc>().state.currentDate,
               typeOfMeal: selectedType,
-              recipeIds: _dishesNotifier.value.map((e) => e.recipe.id).toList(),
+              dishes: _dishesNotifier.value,
             ),
           ),
         );

@@ -45,7 +45,11 @@ class MacrosItem extends StatelessWidget {
                 )
               : Column(
                   children: [
-                    MacrosLinear(color: item.color, value: item.consume),
+                    MacrosLinear(
+                      color: item.color,
+                      value: item.consume,
+                      maxValue: item.value,
+                    ),
                     AppSize.h10,
                     Align(
                       child: Text(

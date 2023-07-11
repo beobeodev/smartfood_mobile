@@ -26,6 +26,7 @@ mixin _$MealModel {
   double get fat => throw _privateConstructorUsedError;
   double get carbs => throw _privateConstructorUsedError;
   double get protein => throw _privateConstructorUsedError;
+  int get totalPeople => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MealModelCopyWith<MealModel> get copyWith =>
@@ -43,7 +44,8 @@ abstract class $MealModelCopyWith<$Res> {
       double kcal,
       double fat,
       double carbs,
-      double protein});
+      double protein,
+      int totalPeople});
 
   $RecipeModelCopyWith<$Res> get recipe;
 }
@@ -67,6 +69,7 @@ class _$MealModelCopyWithImpl<$Res, $Val extends MealModel>
     Object? fat = null,
     Object? carbs = null,
     Object? protein = null,
+    Object? totalPeople = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -93,6 +96,10 @@ class _$MealModelCopyWithImpl<$Res, $Val extends MealModel>
           ? _value.protein
           : protein // ignore: cast_nullable_to_non_nullable
               as double,
+      totalPeople: null == totalPeople
+          ? _value.totalPeople
+          : totalPeople // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -118,7 +125,8 @@ abstract class _$$_MealModelCopyWith<$Res> implements $MealModelCopyWith<$Res> {
       double kcal,
       double fat,
       double carbs,
-      double protein});
+      double protein,
+      int totalPeople});
 
   @override
   $RecipeModelCopyWith<$Res> get recipe;
@@ -141,6 +149,7 @@ class __$$_MealModelCopyWithImpl<$Res>
     Object? fat = null,
     Object? carbs = null,
     Object? protein = null,
+    Object? totalPeople = null,
   }) {
     return _then(_$_MealModel(
       id: freezed == id
@@ -167,6 +176,10 @@ class __$$_MealModelCopyWithImpl<$Res>
           ? _value.protein
           : protein // ignore: cast_nullable_to_non_nullable
               as double,
+      totalPeople: null == totalPeople
+          ? _value.totalPeople
+          : totalPeople // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -180,7 +193,8 @@ class _$_MealModel extends _MealModel {
       required this.kcal,
       required this.fat,
       required this.carbs,
-      required this.protein})
+      required this.protein,
+      this.totalPeople = 1})
       : super._();
 
   factory _$_MealModel.fromJson(Map<String, dynamic> json) =>
@@ -198,10 +212,13 @@ class _$_MealModel extends _MealModel {
   final double carbs;
   @override
   final double protein;
+  @override
+  @JsonKey()
+  final int totalPeople;
 
   @override
   String toString() {
-    return 'MealModel(id: $id, recipe: $recipe, kcal: $kcal, fat: $fat, carbs: $carbs, protein: $protein)';
+    return 'MealModel(id: $id, recipe: $recipe, kcal: $kcal, fat: $fat, carbs: $carbs, protein: $protein, totalPeople: $totalPeople)';
   }
 
   @override
@@ -214,13 +231,15 @@ class _$_MealModel extends _MealModel {
             (identical(other.kcal, kcal) || other.kcal == kcal) &&
             (identical(other.fat, fat) || other.fat == fat) &&
             (identical(other.carbs, carbs) || other.carbs == carbs) &&
-            (identical(other.protein, protein) || other.protein == protein));
+            (identical(other.protein, protein) || other.protein == protein) &&
+            (identical(other.totalPeople, totalPeople) ||
+                other.totalPeople == totalPeople));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, recipe, kcal, fat, carbs, protein);
+  int get hashCode => Object.hash(
+      runtimeType, id, recipe, kcal, fat, carbs, protein, totalPeople);
 
   @JsonKey(ignore: true)
   @override
@@ -236,7 +255,8 @@ abstract class _MealModel extends MealModel {
       required final double kcal,
       required final double fat,
       required final double carbs,
-      required final double protein}) = _$_MealModel;
+      required final double protein,
+      final int totalPeople}) = _$_MealModel;
   _MealModel._() : super._();
 
   factory _MealModel.fromJson(Map<String, dynamic> json) =
@@ -254,6 +274,8 @@ abstract class _MealModel extends MealModel {
   double get carbs;
   @override
   double get protein;
+  @override
+  int get totalPeople;
   @override
   @JsonKey(ignore: true)
   _$$_MealModelCopyWith<_$_MealModel> get copyWith =>

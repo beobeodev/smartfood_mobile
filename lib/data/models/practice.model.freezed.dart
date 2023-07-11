@@ -24,7 +24,7 @@ mixin _$PracticeModel {
   String get name => throw _privateConstructorUsedError;
   double get calo => throw _privateConstructorUsedError;
   int get minute => throw _privateConstructorUsedError;
-  double? get practiceDuration => throw _privateConstructorUsedError;
+  int? get practiceDuration => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PracticeModelCopyWith<PracticeModel> get copyWith =>
@@ -38,11 +38,7 @@ abstract class $PracticeModelCopyWith<$Res> {
       _$PracticeModelCopyWithImpl<$Res, PracticeModel>;
   @useResult
   $Res call(
-      {String id,
-      String name,
-      double calo,
-      int minute,
-      double? practiceDuration});
+      {String id, String name, double calo, int minute, int? practiceDuration});
 }
 
 /// @nodoc
@@ -84,7 +80,7 @@ class _$PracticeModelCopyWithImpl<$Res, $Val extends PracticeModel>
       practiceDuration: freezed == practiceDuration
           ? _value.practiceDuration
           : practiceDuration // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
     ) as $Val);
   }
 }
@@ -98,11 +94,7 @@ abstract class _$$_PracticeModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
-      String name,
-      double calo,
-      int minute,
-      double? practiceDuration});
+      {String id, String name, double calo, int minute, int? practiceDuration});
 }
 
 /// @nodoc
@@ -142,20 +134,21 @@ class __$$_PracticeModelCopyWithImpl<$Res>
       practiceDuration: freezed == practiceDuration
           ? _value.practiceDuration
           : practiceDuration // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable(createToJson: false)
-class _$_PracticeModel implements _PracticeModel {
+class _$_PracticeModel extends _PracticeModel {
   _$_PracticeModel(
       {required this.id,
       required this.name,
       required this.calo,
       required this.minute,
-      this.practiceDuration});
+      this.practiceDuration})
+      : super._();
 
   factory _$_PracticeModel.fromJson(Map<String, dynamic> json) =>
       _$$_PracticeModelFromJson(json);
@@ -169,7 +162,7 @@ class _$_PracticeModel implements _PracticeModel {
   @override
   final int minute;
   @override
-  final double? practiceDuration;
+  final int? practiceDuration;
 
   @override
   String toString() {
@@ -201,13 +194,14 @@ class _$_PracticeModel implements _PracticeModel {
       __$$_PracticeModelCopyWithImpl<_$_PracticeModel>(this, _$identity);
 }
 
-abstract class _PracticeModel implements PracticeModel {
+abstract class _PracticeModel extends PracticeModel {
   factory _PracticeModel(
       {required final String id,
       required final String name,
       required final double calo,
       required final int minute,
-      final double? practiceDuration}) = _$_PracticeModel;
+      final int? practiceDuration}) = _$_PracticeModel;
+  _PracticeModel._() : super._();
 
   factory _PracticeModel.fromJson(Map<String, dynamic> json) =
       _$_PracticeModel.fromJson;
@@ -221,7 +215,7 @@ abstract class _PracticeModel implements PracticeModel {
   @override
   int get minute;
   @override
-  double? get practiceDuration;
+  int? get practiceDuration;
   @override
   @JsonKey(ignore: true)
   _$$_PracticeModelCopyWith<_$_PracticeModel> get copyWith =>

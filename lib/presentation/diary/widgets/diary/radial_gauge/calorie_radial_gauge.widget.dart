@@ -27,11 +27,11 @@ class CalorieRadialGauge extends StatelessWidget {
           : Stack(
               alignment: Alignment.center,
               children: [
-                const CommonRadialGauge(
-                  value: 65,
+                CommonRadialGauge(
+                  value: diaryInfo.radialGauge.toDouble(),
                 ),
                 Text(
-                  '65%',
+                  '${diaryInfo.radialGauge}%',
                   style: TextStyles.boldText.copyWith(
                     fontSize: 24.sp,
                     color: ColorStyles.red400,

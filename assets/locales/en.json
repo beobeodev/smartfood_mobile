@@ -17,7 +17,8 @@
     "change_password_success": "Change password successfully",
     "ingredient_list": "List of ingredients",
     "ingredient_detection": "Ingredient Detection",
-    "no_data_yet": "No data yet"
+    "no_data_yet": "No data yet",
+    "delete": "Delete"
   },
   "button": {
     "cancel": "Cancel",
@@ -131,6 +132,7 @@
   },
   "workout": {
     "find": "Enter the name of the activity to find",
-    "add_success": "Add the workout to diary successfully"
+    "add_success": "Add the workout to diary successfully",
+    "delete_success": "Remove the workout from diary successfully"
   }
 }

@@ -10,7 +10,7 @@ class MealLoadingList extends StatelessWidget {
     return ListView.separated(
       itemCount: 2,
       shrinkWrap: true,
-      padding: const EdgeInsets.only(top: 10),
+      padding: AppSize.mealPadding,
       physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (_, __) => AppSize.h10,
       itemBuilder: (context, index) {

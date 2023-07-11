@@ -12,6 +12,7 @@ import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/auth/bloc/auth/auth.bloc.dart';
 import 'package:smarthealthy/presentation/diary/bloc/delete_meal/delete_meal.bloc.dart';
 import 'package:smarthealthy/presentation/diary/cubit/add_practice/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/cubit/delete_practice/delete_practice_cubit.dart';
 import 'package:smarthealthy/presentation/diary/cubit/search_practice/search_practice_cubit.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
 import 'package:smarthealthy/presentation/diary/widgets/diary/diary_body.widget.dart';
@@ -41,6 +42,11 @@ class DiaryPage extends StatelessWidget {
           ),
         ),
         BlocProvider(
+          create: (context) => DeletePracticeCubit(
+            practiceRepository: getIt.get<PracticeRepository>(),
+          ),
+        ),
+        BlocProvider(
           create: (context) => SearchPracticeCubit(
             practiceRepository: getIt.get<PracticeRepository>(),
           )..getAll(),
@@ -53,7 +59,10 @@ class DiaryPage extends StatelessWidget {
             listener: _listenDeleteMealChanged,
           ),
           BlocListener<AddPracticeCubit, AddPracticeState>(
-            listener: _listenPracticeChanged,
+            listener: _listenAddPracticeChanged,
+          ),
+          BlocListener<DeletePracticeCubit, DeletePracticeState>(
+            listener: _listenDeletePracticeChanged,
           ),
           BlocListener<AuthBloc, AuthState>(
             listener: _listenAuthChanged,
@@ -86,7 +95,7 @@ class DiaryPage extends StatelessWidget {
     context.read<DiaryBloc>().add(const DiaryEvent.refresh());
   }
 
-  void _listenPracticeChanged(BuildContext context, AddPracticeState state) {
+  void _listenAddPracticeChanged(BuildContext context, AddPracticeState state) {
     DialogUtil.hideLoading(context);
     state.mapOrNull(
       loading: (_) => DialogUtil.showLoading(context),
@@ -96,6 +105,28 @@ class DiaryPage extends StatelessWidget {
         ToastUtil.showSuccess(
           context,
           text: LocaleKeys.workout_add_success.tr(),
+        );
+      },
+      error: (_) => ToastUtil.showError(context),
+    );
+  }
+
+  void _listenDeletePracticeChanged(
+    BuildContext context,
+    DeletePracticeState state,
+  ) {
+    DialogUtil.hideLoading(context);
+
+    state.mapOrNull(
+      loading: (_) => DialogUtil.showLoading(context),
+      success: (success) {
+        context
+            .read<DiaryBloc>()
+            .add(DiaryEvent.deletePractice(success.practiceId));
+
+        ToastUtil.showSuccess(
+          context,
+          text: LocaleKeys.workout_delete_success.tr(),
         );
       },
       error: (_) => ToastUtil.showError(context),

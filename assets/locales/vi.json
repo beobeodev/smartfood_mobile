@@ -17,7 +17,8 @@
     "change_password_success": "Đổi mật khẩu thành công",
     "ingredient_list": "Danh sách nguyên liệu",
     "ingredient_detection": "Nhận diện nguyên liệu",
-    "no_data_yet": "Chưa có dữ liệu"
+    "no_data_yet": "Chưa có dữ liệu",
+    "delete": "Xoá"
   },
   "button": {
     "cancel": "Hủy",
@@ -131,6 +132,7 @@
   },
   "workout": {
     "find": "Nhập tên hoạt động cần tìm",
-    "add_success": "Thêm tập luyện vào nhật ký thành công"
+    "add_success": "Thêm tập luyện vào nhật ký thành công",
+    "delete_success": "Xoá tập luyện khỏi nhật ký thành công"
   }
 }

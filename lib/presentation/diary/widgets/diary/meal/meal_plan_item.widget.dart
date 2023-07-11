@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/presentation/diary/bloc/delete_meal/delete_meal.bloc.dart';
@@ -24,10 +25,14 @@ class MealPlanItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          mealPlan.title,
-          style: TextStyles.mediumText
-              .copyWith(fontSize: 19.sp, color: ColorStyles.yellowGreen),
+        Padding(
+          padding:
+              const EdgeInsets.symmetric(horizontal: AppSize.horizontalSpacing),
+          child: Text(
+            mealPlan.title,
+            style: TextStyles.mediumText
+                .copyWith(fontSize: 19.sp, color: ColorStyles.yellowGreen),
+          ),
         ),
         mealPlan.meals == null
             ? const MealLoadingList()

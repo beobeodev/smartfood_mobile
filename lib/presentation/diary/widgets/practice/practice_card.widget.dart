@@ -1,22 +1,31 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
-import 'package:smarthealthy/common/theme/app_theme.dart';
 import 'package:smarthealthy/common/theme/color_styles.dart';
 import 'package:smarthealthy/common/theme/text_styles.dart';
 import 'package:smarthealthy/common/utils/dialog.util.dart';
 import 'package:smarthealthy/common/widgets/app_text_form_field.widget.dart';
 import 'package:smarthealthy/common/widgets/dismissible/common_dismissible.widget.dart';
+import 'package:smarthealthy/common/widgets/focused_menu/focus_menu_holder.dart';
+import 'package:smarthealthy/common/widgets/focused_menu/focused_menu_item.dart';
 import 'package:smarthealthy/data/dtos/add_practice.dto.dart';
 import 'package:smarthealthy/data/models/practice.model.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/presentation/diary/cubit/add_practice/add_practice_cubit.dart';
+import 'package:smarthealthy/presentation/diary/cubit/delete_practice/delete_practice_cubit.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
+import 'package:smarthealthy/presentation/diary/widgets/practice/practice_container.widget.dart';
 
 class PracticeCard extends StatelessWidget {
   final PracticeModel practice;
+  final bool enableFocus;
 
-  const PracticeCard({super.key, required this.practice});
+  const PracticeCard({
+    super.key,
+    required this.practice,
+    this.enableFocus = false,
+  });
 
   void _showAddDialog(BuildContext context) {
     final TextEditingController textController = TextEditingController();
@@ -67,23 +76,27 @@ class PracticeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _showAddDialog(context),
+    return FocusedMenuHolder(
+      menuOffset: 10,
+      enabled: enableFocus,
+      menuItems: [
+        FocusedMenuItem(
+          title: Text(LocaleKeys.texts_delete.tr()),
+          onPressed: () {
+            context.read<DeletePracticeCubit>().submit(practice.id);
+          },
+        )
+      ],
+      onPressed: () {
+        if (!enableFocus) {
+          _showAddDialog(context);
+        }
+      },
       child: CommonDismissible(
         valueKey: ValueKey(practice.id),
         hasDismiss: false,
         radius: AppSize.diaryCardRadius,
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(AppSize.diaryCardRadius),
-            boxShadow: AppTheme.primaryShadow,
-          ),
-          padding: EdgeInsets.symmetric(
-            horizontal: 15.w,
-            vertical: 10.h,
-          ),
+        child: PracticeContainer(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -93,7 +106,7 @@ class PracticeCard extends StatelessWidget {
               ),
               AppSize.h10,
               Text(
-                '${practice.calo} kcal - ${practice.minute} phút',
+                '${practice.totalCalories} kcal - ${practice.totalDuration} phút',
                 style: TextStyles.s14MediumText
                     .copyWith(color: ColorStyles.red400),
               )

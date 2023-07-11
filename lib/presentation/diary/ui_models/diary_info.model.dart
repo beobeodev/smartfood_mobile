@@ -21,6 +21,52 @@ class DiaryInfoUIModel {
     required this.practices,
   });
 
+  List<MealModel> get allMeals => [...breakfast, ...lunch, ...dinner];
+
+  int get radialGauge {
+    if (needToLoadCalorie <= 0) {
+      return 100;
+    }
+
+    return ((loadedCalorie / (nutrition.calorie + consumedCalorie)) * 100)
+        .round();
+  }
+
+  int get needToLoadCalorie {
+    final value = nutrition.calorie + consumedCalorie - loadedCalorie;
+    return value < 0 ? 0 : value;
+  }
+
+  int get loadedCalorie => allMeals.isEmpty
+      ? 0
+      : allMeals
+          .map((e) => e.totalCalorie)
+          .reduce((value, element) => value + element);
+
+  int get consumedCalorie => practices.isEmpty
+      ? 0
+      : practices
+          .map((e) => e.totalCalories)
+          .reduce((value, element) => value + element);
+
+  int get loadedCarbs => allMeals.isEmpty
+      ? 0
+      : allMeals
+          .map((e) => e.totalCarbs)
+          .reduce((value, element) => value + element);
+
+  int get loadedFat => allMeals.isEmpty
+      ? 0
+      : allMeals
+          .map((e) => e.totalFat)
+          .reduce((value, element) => value + element);
+
+  int get loadedProtein => allMeals.isEmpty
+      ? 0
+      : allMeals
+          .map((e) => e.totalProtein)
+          .reduce((value, element) => value + element);
+
   List<MealPlanUIModel> get mealPlans => [
         MealPlanUIModel(
           title: LocaleKeys.meal_breakfast.tr(),

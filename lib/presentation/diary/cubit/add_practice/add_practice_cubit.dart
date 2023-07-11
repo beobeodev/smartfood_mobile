@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:smarthealthy/data/dtos/add_practice.dto.dart';
@@ -19,6 +21,8 @@ class AddPracticeCubit extends Cubit<AddPracticeState> {
 
     try {
       final newDiary = await _practiceRepository.add(dto);
+
+      log(newDiary.toString());
 
       emit(_Success(diary: newDiary));
     } catch (err) {

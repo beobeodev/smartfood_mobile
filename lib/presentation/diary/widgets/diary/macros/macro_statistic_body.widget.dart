@@ -18,7 +18,7 @@ class MacroStatisticBody extends StatelessWidget {
                 itemSize: itemSize,
               )
             : MacrosLoadingSuccess(
-                nutrition: diaryInfo.nutrition,
+                diary: diaryInfo,
                 key: const ValueKey('1'),
                 itemSize: itemSize,
               );

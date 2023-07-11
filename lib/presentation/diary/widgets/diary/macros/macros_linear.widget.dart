@@ -5,8 +5,14 @@ import 'package:syncfusion_flutter_gauges/gauges.dart';
 class MacrosLinear extends StatelessWidget {
   final Color color;
   final int value;
+  final int maxValue;
 
-  const MacrosLinear({super.key, required this.color, this.value = 0});
+  const MacrosLinear({
+    super.key,
+    required this.color,
+    this.value = 0,
+    this.maxValue = 200,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +23,7 @@ class MacrosLinear extends StatelessWidget {
         edgeStyle: LinearEdgeStyle.bothCurve,
         color: ColorStyles.antiFlashWhite,
       ),
+      maximum: maxValue.toDouble(),
       barPointers: [
         LinearBarPointer(
           value: value.toDouble(),

@@ -17,15 +17,24 @@ class MealModel with _$MealModel {
     required double fat,
     required double carbs,
     required double protein,
+    @Default(1) int totalPeople,
   }) = _MealModel;
 
   factory MealModel.fromJson(Map<String, dynamic> json) =>
       _$MealModelFromJson(json);
 
-  String get kcalString => '${kcal.round()} kcal';
-  String get fatString => '${LocaleKeys.macros_fat.tr()}: ${fat.round()}g';
-  String get carbsString =>
-      '${LocaleKeys.macros_carbs.tr()}: ${carbs.round()}g';
+  Map<String, dynamic> toJson() {
+    return {'recipeId': recipe.id, 'totalPeople': totalPeople};
+  }
+
+  int get totalCalorie => (kcal / totalPeople).round();
+  int get totalFat => (fat / totalPeople).round();
+  int get totalCarbs => (carbs / totalPeople).round();
+  int get totalProtein => (protein / totalPeople).round();
+
+  String get kcalString => '$totalCalorie kcal';
+  String get fatString => '${LocaleKeys.macros_fat.tr()}: ${totalFat}g';
+  String get carbsString => '${LocaleKeys.macros_carbs.tr()}: ${totalCarbs}g';
   String get proteinString =>
-      '${LocaleKeys.macros_protein.tr()}: ${protein.round()}g';
+      '${LocaleKeys.macros_protein.tr()}: ${totalProtein}g';
 }

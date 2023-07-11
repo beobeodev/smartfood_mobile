@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:smarthealthy/common/constants/endpoints.dart';
+import 'package:smarthealthy/common/extensions/date_time.extension.dart';
 import 'package:smarthealthy/common/helpers/dio.helper.dart';
 import 'package:smarthealthy/data/dtos/add_practice.dto.dart';
 import 'package:smarthealthy/data/dtos/get_practice_result.dto.dart';
@@ -23,11 +24,15 @@ class PracticeDataSource {
 
   Future<DiaryModel> add(AddPracticeDTO dto) async {
     final response = await _dioHelper.post(
-      Endpoints.addPractice,
-      queryParameters: {'date': dto.date},
+      Endpoints.diaryPractice,
+      queryParameters: {'date': dto.date.formatYearMonthDay()},
       data: dto.toJson(),
     );
 
     return DiaryModel.fromJson(response.data['data']);
+  }
+
+  Future<void> delete(String practiceId) async {
+    await _dioHelper.delete('${Endpoints.diaryPractice}/$practiceId');
   }
 }

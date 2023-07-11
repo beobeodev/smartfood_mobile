@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smarthealthy/common/enums/query_status.enum.dart';
 import 'package:smarthealthy/common/extensions/context.extension.dart';
-import 'package:smarthealthy/common/theme/app_size.dart';
 import 'package:smarthealthy/common/widgets/common_error.widget.dart';
 import 'package:smarthealthy/presentation/auth/auth.dart';
 import 'package:smarthealthy/presentation/diary/diary.dart';
@@ -38,12 +37,6 @@ class NutritionInDay extends StatelessWidget {
           ),
         ),
         width: context.width,
-        padding: const EdgeInsets.fromLTRB(
-          AppSize.horizontalSpacing,
-          AppSize.horizontalSpacing,
-          AppSize.horizontalSpacing,
-          0,
-        ),
         child: BlocBuilder<DiaryBloc, DiaryState>(
           builder: (context, state) {
             switch (state.status) {

@@ -12,5 +12,5 @@ _$_PracticeModel _$$_PracticeModelFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       calo: (json['calo'] as num).toDouble(),
       minute: json['minute'] as int,
-      practiceDuration: (json['practiceDuration'] as num?)?.toDouble(),
+      practiceDuration: json['practiceDuration'] as int?,
     );

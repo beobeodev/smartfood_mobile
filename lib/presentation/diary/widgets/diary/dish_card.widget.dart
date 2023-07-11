@@ -1,4 +1,5 @@
 import 'package:collection/collection.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smarthealthy/common/theme/app_size.dart';
@@ -11,6 +12,7 @@ import 'package:smarthealthy/common/widgets/focused_menu/focused_menu_item.dart'
 import 'package:smarthealthy/data/models/meal.model.dart';
 import 'package:smarthealthy/data/models/recipe.model.dart';
 import 'package:smarthealthy/common/widgets/filled_icon_button.widget.dart';
+import 'package:smarthealthy/generated/locale_keys.g.dart';
 import 'package:smarthealthy/router/app_router.dart';
 
 class DishCard extends StatelessWidget {
@@ -38,12 +40,15 @@ class DishCard extends StatelessWidget {
       enabled: enabled,
       menuItems: [
         FocusedMenuItem(
-          title: const Text('Xoá'),
+          title: Text(LocaleKeys.texts_delete.tr()),
           onPressed: () => onDelete?.call(),
         )
       ],
       onPressed: () {
-        Navigator.of(context).pushNamed(AppRouter.mealDetail, arguments: meal);
+        if (enabled) {
+          Navigator.of(context)
+              .pushNamed(AppRouter.mealDetail, arguments: meal);
+        }
       },
       child: CommonDismissible(
         valueKey: Key(recipe.id),
