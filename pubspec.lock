@@ -349,10 +349,10 @@ packages:
     dependency: "direct main"
     description:
       name: easy_localization
-      sha256: "54f727b30763202a5561592f7e4a6b67b626ae11ac07692b0e69a6429ed52eed"
+      sha256: "30ebf25448ffe169e0bd9bc4b5da94faa8398967a2ad2ca09f438be8b6953645"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2-dev.6"
+    version: "3.0.2"
   easy_logger:
     dependency: transitive
     description:
